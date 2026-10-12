@@ -149,13 +149,17 @@ Grilles
 - Chaque grille : identifiant, taille, mots (numéro, position, sens, mot, définition), thème pour la finale.
 - Taille maximale pour rester lisible sur la TV : 15 colonnes × 11 lignes (dans `game/config.ts`).
 - Mots de 3 lettres au moins, sans espace ni tiret.
-- Script hors ligne (`scripts/`, Node) : construit des grilles valides à partir d'une liste de mots + définitions.
-- Validateur, lancé dans les tests : croisements cohérents, pas de lettres en conflit, tous les mots reliés, pas de doublon dans une grille, pas de mot partagé entre deux grilles d'un même type.
+- Sources à relire et compléter à la main, une ligne `MOT | Définition` par mot :
+  - `scripts/sources/round-words.txt` : mots des manches 1 et 2 (le script en pioche une partie) ;
+  - `scripts/sources/final-themes.txt` : un bloc `## Thème` par grille de finale (7 mots tirés parmi ceux du bloc).
+- Script hors ligne `npm run generate:grids` (`scripts/generate-grids.ts`) : construit les grilles et les écrit dans `src/content/grids/`. Hasard à graine fixe : mêmes sources, mêmes grilles.
+- Dans les fichiers générés, chaque grille est dessinée en commentaire. Une définition se corrige directement dans le fichier généré. Changer un mot : modifier la source, puis relancer le script.
+- Validateur, lancé dans les tests et par le script : croisements cohérents, pas de lettres collées hors des mots, tous les mots reliés, numérotation dans l'ordre de lecture, pas de doublon, aucun mot partagé entre deux grilles (finale comprise), aucune définition qui contient sa réponse ou un autre mot de sa grille.
 - Au départ : 15 grilles de 10 mots, 15 grilles de 12 mots, 20 grilles de finale. Pas de répétition dans une partie.
 
 Questions
 
-- Banque de questions dont la réponse est une seule lettre : 300 au moins, variées (alphabet, géographie, sciences, symboles chimiques, initiales, calcul, langue…).
+- Banque de questions dont la réponse est une seule lettre : 300 au moins, variées (alphabet, géographie, sciences, symboles chimiques, initiales, calcul, langue…). Fichier `src/content/questions.ts`, classé par lettre.
 - Chaque question a une seule réponse, sans ambiguïté, compréhensible par les enfants comme par les adultes.
 - Au moins 6 questions par lettre, pour que chaque lettre de la grille puisse être demandée.
 - Tirage : une lettre au hasard parmi les lettres utiles de la grille, puis une question pour cette lettre, pas encore posée dans la partie. Banque épuisée pour cette lettre : on repart de zéro.

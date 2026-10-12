@@ -35,7 +35,7 @@ export default tseslint.config(
     rules: {
       ...restrictImports([
         {
-          regex: '^[.][.]/(?!shared/text$)',
+          regex: '^(?:[.][.]/)+(?![.][.]/)(?!shared/text([.]ts)?$)',
           message: 'game/ may only depend on shared/text.',
         },
         { regex: '^(?!vitest$)[^.]', message: 'game/ must not depend on any library.' },
@@ -60,7 +60,7 @@ export default tseslint.config(
     files: ['src/content/**/*.ts'],
     rules: restrictImports([
       {
-        regex: '^[.][.]/(?!(game/|shared/text$))',
+        regex: '^(?:[.][.]/)+(?![.][.]/)(?!(game/|shared/text([.]ts)?$))',
         message: 'content/ may only depend on game/ and shared/text.',
       },
       { regex: '^(?!vitest$)[^.]', message: 'content/ must not depend on any library.' },
@@ -107,6 +107,15 @@ export default tseslint.config(
     files: ['src/manette/**/*.ts'],
     rules: restrictImports([
       { regex: '^[.][.]/tv/', message: 'tv/ and manette/ must stay separate.' },
+    ]),
+  },
+  {
+    files: ['scripts/**/*.ts'],
+    rules: restrictImports([
+      {
+        regex: '^[.][.]/(?!src/(content|game|shared)/)',
+        message: 'scripts/ may only use content/, game/ and shared/.',
+      },
     ]),
   },
   prettier,

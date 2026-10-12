@@ -21,6 +21,7 @@ Spécification complète : @docs/SPEC.md
 - `npm run format:check` : vérification Prettier (lancée par la CI)
 - `npm test` : Vitest
 - `npm run check` : typecheck + lint + tests (à lancer avant chaque commit)
+- `npm run generate:grids` : régénère les grilles à partir de `scripts/sources/` (jamais pendant une partie)
 
 ## Stack
 
@@ -28,7 +29,9 @@ Spécification complète : @docs/SPEC.md
 - PeerJS pour la connexion, `zod` (import `zod/mini`, plus léger) pour valider les messages reçus
 - Vitest pour les tests, ESLint + Prettier pour le style
 - Cible navigateur : ES2020 (le Fire TV Stick n'a pas un navigateur récent)
-- Node 22 ou plus
+- Node 22.18 ou plus : le script de grilles est lancé par Node directement, sans compilation
+- Les fichiers chargés par ce script (`game/config.ts`, `game/grid.ts`, `content/validate.ts`, `content/grid-builder.ts`, `shared/text.ts`) importent avec l'extension `.ts` et sans syntaxe TypeScript non effaçable (`erasableSyntaxOnly`)
+- `@types/node` sert seulement aux types de `scripts/`
 - Dépendances à versions fixes (pas de `^` ni `~`). Toute nouvelle dépendance doit être justifiée et validée par l'utilisateur.
 
 ## Architecture
@@ -63,7 +66,7 @@ Principes :
 - Le hasard, l'horloge et le contenu sont injectés via `deps`, pour des tests reproductibles.
 - La TV détient l'état. Le téléphone envoie des actions et reçoit une vue publique.
 - Valeurs de jeu (points, durées, nombres de mots) dans `game/config.ts`, jamais en dur ailleurs.
-- Les grilles ne sont jamais générées pendant la partie : elles sont pré-générées (`scripts/`) et validées dans les tests.
+- Les grilles ne sont jamais générées pendant la partie : elles sont pré-générées (`scripts/`) et validées dans les tests. `src/content/grids/` est généré : hors Prettier, définitions corrigeables à la main.
 
 ## Règles de code
 

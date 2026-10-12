@@ -6,7 +6,7 @@ En cours de construction. Règles complètes : [docs/SPEC.md](docs/SPEC.md).
 
 ## Développement
 
-Node.js 22 ou plus.
+Node.js 22.18 ou plus.
 
 ```bash
 npm install

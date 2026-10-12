@@ -1,0 +1,281 @@
+# Grilles de la finale : un thème par bloc, 7 mots en seront tirés.
+# Format : "## Thème", puis une ligne par mot : MOT | Définition
+# Un mot ne doit apparaître qu'une fois dans toutes les sources.
+
+## À la ferme
+VACHE | Elle donne du lait et fait « meuh »
+COCHON | Il est rose et se roule dans la boue
+POULE | Elle pond des œufs
+CHEVRE | Son lait sert à faire des fromages, elle a une barbichette
+TRACTEUR | Gros engin qui tire la charrue
+GRANGE | Grand bâtiment où l'on range le foin
+FOIN | Herbe séchée pour nourrir les animaux en hiver
+FERMIER | Il s'occupe des champs et des animaux
+POUSSIN | Petit de la poule, tout jaune
+DINDON | Gros oiseau qui glougloute
+ANE | Il braie et a de grandes oreilles
+
+## Les fruits
+POMME | Celle de Blanche-Neige était empoisonnée
+POIRE | Fruit en forme de goutte, cousin de la pomme
+CERISE | Petit fruit rouge à noyau, qui pousse par deux
+FRAISE | Fruit rouge parsemé de petits grains
+BANANE | Fruit jaune et courbé que l'on épluche
+ABRICOT | Fruit orange et doux de l'été, à noyau
+CITRON | Fruit jaune très acide
+RAISIN | Fruit en grappes qui sert à faire le vin
+MANGUE | Fruit tropical à la chair orange
+ANANAS | Fruit tropical coiffé d'une touffe de feuilles
+PECHE | Fruit à la peau duveteuse et au gros noyau
+
+## Les légumes
+CAROTTE | Légume orange que le lapin adore
+TOMATE | Fruit rouge qu'on mange en salade
+POIREAU | Long légume vert et blanc de la soupe
+NAVET | Racine blanche et violette, aussi un mauvais film
+RADIS | Petite racine rose qu'on croque avec du beurre
+CHOU | Légume rond aux grandes feuilles, aussi une pâtisserie
+COURGETTE | Légume vert et allongé de la ratatouille
+HARICOT | Il est vert ou blanc, en gousse
+SALADE | Laitue ou mâche, à assaisonner
+OIGNON | Il fait pleurer quand on le coupe
+EPINARD | Légume vert qui rend Popeye très fort
+CONCOMBRE | Long légume vert, frais en été
+
+## Les sports
+FOOTBALL | Deux équipes de onze joueurs et un ballon rond
+TENNIS | On s'y renvoie la balle avec une raquette par-dessus un filet
+RUGBY | Sport au ballon ovale
+JUDO | Art martial japonais pratiqué en kimono
+NATATION | Sport qu'on pratique à la piscine
+SKI | On le pratique sur les pistes enneigées
+BOXE | On s'y affronte avec des gants sur un ring
+GOLF | On envoie une petite balle dans un trou avec un club
+ESCRIME | Duel avec des épées et un masque
+HANDBALL | Sport d'équipe où l'on marque des buts à la main
+VOLLEY | On s'y renvoie le ballon par-dessus un grand filet
+CYCLISME | Sport du Tour de France
+
+## Les instruments de musique
+PIANO | Il a des touches noires et blanches
+GUITARE | Instrument à six cordes qu'on gratte
+VIOLON | On le joue avec un archet, coincé sous le menton
+TROMPETTE | Instrument en cuivre à trois pistons
+FLUTE | On souffle dedans, elle peut être traversière
+BATTERIE | Ensemble de tambours et de cymbales
+HARPE | Grand instrument triangulaire aux nombreuses cordes
+ACCORDEON | Instrument à soufflet du bal musette
+TAMBOUR | On le frappe avec des baguettes
+SAXOPHONE | Instrument du jazz, courbé et doré
+TUBA | Le plus grave des cuivres
+CLARINETTE | Instrument à vent noir avec une anche
+
+## Les métiers
+BOULANGER | Il fait le pain chaque matin
+POMPIER | Il éteint les incendies
+MEDECIN | On va le voir quand on est malade
+FACTEUR | Il apporte le courrier
+PILOTE | Il conduit l'avion
+COIFFEUR | Il coupe les cheveux
+PLOMBIER | Il répare les fuites d'eau
+DENTISTE | Il soigne les dents
+CUISINIER | Il prépare les plats au restaurant
+JARDINIER | Il entretient les fleurs et les pelouses
+VETERINAIRE | Il soigne les animaux
+MACON | Il construit les murs
+
+## La météo
+PLUIE | Elle mouille, on sort le parapluie
+NEIGE | Elle tombe en flocons blancs
+SOLEIL | Il brille dans le ciel bleu
+NUAGE | Gris ou blanc, il flotte dans le ciel
+ORAGE | Il gronde avec des éclairs
+VENT | Il fait tourner les éoliennes
+BROUILLARD | Il empêche de voir loin
+ECLAIR | Lumière vive pendant l'orage
+TONNERRE | Grondement qui suit l'éclair
+GRELE | Pluie de petites billes de glace
+TEMPETE | Vent très violent
+VERGLAS | Fine couche de glace sur la route
+
+## Dans la cuisine
+CASSEROLE | Récipient à manche pour faire chauffer le lait
+FOUR | On y fait cuire les gâteaux
+POELE | On y fait sauter les crêpes
+FOUET | Pour battre les blancs en neige
+LOUCHE | Grande cuillère pour servir la soupe
+PASSOIRE | Pour égoutter les pâtes
+FRIGO | Il garde les aliments au frais
+ASSIETTE | On y sert le repas
+FOURCHETTE | Couvert à dents
+COUTEAU | Il sert à couper
+CUILLERE | On mange la soupe avec
+SPATULE | Pour racler le fond du saladier
+
+## Le corps humain
+COUDE | Articulation au milieu du bras
+GENOU | Articulation au milieu de la jambe
+EPAULE | Le bras y est attaché
+CHEVILLE | Articulation entre la jambe et le pied
+POIGNET | Articulation où l'on porte la montre
+OREILLE | Elle sert à entendre
+BOUCHE | Elle sert à manger et à parler
+CHEVEUX | Ils poussent sur la tête
+ESTOMAC | Il digère les aliments
+CERVEAU | Il est dans la tête et nous fait penser
+ORTEIL | Doigt de pied
+NOMBRIL | Petit creux au milieu du ventre
+
+## Les vêtements
+PANTALON | Il couvre les deux jambes
+CHEMISE | Elle se ferme avec des boutons et a un col
+JUPE | Vêtement qui part de la taille, sans jambes séparées
+ROBE | Vêtement d'une seule pièce, du haut jusqu'aux jambes
+MANTEAU | On le met par-dessus quand il fait froid
+ECHARPE | On l'enroule autour du cou
+CHAUSSETTE | Elle se met au pied avant la chaussure
+PULL | Vêtement chaud en laine
+BONNET | Il tient la tête au chaud
+GANT | Il couvre la main
+CASQUETTE | Chapeau à visière
+BLOUSON | Veste courte et chaude
+
+## Les transports
+VOITURE | Elle a quatre roues et un volant
+TRAIN | Il roule sur des rails
+AVION | Il vole avec des ailes et des réacteurs
+BATEAU | Il flotte sur l'eau
+VELO | Deux roues et des pédales
+METRO | Train souterrain des grandes villes
+CAMION | Gros véhicule qui transporte des marchandises
+MOTO | Deux roues avec un moteur
+TRAMWAY | Train qui roule dans les rues de la ville
+HELICOPTERE | Il vole grâce à ses pales qui tournent
+AUTOBUS | Grand véhicule qui s'arrête aux arrêts
+
+## La mer et la plage
+SABLE | On en fait des châteaux
+VAGUE | Le surfeur la chevauche
+COQUILLAGE | On le ramasse sur la plage, on y entend la mer
+PARASOL | Il protège du soleil sur la plage
+SERVIETTE | On s'allonge dessus pour bronzer
+PHARE | Sa lumière guide les bateaux la nuit
+CRABE | Il marche de côté avec ses pinces
+MOUETTE | Oiseau blanc qui crie au-dessus des vagues
+MAREE | La mer monte et descend avec elle
+BOUEE | On l'enfile pour flotter
+MAILLOT | Celui de bain se porte pour nager
+SEAU | On le remplit de sable avec une pelle
+
+## L'école
+CARTABLE | Sac où l'on range ses affaires de classe
+CAHIER | On écrit dedans
+CRAYON | Il s'use quand on écrit, on le taille
+GOMME | Elle efface le crayon
+REGLE | Elle sert à tracer des traits droits
+TABLEAU | La maîtresse y écrit à la craie
+MAITRESSE | Elle fait la classe
+RECREATION | Moment pour jouer dans la cour
+TROUSSE | On y range stylos et crayons
+COMPAS | Il sert à tracer des cercles
+STYLO | On écrit avec, à l'encre
+CANTINE | On y déjeune le midi
+
+## L'espace
+PLANETE | La Terre en est une
+ETOILE | Elle brille dans le ciel la nuit
+LUNE | Elle tourne autour de la Terre
+COMETE | Astre qui traîne une longue queue lumineuse
+GALAXIE | La Voie lactée en est une
+ASTRONAUTE | Il voyage dans l'espace
+TELESCOPE | Il sert à observer les astres
+SATURNE | La planète aux anneaux
+MARS | La planète rouge
+ORBITE | Trajet d'un satellite autour d'une planète
+METEORITE | Caillou venu de l'espace
+MARTIEN | Petit homme vert imaginaire
+FUSEE | Elle décolle vers l'espace
+
+## Les contes de fées
+PRINCESSE | Fille du roi et de la reine
+DRAGON | Il crache du feu
+SORCIERE | Elle vole sur un balai
+CHATEAU | Le roi y habite, avec des tours et un pont-levis
+FEE | Elle a une baguette magique
+OGRE | Géant qui mange les enfants
+CITROUILLE | Elle devient carrosse pour Cendrillon
+PANTOUFLE | Celle de Cendrillon est en verre
+BAGUETTE | Celle de la fée est magique
+CHEVALIER | Il porte une armure et une épée
+ROI | Il porte une couronne
+REINE | L'épouse du roi
+
+## Le jardin
+ROSE | Fleur à épines
+TULIPE | Fleur venue de Hollande
+ARROSOIR | Il sert à donner de l'eau aux plantes
+PELLE | Outil pour creuser
+RATEAU | Outil à dents pour ramasser les feuilles
+BROUETTE | Petit chariot à une roue
+PELOUSE | On la tond le dimanche
+HAIE | Rangée d'arbustes qui sert de clôture
+POTAGER | Jardin où l'on cultive les légumes
+GRAINE | On la sème pour qu'elle pousse
+TONDEUSE | Machine qui coupe l'herbe
+MARGUERITE | Fleur qu'on effeuille : je t'aime, un peu, beaucoup
+
+## Noël
+SAPIN | On le décore de boules
+GUIRLANDE | Décoration qui brille autour du sapin
+CADEAU | On le trouve sous le sapin
+RENNE | Il tire le traîneau du père Noël
+TRAINEAU | Véhicule du père Noël, il glisse sur la neige
+BOULE | Décoration ronde du sapin
+CHEMINEE | Le père Noël y descend
+BUCHE | Gâteau roulé de Noël
+LUTIN | Petit aide du père Noël
+HOUX | Plante à feuilles piquantes et boules rouges
+CRECHE | Elle montre la naissance de Jésus
+REVEILLON | Grand repas du 24 décembre au soir
+
+## Les couleurs
+ROUGE | Couleur de la fraise
+VERT | Couleur de l'herbe
+BLEU | Couleur du ciel quand il fait beau
+JAUNE | Couleur du citron
+VIOLET | Couleur de l'aubergine
+MARRON | Couleur du chocolat
+NOIR | Couleur de la nuit
+BLANC | Couleur de la neige
+GRIS | Couleur de la souris
+TURQUOISE | Couleur entre le bleu et le vert, comme les mers du Sud
+BEIGE | Couleur du sable
+ORANGE | Couleur de la carotte
+
+## Les jeux et jouets
+POUPEE | Jouet qu'on habille et qu'on coiffe
+BALLON | On tape dedans
+TOUPIE | Jouet qui tourne sur sa pointe
+PUZZLE | Jeu de pièces à assembler
+DOMINO | Jeu de petites pièces à points qu'on aligne
+BILLE | Petite boule de verre de la cour de récré
+PELUCHE | Doudou tout doux
+ECHECS | Jeu avec un roi, une reine et des pions
+CORDE | On saute par-dessus
+YOYO | Il monte et descend au bout d'une ficelle
+TROTTINETTE | Planche à deux roues avec un guidon
+MARIONNETTE | Poupée qu'on anime avec des fils ou la main
+
+## Les desserts
+GATEAU | On y plante les bougies d'anniversaire
+TARTE | Pâte garnie de fruits, cuite au four
+CREPE | Fine galette qu'on fait sauter à la Chandeleur
+GAUFRE | Pâtisserie à alvéoles de la fête foraine
+BEIGNET | Pâte frite et sucrée
+GLACE | Dessert froid en cornet
+FLAN | Dessert tremblotant aux œufs et au lait
+CHOUQUETTE | Petite pâtisserie parsemée de grains de sucre
+MACARON | Petit gâteau rond et coloré, deux coques et une garniture
+CLAFOUTIS | Gâteau aux cerises du Limousin
+MERINGUE | Blancs d'œufs et sucre, cuits au four
+SORBET | Glace à l'eau et aux fruits
