@@ -28,7 +28,7 @@ Identique à « La Roue de la Fortune » :
 3. Le téléphone scanne le QR code et se connecte tout seul.
 4. Secours : ouvrir `?mode=manette` et taper le code.
 5. Le téléphone garde le code et un identifiant aléatoire en mémoire. Il se reconnecte seul après une coupure et retrouve son joueur.
-6. La TV garde le code et la partie en mémoire. Un rechargement ne perd rien.
+6. La TV garde le code et la partie en mémoire. Un rechargement ne perd rien : la partie reprend au même endroit (« Partie reprise »). Une sauvegarde illisible ou d'une autre version est ignorée, avec un message, et on repart de zéro.
 7. Si le code est déjà pris sur le serveur PeerJS, réessayer puis générer un nouveau code.
 8. États de connexion visibles des deux côtés : en attente, connecté, déconnecté, erreur.
 

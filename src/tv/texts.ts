@@ -75,6 +75,9 @@ export const TV_TEXTS = {
   soundOn: 'Son activé',
   storageFailed: 'Sauvegarde impossible : le code changera au rechargement',
   saveFailed: 'Sauvegarde impossible : un rechargement perdra les joueurs',
+  gameSaveFailed: 'Sauvegarde impossible : un rechargement perdra la partie',
+  saveUnreadable: 'Partie sauvegardée illisible : nouvelle partie',
+  gameResumed: 'Partie reprise',
   offline: 'Pas de connexion Internet : vérifie le Wi-Fi de la TV',
   updateController: 'Un téléphone a une autre version : mets à jour sa page',
 } as const;

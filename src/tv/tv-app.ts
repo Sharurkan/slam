@@ -23,6 +23,7 @@ import { toPublicView } from '../protocol/view';
 import { createElement } from '../shared/dom';
 import { watchOnline } from '../shared/network';
 import { loadRoomCode, saveRoomCode } from '../storage/room-code-store';
+import { loadGame, saveGame } from '../storage/game-store';
 import { loadRoom, saveRoom } from '../storage/room-store';
 import {
   actorFor,
@@ -61,9 +62,11 @@ function initialRoomCode(): string {
   return saved !== null && isValidRoomCode(saved) ? saved : generateRoomCode(Math.random);
 }
 
-function initialRoom(): Room {
+function initialRoom(state: GameState): Room {
   const saved = loadRoom();
-  return saved === null ? EMPTY_ROOM : { ...saved, links: [] };
+  const room: Room = saved === null ? EMPTY_ROOM : { ...saved, links: [] };
+  // A game in progress needs a mode: without a saved room, it was played with one phone.
+  return room.mode === null && state.phase !== 'setup' ? { ...room, mode: 'single' } : room;
 }
 
 /** The grid on screen, if any: the round grid, or the final grid until the ranking. */
@@ -135,10 +138,12 @@ export function startTv(root: HTMLElement): void {
   const gameScreen = createGameScreen();
   const corner = createElement('div', { className: 'corner' });
 
-  const warnings = { offline: '', room: '', teams: '', controller: '' };
-  let state: GameState = INITIAL_STATE;
+  const warnings = { offline: '', room: '', teams: '', game: '', controller: '' };
+  const saved = loadGame();
+  if (saved.kind === 'unreadable') warnings.game = TV_TEXTS.saveUnreadable;
+  let state: GameState = saved.kind === 'loaded' ? saved.state : INITIAL_STATE;
   let code = initialRoomCode();
-  let room = initialRoom();
+  let room = initialRoom(state);
   let connection: ConnectionStatus = { kind: 'waiting' };
   let tickTimer: ReturnType<typeof setTimeout> | undefined;
 
@@ -282,6 +287,8 @@ export function startTv(root: HTMLElement): void {
     const before = boardOf(state)?.revealed ?? [];
     const result = reduce(state, action, GAME_DEPS);
     state = result.state;
+    warnings.game = saveGame(state) ? '' : TV_TEXTS.gameSaveFailed;
+    updateCorner();
     render(newlyRevealed(before, boardOf(state)?.revealed ?? []));
     present(action, result.events);
     sendView(result.events);
@@ -330,4 +337,12 @@ export function startTv(root: HTMLElement): void {
   setup.showLobby(room.mode, seatsView(room));
   render();
   setup.soundButton.focus();
+  resume();
+
+  /** After a reload in the middle of a game: say so, and restart the final timer where it was. */
+  function resume(): void {
+    if (state.phase === 'setup') return;
+    gameScreen.showBanner(TV_TEXTS.gameResumed);
+    if (isTimedFinal(state)) dispatch({ type: 'resumeFinal' });
+  }
 }
