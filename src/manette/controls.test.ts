@@ -8,7 +8,9 @@ import {
   activeTeam,
   canPlayFor,
   canStartMultiGame,
+  blankCount,
   describeScreen,
+  fillPattern,
   standInOffer,
   wordPattern,
 } from './controls';
@@ -179,6 +181,18 @@ describe('wordPattern', () => {
     expect(wordPattern(bobHasHand.grid, 3)).toEqual(['T', '', '', '']);
     expect(wordPattern(bobHasHand.grid, 2)).toEqual(['', '', '', '', '']);
     expect(wordPattern(bobHasHand.grid, 9)).toEqual([]);
+  });
+});
+
+describe('fillPattern', () => {
+  it('puts the typed letters in the blanks, in order', () => {
+    expect(fillPattern(['T', '', 'R', ''], 'ae')).toEqual(['T', 'A', 'R', 'E']);
+    expect(fillPattern(['T', '', 'R', ''], 'é')).toEqual(['T', 'E', 'R', '']);
+    expect(fillPattern(['', ''], 'a-b c')).toEqual(['A', 'B']);
+  });
+
+  it('counts the blanks', () => {
+    expect(blankCount(['T', '', 'R', ''])).toBe(2);
   });
 });
 

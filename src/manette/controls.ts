@@ -1,5 +1,6 @@
 import type { RoomView } from '../protocol/room';
 import type { GridView, PublicView } from '../protocol/view';
+import { normalizeWord } from '../shared/text';
 
 /** Why a phone waits instead of playing. */
 export type WaitReason = 'answering' | 'choosing' | 'slamming' | 'finalist' | 'eliminated' | 'out';
@@ -158,4 +159,20 @@ export function wordPattern(grid: GridView, number: number): string[] {
     const col = word.col + (word.direction === 'across' ? index : 0);
     return grid.cells.find((cell) => cell.row === row && cell.col === col)?.letter ?? '';
   });
+}
+
+/** The word as it will be sent: known letters stay, typed letters fill the blanks in order. */
+export function fillPattern(pattern: readonly string[], typed: string): string[] {
+  const letters = Array.from(normalizeWord(typed));
+  let next = 0;
+  return pattern.map((letter) => {
+    if (letter !== '') return letter;
+    const filled = letters[next] ?? '';
+    next += 1;
+    return filled;
+  });
+}
+
+export function blankCount(pattern: readonly string[]): number {
+  return pattern.filter((letter) => letter === '').length;
 }

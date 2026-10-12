@@ -187,7 +187,7 @@ Textes
 - Question : gros bouton « BUZZ ! » (un bouton par joueur avec un seul téléphone, joueurs éliminés grisés).
 - Clavier de lettres pour la réponse à la question : on touche la lettre, puis « Valider » (une erreur élimine de la question).
 - Choix du mot par numéro (mots non jouables grisés).
-- Saisie du mot : définition, longueur et lettres connues affichées, « Valider » (seulement quand le mot a la bonne longueur) et « Annuler ».
+- Saisie du mot : définition et cases du mot, lettres connues déjà posées. Le joueur tape seulement les lettres manquantes, qui remplissent les cases vides dans l'ordre. « Valider » (seulement quand toutes les cases sont remplies) et « Annuler ». Même saisie pour le SLAM et la finale.
 - Bouton « SLAM » avec confirmation, puis saisie de tous les mots restants.
 - Finale : choix de 5 numéros sur 8, saisie du mot, « Passer ».
 - Maître seulement : mode, commencer, « Personne ne sait », « Corriger la grille » (avec confirmation), manche suivante, abandonner (avec confirmation), nouvelle partie.

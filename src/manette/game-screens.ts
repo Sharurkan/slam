@@ -1,11 +1,17 @@
 import { FINAL_LETTER_PICKS, ROUND_COUNT } from '../game/config';
 import type { GridView, PublicView } from '../protocol/view';
 import { createElement } from '../shared/dom';
-import { normalizeWord } from '../shared/text';
-import { activeTeam, standInOffer, wordPattern, type Screen } from './controls';
+import {
+  activeTeam,
+  blankCount,
+  fillPattern,
+  standInOffer,
+  wordPattern,
+  type Screen,
+} from './controls';
 import type { Confirmable, ScreenContext } from './screens';
 import { PHONE_TEXTS as texts } from './texts';
-import { button, headline, note, patternText, patternTiles, screen, wordInput } from './widgets';
+import { button, headline, note, patternText, screen, wordTiles } from './widgets';
 
 const ALPHABET = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 
@@ -150,39 +156,41 @@ function chooseWordScreen(ctx: ScreenContext, view: View<'round'>): HTMLElement 
   ]);
 }
 
-/** The pattern, the input, a hint until the word has the right length, and Valider. */
+/** The tiles to fill, a hint until every blank is filled, and Valider with the whole word. */
 function wordField(
   ctx: ScreenContext,
   grid: GridView,
   number: number,
-  onValidate: () => void,
+  onValidate: (answer: string) => void,
 ): HTMLElement[] {
   const pattern = wordPattern(grid, number);
-  const fits = (value: string): boolean => normalizeWord(value).length === pattern.length;
-  const hintText = (value: string): string =>
-    fits(value) ? '' : texts.lettersNeeded(pattern.length);
+  const missing = (typed: string): number => blankCount(pattern) - typed.length;
+  const hintText = (typed: string): string =>
+    missing(typed) > 0 ? texts.lettersMissing(missing(typed)) : '';
   const validate = button(
     texts.validate,
     'big-button',
-    ctx.enabled && fits(ctx.draft.word),
-    onValidate,
+    ctx.enabled && missing(ctx.draft.word) === 0,
+    () => {
+      onValidate(fillPattern(pattern, ctx.draft.word).join(''));
+    },
   );
   const hint = note(hintText(ctx.draft.word));
-  const input = wordInput(ctx.draft.word, pattern.length + 2, texts.wordPlaceholder, (value) => {
-    ctx.draft.word = value;
-    hint.textContent = hintText(value);
-    validate.disabled = !ctx.enabled || !fits(value);
+  const tiles = wordTiles(pattern, ctx.draft.word, (typed) => {
+    ctx.draft.word = typed;
+    hint.textContent = hintText(typed);
+    validate.disabled = !ctx.enabled || missing(typed) > 0;
   });
-  input.addEventListener('keydown', (event) => {
+  tiles.addEventListener('keydown', (event) => {
     if (event.key === 'Enter' && !validate.disabled) validate.click();
   });
-  return [patternTiles(pattern), input, hint, validate];
+  return [tiles, hint, validate];
 }
 
 function answerWordScreen(ctx: ScreenContext, view: View<'round'>): HTMLElement {
   if (view.step.kind !== 'answeringWord') return screen([]);
-  const field = wordField(ctx, view.grid, view.step.word, () => {
-    ctx.send({ type: 'submitWord', answer: ctx.draft.word });
+  const field = wordField(ctx, view.grid, view.step.word, (answer) => {
+    ctx.send({ type: 'submitWord', answer });
   });
   return screen([
     card(
@@ -201,21 +209,21 @@ function slamScreen(ctx: ScreenContext, view: View<'round'>): HTMLElement {
   if (view.step.kind !== 'slam') return screen([]);
   const numbers = view.step.words;
   const { slam } = ctx.draft;
-  const complete = (): boolean =>
-    numbers.every((n) => normalizeWord(slam[n] ?? '').length === wordPattern(view.grid, n).length);
+  const patterns = new Map(numbers.map((n) => [n, wordPattern(view.grid, n)]));
+  const answerOf = (n: number): string[] => fillPattern(patterns.get(n) ?? [], slam[n] ?? '');
+  const complete = (): boolean => numbers.every((n) => !answerOf(n).includes(''));
   const validate = button(texts.slamValidate, 'big-button', ctx.enabled && complete(), () => {
     ctx.send({
       type: 'submitSlam',
-      answers: numbers.map((word) => ({ word, answer: slam[word] ?? '' })),
+      answers: numbers.map((word) => ({ word, answer: answerOf(word).join('') })),
     });
   });
   const rows = numbers.map((number) => {
-    const pattern = wordPattern(view.grid, number);
+    const pattern = patterns.get(number) ?? [];
     return createElement('div', { className: 'slam-row' }, [
       createElement('div', { className: 'label', text: texts.wordHeading(number, pattern.length) }),
-      patternTiles(pattern),
-      wordInput(slam[number] ?? '', pattern.length + 2, texts.wordPlaceholder, (value) => {
-        slam[number] = value;
+      wordTiles(pattern, slam[number] ?? '', (typed) => {
+        slam[number] = typed;
         validate.disabled = !ctx.enabled || !complete();
       }),
     ]);
@@ -240,8 +248,8 @@ function pickNumbersScreen(ctx: ScreenContext, view: View<'final'>): HTMLElement
 function finalWordScreen(ctx: ScreenContext, view: View<'final'>): HTMLElement {
   if (view.step.kind !== 'playing') return screen([]);
   const { step } = view;
-  const field = wordField(ctx, view.grid, step.current, () => {
-    ctx.send({ type: 'submitFinalWord', answer: ctx.draft.word });
+  const field = wordField(ctx, view.grid, step.current, (answer) => {
+    ctx.send({ type: 'submitFinalWord', answer });
   });
   const timer = createElement('div', {
     className: 'timer',

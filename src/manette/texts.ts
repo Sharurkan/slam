@@ -75,8 +75,8 @@ export const PHONE_TEXTS = {
   wordButton: (number: number, pattern: string) => `${String(number)} · ${pattern}`,
   wordHeading: (number: number, length: number) =>
     `Mot n° ${String(number)} · ${String(length)} lettres`,
-  wordPlaceholder: 'Tape le mot',
-  lettersNeeded: (count: number) => `Il faut ${String(count)} lettres.`,
+  lettersMissing: (count: number) =>
+    count === 1 ? 'Encore 1 lettre à taper.' : `Encore ${String(count)} lettres à taper.`,
   slam: 'SLAM',
   confirmSlam: 'Remplir toute la grille ? Un seul mot faux et les adversaires gagnent les points.',
   confirmYes: 'Oui, SLAM !',
