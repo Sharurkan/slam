@@ -4,15 +4,7 @@ import type { PublicView } from '../protocol/view';
 import { canStartMultiGame, describeScreen } from './controls';
 
 const setup: PublicView = { phase: 'setup', lastEvents: [] };
-const buzzTest: PublicView = {
-  phase: 'buzzTest',
-  teams: [
-    { name: 'Alice', score: 0 },
-    { name: 'Bob', score: 0 },
-  ],
-  buzzer: null,
-  lastEvents: [],
-};
+const over: PublicView = { phase: 'gameOver', teams: [], ranking: [], final: null, lastEvents: [] };
 const noMode: RoomView = { mode: null, isMaster: true, team: null, seats: [] };
 const multi: RoomView = {
   mode: 'multi',
@@ -27,9 +19,7 @@ const multi: RoomView = {
 describe('describeScreen', () => {
   it('lets only the master choose the mode', () => {
     expect(describeScreen(setup, noMode)).toEqual({ kind: 'chooseMode' });
-    expect(describeScreen(setup, { ...noMode, isMaster: false })).toEqual({
-      kind: 'waitForMode',
-    });
+    expect(describeScreen(setup, { ...noMode, isMaster: false })).toEqual({ kind: 'waitForMode' });
   });
 
   it('shows the setup of the chosen mode', () => {
@@ -37,16 +27,8 @@ describe('describeScreen', () => {
     expect(describeScreen(setup, multi)).toEqual({ kind: 'multiLobby' });
   });
 
-  it('shows a button per player with one phone', () => {
-    expect(describeScreen(buzzTest, SINGLE_PHONE_ROOM)).toEqual({ kind: 'singleBuzz' });
-  });
-
-  it("shows the phone's own buzzer with one phone per player", () => {
-    expect(describeScreen(buzzTest, multi)).toEqual({ kind: 'ownBuzz', team: 1 });
-  });
-
-  it('leaves a phone without a player watching', () => {
-    expect(describeScreen(buzzTest, { ...multi, team: null })).toEqual({ kind: 'spectator' });
+  it('shows the game screen once the game started', () => {
+    expect(describeScreen(over, multi)).toEqual({ kind: 'inGame', over: true });
   });
 });
 

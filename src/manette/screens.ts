@@ -176,53 +176,18 @@ function multiLobbyScreen(ctx: ScreenContext): HTMLElement {
   ]);
 }
 
-function masterGameControls(ctx: ScreenContext): HTMLElement[] {
-  if (!ctx.room.isMaster) return [];
-  return [
-    button(texts.resetBuzz, 'secondary-button', ctx.enabled, () => {
-      ctx.send({ type: 'resetBuzz' });
-    }),
-    button(texts.newGame, 'secondary-button', ctx.enabled, () => {
-      ctx.send({ type: 'newGame' });
-    }),
-  ];
-}
-
-function singleBuzzScreen(ctx: ScreenContext): HTMLElement {
-  if (ctx.view.phase !== 'buzzTest') return screen([]);
-  const { teams, buzzer } = ctx.view;
-  const buttons = teams.map((team, index) =>
-    button(team.name, 'big-button', ctx.enabled && buzzer === null, () => {
-      ctx.send({ type: 'buzz', team: index });
-    }),
-  );
+/** Placeholder until the controller game screens (phase 6): the master can still end the game. */
+function inGameScreen(ctx: ScreenContext, over: boolean): HTMLElement {
+  const masterButton = over
+    ? button(texts.newGame, 'secondary-button', ctx.enabled, () => {
+        ctx.send({ type: 'newGame' });
+      })
+    : button(texts.abandonGame, 'secondary-button', ctx.enabled, () => {
+        ctx.send({ type: 'abandonGame' });
+      });
   return screen([
-    createElement('p', { className: 'headline', text: texts.whoBuzzed }),
-    createElement('p', { className: 'note', text: texts.buzzHint }),
-    ...buttons,
-    ...masterGameControls(ctx),
-  ]);
-}
-
-function ownBuzzScreen(ctx: ScreenContext, team: number): HTMLElement {
-  if (ctx.view.phase !== 'buzzTest') return screen([]);
-  const { teams, buzzer } = ctx.view;
-  const winner = buzzer === null ? undefined : teams[buzzer];
-  const notice =
-    winner === undefined
-      ? []
-      : [
-          createElement('p', {
-            className: 'headline turn-notice',
-            text: buzzer === team ? texts.youBuzzed : texts.turnOf(winner.name),
-          }),
-        ];
-  return screen([
-    ...notice,
-    button(texts.buzz, 'big-button own-buzz', ctx.enabled && buzzer === null, () => {
-      ctx.send({ type: 'buzz', team });
-    }),
-    ...masterGameControls(ctx),
+    createElement('p', { className: 'note', text: texts.screenComing }),
+    ...(ctx.room.isMaster ? [masterButton] : []),
   ]);
 }
 
@@ -236,11 +201,7 @@ export function renderScreen(current: Screen, ctx: ScreenContext): HTMLElement {
       return singleSetupScreen(ctx);
     case 'multiLobby':
       return multiLobbyScreen(ctx);
-    case 'singleBuzz':
-      return singleBuzzScreen(ctx);
-    case 'ownBuzz':
-      return ownBuzzScreen(ctx, current.team);
-    case 'spectator':
-      return screen([createElement('p', { className: 'note', text: texts.spectator })]);
+    case 'inGame':
+      return inGameScreen(ctx, current.over);
   }
 }

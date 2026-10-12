@@ -51,3 +51,8 @@ export function compareWordStarts(a: Placement, b: Placement): number {
   if (a.col !== b.col) return a.col - b.col;
   return a.direction === b.direction ? 0 : a.direction === 'across' ? -1 : 1;
 }
+
+/** Every different letter of the grid. */
+export function gridLetters(grid: Grid): Set<string> {
+  return new Set(grid.words.flatMap((word) => Array.from(word.answer)));
+}

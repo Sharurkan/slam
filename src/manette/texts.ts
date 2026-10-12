@@ -14,7 +14,7 @@ export const PHONE_TEXTS = {
   updatePage: 'La TV a une autre version : mets à jour la page.',
   offline: 'Pas de connexion Internet : vérifie le Wi-Fi du téléphone.',
   setupTitle: 'Nouvelle partie',
-  buzzTitle: 'Test du buzz',
+  gameTitle: 'Partie en cours',
   chooseMode: 'Comment jouez-vous ?',
   singleMode: 'Un seul téléphone',
   singleModeHint: 'On se passe le téléphone. Pour buzzer, on crie !',
@@ -38,14 +38,9 @@ export const PHONE_TEXTS = {
   needPlayers: (count: number) => `Il faut au moins ${String(count)} joueurs.`,
   masterMustJoin: 'Rejoins la partie pour pouvoir la lancer.',
   masterStarts: 'Le premier téléphone connecté lancera la partie.',
-  whoBuzzed: 'Qui a buzzé en premier ?',
-  buzzHint: 'Criez « Buzz ! », puis touchez le joueur le plus rapide',
-  buzz: 'BUZZ !',
-  youBuzzed: 'Tu as buzzé en premier !',
-  turnOf: (name: string) => `C'est à ${name}`,
-  resetBuzz: 'Rejouer',
   newGame: 'Nouvelle partie',
-  spectator: "Tu n'as pas de place dans cette partie.",
+  abandonGame: 'Abandonner la partie',
+  screenComing: 'Écran de la manette en construction.',
   youAre: (name: string) => `Tu es ${name}`,
   replaced: 'Un autre téléphone a pris la main.',
   takeOver: 'Reprendre la main',
@@ -76,6 +71,15 @@ const REJECTIONS: Record<RejectionReason, string> = {
   wrongPhase: 'Trop tard : action refusée.',
   invalidTeamCount: 'Il faut entre 2 et 4 joueurs.',
   invalidTeam: 'Joueur inconnu.',
+  notPlaying: 'Ce joueur ne joue pas cette manche.',
+  teamEliminated: 'Ce joueur a déjà répondu à cette question.',
+  invalidLetter: 'Tape une seule lettre.',
+  invalidWord: 'Ce mot n’existe pas dans la grille.',
+  wordNotPlayable: 'Ce mot ne contient pas la lettre, ou a déjà été tenté.',
+  invalidAnswer: 'Réponse vide ou trop longue.',
+  invalidNumber: 'Numéro déjà choisi ou inconnu.',
+  invalidRound: 'Manche de départ inconnue.',
+  unknownGrid: 'Grille inconnue.',
 };
 
 export interface BannerMessage {
@@ -84,20 +88,9 @@ export interface BannerMessage {
 }
 
 /** Message for the last action, or null when nothing is worth saying. */
-export function messageFor(
-  events: readonly GameEvent[],
-  teamName: (team: number) => string,
-): BannerMessage | null {
+export function messageFor(events: readonly GameEvent[]): BannerMessage | null {
   for (const event of events) {
-    switch (event.type) {
-      case 'actionRejected':
-        return { text: REJECTIONS[event.reason], isError: true };
-      case 'buzzed':
-        return { text: `${teamName(event.team)} a buzzé !`, isError: false };
-      case 'gameStarted':
-      case 'buzzReset':
-        break;
-    }
+    if (event.type === 'actionRejected') return { text: REJECTIONS[event.reason], isError: true };
   }
   return null;
 }

@@ -1,7 +1,8 @@
 import './tv.css';
+import { CONTENT } from '../content/content';
 import type { GameEvent } from '../game/events';
 import { canAct } from '../game/permissions';
-import { reduce } from '../game/reducer';
+import { reduce, type GameDeps } from '../game/reducer';
 import { INITIAL_STATE, type GameAction, type GameState } from '../game/state';
 import type { ConnectionStatus } from '../net/connection-status';
 import { startHost, type LinkId } from '../net/host';
@@ -35,13 +36,15 @@ import {
   type Room,
   type RoomChange,
 } from './room';
-import { createBuzzScreen, createSetupScreen } from './screens';
+import { createGameScreen, createSetupScreen } from './screens';
 import { createSound, type Sound } from './sound';
 import { statusLabel, TV_TEXTS } from './texts';
 import { keepScreenOn } from './wake-lock';
 
 /** Leaves a replaced phone the time to read why before its link is closed. */
 const DISMISS_DELAY_MS = 1000;
+
+const GAME_DEPS: GameDeps = { random: Math.random, now: Date.now, content: CONTENT };
 
 function controllerUrl(code: string): string {
   return `${window.location.origin}${window.location.pathname}?mode=manette&code=${code}`;
@@ -72,7 +75,7 @@ function setupSound(sound: Sound | null, onChange: () => void): void {
 export function startTv(root: HTMLElement): void {
   const sound = createSound();
   const setup = createSetupScreen();
-  const buzzScreen = createBuzzScreen();
+  const gameScreen = createGameScreen();
   const corner = createElement('div', { className: 'corner' });
 
   const warnings = { offline: '', room: '', teams: '', controller: '' };
@@ -107,14 +110,14 @@ export function startTv(root: HTMLElement): void {
 
   function render(): void {
     setup.element.hidden = state.phase !== 'setup';
-    buzzScreen.element.hidden = state.phase !== 'buzzTest';
-    if (state.phase === 'buzzTest') buzzScreen.render(state, offlineTeams());
+    gameScreen.element.hidden = state.phase === 'setup';
+    if (state.phase !== 'setup') gameScreen.render(state, offlineTeams());
   }
 
   function playSounds(events: readonly GameEvent[]): void {
     for (const event of events) {
       if (event.type === 'buzzed') sound?.buzz();
-      if (event.type === 'gameStarted' || event.type === 'buzzReset') sound?.beep();
+      if (event.type === 'questionAsked') sound?.beep();
     }
   }
 
@@ -153,7 +156,7 @@ export function startTv(root: HTMLElement): void {
       case 'multi': {
         const actor = actorFor(room, link);
         const connected = (team: number): boolean => isTeamConnected(room, team);
-        return actor !== null && canAct(action, actor, connected);
+        return actor !== null && canAct(state, action, actor, connected);
       }
     }
   }
@@ -201,7 +204,7 @@ export function startTv(root: HTMLElement): void {
   }
 
   function dispatch(action: GameAction): void {
-    const result = reduce(state, action);
+    const result = reduce(state, action, GAME_DEPS);
     state = result.state;
     render();
     playSounds(result.events);
@@ -243,7 +246,7 @@ export function startTv(root: HTMLElement): void {
     updateCorner();
   });
   root.replaceChildren(
-    createElement('main', { className: 'game-tv' }, [setup.element, buzzScreen.element, corner]),
+    createElement('main', { className: 'game-tv' }, [setup.element, gameScreen.element, corner]),
   );
   showRoom();
   setup.showConnection(statusLabel(connection), connection.kind);

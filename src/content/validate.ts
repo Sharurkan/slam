@@ -14,6 +14,7 @@ import {
 import {
   cellKey,
   compareWordStarts,
+  gridLetters,
   wordCells,
   type Direction,
   type FinalGrid,
@@ -21,11 +22,11 @@ import {
   type GridWord,
 } from '../game/grid.ts';
 import { normalizeText, normalizeWord } from '../shared/text.ts';
+import type { QuestionBank } from '../game/common.ts';
 
 export const ALPHABET = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 
-/** Questions whose answer is one letter, by answer letter. */
-export type QuestionBank = Readonly<Record<string, readonly string[]>>;
+export type { QuestionBank } from '../game/common.ts';
 
 function wordErrors(word: GridWord, grid: Grid): string[] {
   const errors: string[] = [];
@@ -181,10 +182,6 @@ export function validateGrid(grid: Grid, wordCount: number): string[] {
   if (cells.size > 0 && !hasTightBounds(grid, cells))
     errors.push('empty rows or columns on an edge');
   return errors.map((error) => `${grid.id}: ${error}`);
-}
-
-export function gridLetters(grid: Grid): Set<string> {
-  return new Set(grid.words.flatMap((word) => Array.from(word.answer)));
 }
 
 export function validateFinalGrid(grid: FinalGrid, wordCount: number): string[] {

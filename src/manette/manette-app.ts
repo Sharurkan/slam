@@ -125,7 +125,7 @@ function showCodeForm(root: HTMLElement): void {
 }
 
 function headerText(view: PublicView): string {
-  return view.phase === 'setup' ? texts.setupTitle : texts.buzzTitle;
+  return view.phase === 'setup' ? texts.setupTitle : texts.gameTitle;
 }
 
 /** With one phone, another phone took over: this one waits until asked to take over again. */
@@ -237,9 +237,7 @@ function showController(root: HTMLElement, code: string): void {
     versionError = false;
     setPending(false);
     if (next.lastEvents.length > 0 || moved) {
-      message = messageFor(next.lastEvents, (team) =>
-        next.phase === 'setup' ? '' : (next.teams[team]?.name ?? ''),
-      );
+      message = messageFor(next.lastEvents);
     }
     render();
   }

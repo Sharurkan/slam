@@ -16,9 +16,9 @@ export const TV_TEXTS = {
   },
   seatName: (name: string, index: number) =>
     name === '' ? `${DEFAULT_TEAM_NAME_PREFIX} ${String(index + 1)}` : name,
-  buzzTitle: 'Test du buzz',
-  buzzOpen: 'Buzzez !',
-  buzzed: (name: string) => `${name} a buzzé !`,
+  screenComing: 'Écran de jeu en construction',
+  hasTheHand: (name: string) => `${name} a la main`,
+  points: (score: number) => (score > 1 ? `${String(score)} points` : `${String(score)} point`),
   phoneOffline: 'déconnecté',
   soundButton: 'Appuie sur OK pour activer le son',
   soundHint: 'Son coupé : appuie sur OK',

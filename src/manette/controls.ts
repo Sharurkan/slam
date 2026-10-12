@@ -7,20 +7,13 @@ export type Screen =
   | { kind: 'waitForMode' }
   | { kind: 'singleSetup' }
   | { kind: 'multiLobby' }
-  /** One phone: a button per player, tapped by whoever holds the phone. */
-  | { kind: 'singleBuzz' }
-  /** One phone per player: this phone's own BUZZ button. */
-  | { kind: 'ownBuzz'; team: number }
-  /** One phone per player, but this phone has no player in the game. */
-  | { kind: 'spectator' };
+  /** Placeholder until the controller game screens (phase 6). */
+  | { kind: 'inGame'; over: boolean };
 
 export function describeScreen(view: PublicView, room: RoomView): Screen {
-  if (view.phase === 'setup') {
-    if (room.mode === null) return room.isMaster ? { kind: 'chooseMode' } : { kind: 'waitForMode' };
-    return room.mode === 'single' ? { kind: 'singleSetup' } : { kind: 'multiLobby' };
-  }
-  if (room.mode !== 'multi') return { kind: 'singleBuzz' };
-  return room.team === null ? { kind: 'spectator' } : { kind: 'ownBuzz', team: room.team };
+  if (view.phase !== 'setup') return { kind: 'inGame', over: view.phase === 'gameOver' };
+  if (room.mode === null) return room.isMaster ? { kind: 'chooseMode' } : { kind: 'waitForMode' };
+  return room.mode === 'single' ? { kind: 'singleSetup' } : { kind: 'multiLobby' };
 }
 
 /** With one phone per player, the master may start once it joined, with enough players. */
