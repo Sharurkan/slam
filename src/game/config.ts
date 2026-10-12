@@ -28,6 +28,8 @@ export const FINAL_LETTER_CHOICES = 8;
 /** Numbers the finalist picks among them. */
 export const FINAL_LETTER_PICKS = 5;
 export const FINAL_DURATION_MS = 60_000;
+/** The TV counts the final time down at this pace. */
+export const FINAL_TICK_MS = 1000;
 /** Final winnings, in euros. */
 export const FINAL_PRIZE_PER_WORD = 100;
 export const FINAL_JACKPOT = 2000;

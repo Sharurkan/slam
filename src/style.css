@@ -6,6 +6,13 @@
   --error: #ff6b6b;
   --accent: #ffc23d;
   --accent-dark: #6b4a00;
+  --panel: #232046;
+  --tile: #fffdf5;
+  --tile-ink: #14122b;
+  --tile-muted: #6b6880;
+  --tile-tried: #a4a1b8;
+  --active: #3ddbd9;
+  --corrected: #ff5d73;
   font-family: system-ui, sans-serif;
   color: var(--fg);
   background: var(--bg);

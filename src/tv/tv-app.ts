@@ -1,5 +1,8 @@
 import './tv.css';
 import { CONTENT } from '../content/content';
+import type { Board } from '../game/board';
+import { findWord } from '../game/board';
+import { FINAL_TICK_MS } from '../game/config';
 import type { GameEvent } from '../game/events';
 import { canAct } from '../game/permissions';
 import { reduce, type GameDeps } from '../game/reducer';
@@ -36,9 +39,12 @@ import {
   type Room,
   type RoomChange,
 } from './room';
-import { createGameScreen, createSetupScreen } from './screens';
+import { createSetupScreen } from './screens';
+import { describeDisplay } from './game-display';
+import { createGameScreen, TIMER_WARNING_SECONDS } from './game-screen';
+import { newlyRevealed } from './grid-layout';
 import { createSound, type Sound } from './sound';
-import { statusLabel, TV_TEXTS } from './texts';
+import { eventMessage, statusLabel, TV_TEXTS } from './texts';
 import { keepScreenOn } from './wake-lock';
 
 /** Leaves a replaced phone the time to read why before its link is closed. */
@@ -58,6 +64,57 @@ function initialRoomCode(): string {
 function initialRoom(): Room {
   const saved = loadRoom();
   return saved === null ? EMPTY_ROOM : { ...saved, links: [] };
+}
+
+/** The grid on screen, if any: the round grid, or the final grid until the ranking. */
+function boardOf(state: GameState): Board | null {
+  switch (state.phase) {
+    case 'round':
+    case 'roundOver':
+    case 'final':
+      return state.board;
+    case 'gameOver':
+      return state.final?.board ?? null;
+    case 'setup':
+    case 'tiebreak':
+      return null;
+  }
+}
+
+type SoundEffect = Exclude<keyof Sound, 'unlock' | 'isUnlocked'>;
+
+/** One sound per action: the most telling event wins. */
+function soundFor(events: readonly GameEvent[]): SoundEffect | null {
+  const types = new Set(events.map((event) => event.type));
+  if (types.has('slamWon')) return 'slam';
+  if (types.has('finalOver'))
+    return events.some((e) => e.type === 'finalOver' && e.complete) ? 'slam' : 'timeUp';
+  if (
+    types.has('slamFailed') ||
+    types.has('wrongLetter') ||
+    types.has('wrongWord') ||
+    types.has('finalWrongWord') ||
+    types.has('letterLost')
+  ) {
+    return 'wrong';
+  }
+  if (types.has('letterFound') || types.has('wordFound') || types.has('finalWordFound'))
+    return 'right';
+  if (types.has('roundStarted') || types.has('finalStarted') || types.has('tiebreakStarted'))
+    return 'roundStart';
+  if (types.has('buzzed')) return 'buzz';
+  if (types.has('questionAsked') || types.has('finalNumberPicked')) return 'beep';
+  return null;
+}
+
+function isTimedFinal(state: GameState): boolean {
+  return state.phase === 'final' && state.step.kind === 'playing';
+}
+
+function secondsLeft(state: GameState): number | null {
+  return state.phase === 'final' && state.step.kind === 'playing'
+    ? Math.ceil(state.step.remainingMs / 1000)
+    : null;
 }
 
 function setupSound(sound: Sound | null, onChange: () => void): void {
@@ -83,6 +140,7 @@ export function startTv(root: HTMLElement): void {
   let code = initialRoomCode();
   let room = initialRoom();
   let connection: ConnectionStatus = { kind: 'waiting' };
+  let tickTimer: ReturnType<typeof setTimeout> | undefined;
 
   function updateCorner(): void {
     const soundHint = sound !== null && !sound.isUnlocked() ? TV_TEXTS.soundHint : '';
@@ -108,17 +166,34 @@ export function startTv(root: HTMLElement): void {
     return state.teams.map((_, team) => team).filter((team) => !isTeamConnected(room, team));
   }
 
-  function render(): void {
+  function render(fresh: readonly string[] = []): void {
     setup.element.hidden = state.phase !== 'setup';
     gameScreen.element.hidden = state.phase === 'setup';
-    if (state.phase !== 'setup') gameScreen.render(state, offlineTeams());
+    if (state.phase !== 'setup') gameScreen.render(describeDisplay(state, offlineTeams()), fresh);
   }
 
-  function playSounds(events: readonly GameEvent[]): void {
-    for (const event of events) {
-      if (event.type === 'buzzed') sound?.buzz();
-      if (event.type === 'questionAsked') sound?.beep();
-    }
+  function present(action: GameAction, events: readonly GameEvent[]): void {
+    const board = boardOf(state);
+    const context = {
+      teamName: (team: number) => ('teams' in state ? (state.teams[team]?.name ?? '') : ''),
+      wordAnswer: (word: number) => (board === null ? '' : (findWord(board, word)?.answer ?? '')),
+    };
+    const messages = events.map((event) => eventMessage(event, context)).filter((m) => m !== null);
+    if (messages.length > 0) gameScreen.showBanner(messages.join(' · '));
+    if (events.some((event) => event.type === 'slamWon')) gameScreen.showSlam();
+    const name = soundFor(events);
+    if (name !== null) sound?.[name]();
+    const seconds = secondsLeft(state);
+    if (action.type === 'finalTick' && seconds !== null && seconds <= TIMER_WARNING_SECONDS)
+      sound?.tick();
+  }
+
+  function scheduleTick(): void {
+    clearTimeout(tickTimer);
+    if (!isTimedFinal(state)) return;
+    tickTimer = setTimeout(() => {
+      if (isTimedFinal(state)) dispatch({ type: 'finalTick' });
+    }, FINAL_TICK_MS);
   }
 
   function sendView(events: readonly GameEvent[], to: readonly LinkId[] = host.links()): void {
@@ -204,11 +279,13 @@ export function startTv(root: HTMLElement): void {
   }
 
   function dispatch(action: GameAction): void {
+    const before = boardOf(state)?.revealed ?? [];
     const result = reduce(state, action, GAME_DEPS);
     state = result.state;
-    render();
-    playSounds(result.events);
+    render(newlyRevealed(before, boardOf(state)?.revealed ?? []));
+    present(action, result.events);
     sendView(result.events);
+    scheduleTick();
   }
 
   const host = startHost<PhoneMessage, TvMessage>({

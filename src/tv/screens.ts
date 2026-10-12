@@ -1,5 +1,3 @@
-import { turnTeam } from '../game/permissions';
-import type { GameState } from '../game/state';
 import type { PlayMode, RoomView } from '../protocol/room';
 import { createElement } from '../shared/dom';
 import { createQrCode } from './qr';
@@ -72,48 +70,6 @@ export function createSetupScreen(): SetupScreen {
         ...(seats.length === 0
           ? [createElement('li', { className: 'muted', text: TV_TEXTS.lobby.noTeam })]
           : seats.map(seatRow)),
-      );
-    },
-  };
-}
-
-/** Placeholder until the TV game screen (phase 5): who has the hand, and the scores. */
-export interface GameScreen {
-  element: HTMLElement;
-  /** offline: players whose phone is disconnected, with one phone per player. */
-  render(state: Exclude<GameState, { phase: 'setup' }>, offline: readonly number[]): void;
-}
-
-export function createGameScreen(): GameScreen {
-  const message = createElement('div', { className: 'buzz-message' });
-  const players = createElement('ul', { className: 'players' });
-  const element = createElement('section', { className: 'buzz' }, [
-    createElement('h1', { text: TV_TEXTS.title }),
-    createElement('p', { className: 'muted', text: TV_TEXTS.screenComing }),
-    message,
-    players,
-  ]);
-  return {
-    element,
-    render: (state, offline) => {
-      const active = turnTeam(state);
-      const team = active === null ? undefined : state.teams[active];
-      message.textContent = team === undefined ? '' : TV_TEXTS.hasTheHand(team.name);
-      message.classList.toggle('active', team !== undefined);
-      players.replaceChildren(
-        ...state.teams.map((current, index) => {
-          const classes = ['player'];
-          if (index === active) classes.push('active');
-          if (offline.includes(index)) classes.push('offline');
-          const score = current.scores[current.scores.length - 1] ?? 0;
-          return createElement('li', { className: classes.join(' ') }, [
-            createElement('span', { text: current.name }),
-            createElement('span', { text: TV_TEXTS.points(score) }),
-            ...(offline.includes(index)
-              ? [createElement('span', { className: 'muted', text: TV_TEXTS.phoneOffline })]
-              : []),
-          ]);
-        }),
       );
     },
   };
