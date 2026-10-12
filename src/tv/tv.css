@@ -1,0 +1,185 @@
+/* TV game. Sizes in vh/vw so that it scales with the screen; 5 % margins for TV overscan. */
+.game-tv {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 5vh 5vw;
+  overflow: hidden;
+  font-size: 3vh;
+}
+
+.game-tv [hidden] {
+  display: none !important;
+}
+
+.game-tv h1 {
+  margin: 0;
+  font-size: 8vh;
+  color: var(--accent);
+}
+
+.muted {
+  color: var(--muted);
+}
+
+.corner {
+  position: absolute;
+  right: 5vw;
+  bottom: 2vh;
+  font-size: 2.2vh;
+  color: var(--muted);
+}
+
+/* Setup */
+.setup {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  /* Keeps the sound button clear of the status line in the corner. */
+  padding-bottom: 3vh;
+  text-align: center;
+}
+
+.setup-code {
+  font-size: 12vh;
+  font-weight: bold;
+  line-height: 1.2;
+  letter-spacing: 0.3em;
+  color: var(--accent);
+}
+
+.setup-join {
+  display: flex;
+  align-items: center;
+  margin: 2vh 0;
+}
+
+.setup-qr .qr {
+  display: block;
+  width: 26vh;
+  height: 26vh;
+}
+
+.setup-help {
+  max-width: 45vw;
+  margin-left: 4vw;
+  text-align: left;
+}
+
+.setup-help p {
+  margin: 0 0 1vh;
+}
+
+.setup-url {
+  font-size: 2.6vh;
+  word-break: break-all;
+}
+
+.connection {
+  margin: 1vh 0;
+  font-size: 3.5vh;
+}
+
+.connection[data-kind='connected'] {
+  color: var(--ok);
+}
+
+.connection[data-kind='error'] {
+  color: var(--error);
+}
+
+.seats {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1vh 2vw;
+  margin: 1vh 0;
+  padding: 0;
+  list-style: none;
+  font-size: 3.2vh;
+}
+
+.seat {
+  padding: 0.6vh 1.5vw;
+  border: 0.4vh solid var(--ok);
+  border-radius: 1vh;
+}
+
+.seat.offline {
+  border-color: var(--error);
+  opacity: 0.6;
+}
+
+.seat-state {
+  margin-left: 1vw;
+  font-size: 2.4vh;
+}
+
+.sound-button {
+  margin-top: 1vh;
+  padding: 1vh 3vw;
+  font-size: 3vh;
+  border: 0.5vh solid var(--accent);
+  border-radius: 1vh;
+  background: transparent;
+  color: var(--fg);
+}
+
+.sound-button:focus {
+  background: var(--accent-dark);
+  outline: none;
+}
+
+/* Buzz test */
+.buzz {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  text-align: center;
+}
+
+.buzz-message {
+  margin: 4vh 0;
+  font-size: 10vh;
+  font-weight: bold;
+}
+
+.buzz-message.active {
+  color: var(--accent);
+}
+
+.players {
+  display: flex;
+  gap: 3vw;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: 5vh;
+}
+
+.player {
+  display: flex;
+  flex-direction: column;
+  padding: 2vh 3vw;
+  border: 0.6vh solid var(--muted);
+  border-radius: 2vh;
+}
+
+.player.active {
+  border-color: var(--accent);
+  background: var(--accent-dark);
+}
+
+.player.offline {
+  opacity: 0.5;
+}
+
+.player .muted {
+  font-size: 2.4vh;
+}

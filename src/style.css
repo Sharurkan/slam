@@ -5,6 +5,7 @@
   --ok: #4ade80;
   --error: #ff6b6b;
   --accent: #ffc23d;
+  --accent-dark: #6b4a00;
   font-family: system-ui, sans-serif;
   color: var(--fg);
   background: var(--bg);
@@ -17,4 +18,14 @@
 body {
   margin: 0;
   background: var(--bg);
+}
+
+button {
+  font: inherit;
+  cursor: pointer;
+}
+
+button:disabled {
+  opacity: 0.4;
+  cursor: default;
 }
