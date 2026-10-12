@@ -197,12 +197,13 @@ function finalDisplay(state: FinalState, offline: readonly number[]): Display {
     layout: { active: revealed ? step.current : null, showAll: false },
     ...card,
     lost: [],
+    // Round points no longer matter in the final: only who plays it.
     scores: scoreRows(state.teams, {
       active: state.finalist,
       playing: [state.finalist],
       answered: [],
       offline,
-    }),
+    }).map((row) => ({ ...row, score: '' })),
     picks: state.letters.map((letter, index) => ({
       label: String(index + 1),
       picked: state.picked.includes(index),

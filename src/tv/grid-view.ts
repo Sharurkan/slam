@@ -47,7 +47,7 @@ export function createGridView(): GridView {
     element,
     render: (board, options, fresh = []) => {
       if (board.grid.id !== gridId) build(board);
-      for (const look of layoutCells(board, options)) {
+      for (const look of layoutCells(board, { ...options, fresh })) {
         const cell = cells.get(look.key);
         if (cell === undefined) continue;
         cell.letter.textContent = look.letter;
@@ -58,8 +58,10 @@ export function createGridView(): GridView {
         cell.root.classList.toggle('corrected', look.corrected);
         const order = fresh.indexOf(look.key);
         cell.root.classList.toggle('fresh', order >= 0);
-        cell.letter.style.animationDelay =
-          order >= 0 ? `${String(order * LETTER_STAGGER_MS)}ms` : '';
+        cell.root.classList.toggle('just-found', look.justFound);
+        // A found word glows once its last new letter has appeared.
+        const delay = order >= 0 ? order : fresh.length;
+        cell.root.style.setProperty('--delay', `${String(delay * LETTER_STAGGER_MS)}ms`);
       }
     },
   };

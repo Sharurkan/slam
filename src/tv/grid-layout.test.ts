@@ -38,6 +38,16 @@ describe('layoutCells', () => {
   });
 });
 
+describe('just found words', () => {
+  it('marks every cell of a word completed by the last cells shown', () => {
+    const board = revealLetters(newBoard(ANIMALS), Array.from('CHAT')).board;
+    const cells = layoutCells(board, { active: null, showAll: false, fresh: ['0,2'] });
+    const glowing = cells.filter((cell) => cell.justFound).map((cell) => cell.key);
+    expect(glowing).toEqual(['0,0', '0,1', '0,2', '0,3']);
+    expect(layoutCells(board, hidden).some((cell) => cell.justFound)).toBe(false);
+  });
+});
+
 describe('newlyRevealed', () => {
   it('keeps the cells shown by the last action', () => {
     expect(newlyRevealed(['0,0'], ['0,0', '0,1', '0,2'])).toEqual(['0,1', '0,2']);

@@ -18,6 +18,8 @@ export interface CellLook {
   active: boolean;
   /** Hidden during the game, shown by the correction at the end. */
   corrected: boolean;
+  /** Belongs to a word completed by the last action: it glows once. */
+  justFound: boolean;
 }
 
 export interface LayoutOptions {
@@ -25,6 +27,8 @@ export interface LayoutOptions {
   active: number | null;
   /** End of the round or of the game: every letter is shown. */
   showAll: boolean;
+  /** Cells shown by the last action. */
+  fresh?: readonly string[] | undefined;
 }
 
 function cellOf(looks: Map<string, CellLook>, word: GridWord, index: number): CellLook {
@@ -41,6 +45,7 @@ function cellOf(looks: Map<string, CellLook>, word: GridWord, index: number): Ce
     tried: false,
     active: false,
     corrected: false,
+    justFound: false,
   };
   looks.set(key, look);
   return look;
@@ -52,6 +57,8 @@ export function layoutCells(board: Board, options: LayoutOptions): CellLook[] {
   for (const word of board.grid.words) {
     const found = isWordComplete(board, word);
     const tried = board.tried.includes(word.number);
+    const fresh = options.fresh ?? [];
+    const justFound = found && wordCells(word).some((cell) => fresh.includes(cellKey(cell)));
     for (let index = 0; index < word.answer.length; index += 1) {
       const look = cellOf(looks, word, index);
       const revealed = board.revealed.includes(look.key);
@@ -60,6 +67,7 @@ export function layoutCells(board: Board, options: LayoutOptions): CellLook[] {
       look.found ||= found;
       look.tried ||= tried;
       look.active ||= word.number === options.active;
+      look.justFound ||= justFound;
       if (index === 0) look.numbers.push(word.number);
     }
   }

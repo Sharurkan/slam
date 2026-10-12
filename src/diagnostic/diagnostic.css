@@ -1,0 +1,107 @@
+/* Device test pages: plain and readable, on the TV and on a phone. */
+.diag-tv,
+.diag-phone {
+  padding: 16px;
+  font-size: 18px;
+}
+
+.diag-tv {
+  padding: 4vh 5vw;
+  font-size: 3vh;
+  text-align: center;
+}
+
+.diag-tv h1,
+.diag-phone h1 {
+  margin: 0 0 8px;
+  color: var(--accent);
+}
+
+.diag-tv .subtitle,
+.diag-tv .label,
+.diag-phone .room {
+  color: var(--muted);
+}
+
+.diag-tv .tv-code {
+  font-size: 14vh;
+  font-weight: bold;
+  letter-spacing: 0.3em;
+  color: var(--accent);
+}
+
+.diag-tv .tv-url {
+  font-size: 3vh;
+  word-break: break-all;
+}
+
+.diag-tv .tv-sound {
+  margin: 2vh 0;
+  padding: 1vh 3vw;
+  border: 0.5vh solid var(--accent);
+  border-radius: 1vh;
+  background: transparent;
+  color: var(--fg);
+  font-size: 3vh;
+}
+
+.diag-tv .tv-sound:focus {
+  background: var(--accent-dark);
+  outline: none;
+}
+
+.diag-tv .diagnostics {
+  display: inline-block;
+  padding: 0;
+  list-style: none;
+  font-size: 2.6vh;
+  text-align: left;
+}
+
+.diag-tv .diag-label {
+  color: var(--muted);
+}
+
+.status {
+  margin: 12px 0;
+}
+
+.status[data-kind='connected'] {
+  color: var(--ok);
+}
+
+.status[data-kind='error'],
+.warning,
+.errors {
+  color: var(--error);
+}
+
+.diag-phone .code-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.diag-phone .code-input {
+  min-height: 56px;
+  font-size: 24px;
+}
+
+.diag-phone .big-button {
+  width: 100%;
+  min-height: 72px;
+  margin: 12px 0;
+  border: none;
+  border-radius: 14px;
+  background: var(--accent);
+  color: var(--bg);
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.diag-phone .link-button {
+  border: none;
+  background: transparent;
+  color: var(--muted);
+  text-decoration: underline;
+}

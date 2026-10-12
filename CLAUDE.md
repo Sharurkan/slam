@@ -46,6 +46,7 @@ src/
   tv/        Vue TV : grille, question, scores, sons, QR code, salle des téléphones
   manette/   Vue manette : buzz, clavier de lettres, choix et saisie des mots, SLAM
   shared/    Utilitaires communs (normalisation du texte, DOM sûr, lecture de l'URL)
+  diagnostic/ Pages de test des appareils (?mode=test-tv, ?mode=test-manette)
   main.ts    Choix du mode selon l'URL
 scripts/     Outils hors ligne (génération des grilles), jamais livrés au navigateur
 ```
@@ -58,6 +59,7 @@ Règles de dépendance (vérifiées par ESLint, à respecter strictement) :
 - `net/` ne connaît pas les règles du jeu. Il transporte des messages déjà typés.
 - `shared/` ne dépend de rien.
 - `tv/` et `manette/` assemblent le tout. Ils ne contiennent aucune règle du jeu.
+- Les styles de la TV sont sous `.game-tv`, ceux de la manette sous `.controller` : toutes les feuilles sont chargées sur chaque page.
 
 Principes :
 

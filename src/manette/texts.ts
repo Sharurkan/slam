@@ -106,6 +106,7 @@ export const PHONE_TEXTS = {
   abandonGame: 'Abandonner la partie',
   confirmAbandon: 'Abandonner la partie ? Le classement s’affiche tout de suite.',
   confirm: 'Confirmer',
+  noAnswer: 'La TV n’a pas répondu : vérifie qu’elle est allumée, puis réessaie.',
   replaced: 'Un autre téléphone a pris la main.',
   takeOver: 'Reprendre la main',
 } as const;

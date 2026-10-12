@@ -1,11 +1,11 @@
 import './style.css';
+import { startTestPhone } from './diagnostic/test-phone';
+import { startTestTv } from './diagnostic/test-tv';
 import { startManette } from './manette/manette-app';
 import { parseMode } from './shared/mode';
 import { startTv } from './tv/tv-app';
 
 const NO_MODE_TEXT = 'Ajoute ?mode=tv ou ?mode=manette à l’adresse.';
-// The device test pages come with the polish phase (phase 8).
-const TEST_PAGE_TEXT = 'Page de test bientôt disponible.';
 
 const root = document.getElementById('app');
 if (root) {
@@ -17,8 +17,10 @@ if (root) {
       startManette(root);
       break;
     case 'test-tv':
+      startTestTv(root);
+      break;
     case 'test-manette':
-      root.textContent = TEST_PAGE_TEXT;
+      startTestPhone(root);
       break;
     case null:
       root.textContent = NO_MODE_TEXT;

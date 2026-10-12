@@ -115,6 +115,7 @@ describe('describeDisplay during the final', () => {
     const shown = display(play(final, picks, deps));
     expect(shown.picks.filter((pick) => pick.letter !== '')).toHaveLength(5);
     expect(shown).toMatchObject({ heading: 'Mot n° 1 · 4 lettres', text: 'Il miaule', timer: 60 });
+    expect(shown.scores.map((row) => row.score)).toEqual(['', '']);
   });
 });
 

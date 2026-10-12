@@ -243,6 +243,7 @@ function showController(root: HTMLElement, code: string): void {
     if (value) {
       pendingTimer = setTimeout(() => {
         setPending(false);
+        message = { text: texts.noAnswer, isError: true };
         render();
       }, PENDING_TIMEOUT_MS);
     }

@@ -224,7 +224,17 @@
 /* Only opacity and transform: cheap on the Fire Stick. */
 .game-tv .cell.fresh .cell-letter {
   display: inline-block;
-  animation: letter-in 0.4s ease-out both;
+  animation: letter-in 0.4s ease-out var(--delay, 0ms) both;
+}
+
+.game-tv .cell.just-found {
+  animation: found-glow 0.7s ease-out var(--delay, 0ms);
+}
+
+@keyframes found-glow {
+  50% {
+    transform: scale(1.15);
+  }
 }
 
 @keyframes letter-in {
