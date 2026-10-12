@@ -185,12 +185,13 @@ Textes
 - Configuration avec un seul téléphone : nombre de joueurs, noms, bouton « Commencer ».
 - Configuration avec un téléphone par joueur : nom du joueur, liste des inscrits, « Commencer » pour le maître.
 - Question : gros bouton « BUZZ ! » (un bouton par joueur avec un seul téléphone, joueurs éliminés grisés).
-- Clavier de lettres pour la réponse à la question.
+- Clavier de lettres pour la réponse à la question : on touche la lettre, puis « Valider » (une erreur élimine de la question).
 - Choix du mot par numéro (mots non jouables grisés).
-- Saisie du mot : longueur et lettres connues affichées, « Valider » et « Annuler ».
+- Saisie du mot : définition, longueur et lettres connues affichées, « Valider » (seulement quand le mot a la bonne longueur) et « Annuler ».
 - Bouton « SLAM » avec confirmation, puis saisie de tous les mots restants.
 - Finale : choix de 5 numéros sur 8, saisie du mot, « Passer ».
-- Maître seulement : mode, commencer, « Personne ne sait », « Corriger la grille », manche suivante, abandonner, nouvelle partie.
+- Maître seulement : mode, commencer, « Personne ne sait », « Corriger la grille » (avec confirmation), manche suivante, abandonner (avec confirmation), nouvelle partie.
+- Le minuteur de la finale s'affiche aussi sur le téléphone du finaliste.
 - Boutons grisés tant que la TV anime.
 - Mode test (`&test` dans l'adresse) : choix de la manche de départ (1, 2 ou finale) et grille forcée.
 

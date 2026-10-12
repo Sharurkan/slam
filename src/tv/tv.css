@@ -20,11 +20,11 @@
   color: var(--accent);
 }
 
-.muted {
+.game-tv .muted {
   color: var(--muted);
 }
 
-.corner {
+.game-tv .corner {
   position: absolute;
   right: 5vw;
   bottom: 2vh;
@@ -33,7 +33,7 @@
 }
 
 /* Setup */
-.setup {
+.game-tv .setup {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -44,7 +44,7 @@
   text-align: center;
 }
 
-.setup-code {
+.game-tv .setup-code {
   font-size: 12vh;
   font-weight: bold;
   line-height: 1.2;
@@ -52,47 +52,47 @@
   color: var(--accent);
 }
 
-.setup-join {
+.game-tv .setup-join {
   display: flex;
   align-items: center;
   margin: 2vh 0;
 }
 
-.setup-qr .qr {
+.game-tv .setup-qr .qr {
   display: block;
   width: 26vh;
   height: 26vh;
 }
 
-.setup-help {
+.game-tv .setup-help {
   max-width: 45vw;
   margin-left: 4vw;
   text-align: left;
 }
 
-.setup-help p {
+.game-tv .setup-help p {
   margin: 0 0 1vh;
 }
 
-.setup-url {
+.game-tv .setup-url {
   font-size: 2.6vh;
   word-break: break-all;
 }
 
-.connection {
+.game-tv .connection {
   margin: 1vh 0;
   font-size: 3.5vh;
 }
 
-.connection[data-kind='connected'] {
+.game-tv .connection[data-kind='connected'] {
   color: var(--ok);
 }
 
-.connection[data-kind='error'] {
+.game-tv .connection[data-kind='error'] {
   color: var(--error);
 }
 
-.seats {
+.game-tv .seats {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -103,23 +103,23 @@
   font-size: 3.2vh;
 }
 
-.seat {
+.game-tv .seat {
   padding: 0.6vh 1.5vw;
   border: 0.4vh solid var(--ok);
   border-radius: 1vh;
 }
 
-.seat.offline {
+.game-tv .seat.offline {
   border-color: var(--error);
   opacity: 0.6;
 }
 
-.seat-state {
+.game-tv .seat-state {
   margin-left: 1vw;
   font-size: 2.4vh;
 }
 
-.sound-button {
+.game-tv .sound-button {
   margin-top: 1vh;
   padding: 1vh 3vw;
   font-size: 3vh;
@@ -129,13 +129,13 @@
   color: var(--fg);
 }
 
-.sound-button:focus {
+.game-tv .sound-button:focus {
   background: var(--accent-dark);
   outline: none;
 }
 
 /* Game: grid on the left, side panel on the right, banner below. */
-.game {
+.game-tv .game {
   display: grid;
   grid-template-columns: minmax(0, 1fr) 36vw;
   grid-template-rows: auto minmax(0, 1fr) auto;
@@ -147,7 +147,7 @@
   height: 100%;
 }
 
-.game.no-board {
+.game-tv .game.no-board {
   grid-template-columns: minmax(0, 1fr);
   grid-template-areas:
     'title'
@@ -155,18 +155,18 @@
     'banner';
 }
 
-.game.no-board .game-board {
+.game-tv .game.no-board .game-board {
   display: none;
 }
 
-.game-title {
+.game-tv .game-title {
   grid-area: title;
   font-size: 5vh;
   font-weight: 800;
   color: var(--accent);
 }
 
-.game-board {
+.game-tv .game-board {
   grid-area: board;
   display: flex;
   align-items: center;
@@ -174,14 +174,14 @@
 }
 
 /* Cells fill the board area as much as possible, whatever the grid size. */
-.grid {
+.game-tv .grid {
   --cell: min(calc(68vh / var(--rows)), calc(50vw / var(--cols)));
   display: grid;
   grid-template-columns: repeat(var(--cols), var(--cell));
   grid-template-rows: repeat(var(--rows), var(--cell));
 }
 
-.cell {
+.game-tv .cell {
   position: relative;
   display: flex;
   align-items: center;
@@ -195,7 +195,7 @@
   transition: background-color 0.4s;
 }
 
-.cell-numbers {
+.game-tv .cell-numbers {
   position: absolute;
   top: 2%;
   left: 6%;
@@ -204,25 +204,25 @@
   color: var(--tile-muted);
 }
 
-.cell.tried {
+.game-tv .cell.tried {
   background: var(--tile-tried);
 }
 
-.cell.found {
+.game-tv .cell.found {
   background: var(--accent);
 }
 
-.cell.active {
+.game-tv .cell.active {
   outline: calc(var(--cell) * 0.08) solid var(--active);
   z-index: 1;
 }
 
-.cell.corrected .cell-letter {
+.game-tv .cell.corrected .cell-letter {
   color: var(--corrected);
 }
 
 /* Only opacity and transform: cheap on the Fire Stick. */
-.cell.fresh .cell-letter {
+.game-tv .cell.fresh .cell-letter {
   display: inline-block;
   animation: letter-in 0.4s ease-out both;
 }
@@ -238,65 +238,65 @@
   }
 }
 
-.game-side {
+.game-tv .game-side {
   grid-area: side;
   display: flex;
   flex-direction: column;
   min-height: 0;
 }
 
-.game.no-board .game-side {
+.game-tv .game.no-board .game-side {
   align-items: center;
   justify-content: center;
   text-align: center;
 }
 
-.game-side [hidden] {
+.game-tv .game-side [hidden] {
   display: none;
 }
 
-.card {
+.game-tv .card {
   padding: 2vh 1.5vw;
   border-radius: 1.5vh;
   background: var(--panel);
 }
 
-.game.no-board .card {
+.game-tv .game.no-board .card {
   max-width: 70vw;
 }
 
-.card-heading {
+.game-tv .card-heading {
   font-size: 3.4vh;
   font-weight: 700;
   color: var(--accent);
 }
 
-.card-text {
+.game-tv .card-text {
   margin-top: 1vh;
   font-size: 4.4vh;
   font-weight: 700;
   line-height: 1.2;
 }
 
-.timer {
+.game-tv .timer {
   margin-top: 2vh;
   font-size: 11vh;
   font-weight: 800;
   text-align: center;
 }
 
-.timer.warning {
+.game-tv .timer.warning {
   color: var(--error);
 }
 
-.picks {
+.game-tv .picks {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 1vh;
   margin-top: 2vh;
 }
 
-.pick {
+.game-tv .pick {
   padding: 1.5vh 0;
   border: 0.4vh solid var(--accent);
   border-radius: 1vh;
@@ -305,38 +305,38 @@
   text-align: center;
 }
 
-.pick.picked {
+.game-tv .pick.picked {
   background: var(--accent-dark);
 }
 
-.pick.open {
+.game-tv .pick.open {
   background: var(--tile);
   color: var(--tile-ink);
 }
 
-.lost {
+.game-tv .lost {
   margin-top: 2vh;
   font-size: 3vh;
 }
 
-.lost-label {
+.game-tv .lost-label {
   margin-right: 1vw;
   color: var(--muted);
 }
 
-.lost-letters {
+.game-tv .lost-letters {
   font-weight: 800;
   letter-spacing: 0.4em;
   color: var(--corrected);
 }
 
-.scores {
+.game-tv .scores {
   margin: 2vh 0 0;
   padding: 0;
   list-style: none;
 }
 
-.score-row {
+.game-tv .score-row {
   display: flex;
   align-items: baseline;
   margin-bottom: 1vh;
@@ -346,37 +346,37 @@
   font-size: 4vh;
 }
 
-.score-row.active {
+.game-tv .score-row.active {
   border-left-color: var(--accent);
   background: var(--accent-dark);
 }
 
-.score-row.faded {
+.game-tv .score-row.faded {
   opacity: 0.45;
 }
 
-.score-rank {
+.game-tv .score-rank {
   min-width: 4vw;
   font-weight: 800;
   color: var(--accent);
 }
 
-.score-name {
+.game-tv .score-name {
   font-weight: 700;
 }
 
-.score-points {
+.game-tv .score-points {
   margin-left: auto;
   font-weight: 800;
 }
 
-.score-note {
+.game-tv .score-note {
   margin-left: 1vw;
   font-size: 2.4vh;
   color: var(--muted);
 }
 
-.banner {
+.game-tv .banner {
   grid-area: banner;
   min-height: 7vh;
   padding-top: 1.5vh;
@@ -386,7 +386,7 @@
   color: var(--accent);
 }
 
-.slam-effect {
+.game-tv .slam-effect {
   position: fixed;
   top: 0;
   right: 0;
@@ -402,7 +402,7 @@
   animation: slam-in 2.5s ease-out both;
 }
 
-.slam-effect[hidden] {
+.game-tv .slam-effect[hidden] {
   display: none;
 }
 

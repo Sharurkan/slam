@@ -1,6 +1,20 @@
 import { DEFAULT_TEAM_NAME_PREFIX } from '../game/config';
 import type { GameEvent, RejectionReason } from '../game/events';
 import type { ConnectionStatus } from '../net/connection-status';
+import type { WaitReason } from './controls';
+
+const points = (score: number): string =>
+  score > 1 ? `${String(score)} points` : `${String(score)} point`;
+const euros = (amount: number): string => `${amount.toLocaleString('fr-FR')} €`;
+
+const WAITING: Record<WaitReason, (name: string) => string> = {
+  answering: (name) => `C'est à ${name} de répondre`,
+  choosing: (name) => `${name} choisit un mot`,
+  slamming: (name) => `${name} tente le SLAM !`,
+  finalist: (name) => `${name} joue la finale`,
+  eliminated: () => 'Tu as déjà répondu à cette question',
+  out: () => 'Regarde la TV',
+};
 
 export const PHONE_TEXTS = {
   title: 'Manette',
@@ -14,7 +28,6 @@ export const PHONE_TEXTS = {
   updatePage: 'La TV a une autre version : mets à jour la page.',
   offline: 'Pas de connexion Internet : vérifie le Wi-Fi du téléphone.',
   setupTitle: 'Nouvelle partie',
-  gameTitle: 'Partie en cours',
   chooseMode: 'Comment jouez-vous ?',
   singleMode: 'Un seul téléphone',
   singleModeHint: 'On se passe le téléphone. Pour buzzer, on crie !',
@@ -38,10 +51,61 @@ export const PHONE_TEXTS = {
   needPlayers: (count: number) => `Il faut au moins ${String(count)} joueurs.`,
   masterMustJoin: 'Rejoins la partie pour pouvoir la lancer.',
   masterStarts: 'Le premier téléphone connecté lancera la partie.',
-  newGame: 'Nouvelle partie',
-  abandonGame: 'Abandonner la partie',
-  screenComing: 'Écran de la manette en construction.',
+  testFirstRound: 'Mode test : manche de départ',
+  testGrid: 'Mode test : grille',
+  randomGrid: 'Au hasard',
+  roundChoice: (round: number, isFinal: boolean) =>
+    isFinal ? 'Finale' : `Manche ${String(round)}`,
+  round: (round: number) => `Manche ${String(round)}`,
+  tiebreak: 'Départage',
+  final: 'Finale',
+  ranking: 'Classement final',
   youAre: (name: string) => `Tu es ${name}`,
+  score: (name: string, score: number) => `${name} ${String(score)}`,
+  whoBuzzed: 'Qui a buzzé en premier ?',
+  buzzHint: 'Criez « Buzz ! », puis touchez le joueur le plus rapide',
+  slamBuzzHint: 'Dernière chance : le premier qui buzze fait un SLAM !',
+  buzz: 'BUZZ !',
+  buzzSlam: 'BUZZ et SLAM !',
+  letterFor: (name: string) => `${name} : quelle lettre ?`,
+  validate: 'Valider',
+  cancel: 'Annuler',
+  chooseWordFor: (name: string, letter: string) =>
+    `${name} : choisis un mot avec la lettre ${letter}`,
+  wordButton: (number: number, pattern: string) => `${String(number)} · ${pattern}`,
+  wordHeading: (number: number, length: number) =>
+    `Mot n° ${String(number)} · ${String(length)} lettres`,
+  wordPlaceholder: 'Tape le mot',
+  lettersNeeded: (count: number) => `Il faut ${String(count)} lettres.`,
+  slam: 'SLAM',
+  confirmSlam: 'Remplir toute la grille ? Un seul mot faux et les adversaires gagnent les points.',
+  confirmYes: 'Oui, SLAM !',
+  slamTitle: 'SLAM : remplis tous les mots',
+  slamValidate: 'Valider le SLAM',
+  pickNumbers: (left: number) => `Choisis encore ${String(left)} numéro${left > 1 ? 's' : ''}`,
+  pass: 'Passer',
+  seconds: (value: number) => `${String(value)} s`,
+  waiting: (reason: WaitReason, name: string) => WAITING[reason](name),
+  lookAtTv: 'La grille est sur la TV.',
+  standIn: (name: string) => `Jouer à la place de ${name}`,
+  phoneGone: (name: string) => `Le téléphone de ${name} est déconnecté.`,
+  roundOver: (round: number) => `Fin de la manche ${String(round)}`,
+  nextRound: 'Manche suivante',
+  toFinal: 'Passer à la finale',
+  masterMovesOn: 'Le premier téléphone connecté lance la suite.',
+  rank: (rank: number) => (rank === 1 ? '1er' : `${String(rank)}e`),
+  rankLine: (rank: string, name: string, score: string) => `${rank} ${name} · ${score}`,
+  points,
+  euros,
+  finalResult: (name: string, prize: number) => `${name} gagne ${euros(prize)}`,
+  abandoned: 'Partie abandonnée',
+  newGame: 'Nouvelle partie',
+  nobodyKnows: 'Personne ne sait',
+  revealGrid: 'Corriger la grille',
+  confirmRevealGrid: 'Corriger la grille ? La manche s’arrête et personne ne marque.',
+  abandonGame: 'Abandonner la partie',
+  confirmAbandon: 'Abandonner la partie ? Le classement s’affiche tout de suite.',
+  confirm: 'Confirmer',
   replaced: 'Un autre téléphone a pris la main.',
   takeOver: 'Reprendre la main',
 } as const;
@@ -71,12 +135,12 @@ const REJECTIONS: Record<RejectionReason, string> = {
   wrongPhase: 'Trop tard : action refusée.',
   invalidTeamCount: 'Il faut entre 2 et 4 joueurs.',
   invalidTeam: 'Joueur inconnu.',
-  notPlaying: 'Ce joueur ne joue pas cette manche.',
+  notPlaying: 'Ce joueur ne joue pas en ce moment.',
   teamEliminated: 'Ce joueur a déjà répondu à cette question.',
   invalidLetter: 'Tape une seule lettre.',
   invalidWord: 'Ce mot n’existe pas dans la grille.',
   wordNotPlayable: 'Ce mot ne contient pas la lettre, ou a déjà été tenté.',
-  invalidAnswer: 'Réponse vide ou trop longue.',
+  invalidAnswer: 'Réponse vide, trop longue ou incomplète.',
   invalidNumber: 'Numéro déjà choisi ou inconnu.',
   invalidRound: 'Manche de départ inconnue.',
   unknownGrid: 'Grille inconnue.',
@@ -87,10 +151,44 @@ export interface BannerMessage {
   isError: boolean;
 }
 
-/** Message for the last action, or null when nothing is worth saying. */
-export function messageFor(events: readonly GameEvent[]): BannerMessage | null {
-  for (const event of events) {
-    if (event.type === 'actionRejected') return { text: REJECTIONS[event.reason], isError: true };
+function eventText(event: GameEvent, name: (team: number) => string): string | null {
+  switch (event.type) {
+    case 'buzzed':
+      return `${name(event.team)} a buzzé !`;
+    case 'letterFound':
+      return `Bonne lettre : ${event.letter}`;
+    case 'wrongLetter':
+      return `${event.letter} : raté pour ${name(event.team)}`;
+    case 'letterLost':
+      return `C'était ${event.letter}`;
+    case 'wordFound':
+      return `${name(event.team)} trouve le mot n° ${String(event.word)} : +${points(event.points)}`;
+    case 'wrongWord':
+      return `« ${event.answer} » : raté`;
+    case 'slamWon':
+      return `SLAM réussi : +${points(event.points)} !`;
+    case 'slamFailed':
+      return `SLAM raté : les adversaires gagnent ${points(event.points)}`;
+    case 'tiebreakWon':
+      return `${name(event.team)} remporte le départage`;
+    case 'finalWordFound':
+      return 'Bravo !';
+    case 'finalWrongWord':
+      return `« ${event.answer} » : non`;
+    case 'finalOver':
+      return event.complete ? 'Grille complète !' : 'Temps écoulé !';
+    default:
+      return null;
   }
-  return null;
+}
+
+/** Message for the last action, or null when nothing is worth saying. */
+export function messageFor(
+  events: readonly GameEvent[],
+  name: (team: number) => string,
+): BannerMessage | null {
+  const rejected = events.find((event) => event.type === 'actionRejected');
+  if (rejected !== undefined) return { text: REJECTIONS[rejected.reason], isError: true };
+  const texts = events.map((event) => eventText(event, name)).filter((text) => text !== null);
+  return texts.length === 0 ? null : { text: texts.join(' · '), isError: false };
 }

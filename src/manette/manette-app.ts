@@ -20,9 +20,10 @@ import { createElement } from '../shared/dom';
 import { watchOnline } from '../shared/network';
 import { loadClientId } from '../storage/client-id-store';
 import { clearRoomCode, loadRoomCode, saveRoomCode } from '../storage/room-code-store';
-import { describeScreen } from './controls';
+import { activeTeam, describeScreen, type Screen } from './controls';
 import { readCodeFromUrl, writeCodeToUrl } from './room-url';
-import { renderScreen, type RoomRequest, type SetupDraft } from './screens';
+import { isTestMode } from '../shared/mode';
+import { emptyDraft, renderScreen, type RoomRequest, type SetupDraft } from './screens';
 import { messageFor, PHONE_TEXTS, statusLabel, type BannerMessage } from './texts';
 
 /** If the TV never answers an action, buttons come back after this delay. */
@@ -125,7 +126,63 @@ function showCodeForm(root: HTMLElement): void {
 }
 
 function headerText(view: PublicView): string {
-  return view.phase === 'setup' ? texts.setupTitle : texts.gameTitle;
+  switch (view.phase) {
+    case 'setup':
+      return texts.setupTitle;
+    case 'round':
+      return texts.round(view.round);
+    case 'roundOver':
+      return texts.roundOver(view.round);
+    case 'tiebreak':
+      return texts.tiebreak;
+    case 'final':
+      return texts.final;
+    case 'gameOver':
+      return texts.ranking;
+  }
+}
+
+/** Scores of the players still in the game, for the current round. */
+function scoreStrip(view: PublicView): string {
+  if (view.phase === 'setup' || view.phase === 'gameOver') return '';
+  const playing =
+    view.phase === 'final'
+      ? [view.finalist]
+      : view.phase === 'tiebreak'
+        ? view.contenders
+        : view.players;
+  return playing
+    .map((index) => {
+      const team = view.teams[index];
+      return team === undefined
+        ? ''
+        : texts.score(team.name, team.scores[team.scores.length - 1] ?? 0);
+    })
+    .join(' · ');
+}
+
+/** The view without the time left, so that the screen is not rebuilt every second. */
+function withoutTimer(view: PublicView): PublicView {
+  if (view.phase !== 'final' || view.step.kind !== 'playing') return view;
+  return { ...view, step: { ...view.step, remainingMs: 0 } };
+}
+
+/** Changes whenever the step moves on: what was typed for the previous one is dropped. */
+function stepKey(view: PublicView, screen: Screen): string {
+  const current = withoutTimer(view);
+  const step =
+    current.phase === 'round' || current.phase === 'final'
+      ? current.step
+      : current.phase === 'tiebreak'
+        ? current.buzzer
+        : null;
+  return JSON.stringify({ screen, phase: view.phase, step });
+}
+
+function secondsLeft(view: PublicView): number | null {
+  return view.phase === 'final' && view.step.kind === 'playing'
+    ? Math.ceil(view.step.remainingMs / 1000)
+    : null;
 }
 
 /** With one phone, another phone took over: this one waits until asked to take over again. */
@@ -156,11 +213,23 @@ function showController(root: HTMLElement, code: string): void {
   let pendingTimer: ReturnType<typeof setTimeout> | undefined;
   let renderedKey = '';
   let renderedScreen = '';
-  const setup: SetupDraft = { teamCount: 2, names: [], ownName: '' };
+  let renderedStep = '';
+  /** Player the master plays for, while that phone is disconnected. */
+  let standingIn: number | null = null;
+  let draft = emptyDraft();
+  const setup: SetupDraft = {
+    teamCount: 2,
+    names: [],
+    ownName: '',
+    testMode: isTestMode(window.location.search),
+    firstRound: 1,
+    gridId: '',
+  };
 
   const statusElement = createElement('div', { className: 'connection' });
   const header = createElement('div', { className: 'header' });
   const ownElement = createElement('div', { className: 'own-team' });
+  const scoresElement = createElement('div', { className: 'score-strip' });
   const messageElement = createElement('div', { className: 'message' });
   const body = createElement('div', { className: 'body' });
   const changeButton = createElement('button', {
@@ -191,10 +260,22 @@ function showController(root: HTMLElement, code: string): void {
   }
 
   function renderBody(current: PublicView): void {
-    const screen = describeScreen(current, room);
+    const screen = describeScreen(current, room, standingIn);
+    const step = stepKey(current, screen);
+    if (step !== renderedStep) draft = emptyDraft();
+    renderedStep = step;
     const enabled = status.kind === 'connected' && !pending;
     // Rebuilding the screen would wipe what is being typed: only do it when something changed.
-    const key = JSON.stringify({ screen, enabled, room, current, count: setup.teamCount });
+    const key = JSON.stringify({
+      screen,
+      enabled,
+      room,
+      // Events only feed the message line: a new list alone must not rebuild the screen.
+      view: { ...withoutTimer(current), lastEvents: [] },
+      setup: [setup.teamCount, setup.firstRound],
+      draft: [draft.letter, draft.confirming],
+    });
+    updateTimer(current);
     if (key === renderedKey) return;
     renderedKey = key;
     const screenKey = JSON.stringify(screen);
@@ -211,10 +292,22 @@ function showController(root: HTMLElement, code: string): void {
           sendMessage(roomMessage(request));
         },
         setup,
+        draft,
+        standIn: (team) => {
+          standingIn = team;
+          render();
+        },
         refresh: render,
       }),
       sameScreen,
     );
+    updateTimer(current);
+  }
+
+  function updateTimer(current: PublicView): void {
+    const seconds = secondsLeft(current);
+    const timer = body.querySelector<HTMLElement>('[data-role="timer"]');
+    if (timer !== null && seconds !== null) timer.textContent = texts.seconds(seconds);
   }
 
   function render(): void {
@@ -227,17 +320,22 @@ function showController(root: HTMLElement, code: string): void {
     header.textContent = headerText(view);
     const name = ownName(view, room);
     ownElement.textContent = name === null ? '' : texts.youAre(name);
+    scoresElement.textContent = scoreStrip(view);
     renderBody(view);
   }
 
   function receiveState(next: PublicView, nextRoom: RoomView): void {
     const moved = view === null || next.phase !== view.phase;
+    // Standing in lasts for one turn: it stops when the hand moves on.
+    if (activeTeam(next) !== standingIn) standingIn = null;
     view = next;
     room = nextRoom;
     versionError = false;
     setPending(false);
     if (next.lastEvents.length > 0 || moved) {
-      message = messageFor(next.lastEvents);
+      message = messageFor(next.lastEvents, (team) =>
+        next.phase === 'setup' ? '' : (next.teams[team]?.name ?? ''),
+      );
     }
     render();
   }
@@ -285,6 +383,7 @@ function showController(root: HTMLElement, code: string): void {
       statusElement,
       header,
       ownElement,
+      scoresElement,
       messageElement,
       body,
       ...(remembered

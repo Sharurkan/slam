@@ -52,37 +52,37 @@
   flex: 1;
 }
 
-.screen {
+.controller .screen {
   display: flex;
   flex-direction: column;
 }
 
-.screen > * {
+.controller .screen > * {
   margin-bottom: 12px;
 }
 
-.label {
+.controller .label {
   display: flex;
   flex-direction: column;
   color: var(--muted);
 }
 
-.headline {
+.controller .headline {
   font-size: 22px;
   font-weight: bold;
   line-height: 1.2;
 }
 
-.note {
+.controller .note {
   color: var(--muted);
   font-style: italic;
 }
 
-.note.error {
+.controller .note.error {
   color: var(--error);
 }
 
-.big-button {
+.controller .big-button {
   min-height: 72px;
   border: none;
   border-radius: 14px;
@@ -92,7 +92,7 @@
   font-weight: bold;
 }
 
-.secondary-button {
+.controller .secondary-button {
   min-height: 60px;
   border: 2px solid var(--accent);
   border-radius: 12px;
@@ -102,7 +102,7 @@
   font-weight: bold;
 }
 
-.link-button {
+.controller .link-button {
   align-self: center;
   padding: 8px;
   border: none;
@@ -112,11 +112,11 @@
   text-decoration: underline;
 }
 
-.choices {
+.controller .choices {
   display: flex;
 }
 
-.choice {
+.controller .choice {
   flex: 1;
   min-height: 56px;
   margin-right: 8px;
@@ -128,16 +128,16 @@
   font-weight: bold;
 }
 
-.choice:last-child {
+.controller .choice:last-child {
   margin-right: 0;
 }
 
-.choice.selected {
+.controller .choice.selected {
   background: var(--accent-dark);
 }
 
 /* 20px also avoids the iOS zoom on focus (16px minimum). */
-.text-input {
+.controller .text-input {
   min-height: 56px;
   margin-top: 6px;
   padding: 8px 12px;
@@ -147,33 +147,207 @@
   font-size: 20px;
 }
 
-.code-input {
+.controller .code-input {
   text-transform: uppercase;
   letter-spacing: 0.3em;
 }
 
 /* One phone per player. */
-.own-team {
+.controller .own-team {
   font-weight: bold;
   text-align: center;
 }
 
-.turn-notice {
+.controller .turn-notice {
   color: var(--accent);
   text-align: center;
 }
 
-.seat-list {
+.controller .seat-list {
   margin: 0;
   padding-left: 1.2em;
   line-height: 1.8;
 }
 
-.seat-list .link-button {
+.controller .seat-list .link-button {
   margin-left: 0.6em;
 }
 
-.own-buzz {
+.controller .own-buzz {
   min-height: 40vh;
   font-size: 2.5rem;
+}
+
+.controller .score-strip {
+  margin-top: 4px;
+  font-size: 15px;
+  color: var(--muted);
+  text-align: center;
+}
+
+.controller .select {
+  min-height: 48px;
+  margin-top: 6px;
+  border-radius: 8px;
+  font: inherit;
+}
+
+.controller .note.warning {
+  color: var(--accent);
+  font-style: normal;
+  font-weight: bold;
+}
+
+.controller .card {
+  padding: 12px 14px;
+  border-radius: 12px;
+  background: var(--panel);
+}
+
+.controller .card-heading {
+  font-size: 15px;
+  font-weight: bold;
+  color: var(--accent);
+}
+
+.controller .card-text {
+  margin-top: 4px;
+  font-size: 20px;
+  font-weight: bold;
+  line-height: 1.25;
+}
+
+.controller .danger-button,
+.controller .slam-button {
+  min-height: 64px;
+  border: none;
+  border-radius: 14px;
+  font-size: 22px;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+}
+
+.controller .danger-button {
+  background: var(--error);
+  color: #ffffff;
+}
+
+.controller .slam-button {
+  background: var(--active);
+  color: var(--bg);
+}
+
+/* Letter keys and final numbers: big enough for a thumb. */
+.controller .keyboard {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 8px;
+}
+
+.controller .numbers {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+
+.controller .key {
+  min-height: 54px;
+  border: none;
+  border-radius: 10px;
+  background: var(--tile);
+  color: var(--tile-ink);
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.controller .numbers .key {
+  min-height: 72px;
+  font-size: 30px;
+}
+
+.controller .key.selected {
+  background: var(--accent);
+}
+
+.controller .key.picked,
+.controller .key:disabled {
+  opacity: 0.35;
+}
+
+.controller .word-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.controller .word-button {
+  min-height: 52px;
+  padding: 0 14px;
+  border: 2px solid var(--accent);
+  border-radius: 12px;
+  background: transparent;
+  color: var(--fg);
+  font-size: 20px;
+  font-weight: bold;
+  letter-spacing: 0.1em;
+  text-align: left;
+}
+
+.controller .pattern {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.controller .tile {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 36px;
+  border-radius: 5px;
+  background: var(--tile);
+  color: var(--tile-ink);
+  font-size: 22px;
+  font-weight: 800;
+}
+
+.controller .tile.known {
+  background: var(--accent);
+}
+
+.controller .word-input {
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+}
+
+.controller .slam-row {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--panel);
+}
+
+.controller .timer {
+  font-size: 48px;
+  font-weight: 900;
+  text-align: center;
+  color: var(--accent);
+}
+
+.controller .score-list {
+  margin: 0;
+  padding-left: 1.4em;
+  font-size: 20px;
+  line-height: 1.8;
+}
+
+.controller .master-bar {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 16px;
+  padding-top: 12px;
+  border-top: 1px dashed var(--muted);
 }
