@@ -1,18 +1,19 @@
 :root {
-  --bg: #14122b;
+  /* "Lie de vin" theme: deep wine background, wine panels, gold accent. */
+  --bg: #2b0a17;
   --fg: #ffffff;
-  --muted: #b8b5d6;
-  --ok: #4ade80;
+  --muted: #dcbcc8;
+  --ok: #5be38f;
   --error: #ff6b6b;
-  --accent: #ffc23d;
-  --accent-dark: #6b4a00;
-  --panel: #232046;
-  --tile: #fffdf5;
-  --tile-ink: #14122b;
-  --tile-muted: #6b6880;
-  --tile-tried: #a4a1b8;
-  --active: #3ddbd9;
-  --corrected: #ff5d73;
+  --accent: #f4c96b;
+  --accent-dark: #ac1e44;
+  --panel: #4a1228;
+  --tile: #fff8f1;
+  --tile-ink: #2b0a17;
+  --tile-muted: #7d5867;
+  --tile-tried: #c7a6b3;
+  --active: #6fe0cf;
+  --corrected: #ff8a9b;
   font-family: system-ui, sans-serif;
   color: var(--fg);
   background: var(--bg);
