@@ -5,433 +5,1418 @@ import type { Grid } from '../../game/grid';
 
 export const ROUND_1_GRIDS: readonly Grid[] = [
   /*
-   * D . . . . . . . .
-   * I . . . . . R . .
-   * P . P L A T E A U
-   * L . . . . . N . .
-   * O . . . . L A I T
-   * M O T . M . R . A
-   * E . A L A D D I N
-   * . . X . I . . . T
-   * B A I G N O I R E
+   * . J A V E L O T . .
+   * . . . . S . . . . .
+   * . . . . S . . . H .
+   * . . . . E . . G A Z
+   * P I R A N H A . M .
+   * A . E . C . V . S .
+   * R O Q U E F O R T .
+   * C . U . . . C . E .
+   * . M I N O T A U R E
+   * . . N . . . T . . .
    */
   {
     id: 'm1-01',
-    width: 9,
-    height: 9,
+    width: 10,
+    height: 10,
     words: [
-      { number: 1, row: 0, col: 0, direction: 'down', answer: 'DIPLOME', clue: "Il récompense la réussite d'un examen" },
-      { number: 2, row: 1, col: 6, direction: 'down', answer: 'RENARD', clue: "Animal roux et rusé, voleur de poules" },
-      { number: 3, row: 2, col: 2, direction: 'across', answer: 'PLATEAU', clue: "On l'utilise pour porter la vaisselle" },
-      { number: 4, row: 4, col: 5, direction: 'across', answer: 'LAIT', clue: "Boisson blanche que donne la vache" },
-      { number: 5, row: 4, col: 8, direction: 'down', answer: 'TANTE', clue: "La sœur de papa ou de maman" },
-      { number: 6, row: 5, col: 0, direction: 'across', answer: 'MOT', clue: "Assemblage de lettres qui a un sens" },
-      { number: 7, row: 5, col: 2, direction: 'down', answer: 'TAXI', clue: "Voiture qu'on paie pour se faire conduire" },
-      { number: 8, row: 5, col: 4, direction: 'down', answer: 'MAIN', clue: "Elle a cinq doigts" },
-      { number: 9, row: 6, col: 2, direction: 'across', answer: 'ALADDIN', clue: "Il trouve une lampe magique" },
-      { number: 10, row: 8, col: 0, direction: 'across', answer: 'BAIGNOIRE', clue: "On y prend un bain" },
+      { number: 1, row: 0, col: 1, direction: 'across', answer: 'JAVELOT', clue: "Lancer de pointe, au stade" },
+      { number: 2, row: 0, col: 4, direction: 'down', answer: 'ESSENCE', clue: "Sans plomb, ou d'une chose" },
+      { number: 3, row: 2, col: 8, direction: 'down', answer: 'HAMSTER', clue: "Petit rongeur de cage, aux bajoues pleines" },
+      { number: 4, row: 3, col: 7, direction: 'across', answer: 'GAZ', clue: "Il en faut pour accélérer à fond" },
+      { number: 5, row: 4, col: 0, direction: 'across', answer: 'PIRANHA', clue: "Petit poisson aux dents de rasoir" },
+      { number: 6, row: 4, col: 0, direction: 'down', answer: 'PARC', clue: "Celui d'attractions a des montagnes russes" },
+      { number: 7, row: 4, col: 2, direction: 'down', answer: 'REQUIN', clue: "Ses dents repoussent toute sa vie" },
+      { number: 8, row: 4, col: 6, direction: 'down', answer: 'AVOCAT', clue: "Il plaide, ou il est vert et crémeux" },
+      { number: 9, row: 6, col: 0, direction: 'across', answer: 'ROQUEFORT', clue: "Fromage persillé, affiné en caves" },
+      { number: 10, row: 8, col: 1, direction: 'across', answer: 'MINOTAURE', clue: "Monstre du labyrinthe" },
     ],
   },
   /*
-   * E S P A G N E . .
-   * . . . . . . L . .
-   * . . . C . . F . .
-   * . V A L I S E . .
-   * . I . A . A . . .
-   * . S A V O N . . .
-   * . . . I . D . R .
-   * C I N E M A . O .
-   * . . . R . L Y N X
-   * . . . . . E . D .
+   * . . . . . V . . S . . .
+   * . . . . . E S P A G N E
+   * . V . M . N . . U . . .
+   * C A N A R D . . C . G .
+   * . S . R . R A C I N E .
+   * V E R I T E . . S . N .
+   * . . . N . D . . S . T .
+   * . . . . A I G L E . I .
+   * . . . . . . . . . . L .
    */
   {
     id: 'm1-02',
-    width: 9,
-    height: 10,
+    width: 12,
+    height: 9,
     words: [
-      { number: 1, row: 0, col: 0, direction: 'across', answer: 'ESPAGNE', clue: "Pays du flamenco" },
-      { number: 2, row: 0, col: 6, direction: 'down', answer: 'ELFE', clue: "Petit être magique des forêts" },
-      { number: 3, row: 2, col: 3, direction: 'down', answer: 'CLAVIER', clue: "Ensemble de touches" },
-      { number: 4, row: 3, col: 1, direction: 'across', answer: 'VALISE', clue: "On la remplit avant de partir en voyage" },
-      { number: 5, row: 3, col: 1, direction: 'down', answer: 'VIS', clue: "On la serre avec un tournevis" },
-      { number: 6, row: 3, col: 5, direction: 'down', answer: 'SANDALE', clue: "Chaussure d'été ouverte" },
-      { number: 7, row: 5, col: 1, direction: 'across', answer: 'SAVON', clue: "Il mousse sous la douche" },
-      { number: 8, row: 6, col: 7, direction: 'down', answer: 'ROND', clue: "Comme une roue" },
-      { number: 9, row: 7, col: 0, direction: 'across', answer: 'CINEMA', clue: "On y regarde des films sur grand écran" },
-      { number: 10, row: 8, col: 5, direction: 'across', answer: 'LYNX', clue: "Félin aux oreilles terminées par des pinceaux de poils" },
+      { number: 1, row: 0, col: 5, direction: 'down', answer: 'VENDREDI', clue: "Compagnon de Robinson" },
+      { number: 2, row: 0, col: 8, direction: 'down', answer: 'SAUCISSE', clue: "Celle de Morteau est fumée" },
+      { number: 3, row: 1, col: 5, direction: 'across', answer: 'ESPAGNE', clue: "On y bâtit des châteaux en rêvant" },
+      { number: 4, row: 2, col: 1, direction: 'down', answer: 'VASE', clue: "Goutte d'eau qui le fait déborder" },
+      { number: 5, row: 2, col: 3, direction: 'down', answer: 'MARIN', clue: "Il a le pied … quand il tient sur le pont" },
+      { number: 6, row: 3, col: 0, direction: 'across', answer: 'CANARD', clue: "Fausse note de chanteur, ou journal satirique" },
+      { number: 7, row: 3, col: 10, direction: 'down', answer: 'GENTIL', clue: "Brave et aimable" },
+      { number: 8, row: 4, col: 5, direction: 'across', answer: 'RACINE', clue: "Carrée en mathématiques, ou d'un arbre" },
+      { number: 9, row: 5, col: 0, direction: 'across', answer: 'VERITE', clue: "Elle sort de la bouche des enfants" },
+      { number: 10, row: 7, col: 4, direction: 'across', answer: 'AIGLE', clue: "Rapace à l'œil perçant, emblème des empereurs" },
     ],
   },
   /*
-   * P A N D A . . P . . F
-   * . . O . . P L A I N E
-   * . P I E C E . R . . T
-   * . . S . . I T A L I E
-   * . . E . . G . P . . .
-   * . . T U N N E L . . .
-   * . . T . . E . U . . .
-   * . . E . . . . I . . .
-   * . . . . A C T E U R .
+   * K A Y A K . . . . B .
+   * . . . V . N A R V A L
+   * . . K I W I . A . L .
+   * . . . R . C I D R E .
+   * . . . O . E . E . I .
+   * . L Y N X . . A . N .
+   * . . . . . . J U G E .
    */
   {
     id: 'm1-03',
     width: 11,
-    height: 9,
+    height: 7,
     words: [
-      { number: 1, row: 0, col: 0, direction: 'across', answer: 'PANDA', clue: "Ours noir et blanc qui mange du bambou" },
-      { number: 2, row: 0, col: 2, direction: 'down', answer: 'NOISETTE', clue: "Petit fruit sec que l'écureuil adore" },
-      { number: 3, row: 0, col: 7, direction: 'down', answer: 'PARAPLUIE', clue: "On l'ouvre quand il pleut" },
-      { number: 4, row: 0, col: 10, direction: 'down', answer: 'FETE', clue: "On la célèbre avec des amis" },
-      { number: 5, row: 1, col: 5, direction: 'across', answer: 'PLAINE', clue: "Grande étendue plate" },
-      { number: 6, row: 1, col: 5, direction: 'down', answer: 'PEIGNE', clue: "Pour démêler les cheveux" },
-      { number: 7, row: 2, col: 1, direction: 'across', answer: 'PIECE', clue: "Monnaie ronde en métal, ou salle d'une maison" },
-      { number: 8, row: 3, col: 5, direction: 'across', answer: 'ITALIE', clue: "Pays en forme de botte" },
-      { number: 9, row: 5, col: 2, direction: 'across', answer: 'TUNNEL', clue: "Passage creusé sous la montagne" },
-      { number: 10, row: 8, col: 4, direction: 'across', answer: 'ACTEUR', clue: "Il joue un rôle" },
+      { number: 1, row: 0, col: 0, direction: 'across', answer: 'KAYAK', clue: "Il se retourne en esquimautage" },
+      { number: 2, row: 0, col: 3, direction: 'down', answer: 'AVIRON', clue: "Sport de rameurs" },
+      { number: 3, row: 0, col: 9, direction: 'down', answer: 'BALEINE', clue: "Elle a avalé Geppetto" },
+      { number: 4, row: 1, col: 5, direction: 'across', answer: 'NARVAL', clue: "Licorne des mers" },
+      { number: 5, row: 1, col: 5, direction: 'down', answer: 'NICE', clue: "Ville du carnaval aux batailles de fleurs" },
+      { number: 6, row: 1, col: 7, direction: 'down', answer: 'RADEAU', clue: "Celui de la Méduse est peint par Géricault" },
+      { number: 7, row: 2, col: 2, direction: 'across', answer: 'KIWI', clue: "Fruit poilu, ou oiseau qui ne vole pas" },
+      { number: 8, row: 3, col: 5, direction: 'across', answer: 'CIDRE', clue: "Boisson normande de pommes" },
+      { number: 9, row: 5, col: 1, direction: 'across', answer: 'LYNX', clue: "Ses yeux verraient à travers les murs" },
+      { number: 10, row: 6, col: 6, direction: 'across', answer: 'JUGE', clue: "Il porte la robe au tribunal" },
     ],
   },
   /*
-   * . V E R R E . . . . .
-   * B . C . . C . P A I N
-   * R I R E . H . A . . .
-   * A . I . M E T R E . .
-   * S U R F . L . L . . .
-   * . . E . . L . E . . .
-   * . . . F L E U R . . .
+   * . . . . . . . . V . T . A . M
+   * . . . . . . . . E . I . V . A
+   * . . . . . C H I R U R G I E N
+   * F O U R M I . . N . O . G . G
+   * . . . . . E X P E R I E N C E
+   * . . . . . L . I . . R . O . R
+   * . . . . . . . E . . . . N . .
+   * . . . . G A N D A L F . . . .
    */
   {
     id: 'm1-04',
-    width: 11,
-    height: 7,
+    width: 15,
+    height: 8,
     words: [
-      { number: 1, row: 0, col: 1, direction: 'across', answer: 'VERRE', clue: "On y boit" },
-      { number: 2, row: 0, col: 2, direction: 'down', answer: 'ECRIRE', clue: "Tracer des lettres" },
-      { number: 3, row: 0, col: 5, direction: 'down', answer: 'ECHELLE', clue: "Pour monter sur le toit" },
-      { number: 4, row: 1, col: 0, direction: 'down', answer: 'BRAS', clue: "Membre entre l'épaule et la main" },
-      { number: 5, row: 1, col: 7, direction: 'across', answer: 'PAIN', clue: "On l'achète à la boulangerie" },
-      { number: 6, row: 1, col: 7, direction: 'down', answer: 'PARLER', clue: "Utiliser la parole" },
-      { number: 7, row: 2, col: 0, direction: 'across', answer: 'RIRE', clue: "Le clown nous y pousse" },
-      { number: 8, row: 3, col: 4, direction: 'across', answer: 'METRE', clue: "Unité de longueur" },
-      { number: 9, row: 4, col: 0, direction: 'across', answer: 'SURF', clue: "On glisse sur les vagues avec sa planche" },
-      { number: 10, row: 6, col: 3, direction: 'across', answer: 'FLEUR', clue: "La marguerite en est une" },
+      { number: 1, row: 0, col: 8, direction: 'down', answer: 'VERNE', clue: "Auteur du « Tour du monde en quatre-vingts jours »" },
+      { number: 2, row: 0, col: 10, direction: 'down', answer: 'TIROIR', clue: "Fond de … : ce qu'on retrouve en vidant" },
+      { number: 3, row: 0, col: 12, direction: 'down', answer: 'AVIGNON', clue: "Cité des papes" },
+      { number: 4, row: 0, col: 14, direction: 'down', answer: 'MANGER', clue: "Le faire sur le pouce" },
+      { number: 5, row: 2, col: 5, direction: 'across', answer: 'CHIRURGIEN', clue: "Il opère au bloc" },
+      { number: 6, row: 2, col: 5, direction: 'down', answer: 'CIEL', clue: "Septième, il est le bonheur absolu" },
+      { number: 7, row: 3, col: 0, direction: 'across', answer: 'FOURMI', clue: "Elle n'est pas prêteuse, d'après La Fontaine" },
+      { number: 8, row: 4, col: 5, direction: 'across', answer: 'EXPERIENCE', clue: "On la fait au laboratoire, ou elle vient avec l'âge" },
+      { number: 9, row: 4, col: 7, direction: 'down', answer: 'PIED', clue: "Prendre son … : prendre du plaisir" },
+      { number: 10, row: 7, col: 4, direction: 'across', answer: 'GANDALF', clue: "Magicien gris, puis blanc" },
     ],
   },
   /*
-   * . . T . . . . . .
-   * . S O E U R . . .
-   * . . U . . . D . .
-   * . P R O P R E . .
-   * . H . . I . T . .
-   * B R A C E L E T .
-   * . A . . D . C . .
-   * . S . . . . T . P
-   * . E S C A L I E R
-   * . . . . . . V . I
-   * A R B I T R E . X
+   * . C I N E M A . . . . .
+   * . . . . . O . C O U P E
+   * . . . P A N D A . . . .
+   * . E . O . S . V . . . .
+   * R A C L E T T E . . . .
+   * . U . I . R . . . . . .
+   * . . . C H E V A L . . .
+   * . . . I . . . . . . . .
+   * . . . E . . . . . . . .
+   * V I T R I E R . . . . .
    */
   {
     id: 'm1-05',
-    width: 9,
-    height: 11,
+    width: 12,
+    height: 10,
     words: [
-      { number: 1, row: 0, col: 2, direction: 'down', answer: 'TOUR', clue: "Celle de Pise penche" },
-      { number: 2, row: 1, col: 1, direction: 'across', answer: 'SOEUR', clue: "La fille de mes parents, mais pas moi" },
-      { number: 3, row: 2, col: 6, direction: 'down', answer: 'DETECTIVE', clue: "Il mène l'enquête" },
-      { number: 4, row: 3, col: 1, direction: 'across', answer: 'PROPRE', clue: "Le contraire de sale" },
-      { number: 5, row: 3, col: 1, direction: 'down', answer: 'PHRASE', clue: "Elle commence par une majuscule et finit par un point" },
-      { number: 6, row: 3, col: 4, direction: 'down', answer: 'PIED', clue: "On en a deux, au bout des jambes" },
-      { number: 7, row: 5, col: 0, direction: 'across', answer: 'BRACELET', clue: "Bijou qu'on porte autour du poignet" },
-      { number: 8, row: 7, col: 8, direction: 'down', answer: 'PRIX', clue: "Ce que coûte un objet" },
-      { number: 9, row: 8, col: 1, direction: 'across', answer: 'ESCALIER', clue: "Il permet de monter à l'étage" },
-      { number: 10, row: 10, col: 0, direction: 'across', answer: 'ARBITRE', clue: "Il siffle les fautes" },
+      { number: 1, row: 0, col: 1, direction: 'across', answer: 'CINEMA', clue: "Faire tout un … : faire une scène" },
+      { number: 2, row: 0, col: 5, direction: 'down', answer: 'MONSTRE', clue: "Le Loch Ness en cache un" },
+      { number: 3, row: 1, col: 7, direction: 'across', answer: 'COUPE', clue: "Elle est pleine quand on n'en peut plus" },
+      { number: 4, row: 1, col: 7, direction: 'down', answer: 'CAVE', clue: "Elle a ses bonnes bouteilles" },
+      { number: 5, row: 2, col: 3, direction: 'across', answer: 'PANDA', clue: "Emblème noir et blanc des espèces menacées" },
+      { number: 6, row: 2, col: 3, direction: 'down', answer: 'POLICIER', clue: "Roman à suspense, ou gardien de la paix" },
+      { number: 7, row: 3, col: 1, direction: 'down', answer: 'EAU', clue: "Elle est dans le gaz quand ça va mal" },
+      { number: 8, row: 4, col: 0, direction: 'across', answer: 'RACLETTE', clue: "Fromage fondu qui réclame des pommes de terre" },
+      { number: 9, row: 6, col: 3, direction: 'across', answer: 'CHEVAL', clue: "Celui de bataille revient sans cesse dans la conversation" },
+      { number: 10, row: 9, col: 0, direction: 'across', answer: 'VITRIER', clue: "Il remplace les carreaux" },
     ],
   },
   /*
-   * . . . . . . C .
-   * P A P I L L O N
-   * . . E . . . S .
-   * . . A . A . T .
-   * C O U S C O U S
-   * A . . . R . M .
-   * F . . V O L E R
-   * E . . . B . . .
-   * . . . T A U P E
-   * . . . . T . . T
-   * . . . H E U R E
+   * . . . . . . P A P I L L O N
+   * . . . A . . R . A . . . . .
+   * . . . L . T O I T . . . . .
+   * . . . L . . F . I . . . . .
+   * . . J E U D I . N . . . . .
+   * . F . M . . T . E . . . . .
+   * B I Z A R R E . R . . . . .
+   * . L . G . . R . . . . . . .
+   * . M A N C H O T . . . . . .
+   * . . . E . . L . . . . . . .
+   * . . . . C R E M E . . . . .
    */
   {
     id: 'm1-06',
-    width: 8,
+    width: 14,
     height: 11,
     words: [
-      { number: 1, row: 0, col: 6, direction: 'down', answer: 'COSTUME', clue: "Veste et pantalon assortis" },
-      { number: 2, row: 1, col: 0, direction: 'across', answer: 'PAPILLON', clue: "Insecte aux ailes colorées, ancienne chenille" },
-      { number: 3, row: 1, col: 2, direction: 'down', answer: 'PEAU', clue: "Elle recouvre le corps" },
-      { number: 4, row: 3, col: 4, direction: 'down', answer: 'ACROBATE', clue: "Artiste qui fait des sauts périlleux" },
-      { number: 5, row: 4, col: 0, direction: 'across', answer: 'COUSCOUS', clue: "Plat de semoule d'Afrique du Nord" },
-      { number: 6, row: 4, col: 0, direction: 'down', answer: 'CAFE', clue: "Boisson noire du matin" },
-      { number: 7, row: 6, col: 3, direction: 'across', answer: 'VOLER', clue: "Ce que fait l'oiseau dans le ciel" },
-      { number: 8, row: 8, col: 3, direction: 'across', answer: 'TAUPE', clue: "Elle creuse des galeries sous la pelouse" },
-      { number: 9, row: 8, col: 7, direction: 'down', answer: 'ETE', clue: "Saison des grandes vacances" },
-      { number: 10, row: 10, col: 3, direction: 'across', answer: 'HEURE', clue: "Soixante minutes" },
+      { number: 1, row: 0, col: 6, direction: 'across', answer: 'PAPILLON', clue: "Nage olympique, ou nœud qu'on porte au cou" },
+      { number: 2, row: 0, col: 6, direction: 'down', answer: 'PROFITEROLE', clue: "Petit chou nappé de chocolat chaud" },
+      { number: 3, row: 0, col: 8, direction: 'down', answer: 'PATINER', clue: "Ne plus avancer, ou glisser sur la glace" },
+      { number: 4, row: 1, col: 3, direction: 'down', answer: 'ALLEMAGNE', clue: "Pays de la bière et de la Forêt-Noire" },
+      { number: 5, row: 2, col: 5, direction: 'across', answer: 'TOIT', clue: "On le crie sur tous ceux de la ville" },
+      { number: 6, row: 4, col: 2, direction: 'across', answer: 'JEUDI', clue: "La semaine des quatre n'existe pas" },
+      { number: 7, row: 5, col: 1, direction: 'down', answer: 'FILM', clue: "Pellicule, ou fine couche" },
+      { number: 8, row: 6, col: 0, direction: 'across', answer: 'BIZARRE', clue: "Vous avez dit … ?" },
+      { number: 9, row: 8, col: 1, direction: 'across', answer: 'MANCHOT', clue: "Il ne vole pas, et n'a pas de mains non plus" },
+      { number: 10, row: 10, col: 4, direction: 'across', answer: 'CREME', clue: "La … de la … : le meilleur du meilleur" },
     ],
   },
   /*
-   * . . . . . . . . S . . . . .
-   * . . . . V A M P I R E . . .
-   * . . . . I . O . R . S . G .
-   * . . . . L . I . O . S . U .
-   * . . . . L . N . P O E M E .
-   * . K A R A T E . . . N . P .
-   * . . . . G . A . M I C K E Y
-   * M A R T E A U . . . E . . .
+   * . S E I N E . . . . .
+   * . A . . . S U R F . .
+   * . N . . . C . I . . .
+   * . D . . H A D D O C K
+   * P A P I . L . E . H .
+   * . L . . V O Y A G E R
+   * . E . . . P . U . F .
+   * . . M A R E . . . . .
    */
   {
     id: 'm1-07',
-    width: 14,
+    width: 11,
     height: 8,
     words: [
-      { number: 1, row: 0, col: 8, direction: 'down', answer: 'SIROP', clue: "On le mélange à l'eau pour lui donner du goût" },
-      { number: 2, row: 1, col: 4, direction: 'across', answer: 'VAMPIRE', clue: "Il dort dans un cercueil et craint l'ail" },
-      { number: 3, row: 1, col: 4, direction: 'down', answer: 'VILLAGE', clue: "Petite commune à la campagne" },
-      { number: 4, row: 1, col: 6, direction: 'down', answer: 'MOINEAU', clue: "Petit oiseau brun très commun" },
-      { number: 5, row: 1, col: 10, direction: 'down', answer: 'ESSENCE', clue: "Carburant de la voiture" },
-      { number: 6, row: 2, col: 12, direction: 'down', answer: 'GUEPE', clue: "Insecte jaune et noir qui pique" },
-      { number: 7, row: 4, col: 8, direction: 'across', answer: 'POEME', clue: "Texte en vers" },
-      { number: 8, row: 5, col: 1, direction: 'across', answer: 'KARATE', clue: "Art martial japonais où l'on frappe avec les mains et les pieds" },
-      { number: 9, row: 6, col: 8, direction: 'across', answer: 'MICKEY', clue: "Célèbre souris de Walt Disney" },
-      { number: 10, row: 7, col: 0, direction: 'across', answer: 'MARTEAU', clue: "Outil pour planter des clous" },
+      { number: 1, row: 0, col: 1, direction: 'across', answer: 'SEINE', clue: "Elle passe sous le pont Mirabeau" },
+      { number: 2, row: 0, col: 1, direction: 'down', answer: 'SANDALE', clue: "Chaussure d'été ouverte" },
+      { number: 3, row: 0, col: 5, direction: 'down', answer: 'ESCALOPE', clue: "Fine tranche de veau panée à Milan" },
+      { number: 4, row: 1, col: 5, direction: 'across', answer: 'SURF', clue: "On le fait sur les vagues ou sur Internet" },
+      { number: 5, row: 1, col: 7, direction: 'down', answer: 'RIDEAU', clue: "Il tombe à la fin de la pièce" },
+      { number: 6, row: 3, col: 4, direction: 'across', answer: 'HADDOCK', clue: "Capitaine qui jure « Mille sabords ! »" },
+      { number: 7, row: 3, col: 9, direction: 'down', answer: 'CHEF', clue: "Petit, il commande à la maison" },
+      { number: 8, row: 4, col: 0, direction: 'across', answer: 'PAPI', clue: "Il raconte comment c'était avant" },
+      { number: 9, row: 5, col: 4, direction: 'across', answer: 'VOYAGER', clue: "Partir sac au dos" },
+      { number: 10, row: 7, col: 2, direction: 'across', answer: 'MARE', clue: "Aux canards, elle est au village" },
     ],
   },
   /*
-   * B . . . S U C R E . . .
-   * A . O . A . . . G . . M
-   * L A N G U E . . L . . A
-   * A . C . M . . H I V E R
-   * I G L O O . . . S . . O
-   * . . E . N A P P E . . C
+   * . . . . L . . . S . . . .
+   * . . . P I N G O U I N . .
+   * . . . . B . . . M . O . .
+   * . . . . R A V I O L I . D
+   * . . . . A . . D . . S . E
+   * . . . V I O L E T T E . S
+   * . . . . R . . F . . T . E
+   * T A S S E . . I . . T . R
+   * . . . . . . . X . C E N T
    */
   {
     id: 'm1-08',
-    width: 12,
-    height: 6,
+    width: 13,
+    height: 9,
     words: [
-      { number: 1, row: 0, col: 0, direction: 'down', answer: 'BALAI', clue: "On s'en sert pour nettoyer le sol" },
-      { number: 2, row: 0, col: 4, direction: 'across', answer: 'SUCRE', clue: "Il rend le café plus doux" },
-      { number: 3, row: 0, col: 4, direction: 'down', answer: 'SAUMON', clue: "Poisson qui remonte les rivières" },
-      { number: 4, row: 0, col: 8, direction: 'down', answer: 'EGLISE', clue: "Bâtiment avec un clocher" },
-      { number: 5, row: 1, col: 2, direction: 'down', answer: 'ONCLE', clue: "Le frère de papa ou de maman" },
-      { number: 6, row: 1, col: 11, direction: 'down', answer: 'MAROC', clue: "Pays d'Afrique du Nord dont la capitale est Rabat" },
-      { number: 7, row: 2, col: 0, direction: 'across', answer: 'LANGUE', clue: "Organe du goût, aussi le français ou l'anglais" },
-      { number: 8, row: 3, col: 7, direction: 'across', answer: 'HIVER', clue: "Saison la plus froide" },
-      { number: 9, row: 4, col: 0, direction: 'across', answer: 'IGLOO', clue: "Maison de glace des Inuits" },
-      { number: 10, row: 5, col: 4, direction: 'across', answer: 'NAPPE', clue: "Elle couvre la table" },
+      { number: 1, row: 0, col: 4, direction: 'down', answer: 'LIBRAIRE', clue: "Il vend des livres" },
+      { number: 2, row: 0, col: 8, direction: 'down', answer: 'SUMO', clue: "Lutteur japonais très lourd" },
+      { number: 3, row: 1, col: 3, direction: 'across', answer: 'PINGOUIN', clue: "On le confond souvent avec le manchot" },
+      { number: 4, row: 1, col: 10, direction: 'down', answer: 'NOISETTE', clue: "Couleur d'yeux, ou café avec un nuage de crème" },
+      { number: 5, row: 3, col: 4, direction: 'across', answer: 'RAVIOLI', clue: "Petits carrés de pâte farcis" },
+      { number: 6, row: 3, col: 7, direction: 'down', answer: 'IDEFIX', clue: "Petit chien d'Obélix" },
+      { number: 7, row: 3, col: 12, direction: 'down', answer: 'DESERT', clue: "Prêcher dans celui-là : parler sans être écouté" },
+      { number: 8, row: 5, col: 3, direction: 'across', answer: 'VIOLETTE', clue: "Timide, elle se cache sous les feuilles" },
+      { number: 9, row: 7, col: 0, direction: 'across', answer: 'TASSE', clue: "Boire la … : avaler de l'eau en nageant" },
+      { number: 10, row: 8, col: 9, direction: 'across', answer: 'CENT', clue: "Être aux … coups : très inquiet" },
     ],
   },
   /*
-   * . . . . . . L . . .
-   * . . . . . J E U . D
-   * . . . . . . N . . A
-   * . . . . P O T I O N
-   * C A C A O . . N . S
-   * . . A . C O U D R E
-   * . . R . H . . E . R
-   * . G A R E . . . . .
-   * . . M . . . . . . .
-   * . . E . . . . . . .
-   * . . L . . . . . . .
+   * . . S . . . . . B . L . . . .
+   * . . U . . . B E L G I Q U E .
+   * . . P . . . . . A . R . . . .
+   * . . E . . . P . I C E B E R G
+   * . . R O N F L E R . . . . I .
+   * . . M . . . A . E . . . . N .
+   * . . A . . . C H A U F F A G E
+   * H O N G R I E . U . . . . . .
    */
   {
     id: 'm1-09',
-    width: 10,
-    height: 11,
+    width: 15,
+    height: 8,
     words: [
-      { number: 1, row: 0, col: 6, direction: 'down', answer: 'LENT', clue: "Comme la tortue" },
-      { number: 2, row: 1, col: 5, direction: 'across', answer: 'JEU', clue: "On y joue pour s'amuser" },
-      { number: 3, row: 1, col: 9, direction: 'down', answer: 'DANSER', clue: "Bouger en rythme" },
-      { number: 4, row: 3, col: 4, direction: 'across', answer: 'POTION', clue: "Breuvage magique" },
-      { number: 5, row: 3, col: 4, direction: 'down', answer: 'POCHE', clue: "On y met ses mains ou ses clés" },
-      { number: 6, row: 3, col: 7, direction: 'down', answer: 'INDE', clue: "Pays du Taj Mahal" },
-      { number: 7, row: 4, col: 0, direction: 'across', answer: 'CACAO', clue: "La graine qui donne le chocolat" },
-      { number: 8, row: 4, col: 2, direction: 'down', answer: 'CARAMEL', clue: "Sucre fondu et doré" },
-      { number: 9, row: 5, col: 4, direction: 'across', answer: 'COUDRE', clue: "Assembler avec du fil et une aiguille" },
-      { number: 10, row: 7, col: 1, direction: 'across', answer: 'GARE', clue: "On y prend le train" },
+      { number: 1, row: 0, col: 2, direction: 'down', answer: 'SUPERMAN', clue: "Il change de tenue dans une cabine" },
+      { number: 2, row: 0, col: 8, direction: 'down', answer: 'BLAIREAU', clue: "Pinceau du rasage, ou personne pas très fine" },
+      { number: 3, row: 0, col: 10, direction: 'down', answer: 'LIRE', clue: "Le faire entre les lignes" },
+      { number: 4, row: 1, col: 6, direction: 'across', answer: 'BELGIQUE', clue: "Plat pays chanté par Brel" },
+      { number: 5, row: 3, col: 6, direction: 'down', answer: 'PLACE', clue: "On la cherche pour se garer" },
+      { number: 6, row: 3, col: 8, direction: 'across', answer: 'ICEBERG', clue: "La partie cachée est la plus grande" },
+      { number: 7, row: 3, col: 13, direction: 'down', answer: 'RING', clue: "Carré où l'on boxe" },
+      { number: 8, row: 4, col: 2, direction: 'across', answer: 'RONFLER', clue: "Faire du bruit en dormant" },
+      { number: 9, row: 6, col: 6, direction: 'across', answer: 'CHAUFFAGE', clue: "Central ou au sol, il réchauffe" },
+      { number: 10, row: 7, col: 0, direction: 'across', answer: 'HONGRIE', clue: "Pays du goulasch" },
     ],
   },
   /*
-   * . . . . . . . . . . L . .
-   * . . . . C A C A H U E T E
-   * . . . . H . A . . . T . .
-   * . . . . A . R . . . T . .
-   * . M E R L I N . . . R . .
-   * . O . . E . A I G L E . .
-   * O U E S T . V . . . . . .
-   * . T . C . . A . . . . . .
-   * H O P I T A L . . . . . .
-   * . N . E . . . . . . . . .
+   * . . . T A T O U
+   * . . . . . . . S
+   * . . T . . D . I
+   * C H A M P I O N
+   * Y . L . . X . E
+   * M . O . T . . .
+   * B A N Q U E . .
+   * A . . . N . . .
+   * L A M A N T I N
+   * E . . . E . . .
+   * . M E R L E . .
    */
   {
     id: 'm1-10',
-    width: 13,
-    height: 10,
+    width: 8,
+    height: 11,
     words: [
-      { number: 1, row: 0, col: 10, direction: 'down', answer: 'LETTRE', clue: "Le A en est une" },
-      { number: 2, row: 1, col: 4, direction: 'across', answer: 'CACAHUETE', clue: "Graine grillée qu'on grignote à l'apéritif" },
-      { number: 3, row: 1, col: 4, direction: 'down', answer: 'CHALET', clue: "Maison de bois à la montagne" },
-      { number: 4, row: 1, col: 6, direction: 'down', answer: 'CARNAVAL', clue: "Fête où l'on se déguise" },
-      { number: 5, row: 4, col: 1, direction: 'across', answer: 'MERLIN', clue: "Enchanteur de la légende du roi Arthur" },
-      { number: 6, row: 4, col: 1, direction: 'down', answer: 'MOUTON', clue: "Il donne de la laine" },
-      { number: 7, row: 5, col: 6, direction: 'across', answer: 'AIGLE', clue: "Grand rapace des montagnes" },
-      { number: 8, row: 6, col: 0, direction: 'across', answer: 'OUEST', clue: "Point cardinal où le soleil se couche" },
-      { number: 9, row: 6, col: 3, direction: 'down', answer: 'SCIE', clue: "Outil pour couper le bois" },
-      { number: 10, row: 8, col: 0, direction: 'across', answer: 'HOPITAL', clue: "On y soigne les malades" },
+      { number: 1, row: 0, col: 3, direction: 'across', answer: 'TATOU', clue: "Il porte une armure et se roule en boule" },
+      { number: 2, row: 0, col: 7, direction: 'down', answer: 'USINE', clue: "Ruche industrielle" },
+      { number: 3, row: 2, col: 2, direction: 'down', answer: 'TALON', clue: "Celui d'Achille est son point faible" },
+      { number: 4, row: 2, col: 5, direction: 'down', answer: 'DIX', clue: "Sur …, c'est parfait" },
+      { number: 5, row: 3, col: 0, direction: 'across', answer: 'CHAMPION', clue: "Celui du monde est au-dessus de tous" },
+      { number: 6, row: 3, col: 0, direction: 'down', answer: 'CYMBALE', clue: "Elle s'entrechoque avec sa jumelle" },
+      { number: 7, row: 5, col: 4, direction: 'down', answer: 'TUNNEL', clue: "Celui sous la Manche relie la France à l'Angleterre" },
+      { number: 8, row: 6, col: 0, direction: 'across', answer: 'BANQUE', clue: "Celle de données est sur ordinateur" },
+      { number: 9, row: 8, col: 0, direction: 'across', answer: 'LAMANTIN', clue: "On l'a pris pour une sirène" },
+      { number: 10, row: 10, col: 1, direction: 'across', answer: 'MERLE', clue: "Quand il est blanc, il est introuvable" },
     ],
   },
   /*
-   * . . J . . . V .
-   * . N O U V E A U
-   * . . U . . . S .
-   * K A R A O K E .
-   * . F . . . . . .
-   * C R I E R . F .
-   * . I . . . . R .
-   * . Q U I C H E .
-   * . U . D . . R .
-   * R E C E T T E .
-   * . . . E . . . .
+   * . . . . . . A . . . .
+   * . S . . H O T E L . P
+   * C A R P E . O . I . A
+   * . L . . R . L . L . Y
+   * . S . . C . L I L A S
+   * P A R F U M . . E . A
+   * . . . . L . . . . . G
+   * . V O L E R . . . . E
    */
   {
     id: 'm1-11',
-    width: 8,
-    height: 11,
+    width: 11,
+    height: 8,
     words: [
-      { number: 1, row: 0, col: 2, direction: 'down', answer: 'JOUR', clue: "Il dure 24 heures" },
-      { number: 2, row: 0, col: 6, direction: 'down', answer: 'VASE', clue: "On y met des fleurs" },
-      { number: 3, row: 1, col: 1, direction: 'across', answer: 'NOUVEAU', clue: "Qui vient d'arriver" },
-      { number: 4, row: 3, col: 0, direction: 'across', answer: 'KARAOKE', clue: "On y chante sur une musique, en lisant les paroles" },
-      { number: 5, row: 3, col: 1, direction: 'down', answer: 'AFRIQUE', clue: "Continent du Sahara" },
-      { number: 6, row: 5, col: 0, direction: 'across', answer: 'CRIER', clue: "Parler très fort" },
-      { number: 7, row: 5, col: 6, direction: 'down', answer: 'FRERE', clue: "Le fils de mes parents, mais pas moi" },
-      { number: 8, row: 7, col: 1, direction: 'across', answer: 'QUICHE', clue: "Tarte salée lorraine" },
-      { number: 9, row: 7, col: 3, direction: 'down', answer: 'IDEE', clue: "Elle nous vient en tête" },
-      { number: 10, row: 9, col: 0, direction: 'across', answer: 'RECETTE', clue: "Instructions pour préparer un plat" },
+      { number: 1, row: 0, col: 6, direction: 'down', answer: 'ATOLL', clue: "Anneau de corail" },
+      { number: 2, row: 1, col: 1, direction: 'down', answer: 'SALSA', clue: "Danse cubaine, ou sauce piquante" },
+      { number: 3, row: 1, col: 4, direction: 'across', answer: 'HOTEL', clue: "Particulier, il est un grand bâtiment privé" },
+      { number: 4, row: 1, col: 4, direction: 'down', answer: 'HERCULE', clue: "Il accomplit douze travaux" },
+      { number: 5, row: 1, col: 8, direction: 'down', answer: 'LILLE', clue: "Capitale des Flandres françaises" },
+      { number: 6, row: 1, col: 10, direction: 'down', answer: 'PAYSAGE', clue: "On le contemple par la fenêtre du train" },
+      { number: 7, row: 2, col: 0, direction: 'across', answer: 'CARPE', clue: "Muette comme elle" },
+      { number: 8, row: 4, col: 6, direction: 'across', answer: 'LILAS', clue: "Couleur mauve, ou arbuste de mai" },
+      { number: 9, row: 5, col: 0, direction: 'across', answer: 'PARFUM', clue: "Être au … : être informé" },
+      { number: 10, row: 7, col: 1, direction: 'across', answer: 'VOLER', clue: "Prendre ce qui n'est pas à soi, ou planer" },
     ],
   },
   /*
-   * O C T O B R E .
-   * . . . . E . . .
-   * . . G . B . . M
-   * . F I L E T . A
-   * . . R . . H . I
-   * C H A N T E U R
-   * . . F . E . . I
-   * . P E I N D R E
-   * . . . . T . . .
-   * . . . J E U D I
+   * V E R S A I L L E S . .
+   * . . . E . . . . . O . J
+   * . V . C A R A M E L . A
+   * . A . R . O . . . F . M
+   * . D . E . M O M I E . B
+   * L O U T R E . . . G . O
+   * . R . . . . . F R E I N
    */
   {
     id: 'm1-12',
-    width: 8,
-    height: 10,
+    width: 12,
+    height: 7,
     words: [
-      { number: 1, row: 0, col: 0, direction: 'across', answer: 'OCTOBRE', clue: "Dixième mois de l'année" },
-      { number: 2, row: 0, col: 4, direction: 'down', answer: 'BEBE', clue: "Tout petit enfant" },
-      { number: 3, row: 2, col: 2, direction: 'down', answer: 'GIRAFE', clue: "L'animal au plus long cou" },
-      { number: 4, row: 2, col: 7, direction: 'down', answer: 'MAIRIE', clue: "Bâtiment où l'on se marie" },
-      { number: 5, row: 3, col: 1, direction: 'across', answer: 'FILET', clue: "Celui du tennis sépare les deux camps" },
-      { number: 6, row: 3, col: 5, direction: 'down', answer: 'THE', clue: "Boisson chaude venue d'Asie" },
-      { number: 7, row: 5, col: 0, direction: 'across', answer: 'CHANTEUR', clue: "Il chante sur scène" },
-      { number: 8, row: 5, col: 4, direction: 'down', answer: 'TENTE', clue: "On y dort en camping" },
-      { number: 9, row: 7, col: 1, direction: 'across', answer: 'PEINDRE', clue: "Mettre de la couleur au pinceau" },
-      { number: 10, row: 9, col: 3, direction: 'across', answer: 'JEUDI', clue: "Jour entre mercredi et vendredi" },
+      { number: 1, row: 0, col: 0, direction: 'across', answer: 'VERSAILLES', clue: "Galerie des Glaces" },
+      { number: 2, row: 0, col: 3, direction: 'down', answer: 'SECRET', clue: "De Polichinelle, tout le monde le connaît" },
+      { number: 3, row: 0, col: 9, direction: 'down', answer: 'SOLFEGE', clue: "Do, ré, mi, fa, sol…" },
+      { number: 4, row: 1, col: 11, direction: 'down', answer: 'JAMBON', clue: "Cru ou cuit, de Bayonne ou de Paris" },
+      { number: 5, row: 2, col: 1, direction: 'down', answer: 'VADOR', clue: "« Je suis ton père », dit-il" },
+      { number: 6, row: 2, col: 3, direction: 'across', answer: 'CARAMEL', clue: "Mou ou au beurre salé" },
+      { number: 7, row: 2, col: 5, direction: 'down', answer: 'ROME', clue: "Tous les chemins y mènent" },
+      { number: 8, row: 4, col: 5, direction: 'across', answer: 'MOMIE', clue: "Elle est enveloppée de bandelettes" },
+      { number: 9, row: 5, col: 0, direction: 'across', answer: 'LOUTRE', clue: "Elle casse des coquillages sur son ventre en flottant" },
+      { number: 10, row: 6, col: 7, direction: 'across', answer: 'FREIN', clue: "On le ronge en attendant" },
     ],
   },
   /*
-   * . . . . . . P . F .
-   * . . . . P . L I O N
-   * . C H A I S E . N .
-   * . A . . L . U . D .
-   * . M O T E U R . U .
-   * . P . . . . E . E .
-   * H I S T O I R E . .
-   * . N . . N . . . . .
-   * . G . . Z . . . . .
-   * . . V I E U X . . .
+   * . . . . . A . . . . . .
+   * . . . . . V . C . . . .
+   * G O U V E R N A I L . .
+   * U . . O . I . L . . . .
+   * E . . I . L U C I O L E
+   * P . . L . . . U . . . .
+   * E . M I R A C L E . . .
+   * . . . E . N . E . . . .
+   * . . . R E N A R D . . .
+   * . . . . . E . . . . . .
+   * . P O U C E T . . . . .
    */
   {
     id: 'm1-13',
-    width: 10,
-    height: 10,
+    width: 12,
+    height: 11,
     words: [
-      { number: 1, row: 0, col: 6, direction: 'down', answer: 'PLEURER', clue: "Verser des larmes" },
-      { number: 2, row: 0, col: 8, direction: 'down', answer: 'FONDUE', clue: "Plat savoyard où l'on trempe du pain" },
-      { number: 3, row: 1, col: 4, direction: 'down', answer: 'PILE', clue: "Elle fait marcher les jouets" },
-      { number: 4, row: 1, col: 6, direction: 'across', answer: 'LION', clue: "Le roi des animaux" },
-      { number: 5, row: 2, col: 1, direction: 'across', answer: 'CHAISE', clue: "Siège à dossier" },
-      { number: 6, row: 2, col: 1, direction: 'down', answer: 'CAMPING', clue: "Vacances sous la tente" },
-      { number: 7, row: 4, col: 1, direction: 'across', answer: 'MOTEUR', clue: "Il fait avancer la voiture" },
-      { number: 8, row: 6, col: 0, direction: 'across', answer: 'HISTOIRE', clue: "Matière qui étudie le passé" },
-      { number: 9, row: 6, col: 4, direction: 'down', answer: 'ONZE', clue: "Dix plus un" },
-      { number: 10, row: 9, col: 2, direction: 'across', answer: 'VIEUX', clue: "Le contraire de jeune" },
+      { number: 1, row: 0, col: 5, direction: 'down', answer: 'AVRIL', clue: "On ne se découvre pas d'un fil en ce mois-là" },
+      { number: 2, row: 1, col: 7, direction: 'down', answer: 'CALCULER', clue: "Le faire de tête" },
+      { number: 3, row: 2, col: 0, direction: 'across', answer: 'GOUVERNAIL', clue: "On le tient quand on dirige" },
+      { number: 4, row: 2, col: 0, direction: 'down', answer: 'GUEPE', clue: "Taille fine et aiguillon prêt à servir" },
+      { number: 5, row: 2, col: 3, direction: 'down', answer: 'VOILIER', clue: "Il avance grâce au vent" },
+      { number: 6, row: 4, col: 5, direction: 'across', answer: 'LUCIOLE', clue: "Ver luisant" },
+      { number: 7, row: 6, col: 2, direction: 'across', answer: 'MIRACLE', clue: "Cour des …" },
+      { number: 8, row: 6, col: 5, direction: 'down', answer: 'ANNEE', clue: "Bissextile, elle a un jour de plus" },
+      { number: 9, row: 8, col: 3, direction: 'across', answer: 'RENARD', clue: "Il flatta le corbeau pour lui voler son fromage" },
+      { number: 10, row: 10, col: 1, direction: 'across', answer: 'POUCET', clue: "Le petit, qui sème des cailloux" },
     ],
   },
   /*
-   * . C . . . . . .
-   * D A N S E . . .
-   * . N . A . T . .
-   * M A R C H E . .
-   * . D . . . L . S
-   * R A C I N E . E
-   * O . E . . P . R
-   * B . R O C H E R
-   * O . F . . O . U
-   * T . . . . N . R
-   * . . . . . E . E
+   * . T A P I S . . . V . C
+   * . U . A . . . J . I . A
+   * . R . S U P P O R T E R
+   * . Q . T . . . U . E . N
+   * . U . E . . S E I S M E
+   * M I N U T E . . . S . T
+   * . E . R . . H I V E R .
    */
   {
     id: 'm1-14',
-    width: 8,
-    height: 11,
+    width: 12,
+    height: 7,
     words: [
-      { number: 1, row: 0, col: 1, direction: 'down', answer: 'CANADA', clue: "Grand pays où l'on parle français et anglais" },
-      { number: 2, row: 1, col: 0, direction: 'across', answer: 'DANSE', clue: "La valse en est une" },
-      { number: 3, row: 1, col: 3, direction: 'down', answer: 'SAC', clue: "On le porte à l'épaule" },
-      { number: 4, row: 2, col: 5, direction: 'down', answer: 'TELEPHONE', clue: "On l'utilise pour appeler" },
-      { number: 5, row: 3, col: 0, direction: 'across', answer: 'MARCHE', clue: "On y achète des fruits et des légumes" },
-      { number: 6, row: 4, col: 7, direction: 'down', answer: 'SERRURE', clue: "On y met la clé" },
-      { number: 7, row: 5, col: 0, direction: 'across', answer: 'RACINE', clue: "Partie de la plante sous la terre" },
-      { number: 8, row: 5, col: 0, direction: 'down', answer: 'ROBOT', clue: "Machine qui imite l'homme" },
-      { number: 9, row: 5, col: 2, direction: 'down', answer: 'CERF', clue: "Animal de la forêt qui porte des bois" },
-      { number: 10, row: 7, col: 2, direction: 'across', answer: 'ROCHER', clue: "Grosse pierre" },
+      { number: 1, row: 0, col: 1, direction: 'across', answer: 'TAPIS', clue: "On y envoie l'adversaire au judo" },
+      { number: 2, row: 0, col: 1, direction: 'down', answer: 'TURQUIE', clue: "Pays d'Istanbul" },
+      { number: 3, row: 0, col: 3, direction: 'down', answer: 'PASTEUR', clue: "Il inventa le vaccin contre la rage" },
+      { number: 4, row: 0, col: 9, direction: 'down', answer: 'VITESSE', clue: "Excès de …" },
+      { number: 5, row: 0, col: 11, direction: 'down', answer: 'CARNET', clue: "De notes, de santé ou d'adresses" },
+      { number: 6, row: 1, col: 7, direction: 'down', answer: 'JOUE', clue: "On tend l'autre" },
+      { number: 7, row: 2, col: 3, direction: 'across', answer: 'SUPPORTER', clue: "Il encourage son club, ou il endure" },
+      { number: 8, row: 4, col: 6, direction: 'across', answer: 'SEISME', clue: "Tremblement de terre" },
+      { number: 9, row: 5, col: 0, direction: 'across', answer: 'MINUTE', clue: "Petite unité, ou « Attendez ! »" },
+      { number: 10, row: 6, col: 6, direction: 'across', answer: 'HIVER', clue: "La cigale n'avait rien prévu pour lui" },
     ],
   },
   /*
-   * . . C H A M B R E
-   * . . A . M . A . L
-   * P . S C I E N C E
-   * O . Q . . . Q . C
-   * R . U . S . U . T
-   * T H E A T R E . R
-   * U . . . A . . . I
-   * G . . . T . . . C
-   * A . . . U . . . I
-   * L E V R E . . . E
-   * . . . . . . . . N
+   * B I J O U T I E R . . . S .
+   * . . . . . O . . . B . . O .
+   * . . . . C R A T E R E . R .
+   * . . D . . R . E . E . . C .
+   * B O U R G E O N . S . . I .
+   * . . N . . N . T R I C H E R
+   * . B E L E T T E . L . . R .
    */
   {
     id: 'm1-15',
+    width: 14,
+    height: 7,
+    words: [
+      { number: 1, row: 0, col: 0, direction: 'across', answer: 'BIJOUTIER', clue: "Il vend des bagues" },
+      { number: 2, row: 0, col: 5, direction: 'down', answer: 'TORRENT', clue: "Cours d'eau impétueux de montagne" },
+      { number: 3, row: 0, col: 12, direction: 'down', answer: 'SORCIER', clue: "Apprenti, il fait des bêtises" },
+      { number: 4, row: 1, col: 9, direction: 'down', answer: 'BRESIL', clue: "Pays de la samba" },
+      { number: 5, row: 2, col: 4, direction: 'across', answer: 'CRATERE', clue: "Bouche du volcan" },
+      { number: 6, row: 2, col: 7, direction: 'down', answer: 'TENTE', clue: "Canadienne ou igloo, elle se plante" },
+      { number: 7, row: 3, col: 2, direction: 'down', answer: 'DUNE', clue: "Celle du Pilat est la plus haute d'Europe" },
+      { number: 8, row: 4, col: 0, direction: 'across', answer: 'BOURGEON', clue: "Il éclot au retour des beaux jours" },
+      { number: 9, row: 5, col: 7, direction: 'across', answer: 'TRICHER', clue: "Regarder les cartes du voisin" },
+      { number: 10, row: 6, col: 1, direction: 'across', answer: 'BELETTE', clue: "Petite carnassière qui file entre les pierres" },
+    ],
+  },
+  /*
+   * . . . . . S . . . . . . .
+   * . . . . . A . . . . . . .
+   * . . . S A N D W I C H . .
+   * . . . A . G . . . A . J .
+   * . . . U . L . P A R D O N
+   * . V A M P I R E . T . I .
+   * . . . O . E . R H O N E .
+   * G A G N E R . O . N . . .
+   * . . . . . . . U . . . . .
+   */
+  {
+    id: 'm1-16',
+    width: 13,
+    height: 9,
+    words: [
+      { number: 1, row: 0, col: 5, direction: 'down', answer: 'SANGLIER', clue: "Plat favori d'Obélix" },
+      { number: 2, row: 2, col: 3, direction: 'across', answer: 'SANDWICH', clue: "Coincé entre deux, comme lui" },
+      { number: 3, row: 2, col: 3, direction: 'down', answer: 'SAUMON', clue: "Couleur rose orangé, ou nageur à contre-courant" },
+      { number: 4, row: 2, col: 9, direction: 'down', answer: 'CARTON', clue: "Jaune ou rouge, l'arbitre le brandit" },
+      { number: 5, row: 3, col: 11, direction: 'down', answer: 'JOIE', clue: "Feu de … : grand bûcher" },
+      { number: 6, row: 4, col: 7, direction: 'across', answer: 'PARDON', clue: "Il est demandé par l'enfant pris en faute" },
+      { number: 7, row: 4, col: 7, direction: 'down', answer: 'PEROU', clue: "Ce n'est pas lui : ce n'est pas énorme" },
+      { number: 8, row: 5, col: 1, direction: 'across', answer: 'VAMPIRE', clue: "Il ne se reflète pas dans les miroirs" },
+      { number: 9, row: 6, col: 7, direction: 'across', answer: 'RHONE', clue: "Il naît dans un glacier suisse" },
+      { number: 10, row: 7, col: 0, direction: 'across', answer: 'GAGNER', clue: "Le faire sa vie" },
+    ],
+  },
+  /*
+   * . . . . . . F R E L O N
+   * . P . . . P . O . U . .
+   * . A N C H O I S . S . .
+   * . O . A . P . E . T . .
+   * . N O R V E G E . R . .
+   * . . . A . Y . . . E . .
+   * C O U V R E U R . . . .
+   * . . . A . . . . . . . .
+   * . . . N . . . . . . . .
+   * . P O E M E . . . . . .
+   */
+  {
+    id: 'm1-17',
+    width: 12,
+    height: 10,
+    words: [
+      { number: 1, row: 0, col: 6, direction: 'across', answer: 'FRELON', clue: "Guêpe géante, redoutée des ruches" },
+      { number: 2, row: 0, col: 7, direction: 'down', answer: 'ROSEE', clue: "Gouttes du matin sur l'herbe" },
+      { number: 3, row: 0, col: 9, direction: 'down', answer: 'LUSTRE', clue: "Il éclaire le plafond, ou dure cinq ans" },
+      { number: 4, row: 1, col: 1, direction: 'down', answer: 'PAON', clue: "Fier comme lui" },
+      { number: 5, row: 1, col: 5, direction: 'down', answer: 'POPEYE', clue: "Marin qui avale ses épinards" },
+      { number: 6, row: 2, col: 1, direction: 'across', answer: 'ANCHOIS', clue: "Petit poisson salé de la pizza" },
+      { number: 7, row: 2, col: 3, direction: 'down', answer: 'CARAVANE', clue: "Les chiens aboient, elle passe" },
+      { number: 8, row: 4, col: 1, direction: 'across', answer: 'NORVEGE', clue: "Pays des fjords" },
+      { number: 9, row: 6, col: 0, direction: 'across', answer: 'COUVREUR', clue: "Il travaille sur le toit" },
+      { number: 10, row: 9, col: 1, direction: 'across', answer: 'POEME', clue: "Ode ou sonnet" },
+    ],
+  },
+  /*
+   * . . . . . . . . C . . . .
+   * . . . M O Z Z A R E L L A
+   * . . . . . . . . A . . . .
+   * . . . . . . C . V . . C .
+   * . . . . . M A R A T H O N
+   * G L A N D . I . T . . R .
+   * . . . . A M S T E R D A M
+   * . . . . L . S . . . . I .
+   * . . . D I R I G E A B L E
+   * . . . . . . E . . . . . .
+   * . . . . . . R O U E N . .
+   */
+  {
+    id: 'm1-18',
+    width: 13,
+    height: 11,
+    words: [
+      { number: 1, row: 0, col: 8, direction: 'down', answer: 'CRAVATE', clue: "Elle se noue sous le col" },
+      { number: 2, row: 1, col: 3, direction: 'across', answer: 'MOZZARELLA', clue: "Boule blanche de la pizza" },
+      { number: 3, row: 3, col: 6, direction: 'down', answer: 'CAISSIER', clue: "Il rend la monnaie" },
+      { number: 4, row: 3, col: 11, direction: 'down', answer: 'CORAIL', clue: "Rouge comme lui" },
+      { number: 5, row: 4, col: 5, direction: 'across', answer: 'MARATHON', clue: "Longue séance de négociations, ou course de fond" },
+      { number: 6, row: 5, col: 0, direction: 'across', answer: 'GLAND', clue: "Fruit du chêne" },
+      { number: 7, row: 5, col: 4, direction: 'down', answer: 'DALI', clue: "Peintre aux moustaches et aux montres molles" },
+      { number: 8, row: 6, col: 4, direction: 'across', answer: 'AMSTERDAM', clue: "Ville des canaux et des vélos" },
+      { number: 9, row: 8, col: 3, direction: 'across', answer: 'DIRIGEABLE', clue: "Ballon de forme allongée" },
+      { number: 10, row: 10, col: 6, direction: 'across', answer: 'ROUEN', clue: "Jeanne d'Arc y fut brûlée" },
+    ],
+  },
+  /*
+   * F . S . V . D . . .
+   * A R C H I P E L . .
+   * U . U . T . N . . .
+   * C O L L A N T . B .
+   * O . P . M . . . O .
+   * N . T A I L L E U R
+   * . . U . N . . . L .
+   * C O R N E M U S E .
+   * . . E . . . . . A .
+   * . . . . S T A T U E
+   */
+  {
+    id: 'm1-19',
+    width: 10,
+    height: 10,
+    words: [
+      { number: 1, row: 0, col: 0, direction: 'down', answer: 'FAUCON', clue: "Rapace qu'on dresse pour la chasse" },
+      { number: 2, row: 0, col: 2, direction: 'down', answer: 'SCULPTURE', clue: "Art de tailler la pierre" },
+      { number: 3, row: 0, col: 4, direction: 'down', answer: 'VITAMINE', clue: "C, D ou B12" },
+      { number: 4, row: 0, col: 6, direction: 'down', answer: 'DENT', clue: "On l'a contre quelqu'un quand on lui en veut" },
+      { number: 5, row: 1, col: 0, direction: 'across', answer: 'ARCHIPEL', clue: "Groupe d'îles" },
+      { number: 6, row: 3, col: 0, direction: 'across', answer: 'COLLANT', clue: "Il colle, ou se porte sous la jupe" },
+      { number: 7, row: 3, col: 8, direction: 'down', answer: 'BOULEAU', clue: "Arbre à l'écorce blanche" },
+      { number: 8, row: 5, col: 2, direction: 'across', answer: 'TAILLEUR', clue: "Il coud des costumes sur mesure, ou on s'y assoit en croisant les jambes" },
+      { number: 9, row: 7, col: 0, direction: 'across', answer: 'CORNEMUSE', clue: "Instrument écossais à poche" },
+      { number: 10, row: 9, col: 4, direction: 'across', answer: 'STATUE', clue: "Elle reste de marbre" },
+    ],
+  },
+  /*
+   * . . . S . . . . . . . H .
+   * . P . U . P . S L A L O M
+   * M E R C R E D I . . . C .
+   * . A . E . I . N . . . K .
+   * H U I T . G . G O L F E .
+   * . . . T . N . E . . . Y .
+   * . B L E U E T . . . . . .
+   */
+  {
+    id: 'm1-20',
+    width: 13,
+    height: 7,
+    words: [
+      { number: 1, row: 0, col: 3, direction: 'down', answer: 'SUCETTE', clue: "Bonbon au bout d'un bâton" },
+      { number: 2, row: 0, col: 11, direction: 'down', answer: 'HOCKEY', clue: "Sport de crosse et de palet" },
+      { number: 3, row: 1, col: 1, direction: 'down', answer: 'PEAU', clue: "On la vend avant d'avoir tué l'ours" },
+      { number: 4, row: 1, col: 5, direction: 'down', answer: 'PEIGNE', clue: "On passe une affaire au fin" },
+      { number: 5, row: 1, col: 7, direction: 'across', answer: 'SLALOM', clue: "Descente entre les portes" },
+      { number: 6, row: 1, col: 7, direction: 'down', answer: 'SINGE', clue: "On ne lui apprend pas à faire la grimace" },
+      { number: 7, row: 2, col: 0, direction: 'across', answer: 'MERCREDI', clue: "Jour des enfants" },
+      { number: 8, row: 4, col: 0, direction: 'across', answer: 'HUIT', clue: "Le grand … est un manège" },
+      { number: 9, row: 4, col: 7, direction: 'across', answer: 'GOLFE', clue: "Celui du Morbihan est parsemé d'îles" },
+      { number: 10, row: 6, col: 1, direction: 'across', answer: 'BLEUET', clue: "Fleur bleue des champs, symbole des anciens combattants" },
+    ],
+  },
+  /*
+   * . . . . . . F . . . . . B
+   * . . G . B R A N C H E . I
+   * B R U M E . N . . . . . C
+   * A . E . L . T . . . . . H
+   * C . P H O T O G R A P H E
+   * O . A . T . M . . . R . .
+   * N . R . E V E N T A I L .
+   * . . D . . . . . . . X . .
+   */
+  {
+    id: 'm1-21',
+    width: 13,
+    height: 8,
+    words: [
+      { number: 1, row: 0, col: 6, direction: 'down', answer: 'FANTOME', clue: "Il hante le vieux manoir" },
+      { number: 2, row: 0, col: 12, direction: 'down', answer: 'BICHE', clue: "Ma … : mot doux d'autrefois" },
+      { number: 3, row: 1, col: 2, direction: 'down', answer: 'GUEPARD', clue: "Sprinteur tacheté de la savane" },
+      { number: 4, row: 1, col: 4, direction: 'across', answer: 'BRANCHE', clue: "On scie celle sur laquelle on est assis" },
+      { number: 5, row: 1, col: 4, direction: 'down', answer: 'BELOTE', clue: "Jeu de cartes avec rebelote" },
+      { number: 6, row: 2, col: 0, direction: 'across', answer: 'BRUME', clue: "Légère, elle voile le paysage" },
+      { number: 7, row: 2, col: 0, direction: 'down', answer: 'BACON', clue: "Tranche fine du petit déjeuner anglais" },
+      { number: 8, row: 4, col: 2, direction: 'across', answer: 'PHOTOGRAPHE', clue: "Il dit « Ouistiti ! »" },
+      { number: 9, row: 4, col: 10, direction: 'down', answer: 'PRIX', clue: "Il est Nobel" },
+      { number: 10, row: 6, col: 4, direction: 'across', answer: 'EVENTAIL', clue: "On s'en sert pour se rafraîchir" },
+    ],
+  },
+  /*
+   * . . . . . . . . L . . . .
+   * . . . . . . C H I F F R E
+   * . . . . . . . . C . . . .
+   * . . . H A U T B O I S . .
+   * P . . . . . . . R . O . .
+   * E . . C O C C I N E L L E
+   * R . . H . H . . E . D . .
+   * M A G A S I N . . . A . .
+   * I . . U . E . . . . T . .
+   * S A R D I N E . . . . . .
+   */
+  {
+    id: 'm1-22',
+    width: 13,
+    height: 10,
+    words: [
+      { number: 1, row: 0, col: 8, direction: 'down', answer: 'LICORNE', clue: "Cheval magique à une corne" },
+      { number: 2, row: 1, col: 6, direction: 'across', answer: 'CHIFFRE', clue: "Il y en a dix, de 0 à 9" },
+      { number: 3, row: 3, col: 3, direction: 'across', answer: 'HAUTBOIS', clue: "Il joue le canard dans « Pierre et le Loup »" },
+      { number: 4, row: 3, col: 10, direction: 'down', answer: 'SOLDAT', clue: "De plomb, il est un jouet" },
+      { number: 5, row: 4, col: 0, direction: 'down', answer: 'PERMIS', clue: "De conduire, ou de construire" },
+      { number: 6, row: 5, col: 3, direction: 'across', answer: 'COCCINELLE', clue: "Bête à bon Dieu" },
+      { number: 7, row: 5, col: 3, direction: 'down', answer: 'CHAUD', clue: "Point … : sujet brûlant" },
+      { number: 8, row: 5, col: 5, direction: 'down', answer: 'CHIEN', clue: "On dit qu'on en a quand on a du charme" },
+      { number: 9, row: 7, col: 0, direction: 'across', answer: 'MAGASIN', clue: "Grand, il a plusieurs rayons" },
+      { number: 10, row: 9, col: 0, direction: 'across', answer: 'SARDINE', clue: "On se serre comme elle dans le métro bondé" },
+    ],
+  },
+  /*
+   * . . . . . . . . R . . K . .
+   * . . . . . . . C H A R A D E
+   * . . . . . . . . I . . R . .
+   * . . . . . . . . N . . A . M
+   * . . . . . . C H O U E T T E
+   * . . . . . . A . C . . E . N
+   * . . . . B A L L E . . . . T
+   * . . . . A . E . R . . . . H
+   * . . . . M I C R O S C O P E
+   * . . . . B . O . S . . . . .
+   * S U S H I . N . . . . . . .
+   */
+  {
+    id: 'm1-23',
+    width: 14,
+    height: 11,
+    words: [
+      { number: 1, row: 0, col: 8, direction: 'down', answer: 'RHINOCEROS', clue: "Sa corne fait des envieux, hélas" },
+      { number: 2, row: 0, col: 11, direction: 'down', answer: 'KARATE', clue: "Art martial de la ceinture noire" },
+      { number: 3, row: 1, col: 7, direction: 'across', answer: 'CHARADE', clue: "Mon premier, mon second, mon tout" },
+      { number: 4, row: 3, col: 13, direction: 'down', answer: 'MENTHE', clue: "Verte ou poivrée, elle rafraîchit" },
+      { number: 5, row: 4, col: 6, direction: 'across', answer: 'CHOUETTE', clue: "Oiseau d'Athéna, ou exclamation de joie" },
+      { number: 6, row: 4, col: 6, direction: 'down', answer: 'CALECON', clue: "Sous-vêtement à jambes, ou leggings" },
+      { number: 7, row: 6, col: 4, direction: 'across', answer: 'BALLE', clue: "Renvoyer celle-là, c'est répondre du tac au tac" },
+      { number: 8, row: 6, col: 4, direction: 'down', answer: 'BAMBI', clue: "Faon de Disney" },
+      { number: 9, row: 8, col: 4, direction: 'across', answer: 'MICROSCOPE', clue: "Passer au … : examiner en détail" },
+      { number: 10, row: 10, col: 0, direction: 'across', answer: 'SUSHI', clue: "Bouchée japonaise au poisson cru" },
+    ],
+  },
+  /*
+   * . . . . . C . . . . . T . .
+   * . . . . . H . . . C . O . .
+   * . C H O C O L A T I E R . M
+   * . A . R . U . . . G . N . E
+   * . N . Q . C . . H O M A R D
+   * . O . U . R . . . G . D . U
+   * T E L E C O M M A N D E . S
+   * . . . . . U . . . E . . . E
+   * . . . . . T . . . . . . . .
+   * . M U G U E T . . . . . . .
+   */
+  {
+    id: 'm1-24',
+    width: 14,
+    height: 10,
+    words: [
+      { number: 1, row: 0, col: 5, direction: 'down', answer: 'CHOUCROUTE', clue: "Chou fermenté d'Alsace" },
+      { number: 2, row: 0, col: 11, direction: 'down', answer: 'TORNADE', clue: "Elle aspire tout sur son passage" },
+      { number: 3, row: 1, col: 9, direction: 'down', answer: 'CIGOGNE', clue: "On raconte qu'elle livre les bébés" },
+      { number: 4, row: 2, col: 1, direction: 'across', answer: 'CHOCOLATIER', clue: "Il fabrique des pralines" },
+      { number: 5, row: 2, col: 1, direction: 'down', answer: 'CANOE', clue: "Embarcation à pagaie simple" },
+      { number: 6, row: 2, col: 3, direction: 'down', answer: 'ORQUE', clue: "On l'appelle à tort baleine tueuse" },
+      { number: 7, row: 2, col: 13, direction: 'down', answer: 'MEDUSE', clue: "Gorgone au regard pétrifiant, ou fléau des baignades" },
+      { number: 8, row: 4, col: 8, direction: 'across', answer: 'HOMARD', clue: "Il passe du bleu au rouge en cuisant" },
+      { number: 9, row: 6, col: 0, direction: 'across', answer: 'TELECOMMANDE', clue: "On se dispute pour l'avoir devant la télé" },
+      { number: 10, row: 9, col: 1, direction: 'across', answer: 'MUGUET', clue: "Clochettes du 1er mai" },
+    ],
+  },
+  /*
+   * . . T . . . . . . . T . . B
+   * . . O . . B A I G N O I R E
+   * . . B . V . . . A . R . . U
+   * . . O . A P I C U L T E U R
+   * . . G . L . . . L . U . . R
+   * . . G . L . . H O T E S S E
+   * C H A L E T . . I . . . . .
+   * . . N . E . D E S T I N . .
+   */
+  {
+    id: 'm1-25',
+    width: 14,
+    height: 8,
+    words: [
+      { number: 1, row: 0, col: 2, direction: 'down', answer: 'TOBOGGAN', clue: "On y glisse au parc" },
+      { number: 2, row: 0, col: 10, direction: 'down', answer: 'TORTUE', clue: "Elle a battu le lièvre sans jamais se presser" },
+      { number: 3, row: 0, col: 13, direction: 'down', answer: 'BEURRE', clue: "On veut celui-là et l'argent qui va avec" },
+      { number: 4, row: 1, col: 5, direction: 'across', answer: 'BAIGNOIRE', clue: "Archimède y aurait crié « Eurêka »" },
+      { number: 5, row: 1, col: 8, direction: 'down', answer: 'GAULOIS', clue: "Ils craignaient que le ciel leur tombe sur la tête" },
+      { number: 6, row: 2, col: 4, direction: 'down', answer: 'VALLEE', clue: "Elle se trouve au pied des montagnes" },
+      { number: 7, row: 3, col: 4, direction: 'across', answer: 'APICULTEUR', clue: "Il élève des abeilles" },
+      { number: 8, row: 5, col: 7, direction: 'across', answer: 'HOTESSE', clue: "De l'air, elle sert à bord" },
+      { number: 9, row: 6, col: 0, direction: 'across', answer: 'CHALET', clue: "Maison de bois à la montagne" },
+      { number: 10, row: 7, col: 6, direction: 'across', answer: 'DESTIN', clue: "On ne lui échappe pas" },
+    ],
+  },
+  /*
+   * . . . . . . . . J . H . . .
+   * . . . . . . . C U R I E U X
+   * . . . . . . . . I . S . . .
+   * . . . . . . . . L . T . . .
+   * . . . . D . B A L C O N . .
+   * . . . . O . I . E . I . . .
+   * . P A Q U E B O T . R . . .
+   * . A . . Z . E . . . E . . .
+   * B R E T E L L E . . . . . .
+   * . I . . . . O . . . . . . .
+   * . S P R I N T . . . . . . .
+   */
+  {
+    id: 'm1-26',
+    width: 14,
+    height: 11,
+    words: [
+      { number: 1, row: 0, col: 8, direction: 'down', answer: 'JUILLET', clue: "Mois du défilé militaire sur les Champs-Élysées" },
+      { number: 2, row: 0, col: 10, direction: 'down', answer: 'HISTOIRE', clue: "Elle se répète, dit-on" },
+      { number: 3, row: 1, col: 7, direction: 'across', answer: 'CURIEUX', clue: "Il veut tout savoir" },
+      { number: 4, row: 4, col: 4, direction: 'down', answer: 'DOUZE', clue: "Les travaux d'Hercule" },
+      { number: 5, row: 4, col: 6, direction: 'across', answer: 'BALCON', clue: "Au théâtre, on y est placé en hauteur" },
+      { number: 6, row: 4, col: 6, direction: 'down', answer: 'BIBELOT', clue: "Petit objet qui prend la poussière sur l'étagère" },
+      { number: 7, row: 6, col: 1, direction: 'across', answer: 'PAQUEBOT', clue: "Le Titanic en était un" },
+      { number: 8, row: 6, col: 1, direction: 'down', answer: 'PARIS', clue: "Ville Lumière" },
+      { number: 9, row: 8, col: 0, direction: 'across', answer: 'BRETELLE', clue: "D'autoroute, ou de pantalon" },
+      { number: 10, row: 10, col: 1, direction: 'across', answer: 'SPRINT', clue: "Dernière ligne droite à fond" },
+    ],
+  },
+  /*
+   * . . . I R L A N D E
+   * G . . . . . . . A .
+   * R . P O U L A I N .
+   * I . E . . A . . S .
+   * M I N U S C U L E .
+   * P . A . . . . . R .
+   * E . L . . C . . . .
+   * R Y T H M E . . . .
+   * . . Y . . R . . . .
+   * . . . S A F R A N .
+   */
+  {
+    id: 'm1-27',
+    width: 10,
+    height: 10,
+    words: [
+      { number: 1, row: 0, col: 3, direction: 'across', answer: 'IRLANDE', clue: "Île verte du trèfle" },
+      { number: 2, row: 0, col: 8, direction: 'down', answer: 'DANSER', clue: "Ne plus savoir sur quel pied le faire" },
+      { number: 3, row: 1, col: 0, direction: 'down', answer: 'GRIMPER', clue: "Escalader" },
+      { number: 4, row: 2, col: 2, direction: 'across', answer: 'POULAIN', clue: "Jeune cheval, ou débutant parrainé" },
+      { number: 5, row: 2, col: 2, direction: 'down', answer: 'PENALTY', clue: "Tir au but à onze mètres" },
+      { number: 6, row: 2, col: 5, direction: 'down', answer: 'LAC', clue: "Léman ou Titicaca" },
+      { number: 7, row: 4, col: 0, direction: 'across', answer: 'MINUSCULE', clue: "Petite lettre, ou tout petit" },
+      { number: 8, row: 6, col: 5, direction: 'down', answer: 'CERF', clue: "Il brame dans les bois" },
+      { number: 9, row: 7, col: 0, direction: 'across', answer: 'RYTHME', clue: "On le marque en tapant du pied" },
+      { number: 10, row: 9, col: 3, direction: 'across', answer: 'SAFRAN', clue: "Épice la plus chère du monde" },
+    ],
+  },
+  /*
+   * . F . . . . . . . . . .
+   * . A . . . B . . . . M .
+   * . L A B Y R I N T H E .
+   * . A . . . O . O . . M .
+   * . I . V A C C I N . O .
+   * . S . O . H . X . . I .
+   * D E V I N E R . . . R .
+   * . . . S . T . J O K E R
+   * . . . I . T . . . . . .
+   * . . I N V E N T E U R .
+   */
+  {
+    id: 'm1-28',
+    width: 12,
+    height: 10,
+    words: [
+      { number: 1, row: 0, col: 1, direction: 'down', answer: 'FALAISE', clue: "Celle d'Étretat est percée d'une arche" },
+      { number: 2, row: 1, col: 5, direction: 'down', answer: 'BROCHETTE', clue: "Morceaux enfilés sur une pique" },
+      { number: 3, row: 1, col: 10, direction: 'down', answer: 'MEMOIRE', clue: "Elle peut être d'éléphant" },
+      { number: 4, row: 2, col: 1, direction: 'across', answer: 'LABYRINTHE', clue: "On s'y perd" },
+      { number: 5, row: 2, col: 7, direction: 'down', answer: 'NOIX', clue: "Fruit dont l'intérieur ressemble à un cerveau" },
+      { number: 6, row: 4, col: 3, direction: 'across', answer: 'VACCIN', clue: "Rappel de piqûre" },
+      { number: 7, row: 4, col: 3, direction: 'down', answer: 'VOISIN', clue: "Il peut être de palier" },
+      { number: 8, row: 6, col: 0, direction: 'across', answer: 'DEVINER', clue: "Lire dans les pensées" },
+      { number: 9, row: 7, col: 7, direction: 'across', answer: 'JOKER', clue: "Carte qui remplace toutes les autres" },
+      { number: 10, row: 9, col: 2, direction: 'across', answer: 'INVENTEUR', clue: "Concours Lépine" },
+    ],
+  },
+  /*
+   * M O R S E . C . .
+   * . . . E . . O . .
+   * J O U R . . L . .
+   * . . . P . . L . .
+   * A F R I Q U E . .
+   * I . . L . . . N .
+   * R E G L I S S E .
+   * . . . I . . . W .
+   * S Q U E L E T T E
+   * . . . R . . . O .
+   * M A G E L L A N .
+   */
+  {
+    id: 'm1-29',
     width: 9,
     height: 11,
     words: [
-      { number: 1, row: 0, col: 2, direction: 'across', answer: 'CHAMBRE', clue: "Pièce où l'on dort" },
-      { number: 2, row: 0, col: 2, direction: 'down', answer: 'CASQUE', clue: "Il protège la tête à vélo" },
-      { number: 3, row: 0, col: 4, direction: 'down', answer: 'AMI', clue: "Copain" },
-      { number: 4, row: 0, col: 6, direction: 'down', answer: 'BANQUE', clue: "On y dépose son argent" },
-      { number: 5, row: 0, col: 8, direction: 'down', answer: 'ELECTRICIEN', clue: "Il installe les prises et les lampes" },
-      { number: 6, row: 2, col: 0, direction: 'down', answer: 'PORTUGAL', clue: "Pays dont la capitale est Lisbonne" },
-      { number: 7, row: 2, col: 2, direction: 'across', answer: 'SCIENCE', clue: "Physique, chimie ou biologie" },
-      { number: 8, row: 4, col: 4, direction: 'down', answer: 'STATUE', clue: "Sculpture qui représente quelqu'un" },
-      { number: 9, row: 5, col: 0, direction: 'across', answer: 'THEATRE', clue: "On y joue des pièces" },
-      { number: 10, row: 9, col: 0, direction: 'across', answer: 'LEVRE', clue: "La bouche en a deux" },
+      { number: 1, row: 0, col: 0, direction: 'across', answer: 'MORSE', clue: "Code de points et de traits, ou animal à défenses" },
+      { number: 2, row: 0, col: 3, direction: 'down', answer: 'SERPILLIERE', clue: "Chiffon du sol mouillé" },
+      { number: 3, row: 0, col: 6, direction: 'down', answer: 'COLLE', clue: "Question piège, ou tube pour assembler" },
+      { number: 4, row: 2, col: 0, direction: 'across', answer: 'JOUR', clue: "Il se lève à l'aube" },
+      { number: 5, row: 4, col: 0, direction: 'across', answer: 'AFRIQUE', clue: "Continent du Kilimandjaro" },
+      { number: 6, row: 4, col: 0, direction: 'down', answer: 'AIR', clue: "On le brasse quand on parle pour rien" },
+      { number: 7, row: 5, col: 7, direction: 'down', answer: 'NEWTON', clue: "Une pomme lui serait tombée sur la tête" },
+      { number: 8, row: 6, col: 0, direction: 'across', answer: 'REGLISSE', clue: "Racine noire à mâcher" },
+      { number: 9, row: 8, col: 0, direction: 'across', answer: 'SQUELETTE', clue: "On en a un dans le placard quand on cache un secret" },
+      { number: 10, row: 10, col: 0, direction: 'across', answer: 'MAGELLAN', clue: "Premier tour du monde en bateau" },
+    ],
+  },
+  /*
+   * . . . T E T R I S . F . . .
+   * J . C . I . . . U . R . . .
+   * A . Y . N . L A R D O N . .
+   * P H R A S E . . P . M . . .
+   * O . A . T . . . R . A . . .
+   * N A N T E S . . I . G . . .
+   * . . O . I . . . S . E . . .
+   * . . . . N . . F E V R I E R
+   */
+  {
+    id: 'm1-30',
+    width: 14,
+    height: 8,
+    words: [
+      { number: 1, row: 0, col: 3, direction: 'across', answer: 'TETRIS', clue: "Jeu de briques qui tombent" },
+      { number: 2, row: 0, col: 4, direction: 'down', answer: 'EINSTEIN', clue: "Génie de la relativité" },
+      { number: 3, row: 0, col: 8, direction: 'down', answer: 'SURPRISE', clue: "Partie organisée en cachette" },
+      { number: 4, row: 0, col: 10, direction: 'down', answer: 'FROMAGER', clue: "Il affine les meules" },
+      { number: 5, row: 1, col: 0, direction: 'down', answer: 'JAPON', clue: "Archipel des samouraïs" },
+      { number: 6, row: 1, col: 2, direction: 'down', answer: 'CYRANO', clue: "Héros de Rostand au grand nez" },
+      { number: 7, row: 2, col: 6, direction: 'across', answer: 'LARDON', clue: "Petit morceau de porc, ou gamin dans le langage familier" },
+      { number: 8, row: 3, col: 0, direction: 'across', answer: 'PHRASE', clue: "Faire des …, c'est parler avec affectation" },
+      { number: 9, row: 5, col: 0, direction: 'across', answer: 'NANTES', clue: "Ville des ducs et du Petit-Beurre" },
+      { number: 10, row: 7, col: 7, direction: 'across', answer: 'FEVRIER', clue: "Mois qui saute un jour trois ans sur quatre" },
+    ],
+  },
+  /*
+   * P O U B E L L E
+   * . . . O . . O .
+   * C H A N T E U R
+   * . A . B . . P .
+   * . R . O . C . .
+   * . M A N O I R .
+   * . O . . . S . E
+   * . N A P P E . T
+   * . I . . . A . A
+   * . C . . J U I N
+   * . A . . . X . G
+   */
+  {
+    id: 'm1-31',
+    width: 8,
+    height: 11,
+    words: [
+      { number: 1, row: 0, col: 0, direction: 'across', answer: 'POUBELLE', clue: "Elle doit son nom à un préfet de la Seine" },
+      { number: 2, row: 0, col: 3, direction: 'down', answer: 'BONBON', clue: "Coûter un … : coûter très cher" },
+      { number: 3, row: 0, col: 6, direction: 'down', answer: 'LOUP', clue: "Masque de bal, ou bête du Gévaudan" },
+      { number: 4, row: 2, col: 0, direction: 'across', answer: 'CHANTEUR', clue: "Il a de la voix" },
+      { number: 5, row: 2, col: 1, direction: 'down', answer: 'HARMONICA', clue: "Instrument de poche des cow-boys" },
+      { number: 6, row: 4, col: 5, direction: 'down', answer: 'CISEAUX', clue: "Coup de … : il coupe le souffle" },
+      { number: 7, row: 5, col: 1, direction: 'across', answer: 'MANOIR', clue: "Grande demeure hantée des romans" },
+      { number: 8, row: 6, col: 7, direction: 'down', answer: 'ETANG', clue: "Petit lac où pêchent les hérons" },
+      { number: 9, row: 7, col: 1, direction: 'across', answer: 'NAPPE', clue: "De brouillard, ou de table" },
+      { number: 10, row: 9, col: 4, direction: 'across', answer: 'JUIN', clue: "Mois de la fête de la musique" },
+    ],
+  },
+  /*
+   * H A M A C . . . . . . . . . .
+   * . . A . R . . . S . . . . . .
+   * D E G R E . T . I . . . C . .
+   * . . I . V . R . F . . . H . .
+   * T H E I E R E . F . . . A . .
+   * . . . . T . S A L O P E T T E
+   * . . . . T . O . E . . . O . .
+   * . . P L E U R E R . . . N . .
+   */
+  {
+    id: 'm1-32',
+    width: 15,
+    height: 8,
+    words: [
+      { number: 1, row: 0, col: 0, direction: 'across', answer: 'HAMAC', clue: "Lit suspendu entre deux arbres" },
+      { number: 2, row: 0, col: 2, direction: 'down', answer: 'MAGIE', clue: "Noire ou blanche" },
+      { number: 3, row: 0, col: 4, direction: 'down', answer: 'CREVETTE', clue: "Rose ou grise, on la décortique" },
+      { number: 4, row: 1, col: 8, direction: 'down', answer: 'SIFFLER', clue: "Ce que fait la bouilloire" },
+      { number: 5, row: 2, col: 0, direction: 'across', answer: 'DEGRE', clue: "Premier ou second, il se lit dans l'humour" },
+      { number: 6, row: 2, col: 6, direction: 'down', answer: 'TRESOR', clue: "Petit nom affectueux, ou butin enterré" },
+      { number: 7, row: 2, col: 12, direction: 'down', answer: 'CHATON', clue: "Jeune félin, ou fleur du saule" },
+      { number: 8, row: 4, col: 0, direction: 'across', answer: 'THEIERE', clue: "Elle infuse" },
+      { number: 9, row: 5, col: 6, direction: 'across', answer: 'SALOPETTE', clue: "Pantalon à bretelles" },
+      { number: 10, row: 7, col: 2, direction: 'across', answer: 'PLEURER', clue: "Le faire comme une Madeleine" },
+    ],
+  },
+  /*
+   * . . . . . . C I N Q
+   * . . Y . F . H . . .
+   * . B O U R D O N . .
+   * . . D . O . P . K .
+   * G R A M M A I R E .
+   * . O . . A . N . T .
+   * . B . . G . . . C .
+   * C O R B E A U . H .
+   * . T . . . . . . U .
+   * . . A N T I L O P E
+   */
+  {
+    id: 'm1-33',
+    width: 10,
+    height: 10,
+    words: [
+      { number: 1, row: 0, col: 6, direction: 'across', answer: 'CINQ', clue: "Il en faut … pour faire une main" },
+      { number: 2, row: 0, col: 6, direction: 'down', answer: 'CHOPIN', clue: "Pianiste polonais romantique" },
+      { number: 3, row: 1, col: 2, direction: 'down', answer: 'YODA', clue: "Petit maître Jedi à la parole inversée" },
+      { number: 4, row: 1, col: 4, direction: 'down', answer: 'FROMAGE', clue: "Il y en a plus de mille en France" },
+      { number: 5, row: 2, col: 1, direction: 'across', answer: 'BOURDON', clue: "Il bourdonne, et sonne à Notre-Dame" },
+      { number: 6, row: 3, col: 8, direction: 'down', answer: 'KETCHUP', clue: "Sauce rouge venue des États-Unis" },
+      { number: 7, row: 4, col: 0, direction: 'across', answer: 'GRAMMAIRE', clue: "Règles du bon usage de la langue" },
+      { number: 8, row: 4, col: 1, direction: 'down', answer: 'ROBOT', clue: "Portrait-… : dessin d'un suspect" },
+      { number: 9, row: 7, col: 0, direction: 'across', answer: 'CORBEAU', clue: "Il signe les lettres anonymes" },
+      { number: 10, row: 9, col: 2, direction: 'across', answer: 'ANTILOPE', clue: "Elle bondit dans la savane, cornes en arrière" },
+    ],
+  },
+  /*
+   * . . . . . . . . C L O W N .
+   * . . . . . . . . A . . . . K
+   * . . B I B L I O T H E Q U E
+   * . . . . . I . . H . C . . N
+   * . . . S O M B R E R O . . Y
+   * . . . . . O . . D . L . . A
+   * . . . . . N . A R G E N T .
+   * P L A T E A U . A . . . . .
+   * . . . . . D . . L . . . . .
+   * . . . . R E N N E S . . . .
+   */
+  {
+    id: 'm1-34',
+    width: 14,
+    height: 10,
+    words: [
+      { number: 1, row: 0, col: 8, direction: 'across', answer: 'CLOWN', clue: "Auguste ou blanc" },
+      { number: 2, row: 0, col: 8, direction: 'down', answer: 'CATHEDRALE', clue: "Celle de Chartres est célèbre pour ses vitraux" },
+      { number: 3, row: 1, col: 13, direction: 'down', answer: 'KENYA', clue: "Pays des safaris et des coureurs de fond" },
+      { number: 4, row: 2, col: 2, direction: 'across', answer: 'BIBLIOTHEQUE', clue: "On y emprunte des livres" },
+      { number: 5, row: 2, col: 5, direction: 'down', answer: 'LIMONADE', clue: "Boisson pétillante à bulles" },
+      { number: 6, row: 2, col: 10, direction: 'down', answer: 'ECOLE', clue: "Buissonnière, on la fait en séchant les cours" },
+      { number: 7, row: 4, col: 3, direction: 'across', answer: 'SOMBRERO', clue: "Chapeau mexicain" },
+      { number: 8, row: 6, col: 7, direction: 'across', answer: 'ARGENT', clue: "Il ne fait pas le bonheur" },
+      { number: 9, row: 7, col: 0, direction: 'across', answer: 'PLATEAU', clue: "Il est de télévision, ou de fromages" },
+      { number: 10, row: 9, col: 4, direction: 'across', answer: 'RENNES', clue: "Capitale bretonne, homonyme d'animaux du père Noël" },
+    ],
+  },
+  /*
+   * F . . G O U T E R . . .
+   * A . . U . . . . . . A .
+   * C H I L I . M A S Q U E
+   * I . . L . B . . O . B .
+   * L . D I N O S A U R E .
+   * E . . V . I . . R . R .
+   * . . . E . R . . C . G .
+   * . . A R G E N T I N E .
+   * . . . . . . . . L . . .
+   */
+  {
+    id: 'm1-35',
+    width: 12,
+    height: 9,
+    words: [
+      { number: 1, row: 0, col: 0, direction: 'down', answer: 'FACILE', clue: "Fastoche" },
+      { number: 2, row: 0, col: 3, direction: 'across', answer: 'GOUTER', clue: "Repas de seize heures" },
+      { number: 3, row: 0, col: 3, direction: 'down', answer: 'GULLIVER', clue: "Géant à Lilliput" },
+      { number: 4, row: 1, col: 10, direction: 'down', answer: 'AUBERGE', clue: "On n'en est pas sorti quand rien ne s'arrange" },
+      { number: 5, row: 2, col: 0, direction: 'across', answer: 'CHILI', clue: "Pays long et étroit, ou piment" },
+      { number: 6, row: 2, col: 6, direction: 'across', answer: 'MASQUE', clue: "De plongée, ou d'Halloween" },
+      { number: 7, row: 2, col: 8, direction: 'down', answer: 'SOURCIL', clue: "On le fronce quand on est fâché" },
+      { number: 8, row: 3, col: 5, direction: 'down', answer: 'BOIRE', clue: "Le faire comme un trou" },
+      { number: 9, row: 4, col: 2, direction: 'across', answer: 'DINOSAURE', clue: "Vieux de la vieille, ou géant fossile" },
+      { number: 10, row: 7, col: 2, direction: 'across', answer: 'ARGENTINE', clue: "Pays du tango" },
+    ],
+  },
+  /*
+   * . . P . . . . . . . . .
+   * B R A V O . . . G . . T
+   * . . T . . . P H O Q U E
+   * . C I R Q U E . R . . M
+   * . . N . . . R . I . . P
+   * . . O . . . C A L A I S
+   * . . I . . . E . L . . .
+   * P A R A P L U I E . . .
+   * . . E . . . S . . . . .
+   * . . . G A Z E L L E . .
+   */
+  {
+    id: 'm1-36',
+    width: 12,
+    height: 10,
+    words: [
+      { number: 1, row: 0, col: 2, direction: 'down', answer: 'PATINOIRE', clue: "Piste gelée" },
+      { number: 2, row: 1, col: 0, direction: 'across', answer: 'BRAVO', clue: "On le crie à la fin du spectacle" },
+      { number: 3, row: 1, col: 8, direction: 'down', answer: 'GORILLE', clue: "Garde du corps très musclé" },
+      { number: 4, row: 1, col: 11, direction: 'down', answer: 'TEMPS', clue: "Il passe" },
+      { number: 5, row: 2, col: 6, direction: 'across', answer: 'PHOQUE', clue: "Mammifère des banquises, à moustaches" },
+      { number: 6, row: 2, col: 6, direction: 'down', answer: 'PERCEUSE', clue: "Elle fait des trous dans le mur" },
+      { number: 7, row: 3, col: 1, direction: 'across', answer: 'CIRQUE', clue: "Quel … ! : quelle pagaille" },
+      { number: 8, row: 5, col: 6, direction: 'across', answer: 'CALAIS', clue: "Port face à Douvres" },
+      { number: 9, row: 7, col: 0, direction: 'across', answer: 'PARAPLUIE', clue: "Il se retourne par grand vent" },
+      { number: 10, row: 9, col: 3, direction: 'across', answer: 'GAZELLE', clue: "Proie élégante de la savane" },
+    ],
+  },
+  /*
+   * . . . C O U D R E . .
+   * C . . A . . A . L . .
+   * A . . M . . U . A . V
+   * M . . P . . P O S T E
+   * P A T I N . H . T . R
+   * A . . N . . I . I . R
+   * G . . G . . N U Q U E
+   * N . . . . . . . U . .
+   * E . . B R E T Z E L .
+   */
+  {
+    id: 'm1-37',
+    width: 11,
+    height: 9,
+    words: [
+      { number: 1, row: 0, col: 3, direction: 'across', answer: 'COUDRE', clue: "C'est cousu de fil blanc" },
+      { number: 2, row: 0, col: 3, direction: 'down', answer: 'CAMPING', clue: "Sauvage, il se fait sans terrain aménagé" },
+      { number: 3, row: 0, col: 6, direction: 'down', answer: 'DAUPHIN', clue: "Héritier du trône, ou acrobate des mers" },
+      { number: 4, row: 0, col: 8, direction: 'down', answer: 'ELASTIQUE', clue: "On y saute dans la cour de récréation" },
+      { number: 5, row: 1, col: 0, direction: 'down', answer: 'CAMPAGNE', clue: "Électorale, ou loin de la ville" },
+      { number: 6, row: 2, col: 10, direction: 'down', answer: 'VERRE', clue: "De l'amitié, on le lève" },
+      { number: 7, row: 3, col: 6, direction: 'across', answer: 'POSTE', clue: "De police, ou de télévision" },
+      { number: 8, row: 4, col: 0, direction: 'across', answer: 'PATIN', clue: "On glisse dessus sur le parquet ciré" },
+      { number: 9, row: 6, col: 6, direction: 'across', answer: 'NUQUE', clue: "Arrière du cou" },
+      { number: 10, row: 8, col: 3, direction: 'across', answer: 'BRETZEL', clue: "Biscuit salé noué d'Alsace" },
+    ],
+  },
+  /*
+   * . C . . . . . C . . B . . .
+   * . O . C . . D O R M I R . .
+   * A U R O R E . R . . L . . .
+   * . V . U . . . N . . L . . .
+   * P E R R U Q U E . M A L I N
+   * . R . I . . . I . . R . . .
+   * . C U R R Y . L . . D . . .
+   * . L . . . . . L . . . . . .
+   * P E I N T U R E . . . . . .
+   */
+  {
+    id: 'm1-38',
+    width: 14,
+    height: 9,
+    words: [
+      { number: 1, row: 0, col: 1, direction: 'down', answer: 'COUVERCLE', clue: "Il est sur la casserole" },
+      { number: 2, row: 0, col: 7, direction: 'down', answer: 'CORNEILLE', clue: "Oiseau noir, ou auteur du « Cid »" },
+      { number: 3, row: 0, col: 10, direction: 'down', answer: 'BILLARD', clue: "Jeu de queues et de boules" },
+      { number: 4, row: 1, col: 3, direction: 'down', answer: 'COURIR', clue: "Tu peux toujours le faire : n'y compte pas" },
+      { number: 5, row: 1, col: 6, direction: 'across', answer: 'DORMIR', clue: "Le faire debout, d'ennui" },
+      { number: 6, row: 2, col: 0, direction: 'across', answer: 'AURORE', clue: "Boréale, elle colore le ciel polaire" },
+      { number: 7, row: 4, col: 0, direction: 'across', answer: 'PERRUQUE', clue: "Faux cheveux" },
+      { number: 8, row: 4, col: 9, direction: 'across', answer: 'MALIN', clue: "Le petit … : celui qui fait le fier" },
+      { number: 9, row: 6, col: 1, direction: 'across', answer: 'CURRY', clue: "Mélange d'épices indien" },
+      { number: 10, row: 8, col: 0, direction: 'across', answer: 'PEINTURE', clue: "Ne pas pouvoir voir quelqu'un en elle" },
+    ],
+  },
+  /*
+   * X Y L O P H O N E . . P . . .
+   * . . . P . . . . T . . R . . .
+   * . . N E N U P H A R . I . . .
+   * . . . R . . A . G . . N . . .
+   * F U N A M B U L E . . T . . .
+   * . . . . . . P . R E C E T T E
+   * . F O N T A I N E . . M . . .
+   * . . . . . . E . . . . P . . .
+   * . . . . . . R . . . . S . . .
+   * R E G A R D E R . . . . . . .
+   */
+  {
+    id: 'm1-39',
+    width: 15,
+    height: 10,
+    words: [
+      { number: 1, row: 0, col: 0, direction: 'across', answer: 'XYLOPHONE', clue: "Instrument à lames pour petits musiciens" },
+      { number: 2, row: 0, col: 3, direction: 'down', answer: 'OPERA', clue: "Gâteau au café, ou spectacle chanté" },
+      { number: 3, row: 0, col: 8, direction: 'down', answer: 'ETAGERE', clue: "Planche fixée au mur pour poser des livres" },
+      { number: 4, row: 0, col: 11, direction: 'down', answer: 'PRINTEMPS', clue: "Il compte les années d'une vieille dame" },
+      { number: 5, row: 2, col: 2, direction: 'across', answer: 'NENUPHAR', clue: "Feuille flottante des grenouilles" },
+      { number: 6, row: 2, col: 6, direction: 'down', answer: 'PAUPIERE', clue: "Elle cligne" },
+      { number: 7, row: 4, col: 0, direction: 'across', answer: 'FUNAMBULE', clue: "Il marche sur un fil" },
+      { number: 8, row: 5, col: 8, direction: 'across', answer: 'RECETTE', clue: "Bonne femme ou de cuisine, elle se transmet" },
+      { number: 9, row: 6, col: 1, direction: 'across', answer: 'FONTAINE', clue: "Il ne faut pas dire : je ne boirai pas de ton eau" },
+      { number: 10, row: 9, col: 0, direction: 'across', answer: 'REGARDER', clue: "Ne pas … à la dépense" },
+    ],
+  },
+  /*
+   * . . . C R A P A U D . . .
+   * . . . H . T . T . I . . .
+   * M O Z A R T . L . F . . .
+   * . . . P . A . A . F . R .
+   * . . . E . Q . S P I R O U
+   * . . . L . U . . . C . U .
+   * . . . E . A . D O I G T .
+   * . . . T . N . . . L . E .
+   * . . . . . T I C K E T . .
+   */
+  {
+    id: 'm1-40',
+    width: 13,
+    height: 9,
+    words: [
+      { number: 1, row: 0, col: 3, direction: 'across', answer: 'CRAPAUD', clue: "On l'embrasse en espérant un prince" },
+      { number: 2, row: 0, col: 3, direction: 'down', answer: 'CHAPELET', clue: "Il s'égrène, ou c'est une série d'injures" },
+      { number: 3, row: 0, col: 5, direction: 'down', answer: 'ATTAQUANT', clue: "Il ne pense qu'à marquer" },
+      { number: 4, row: 0, col: 7, direction: 'down', answer: 'ATLAS', clue: "Livre de cartes, ou géant qui porte le monde" },
+      { number: 5, row: 0, col: 9, direction: 'down', answer: 'DIFFICILE', clue: "Pas commode" },
+      { number: 6, row: 2, col: 0, direction: 'across', answer: 'MOZART', clue: "Il composait dès l'âge de cinq ans" },
+      { number: 7, row: 3, col: 11, direction: 'down', answer: 'ROUTE', clue: "Faire fausse … : se tromper" },
+      { number: 8, row: 4, col: 7, direction: 'across', answer: 'SPIROU', clue: "Groom de bande dessinée" },
+      { number: 9, row: 6, col: 7, direction: 'across', answer: 'DOIGT', clue: "On se le met dans l'œil quand on se trompe" },
+      { number: 10, row: 8, col: 5, direction: 'across', answer: 'TICKET', clue: "Il a un … avec quelqu'un qui lui plaît" },
+    ],
+  },
+  /*
+   * . . . . B . C . . . . . . .
+   * . . . C A L O R I E . . . .
+   * . . . . N . U . . . . . M .
+   * . . . . Q . S . C . . . E .
+   * . . . . U . C H A N S O N .
+   * . . . . I . O . R . O . S .
+   * D A N S E . U . N . I . O .
+   * . . . . R E S T A U R A N T
+   * . . . . . . . . V . . . G .
+   * . . . . . . . G A L I L E E
+   * . . . . . . . . L . . . . .
+   */
+  {
+    id: 'm1-41',
+    width: 14,
+    height: 11,
+    words: [
+      { number: 1, row: 0, col: 4, direction: 'down', answer: 'BANQUIER', clue: "Il prête de l'argent" },
+      { number: 2, row: 0, col: 6, direction: 'down', answer: 'COUSCOUS', clue: "Graines de semoule servies avec un bouillon" },
+      { number: 3, row: 1, col: 3, direction: 'across', answer: 'CALORIE', clue: "Unité d'énergie des régimes" },
+      { number: 4, row: 2, col: 12, direction: 'down', answer: 'MENSONGE', clue: "Il fait grandir le nez de Pinocchio" },
+      { number: 5, row: 3, col: 8, direction: 'down', answer: 'CARNAVAL', clue: "Celui de Rio est le plus célèbre" },
+      { number: 6, row: 4, col: 6, direction: 'across', answer: 'CHANSON', clue: "On connaît la … : on ne nous la fait pas" },
+      { number: 7, row: 4, col: 10, direction: 'down', answer: 'SOIR', clue: "Grand, il est celui d'une première" },
+      { number: 8, row: 6, col: 0, direction: 'across', answer: 'DANSE', clue: "Ronde, elle se fait main dans la main" },
+      { number: 9, row: 7, col: 4, direction: 'across', answer: 'RESTAURANT', clue: "On y lit la carte" },
+      { number: 10, row: 9, col: 7, direction: 'across', answer: 'GALILEE', clue: "« Et pourtant elle tourne ! »" },
+    ],
+  },
+  /*
+   * . . . T O U L O U S E . . P
+   * . . . . L . . . . . . . . R
+   * . . . . Y . . C O M M O D E
+   * . . . . M . . . L . A . . S
+   * . . . . P A L M I E R . . Q
+   * . . . . I . I . V . C . . U
+   * . . . . A U T R I C H E . I
+   * . . . . D . . . E . E . . L
+   * M I C K E Y . . R . . . . E
+   */
+  {
+    id: 'm1-42',
+    width: 14,
+    height: 9,
+    words: [
+      { number: 1, row: 0, col: 3, direction: 'across', answer: 'TOULOUSE', clue: "Ville rose" },
+      { number: 2, row: 0, col: 4, direction: 'down', answer: 'OLYMPIADE', clue: "Période de quatre ans entre deux jeux" },
+      { number: 3, row: 0, col: 13, direction: 'down', answer: 'PRESQUILE', clue: "Terre presque entourée d'eau" },
+      { number: 4, row: 2, col: 7, direction: 'across', answer: 'COMMODE', clue: "Meuble à tiroirs, ou pratique" },
+      { number: 5, row: 2, col: 8, direction: 'down', answer: 'OLIVIER', clue: "Rameau de la paix" },
+      { number: 6, row: 2, col: 10, direction: 'down', answer: 'MARCHE', clue: "Aux puces, on y chine" },
+      { number: 7, row: 4, col: 4, direction: 'across', answer: 'PALMIER', clue: "Arbre des tropiques, ou biscuit feuilleté" },
+      { number: 8, row: 4, col: 6, direction: 'down', answer: 'LIT', clue: "Celui de la rivière n'est jamais fait" },
+      { number: 9, row: 6, col: 4, direction: 'across', answer: 'AUTRICHE', clue: "Pays de Mozart et de Sissi" },
+      { number: 10, row: 8, col: 0, direction: 'across', answer: 'MICKEY', clue: "Souris aux grandes oreilles rondes" },
+    ],
+  },
+  /*
+   * . . . . . . . . J . . . . P
+   * . . . R A T A T O U I L L E
+   * . . . . . R . . N . . O . G
+   * . . . . . I . . Q . . I . A
+   * . . . . B A R Q U E . R . S
+   * T H Y M . N . . I . . E . E
+   * . . . A I G U I L L E . . .
+   * . . . I . L . . L . . . . .
+   * . C A N N E L L E . . . . .
+   */
+  {
+    id: 'm1-43',
+    width: 14,
+    height: 9,
+    words: [
+      { number: 1, row: 0, col: 8, direction: 'down', answer: 'JONQUILLE', clue: "Fleur jaune, cousine du narcisse" },
+      { number: 2, row: 0, col: 13, direction: 'down', answer: 'PEGASE', clue: "Cheval ailé" },
+      { number: 3, row: 1, col: 3, direction: 'across', answer: 'RATATOUILLE', clue: "Mijoté provençal, ou rat cuisinier de cinéma" },
+      { number: 4, row: 1, col: 5, direction: 'down', answer: 'TRIANGLE', clue: "Celui des Bermudes engloutit les navires" },
+      { number: 5, row: 1, col: 11, direction: 'down', answer: 'LOIRE', clue: "Fleuve des châteaux" },
+      { number: 6, row: 4, col: 4, direction: 'across', answer: 'BARQUE', clue: "Mener la sienne : diriger sa vie" },
+      { number: 7, row: 5, col: 0, direction: 'across', answer: 'THYM', clue: "Herbe de Provence de la garrigue" },
+      { number: 8, row: 5, col: 3, direction: 'down', answer: 'MAIN', clue: "Verte, elle fait pousser les plantes" },
+      { number: 9, row: 6, col: 3, direction: 'across', answer: 'AIGUILLE', clue: "On la cherche dans une botte de foin" },
+      { number: 10, row: 8, col: 1, direction: 'across', answer: 'CANNELLE', clue: "Écorce parfumée du vin chaud" },
+    ],
+  },
+  /*
+   * P . . . . . . M . . . B .
+   * A . . G . . . O . . . O .
+   * N . P A N T O U F L A R D
+   * A . . R . I . C . . . D .
+   * M . . D . R . H . . . E .
+   * A S P I R A T E U R . A .
+   * . A . E . M . . . . . U .
+   * . L U N D I . . . . . X .
+   * . U . . . S . . . . . . .
+   * . T . P O U L E T . . . .
+   */
+  {
+    id: 'm1-44',
+    width: 13,
+    height: 10,
+    words: [
+      { number: 1, row: 0, col: 0, direction: 'down', answer: 'PANAMA', clue: "Chapeau de paille, ou canal" },
+      { number: 2, row: 0, col: 7, direction: 'down', answer: 'MOUCHE', clue: "On la prend pour un rien, et on vise dedans" },
+      { number: 3, row: 0, col: 11, direction: 'down', answer: 'BORDEAUX', clue: "Couleur rouge foncé, ou ville de vin" },
+      { number: 4, row: 1, col: 3, direction: 'down', answer: 'GARDIEN', clue: "Dernier rempart, ou veilleur de nuit" },
+      { number: 5, row: 2, col: 2, direction: 'across', answer: 'PANTOUFLARD', clue: "Il préfère rester chez lui" },
+      { number: 6, row: 2, col: 5, direction: 'down', answer: 'TIRAMISU', clue: "Son nom veut dire « remonte-moi »" },
+      { number: 7, row: 5, col: 0, direction: 'across', answer: 'ASPIRATEUR', clue: "Il fait le ménage en ronronnant" },
+      { number: 8, row: 5, col: 1, direction: 'down', answer: 'SALUT', clue: "Formule de copains, ou délivrance" },
+      { number: 9, row: 7, col: 1, direction: 'across', answer: 'LUNDI', clue: "Jour où l'on reprend le travail sans entrain" },
+      { number: 10, row: 9, col: 3, direction: 'across', answer: 'POULET', clue: "Il est rôti le dimanche, ou c'est un policier" },
+    ],
+  },
+  /*
+   * K A N G O U R O U . . .
+   * . . . . . . O . . . . .
+   * . . . . . . B . F . . .
+   * . . . . F A I S A N . S
+   * . . . . L . N . I . . C
+   * . B . . A . E . N . . I
+   * C I N E M A T H E Q U E
+   * . S . . A . . . A . . N
+   * J O U R N A L . N . . C
+   * . N . . T . . A T O M E
+   */
+  {
+    id: 'm1-45',
+    width: 12,
+    height: 10,
+    words: [
+      { number: 1, row: 0, col: 0, direction: 'across', answer: 'KANGOUROU', clue: "Boxeur australien à poche ventrale" },
+      { number: 2, row: 0, col: 6, direction: 'down', answer: 'ROBINET', clue: "Il goutte quand il fuit" },
+      { number: 3, row: 2, col: 8, direction: 'down', answer: 'FAINEANT', clue: "Il a un poil dans la main" },
+      { number: 4, row: 3, col: 4, direction: 'across', answer: 'FAISAN', clue: "Oiseau de chasse à longue queue" },
+      { number: 5, row: 3, col: 4, direction: 'down', answer: 'FLAMANT', clue: "Il doit sa couleur rose aux crevettes qu'il mange" },
+      { number: 6, row: 3, col: 11, direction: 'down', answer: 'SCIENCE', clue: "Elle sans conscience n'est que ruine de l'âme" },
+      { number: 7, row: 5, col: 1, direction: 'down', answer: 'BISON', clue: "Bœuf sauvage des Grandes Plaines" },
+      { number: 8, row: 6, col: 0, direction: 'across', answer: 'CINEMATHEQUE', clue: "Musée des vieux films" },
+      { number: 9, row: 8, col: 0, direction: 'across', answer: 'JOURNAL', clue: "Intime, on le cache sous le matelas" },
+      { number: 10, row: 9, col: 7, direction: 'across', answer: 'ATOME', clue: "Avoir des … crochus : bien s'entendre" },
+    ],
+  },
+  /*
+   * . . . . D . . . . P . . . .
+   * . . . H A R P A G O N . D .
+   * . . V . N . O . . U . . I .
+   * F L O R E N C E . L . . C .
+   * . . L . M . H . . P . . T .
+   * . G A R A G E . B E R G E R
+   * . . N . R . . . . . . . E .
+   * . . T . K A R A O K E . . .
+   */
+  {
+    id: 'm1-46',
+    width: 14,
+    height: 8,
+    words: [
+      { number: 1, row: 0, col: 4, direction: 'down', answer: 'DANEMARK', clue: "Pays de la petite sirène" },
+      { number: 2, row: 0, col: 9, direction: 'down', answer: 'POULPE', clue: "Il a trois cœurs et crache de l'encre" },
+      { number: 3, row: 1, col: 3, direction: 'across', answer: 'HARPAGON', clue: "Avare de Molière" },
+      { number: 4, row: 1, col: 6, direction: 'down', answer: 'POCHE', clue: "On a les mains dedans quand on ne fait rien" },
+      { number: 5, row: 1, col: 12, direction: 'down', answer: 'DICTEE', clue: "Exercice d'orthographe sous la voix du maître" },
+      { number: 6, row: 2, col: 2, direction: 'down', answer: 'VOLANT', clue: "Il se tient à deux mains, ou on le frappe au badminton" },
+      { number: 7, row: 3, col: 0, direction: 'across', answer: 'FLORENCE', clue: "Ville de la Renaissance, sur l'Arno" },
+      { number: 8, row: 5, col: 1, direction: 'across', answer: 'GARAGE', clue: "Il fait office de remise pour la voiture" },
+      { number: 9, row: 5, col: 8, direction: 'across', answer: 'BERGER', clue: "Allemand, il est un chien" },
+      { number: 10, row: 7, col: 4, direction: 'across', answer: 'KARAOKE', clue: "On y chante faux devant tout le monde" },
+    ],
+  },
+  /*
+   * P . . . B R O C H E T . .
+   * R . . . A . . H . . . M .
+   * I . . . V . C A L A M A R
+   * N . . . A . . T . G . M .
+   * C I N T R E . A . R . I .
+   * E . . . D . P I R A T E .
+   * . . . . . . . G . F . . .
+   * . . . . . C A N N E S . .
+   * . . . . . . . E . . . . .
+   */
+  {
+    id: 'm1-47',
+    width: 13,
+    height: 9,
+    words: [
+      { number: 1, row: 0, col: 0, direction: 'down', answer: 'PRINCE', clue: "Charmant, il arrive à cheval" },
+      { number: 2, row: 0, col: 4, direction: 'across', answer: 'BROCHET', clue: "Requin d'eau douce" },
+      { number: 3, row: 0, col: 4, direction: 'down', answer: 'BAVARD', clue: "Il parle comme une pie" },
+      { number: 4, row: 0, col: 7, direction: 'down', answer: 'CHATAIGNE', clue: "Fruit à bogue, ou coup de poing" },
+      { number: 5, row: 1, col: 11, direction: 'down', answer: 'MAMIE', clue: "Elle fait de bonnes confitures" },
+      { number: 6, row: 2, col: 6, direction: 'across', answer: 'CALAMAR', clue: "On le mange en beignets" },
+      { number: 7, row: 2, col: 9, direction: 'down', answer: 'AGRAFE', clue: "Petit crochet de métal qui tient les feuilles" },
+      { number: 8, row: 4, col: 0, direction: 'across', answer: 'CINTRE', clue: "On y suspend sa veste" },
+      { number: 9, row: 5, col: 6, direction: 'across', answer: 'PIRATE', clue: "Il a souvent une jambe de bois et un perroquet" },
+      { number: 10, row: 7, col: 5, direction: 'across', answer: 'CANNES', clue: "Ville du festival et de la Palme d'or" },
+    ],
+  },
+  /*
+   * C . . . T . C . M . . . C
+   * O . . M A D A G A S C A R
+   * U . A . R . R . I . U . I
+   * P . C . T . I . R . R . E
+   * L . T . I . B A I L L E R
+   * E . E . N . O . E . I . .
+   * T A U R E A U . . . N . .
+   * . . R . . . . . . . G . .
+   */
+  {
+    id: 'm1-48',
+    width: 13,
+    height: 8,
+    words: [
+      { number: 1, row: 0, col: 0, direction: 'down', answer: 'COUPLET', clue: "Strophe entre deux refrains" },
+      { number: 2, row: 0, col: 4, direction: 'down', answer: 'TARTINE', clue: "On en met une couche quand on en fait trop" },
+      { number: 3, row: 0, col: 6, direction: 'down', answer: 'CARIBOU', clue: "Renne d'Amérique du Nord" },
+      { number: 4, row: 0, col: 8, direction: 'down', answer: 'MAIRIE', clue: "On y dit « oui »" },
+      { number: 5, row: 0, col: 12, direction: 'down', answer: 'CRIER', clue: "Le faire au loup" },
+      { number: 6, row: 1, col: 3, direction: 'across', answer: 'MADAGASCAR', clue: "Grande Île des lémuriens" },
+      { number: 7, row: 1, col: 10, direction: 'down', answer: 'CURLING', clue: "On balaie la glace devant la pierre" },
+      { number: 8, row: 2, col: 2, direction: 'down', answer: 'ACTEUR', clue: "Il entre en scène" },
+      { number: 9, row: 4, col: 6, direction: 'across', answer: 'BAILLER', clue: "Ouvrir grand la bouche de fatigue" },
+      { number: 10, row: 6, col: 0, direction: 'across', answer: 'TAUREAU', clue: "Adversaire du torero" },
+    ],
+  },
+  /*
+   * . . . . . . . . . L . . . .
+   * . . . . . A R M O I R E . .
+   * . . . . . . . . . V . . . .
+   * . . . . . . M . . R . . C .
+   * . . . V A C A N C E S . H .
+   * . F . . . . I . R . . . A .
+   * . R O S S I G N O L . . U .
+   * . O . . . . R . A . . . S .
+   * B I C Y C L E T T E . . S .
+   * . D . . . . T . I . . . O .
+   * . . . . . . . S E M A I N E
+   */
+  {
+    id: 'm1-49',
+    width: 14,
+    height: 11,
+    words: [
+      { number: 1, row: 0, col: 9, direction: 'down', answer: 'LIVRE', clue: "Ancienne monnaie, ou ouvrage à lire" },
+      { number: 2, row: 1, col: 5, direction: 'across', answer: 'ARMOIRE', clue: "Personne bâtie comme ce grand meuble" },
+      { number: 3, row: 3, col: 6, direction: 'down', answer: 'MAIGRET', clue: "Commissaire à la pipe de Simenon" },
+      { number: 4, row: 3, col: 12, direction: 'down', answer: 'CHAUSSON', clue: "Aux pommes, ou pantoufle" },
+      { number: 5, row: 4, col: 3, direction: 'across', answer: 'VACANCES', clue: "Elles sont grandes en été" },
+      { number: 6, row: 4, col: 8, direction: 'down', answer: 'CROATIE', clue: "Pays de Dubrovnik" },
+      { number: 7, row: 5, col: 1, direction: 'down', answer: 'FROID', clue: "Il est de canard quand il gèle" },
+      { number: 8, row: 6, col: 1, direction: 'across', answer: 'ROSSIGNOL', clue: "Chanteur de nuit, ou fausse clé de cambrioleur" },
+      { number: 9, row: 8, col: 0, direction: 'across', answer: 'BICYCLETTE', clue: "Petite reine" },
+      { number: 10, row: 10, col: 7, direction: 'across', answer: 'SEMAINE', clue: "Celle des quatre jeudis n'arrive jamais" },
+    ],
+  },
+  /*
+   * . K . . . . . M U S C A D E .
+   * . L . . P . G . . . . . R . .
+   * J A N V I E R . . . . . O . .
+   * . X . . Z . I . . . . . M . .
+   * . O . . Z . G . . B . . A . .
+   * E N T R A I N E U R . . D . .
+   * . . . . . . O . . O . . A . .
+   * . . . . . . T . . S P H I N X
+   * . . . . . . E . . S . . R . .
+   * . . . . . P R O M E S S E . .
+   */
+  {
+    id: 'm1-50',
+    width: 15,
+    height: 10,
+    words: [
+      { number: 1, row: 0, col: 1, direction: 'down', answer: 'KLAXON', clue: "Il fait « tut tut »" },
+      { number: 2, row: 0, col: 7, direction: 'across', answer: 'MUSCADE', clue: "Noix râpée sur la béchamel" },
+      { number: 3, row: 0, col: 12, direction: 'down', answer: 'DROMADAIRE', clue: "Il n'a qu'une bosse" },
+      { number: 4, row: 1, col: 4, direction: 'down', answer: 'PIZZA', clue: "Napolitaine ou quatre fromages" },
+      { number: 5, row: 1, col: 6, direction: 'down', answer: 'GRIGNOTER', clue: "Manger entre les repas" },
+      { number: 6, row: 2, col: 0, direction: 'across', answer: 'JANVIER', clue: "Mois des bonnes résolutions" },
+      { number: 7, row: 4, col: 9, direction: 'down', answer: 'BROSSE', clue: "Coupe courte, ou outil à dents" },
+      { number: 8, row: 5, col: 0, direction: 'across', answer: 'ENTRAINEUR', clue: "Coach" },
+      { number: 9, row: 7, col: 9, direction: 'across', answer: 'SPHINX', clue: "Il pose des énigmes aux voyageurs" },
+      { number: 10, row: 9, col: 5, direction: 'across', answer: 'PROMESSE', clue: "Elle n'engage que ceux qui y croient" },
     ],
   },
 ];

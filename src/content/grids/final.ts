@@ -31,26 +31,30 @@ export const FINAL_GRIDS: readonly FinalGrid[] = [
     ],
   },
   /*
-   * . . A . . P O I R E .
-   * B A N A N E . . A . .
-   * . . A . . C E R I S E
-   * . . N . . H . . S . .
-   * F R A I S E . . I . .
-   * . . S . . . . . N . .
+   * C I T R O N .
+   * . . . A . . .
+   * . . . I . . .
+   * . . . S . P .
+   * A B R I C O T
+   * . A . N . M .
+   * . N . . . M .
+   * M A N G U E .
+   * . N . . . . .
+   * P E C H E . .
    */
   {
     id: 'f-02',
     theme: "Les fruits",
-    width: 11,
-    height: 6,
+    width: 7,
+    height: 10,
     words: [
-      { number: 1, row: 0, col: 2, direction: 'down', answer: 'ANANAS', clue: "Fruit tropical coiffé d'une touffe de feuilles" },
-      { number: 2, row: 0, col: 5, direction: 'across', answer: 'POIRE', clue: "Fruit en forme de goutte, cousin de la pomme" },
-      { number: 3, row: 0, col: 5, direction: 'down', answer: 'PECHE', clue: "Fruit à la peau duveteuse et au gros noyau" },
-      { number: 4, row: 0, col: 8, direction: 'down', answer: 'RAISIN', clue: "Fruit en grappes qui sert à faire le vin" },
-      { number: 5, row: 1, col: 0, direction: 'across', answer: 'BANANE', clue: "Fruit jaune et courbé que l'on épluche" },
-      { number: 6, row: 2, col: 5, direction: 'across', answer: 'CERISE', clue: "Petit fruit rouge à noyau, qui pousse par deux" },
-      { number: 7, row: 4, col: 0, direction: 'across', answer: 'FRAISE', clue: "Fruit rouge parsemé de petits grains" },
+      { number: 1, row: 0, col: 0, direction: 'across', answer: 'CITRON', clue: "Fruit jaune très acide" },
+      { number: 2, row: 0, col: 3, direction: 'down', answer: 'RAISIN', clue: "Fruit en grappes qui sert à faire le vin" },
+      { number: 3, row: 3, col: 5, direction: 'down', answer: 'POMME', clue: "Celle de Blanche-Neige était empoisonnée" },
+      { number: 4, row: 4, col: 0, direction: 'across', answer: 'ABRICOT', clue: "Fruit orange et doux de l'été, à noyau" },
+      { number: 5, row: 4, col: 1, direction: 'down', answer: 'BANANE', clue: "Fruit jaune et courbé que l'on épluche" },
+      { number: 6, row: 7, col: 0, direction: 'across', answer: 'MANGUE', clue: "Fruit tropical à la chair orange" },
+      { number: 7, row: 9, col: 0, direction: 'across', answer: 'PECHE', clue: "Fruit à la peau duveteuse et au gros noyau" },
     ],
   },
   /*
@@ -158,113 +162,112 @@ export const FINAL_GRIDS: readonly FinalGrid[] = [
     ],
   },
   /*
-   * . . . . . . G . . .
-   * . T O N N E R R E .
-   * . . . . E . E . . .
-   * B R O U I L L A R D
-   * . . R . G . E . . .
-   * N U A G E . . . . .
-   * . . G . . . . . . .
-   * . V E N T . . . . .
+   * . . . . P . . . . . .
+   * V E R G L A S . . . .
+   * E . . . U . O R A G E
+   * N . . . I . L . . . .
+   * T E M P E T E . . . .
+   * . . . . . . I . . . .
+   * . . . G R E L E . . .
    */
   {
     id: 'f-07',
     theme: "La météo",
-    width: 10,
-    height: 8,
+    width: 11,
+    height: 7,
     words: [
-      { number: 1, row: 0, col: 6, direction: 'down', answer: 'GRELE', clue: "Pluie de petites billes de glace" },
-      { number: 2, row: 1, col: 1, direction: 'across', answer: 'TONNERRE', clue: "Grondement qui suit l'éclair" },
-      { number: 3, row: 1, col: 4, direction: 'down', answer: 'NEIGE', clue: "Elle tombe en flocons blancs" },
-      { number: 4, row: 3, col: 0, direction: 'across', answer: 'BROUILLARD', clue: "Il empêche de voir loin" },
-      { number: 5, row: 3, col: 2, direction: 'down', answer: 'ORAGE', clue: "Il gronde avec des éclairs" },
-      { number: 6, row: 5, col: 0, direction: 'across', answer: 'NUAGE', clue: "Gris ou blanc, il flotte dans le ciel" },
-      { number: 7, row: 7, col: 1, direction: 'across', answer: 'VENT', clue: "Il fait tourner les éoliennes" },
+      { number: 1, row: 0, col: 4, direction: 'down', answer: 'PLUIE', clue: "Elle mouille, on sort le parapluie" },
+      { number: 2, row: 1, col: 0, direction: 'across', answer: 'VERGLAS', clue: "Fine couche de glace sur la route" },
+      { number: 3, row: 1, col: 0, direction: 'down', answer: 'VENT', clue: "Il fait tourner les éoliennes" },
+      { number: 4, row: 1, col: 6, direction: 'down', answer: 'SOLEIL', clue: "Il brille dans le ciel bleu" },
+      { number: 5, row: 2, col: 6, direction: 'across', answer: 'ORAGE', clue: "Il gronde avec des éclairs" },
+      { number: 6, row: 4, col: 0, direction: 'across', answer: 'TEMPETE', clue: "Violente agitation de l'air" },
+      { number: 7, row: 6, col: 3, direction: 'across', answer: 'GRELE', clue: "Petites billes de glace tombées du ciel" },
     ],
   },
   /*
-   * . . . . . . . . . . . . L
-   * . . . . . . P . F R I G O
-   * . . . F . . O . O . . . U
-   * . . C O U T E A U . . . C
-   * . . . U . . L . E . . . H
-   * F O U R C H E T T E . . E
+   * . . . . . . F . . .
+   * P A S S O I R E . .
+   * . . . P . . I . P .
+   * . . . A . . G . O .
+   * . . . T . F O U E T
+   * . . . U . O . . L .
+   * . . . L O U C H E .
+   * . . . E . R . . . .
    */
   {
     id: 'f-08',
     theme: "Dans la cuisine",
-    width: 13,
-    height: 6,
+    width: 10,
+    height: 8,
     words: [
-      { number: 1, row: 0, col: 12, direction: 'down', answer: 'LOUCHE', clue: "Grande cuillère pour servir la soupe" },
-      { number: 2, row: 1, col: 6, direction: 'down', answer: 'POELE', clue: "On y fait sauter les crêpes" },
-      { number: 3, row: 1, col: 8, direction: 'across', answer: 'FRIGO', clue: "Il garde les aliments au frais" },
-      { number: 4, row: 1, col: 8, direction: 'down', answer: 'FOUET', clue: "Pour battre les blancs en neige" },
-      { number: 5, row: 2, col: 3, direction: 'down', answer: 'FOUR', clue: "On y fait cuire les gâteaux" },
-      { number: 6, row: 3, col: 2, direction: 'across', answer: 'COUTEAU', clue: "Il sert à couper" },
-      { number: 7, row: 5, col: 0, direction: 'across', answer: 'FOURCHETTE', clue: "Couvert à dents" },
+      { number: 1, row: 0, col: 6, direction: 'down', answer: 'FRIGO', clue: "Il garde les aliments au frais" },
+      { number: 2, row: 1, col: 0, direction: 'across', answer: 'PASSOIRE', clue: "Pour égoutter les pâtes" },
+      { number: 3, row: 1, col: 3, direction: 'down', answer: 'SPATULE', clue: "Pour racler le fond du saladier" },
+      { number: 4, row: 2, col: 8, direction: 'down', answer: 'POELE', clue: "On y fait sauter les crêpes" },
+      { number: 5, row: 4, col: 5, direction: 'across', answer: 'FOUET', clue: "Pour battre les blancs en neige" },
+      { number: 6, row: 4, col: 5, direction: 'down', answer: 'FOUR', clue: "On y fait cuire les gâteaux" },
+      { number: 7, row: 6, col: 3, direction: 'across', answer: 'LOUCHE', clue: "Grande cuillère pour servir la soupe" },
     ],
   },
   /*
-   * . . . . . . . . . C . O . .
-   * . . . . . . G . . O . R . .
-   * . . . . . . E P A U L E . .
-   * . . . . . . N . . D . I . .
-   * . . . . . . O R T E I L . .
-   * C E R V E A U . . . . L . .
-   * . . . . . . . C H E V E U X
+   * . . . C . O . .
+   * G . . O . R . C
+   * E P A U L E . H
+   * N . . D . I . E
+   * O R T E I L . V
+   * U . . . . L . E
+   * . C E R V E A U
+   * . . . . . . . X
    */
   {
     id: 'f-09',
     theme: "Le corps humain",
-    width: 14,
-    height: 7,
+    width: 8,
+    height: 8,
     words: [
-      { number: 1, row: 0, col: 9, direction: 'down', answer: 'COUDE', clue: "Articulation au milieu du bras" },
-      { number: 2, row: 0, col: 11, direction: 'down', answer: 'OREILLE', clue: "Elle sert à entendre" },
-      { number: 3, row: 1, col: 6, direction: 'down', answer: 'GENOU', clue: "Articulation au milieu de la jambe" },
-      { number: 4, row: 2, col: 6, direction: 'across', answer: 'EPAULE', clue: "Le bras y est attaché" },
-      { number: 5, row: 4, col: 6, direction: 'across', answer: 'ORTEIL', clue: "Doigt de pied" },
-      { number: 6, row: 5, col: 0, direction: 'across', answer: 'CERVEAU', clue: "Il est dans la tête et nous fait penser" },
-      { number: 7, row: 6, col: 7, direction: 'across', answer: 'CHEVEUX', clue: "Ils poussent sur la tête" },
+      { number: 1, row: 0, col: 3, direction: 'down', answer: 'COUDE', clue: "Articulation au milieu du bras" },
+      { number: 2, row: 0, col: 5, direction: 'down', answer: 'OREILLE', clue: "Elle sert à entendre" },
+      { number: 3, row: 1, col: 0, direction: 'down', answer: 'GENOU', clue: "Articulation au milieu de la jambe" },
+      { number: 4, row: 1, col: 7, direction: 'down', answer: 'CHEVEUX', clue: "Ils poussent sur la tête" },
+      { number: 5, row: 2, col: 0, direction: 'across', answer: 'EPAULE', clue: "Le bras y est attaché" },
+      { number: 6, row: 4, col: 0, direction: 'across', answer: 'ORTEIL', clue: "Doigt de pied" },
+      { number: 7, row: 6, col: 1, direction: 'across', answer: 'CERVEAU', clue: "Il est dans la tête et nous fait penser" },
     ],
   },
   /*
-   * . . . . . G . . . .
-   * . . E C H A R P E .
-   * . . . H . N . U . .
-   * . . P A N T A L O N
-   * . . . U . . . L . .
-   * . . . S . . . . . .
-   * . . . S . . . . . .
-   * . C H E M I S E . .
-   * . . . T . . . . . .
-   * . . . T . . . . . .
-   * R O B E . . . . . .
+   * . . . . . J . B .
+   * . . . . P U L L .
+   * . . . B . P . O .
+   * . . R O B E . U .
+   * . . . N . . . S .
+   * . P A N T A L O N
+   * . . . E . . . N .
+   * M A N T E A U . .
    */
   {
     id: 'f-10',
     theme: "Les vêtements",
-    width: 10,
-    height: 11,
+    width: 9,
+    height: 8,
     words: [
-      { number: 1, row: 0, col: 5, direction: 'down', answer: 'GANT', clue: "Il couvre la main" },
-      { number: 2, row: 1, col: 2, direction: 'across', answer: 'ECHARPE', clue: "On l'enroule autour du cou" },
-      { number: 3, row: 1, col: 3, direction: 'down', answer: 'CHAUSSETTE', clue: "Elle se met au pied avant la chaussure" },
-      { number: 4, row: 1, col: 7, direction: 'down', answer: 'PULL', clue: "Vêtement chaud en laine" },
-      { number: 5, row: 3, col: 2, direction: 'across', answer: 'PANTALON', clue: "Il couvre les deux jambes" },
-      { number: 6, row: 7, col: 1, direction: 'across', answer: 'CHEMISE', clue: "Elle se ferme avec des boutons et a un col" },
-      { number: 7, row: 10, col: 0, direction: 'across', answer: 'ROBE', clue: "Vêtement d'une seule pièce, du haut jusqu'aux jambes" },
+      { number: 1, row: 0, col: 5, direction: 'down', answer: 'JUPE', clue: "Vêtement qui part de la taille, sans jambes séparées" },
+      { number: 2, row: 0, col: 7, direction: 'down', answer: 'BLOUSON', clue: "Veste courte et chaude" },
+      { number: 3, row: 1, col: 4, direction: 'across', answer: 'PULL', clue: "Vêtement chaud en laine" },
+      { number: 4, row: 2, col: 3, direction: 'down', answer: 'BONNET', clue: "Il tient la tête au chaud" },
+      { number: 5, row: 3, col: 2, direction: 'across', answer: 'ROBE', clue: "Vêtement d'une seule pièce, du haut jusqu'aux jambes" },
+      { number: 6, row: 5, col: 1, direction: 'across', answer: 'PANTALON', clue: "Il couvre les deux jambes" },
+      { number: 7, row: 7, col: 0, direction: 'across', answer: 'MANTEAU', clue: "On le met par-dessus quand il fait froid" },
     ],
   },
   /*
-   * B . A V I O N . .
-   * A . . O . . . . .
-   * T R A I N . . . .
-   * E . . T . M . . .
-   * A . A U T O B U S
-   * U . . R . T . . .
-   * . . V E L O . . .
+   * . . T R A M W A Y
+   * . B . . . . . V .
+   * . A . . . . . I .
+   * . T . M E T R O .
+   * V E L O . . . N .
+   * . A . T . . . . .
+   * A U T O B U S . .
    */
   {
     id: 'f-11',
@@ -272,22 +275,22 @@ export const FINAL_GRIDS: readonly FinalGrid[] = [
     width: 9,
     height: 7,
     words: [
-      { number: 1, row: 0, col: 0, direction: 'down', answer: 'BATEAU', clue: "Il flotte sur l'eau" },
-      { number: 2, row: 0, col: 2, direction: 'across', answer: 'AVION', clue: "Il vole avec des ailes et des réacteurs" },
-      { number: 3, row: 0, col: 3, direction: 'down', answer: 'VOITURE', clue: "Elle a quatre roues et un volant" },
-      { number: 4, row: 2, col: 0, direction: 'across', answer: 'TRAIN', clue: "Il roule sur des rails" },
-      { number: 5, row: 3, col: 5, direction: 'down', answer: 'MOTO', clue: "Deux roues avec un moteur" },
-      { number: 6, row: 4, col: 2, direction: 'across', answer: 'AUTOBUS', clue: "Grand véhicule qui s'arrête aux arrêts" },
-      { number: 7, row: 6, col: 2, direction: 'across', answer: 'VELO', clue: "Deux roues et des pédales" },
+      { number: 1, row: 0, col: 2, direction: 'across', answer: 'TRAMWAY', clue: "Train qui roule dans les rues de la ville" },
+      { number: 2, row: 0, col: 7, direction: 'down', answer: 'AVION', clue: "Il vole avec des ailes et des réacteurs" },
+      { number: 3, row: 1, col: 1, direction: 'down', answer: 'BATEAU', clue: "Il flotte sur l'eau" },
+      { number: 4, row: 3, col: 3, direction: 'across', answer: 'METRO', clue: "Train souterrain des grandes villes" },
+      { number: 5, row: 3, col: 3, direction: 'down', answer: 'MOTO', clue: "Deux roues avec un moteur" },
+      { number: 6, row: 4, col: 0, direction: 'across', answer: 'VELO', clue: "Deux roues et des pédales" },
+      { number: 7, row: 6, col: 0, direction: 'across', answer: 'AUTOBUS', clue: "Grand véhicule qui s'arrête aux arrêts" },
     ],
   },
   /*
-   * . . P . . . . . . .
-   * . . H . . . M . . M
-   * . P A R A S O L . A
-   * . . R . . . U . . R
+   * . . C . . . . . . B
+   * . . R . . . M . . O
+   * . P A R A S O L . U
+   * . . B . . . U . . E
    * . S E R V I E T T E
-   * . E . . . . T . . E
+   * . E . . . . T . . .
    * M A I L L O T . . .
    * . U . . . . E . . .
    */
@@ -297,9 +300,9 @@ export const FINAL_GRIDS: readonly FinalGrid[] = [
     width: 10,
     height: 8,
     words: [
-      { number: 1, row: 0, col: 2, direction: 'down', answer: 'PHARE', clue: "Sa lumière guide les bateaux la nuit" },
-      { number: 2, row: 1, col: 6, direction: 'down', answer: 'MOUETTE', clue: "Oiseau blanc qui crie au-dessus des vagues" },
-      { number: 3, row: 1, col: 9, direction: 'down', answer: 'MAREE', clue: "La mer monte et descend avec elle" },
+      { number: 1, row: 0, col: 2, direction: 'down', answer: 'CRABE', clue: "Il marche de côté avec ses pinces" },
+      { number: 2, row: 0, col: 9, direction: 'down', answer: 'BOUEE', clue: "On l'enfile pour flotter" },
+      { number: 3, row: 1, col: 6, direction: 'down', answer: 'MOUETTE', clue: "Oiseau blanc qui crie au-dessus des vagues" },
       { number: 4, row: 2, col: 1, direction: 'across', answer: 'PARASOL', clue: "Il protège du soleil sur la plage" },
       { number: 5, row: 4, col: 1, direction: 'across', answer: 'SERVIETTE', clue: "On s'allonge dessus pour bronzer" },
       { number: 6, row: 4, col: 1, direction: 'down', answer: 'SEAU', clue: "On le remplit de sable avec une pelle" },
@@ -307,34 +310,35 @@ export const FINAL_GRIDS: readonly FinalGrid[] = [
     ],
   },
   /*
-   * . . C . . C . . R
-   * . C A R T A B L E
-   * G . N . . H . . G
-   * O . T . . I . . L
    * M A I T R E S S E
-   * M . N . . R . T .
-   * E . E . . . . Y .
-   * . . . . . . . L .
-   * . . . . . . . O .
+   * . . . . E . . . .
+   * . . C . C . . . .
+   * . . O . R . . . .
+   * G O M M E . . . .
+   * . . P . A . . . R
+   * . C A R T A B L E
+   * . . S . I . . . G
+   * . . . . O . . . L
+   * . . C A N T I N E
    */
   {
     id: 'f-13',
     theme: "L'école",
     width: 9,
-    height: 9,
+    height: 10,
     words: [
-      { number: 1, row: 0, col: 2, direction: 'down', answer: 'CANTINE', clue: "On y déjeune le midi" },
-      { number: 2, row: 0, col: 5, direction: 'down', answer: 'CAHIER', clue: "On écrit dedans" },
-      { number: 3, row: 0, col: 8, direction: 'down', answer: 'REGLE', clue: "Elle sert à tracer des traits droits" },
-      { number: 4, row: 1, col: 1, direction: 'across', answer: 'CARTABLE', clue: "Sac où l'on range ses affaires de classe" },
-      { number: 5, row: 2, col: 0, direction: 'down', answer: 'GOMME', clue: "Elle efface le crayon" },
-      { number: 6, row: 4, col: 0, direction: 'across', answer: 'MAITRESSE', clue: "Elle fait la classe" },
-      { number: 7, row: 4, col: 7, direction: 'down', answer: 'STYLO', clue: "On écrit avec, à l'encre" },
+      { number: 1, row: 0, col: 0, direction: 'across', answer: 'MAITRESSE', clue: "Elle fait la classe" },
+      { number: 2, row: 0, col: 4, direction: 'down', answer: 'RECREATION', clue: "Moment pour jouer dans la cour" },
+      { number: 3, row: 2, col: 2, direction: 'down', answer: 'COMPAS', clue: "Il sert à tracer des cercles" },
+      { number: 4, row: 4, col: 0, direction: 'across', answer: 'GOMME', clue: "Elle efface le crayon" },
+      { number: 5, row: 5, col: 8, direction: 'down', answer: 'REGLE', clue: "Elle sert à tracer des traits droits" },
+      { number: 6, row: 6, col: 1, direction: 'across', answer: 'CARTABLE', clue: "Sac où l'on range ses affaires de classe" },
+      { number: 7, row: 9, col: 2, direction: 'across', answer: 'CANTINE', clue: "On y déjeune le midi" },
     ],
   },
   /*
    * . . . . T . . . .
-   * . F U S E E . . .
+   * F U S E E . . . .
    * . . . . L . . . .
    * P L A N E T E . .
    * . U . . S . T . .
@@ -350,7 +354,7 @@ export const FINAL_GRIDS: readonly FinalGrid[] = [
     height: 9,
     words: [
       { number: 1, row: 0, col: 4, direction: 'down', answer: 'TELESCOPE', clue: "Il sert à observer les astres" },
-      { number: 2, row: 1, col: 1, direction: 'across', answer: 'FUSEE', clue: "Elle décolle vers l'espace" },
+      { number: 2, row: 1, col: 0, direction: 'across', answer: 'FUSEE', clue: "Elle décolle vers l'espace" },
       { number: 3, row: 3, col: 0, direction: 'across', answer: 'PLANETE', clue: "La Terre en est une" },
       { number: 4, row: 3, col: 1, direction: 'down', answer: 'LUNE', clue: "Elle tourne autour de la Terre" },
       { number: 5, row: 3, col: 6, direction: 'down', answer: 'ETOILE', clue: "Elle brille dans le ciel la nuit" },
@@ -359,13 +363,13 @@ export const FINAL_GRIDS: readonly FinalGrid[] = [
     ],
   },
   /*
-   * . . . C . C . . . . .
-   * . . . H . I . . . . .
+   * . . . D . C . . . . .
+   * . . . R . I . . . . .
    * . . P A N T O U F L E
-   * . . . T . R . . E . .
-   * . . . E . O G R E . .
-   * . . . A . U . E . . .
-   * . . . U . I . I . . .
+   * . . . G . R . . E . .
+   * . . . O . O G R E . .
+   * . . . N . U . E . . .
+   * . . . . . I . I . . .
    * . . . . . L . N . . .
    * C H E V A L I E R . .
    * . . . . . E . . . . .
@@ -376,7 +380,7 @@ export const FINAL_GRIDS: readonly FinalGrid[] = [
     width: 11,
     height: 10,
     words: [
-      { number: 1, row: 0, col: 3, direction: 'down', answer: 'CHATEAU', clue: "Le roi y habite, avec des tours et un pont-levis" },
+      { number: 1, row: 0, col: 3, direction: 'down', answer: 'DRAGON', clue: "Il crache du feu" },
       { number: 2, row: 0, col: 5, direction: 'down', answer: 'CITROUILLE', clue: "Elle devient carrosse pour Cendrillon" },
       { number: 3, row: 2, col: 2, direction: 'across', answer: 'PANTOUFLE', clue: "Celle de Cendrillon est en verre" },
       { number: 4, row: 2, col: 8, direction: 'down', answer: 'FEE', clue: "Elle a une baguette magique" },
@@ -386,54 +390,54 @@ export const FINAL_GRIDS: readonly FinalGrid[] = [
     ],
   },
   /*
-   * . . . . . . . . H .
-   * . . . . . . . . A .
-   * . . P . . P . . I .
-   * . T O N D E U S E .
-   * . . T . . L . . . .
-   * . . A R R O S O I R
-   * . . G . . U . . . O
-   * . . E . . S . . . S
-   * M A R G U E R I T E
+   * . A . . . H . .
+   * . R A T E A U .
+   * . R . . . I . .
+   * P O T A G E R .
+   * . S . . . . O .
+   * T O N D E U S E
+   * . I . . . . E .
+   * G R A I N E . .
    */
   {
     id: 'f-16',
     theme: "Le jardin",
-    width: 10,
-    height: 9,
+    width: 8,
+    height: 8,
     words: [
-      { number: 1, row: 0, col: 8, direction: 'down', answer: 'HAIE', clue: "Rangée d'arbustes qui sert de clôture" },
-      { number: 2, row: 2, col: 2, direction: 'down', answer: 'POTAGER', clue: "Jardin où l'on cultive les légumes" },
-      { number: 3, row: 2, col: 5, direction: 'down', answer: 'PELOUSE', clue: "On la tond le dimanche" },
-      { number: 4, row: 3, col: 1, direction: 'across', answer: 'TONDEUSE', clue: "Machine qui coupe l'herbe" },
-      { number: 5, row: 5, col: 2, direction: 'across', answer: 'ARROSOIR', clue: "Il sert à donner de l'eau aux plantes" },
-      { number: 6, row: 5, col: 9, direction: 'down', answer: 'ROSE', clue: "Fleur à épines" },
-      { number: 7, row: 8, col: 0, direction: 'across', answer: 'MARGUERITE', clue: "Fleur qu'on effeuille : je t'aime, un peu, beaucoup" },
+      { number: 1, row: 0, col: 1, direction: 'down', answer: 'ARROSOIR', clue: "Il sert à donner de l'eau aux plantes" },
+      { number: 2, row: 0, col: 5, direction: 'down', answer: 'HAIE', clue: "Rangée d'arbustes qui sert de clôture" },
+      { number: 3, row: 1, col: 1, direction: 'across', answer: 'RATEAU', clue: "Outil à dents pour ramasser les feuilles" },
+      { number: 4, row: 3, col: 0, direction: 'across', answer: 'POTAGER', clue: "Jardin où l'on cultive les légumes" },
+      { number: 5, row: 3, col: 6, direction: 'down', answer: 'ROSE', clue: "Fleur à épines" },
+      { number: 6, row: 5, col: 0, direction: 'across', answer: 'TONDEUSE', clue: "Machine qui coupe l'herbe" },
+      { number: 7, row: 7, col: 0, direction: 'across', answer: 'GRAINE', clue: "On la sème pour qu'elle pousse" },
     ],
   },
   /*
-   * . . . . T . C . . .
-   * . G U I R L A N D E
-   * . . . . A . D . . .
-   * C H E M I N E E . .
-   * . O . . N . A . . .
-   * B U C H E . U . . .
-   * . X . . A . . . . .
-   * . . . L U T I N . .
+   * . . B . R . . . .
+   * B O U L E . . . .
+   * . . C . V . . . .
+   * . . H . E . R . .
+   * C H E M I N E E .
+   * . O . . L . N . .
+   * G U I R L A N D E
+   * . X . . O . E . .
+   * . . . . N . . . .
    */
   {
     id: 'f-17',
     theme: "Noël",
-    width: 10,
-    height: 8,
+    width: 9,
+    height: 9,
     words: [
-      { number: 1, row: 0, col: 4, direction: 'down', answer: 'TRAINEAU', clue: "Véhicule du père Noël, il glisse sur la neige" },
-      { number: 2, row: 0, col: 6, direction: 'down', answer: 'CADEAU', clue: "On le trouve sous le sapin" },
-      { number: 3, row: 1, col: 1, direction: 'across', answer: 'GUIRLANDE', clue: "Décoration qui brille autour du sapin" },
-      { number: 4, row: 3, col: 0, direction: 'across', answer: 'CHEMINEE', clue: "Le père Noël y descend" },
-      { number: 5, row: 3, col: 1, direction: 'down', answer: 'HOUX', clue: "Plante à feuilles piquantes et boules rouges" },
-      { number: 6, row: 5, col: 0, direction: 'across', answer: 'BUCHE', clue: "Gâteau roulé de Noël" },
-      { number: 7, row: 7, col: 3, direction: 'across', answer: 'LUTIN', clue: "Petit aide du père Noël" },
+      { number: 1, row: 0, col: 2, direction: 'down', answer: 'BUCHE', clue: "Gâteau roulé de Noël" },
+      { number: 2, row: 0, col: 4, direction: 'down', answer: 'REVEILLON', clue: "Grand repas du 24 décembre au soir" },
+      { number: 3, row: 1, col: 0, direction: 'across', answer: 'BOULE', clue: "Décoration ronde et brillante" },
+      { number: 4, row: 3, col: 6, direction: 'down', answer: 'RENNE', clue: "Rudolph en est un, au nez rouge" },
+      { number: 5, row: 4, col: 0, direction: 'across', answer: 'CHEMINEE', clue: "Le père Noël y descend" },
+      { number: 6, row: 4, col: 1, direction: 'down', answer: 'HOUX', clue: "Plante à feuilles piquantes et baies rouges" },
+      { number: 7, row: 6, col: 0, direction: 'across', answer: 'GUIRLANDE', clue: "Décoration lumineuse qui s'enroule" },
     ],
   },
   /*
@@ -459,28 +463,26 @@ export const FINAL_GRIDS: readonly FinalGrid[] = [
     ],
   },
   /*
-   * . . . . . . . P
-   * P O U P E E . U
-   * . . . E . . . Z
-   * B A L L O N . Z
-   * I . . U . . . L
-   * L . . C O R D E
-   * L . . H . . . .
-   * E C H E C S . .
+   * . . . B . . T . C . . P
+   * . . . A . Y O Y O . . O
+   * B I L L E . U . R . . U
+   * . . . L . . P . D . . P
+   * . T R O T T I N E T T E
+   * . . . N . . E . . . . E
    */
   {
     id: 'f-19',
     theme: "Les jeux et jouets",
-    width: 8,
-    height: 8,
+    width: 12,
+    height: 6,
     words: [
-      { number: 1, row: 0, col: 7, direction: 'down', answer: 'PUZZLE', clue: "Jeu de pièces à assembler" },
-      { number: 2, row: 1, col: 0, direction: 'across', answer: 'POUPEE', clue: "Jouet qu'on habille et qu'on coiffe" },
-      { number: 3, row: 1, col: 3, direction: 'down', answer: 'PELUCHE', clue: "Doudou tout doux" },
-      { number: 4, row: 3, col: 0, direction: 'across', answer: 'BALLON', clue: "On tape dedans" },
-      { number: 5, row: 3, col: 0, direction: 'down', answer: 'BILLE', clue: "Petite boule de verre de la cour de récré" },
-      { number: 6, row: 5, col: 3, direction: 'across', answer: 'CORDE', clue: "On saute par-dessus" },
-      { number: 7, row: 7, col: 0, direction: 'across', answer: 'ECHECS', clue: "Jeu avec un roi, une reine et des pions" },
+      { number: 1, row: 0, col: 3, direction: 'down', answer: 'BALLON', clue: "On tape dedans" },
+      { number: 2, row: 0, col: 6, direction: 'down', answer: 'TOUPIE', clue: "Jouet qui tourne sur sa pointe" },
+      { number: 3, row: 0, col: 8, direction: 'down', answer: 'CORDE', clue: "On saute par-dessus" },
+      { number: 4, row: 0, col: 11, direction: 'down', answer: 'POUPEE', clue: "Jouet qu'on habille et qu'on coiffe" },
+      { number: 5, row: 1, col: 5, direction: 'across', answer: 'YOYO', clue: "Il monte et descend au bout d'une ficelle" },
+      { number: 6, row: 2, col: 0, direction: 'across', answer: 'BILLE', clue: "Petite boule de verre de la cour de récré" },
+      { number: 7, row: 4, col: 1, direction: 'across', answer: 'TROTTINETTE', clue: "Planche à deux roues avec un guidon" },
     ],
   },
   /*

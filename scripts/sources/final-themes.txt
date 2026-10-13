@@ -92,11 +92,13 @@ NUAGE | Gris ou blanc, il flotte dans le ciel
 ORAGE | Il gronde avec des éclairs
 VENT | Il fait tourner les éoliennes
 BROUILLARD | Il empêche de voir loin
-ECLAIR | Lumière vive pendant l'orage
-TONNERRE | Grondement qui suit l'éclair
-GRELE | Pluie de petites billes de glace
-TEMPETE | Vent très violent
+ECLAIR | Lumière vive et brève dans le ciel
+TONNERRE | Grondement venu du ciel
+GRELE | Petites billes de glace tombées du ciel
+TEMPETE | Violente agitation de l'air
 VERGLAS | Fine couche de glace sur la route
+CANICULE | Très forte chaleur qui dure
+BOURRASQUE | Rafale soudaine
 
 ## Dans la cuisine
 CASSEROLE | Récipient à manche pour faire chauffer le lait
@@ -225,16 +227,16 @@ TONDEUSE | Machine qui coupe l'herbe
 MARGUERITE | Fleur qu'on effeuille : je t'aime, un peu, beaucoup
 
 ## Noël
-SAPIN | On le décore de boules
-GUIRLANDE | Décoration qui brille autour du sapin
-CADEAU | On le trouve sous le sapin
-RENNE | Il tire le traîneau du père Noël
+SAPIN | Conifère qu'on décore en décembre
+GUIRLANDE | Décoration lumineuse qui s'enroule
+CADEAU | Paquet qu'on déballe le 25 au matin
+RENNE | Rudolph en est un, au nez rouge
 TRAINEAU | Véhicule du père Noël, il glisse sur la neige
-BOULE | Décoration ronde du sapin
+BOULE | Décoration ronde et brillante
 CHEMINEE | Le père Noël y descend
 BUCHE | Gâteau roulé de Noël
 LUTIN | Petit aide du père Noël
-HOUX | Plante à feuilles piquantes et boules rouges
+HOUX | Plante à feuilles piquantes et baies rouges
 CRECHE | Elle montre la naissance de Jésus
 REVEILLON | Grand repas du 24 décembre au soir
 

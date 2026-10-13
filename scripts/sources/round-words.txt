@@ -1,742 +1,1388 @@
 # Mots des manches 1 et 2. Format : MOT | Définition
 # Le générateur pioche dedans : tous ne seront pas utilisés.
 # Un mot ne doit apparaître qu'une fois dans toutes les sources (finale comprise).
+# Définitions à la manière d'un jeu télévisé : un peu détournées, jamais impossibles.
 
 # Animaux
-LAPIN | Il a de longues oreilles et adore les carottes
-TORTUE | Elle avance lentement, sa carapace sur le dos
-GIRAFE | L'animal au plus long cou
-ELEPHANT | Gros animal d'Afrique ou d'Asie, avec une trompe
-DAUPHIN | Mammifère marin très joueur
-REQUIN | Poisson aux dents redoutables
-HIBOU | Oiseau de nuit qui fait « hou hou »
-RENARD | Animal roux et rusé, voleur de poules
-ECUREUIL | Petit rongeur roux qui fait des réserves de noisettes
-HERISSON | Petit animal couvert de piquants
-MOUTON | Il donne de la laine
-CHEVAL | On le monte avec une selle
-CANARD | Il fait « coin-coin »
-GRENOUILLE | Elle coasse dans la mare
-PAPILLON | Insecte aux ailes colorées, ancienne chenille
-ABEILLE | Insecte qui fabrique le miel
-FOURMI | Petit insecte qui vit en colonie
-ESCARGOT | Il sort ses cornes quand il pleut
-CROCODILE | Grand reptile aux mâchoires puissantes
-TIGRE | Grand félin au pelage rayé
-ZEBRE | Animal d'Afrique rayé noir et blanc
-PINGOUIN | Oiseau marin noir et blanc
-BALEINE | Le plus gros des animaux marins
-POULPE | Animal marin à huit bras
-MOUSTIQUE | Insecte qui pique la nuit
-CHAMEAU | Animal du désert à deux bosses
-KANGOUROU | Il porte son petit dans une poche
-PANDA | Ours noir et blanc qui mange du bambou
-LOUP | Il hurle à la lune
-OURS | Il passe l'hiver à dormir dans sa tanière
-CERF | Animal de la forêt qui porte des bois
-SANGLIER | Cochon sauvage de la forêt
-TAUPE | Elle creuse des galeries sous la pelouse
-CIGALE | Elle chante tout l'été
-CORBEAU | Oiseau noir qui lâche son fromage dans la fable
-PERROQUET | Oiseau coloré qui répète ce qu'on dit
-AUTRUCHE | Grand oiseau qui court vite mais ne vole pas
-FLAMANT | Oiseau rose qui dort sur une patte
-HOMARD | Gros crustacé bleu aux pinces
-MEDUSE | Animal marin transparent qui pique
-ARAIGNEE | Elle tisse sa toile
-LION | Le roi des animaux
-CHAT | Il ronronne
-SOURIS | Petit rongeur que le chat poursuit
-HAMSTER | Petit rongeur qui court dans sa roue
-CHIEN | Le meilleur ami de l'homme
-AIGLE | Grand rapace des montagnes
-PIGEON | Oiseau des villes qui roucoule
-MERLE | Oiseau noir au bec jaune
-VIPERE | Serpent venimeux de nos campagnes
-LEZARD | Petit reptile qui se chauffe au soleil sur les murs
-COCCINELLE | Petit insecte rouge à points noirs
-CHENILLE | Elle deviendra papillon
-LIMACE | Escargot sans coquille
-PHOQUE | Mammifère marin qui vit sur la banquise
-MORSE | Gros animal marin aux longues défenses
-CASTOR | Rongeur qui construit des barrages
-GORILLE | Le plus grand des singes
-HIPPOPOTAME | Gros animal d'Afrique qui passe ses journées dans l'eau
-RHINOCEROS | Gros animal à corne sur le nez
-GUEPARD | Le plus rapide des animaux terrestres
-JAGUAR | Grand félin tacheté d'Amérique du Sud
-LOUTRE | Mammifère qui nage sur le dos dans la rivière
-SAUMON | Poisson qui remonte les rivières
-SARDINE | Petit poisson souvent vendu en boîte
-THON | Gros poisson de mer, souvent en boîte
-BICHE | Femelle du cerf
-CHEVREUIL | Petit cervidé de nos forêts
-BLAIREAU | Animal rayé qui vit dans un terrier, aussi un pinceau à barbe
-FAUCON | Rapace très rapide
-HIRONDELLE | Son retour annonce le printemps
-ROSSIGNOL | Oiseau célèbre pour son chant
-CYGNE | Grand oiseau blanc au long cou
-PAON | Oiseau qui fait la roue
-DINOSAURE | Animal géant disparu il y a très longtemps
-SERPENT | Reptile sans pattes
-SCORPION | Animal du désert à la queue piquante
-OTARIE | Elle ressemble au phoque, mais avec de petites oreilles
-LAMA | Animal des Andes qui crache
-KOALA | Petit animal australien qui mange de l'eucalyptus
-PUCE | Petit insecte sauteur qui fait se gratter le chien
-GUEPE | Insecte jaune et noir qui pique
-LIBELLULE | Insecte aux quatre ailes transparentes, près des étangs
-CRAPAUD | Cousin de la grenouille, à la peau pleine de pustules
-ANGUILLE | Poisson long comme un serpent
-MOINEAU | Petit oiseau brun très commun
-CANARI | Petit oiseau jaune qui chante en cage
-TAUREAU | Le mâle de la vache
-COQ | Il chante au lever du jour
-LYNX | Félin aux oreilles terminées par des pinceaux de poils
-GAZELLE | Antilope gracieuse de la savane
-SINGE | Il grimpe aux arbres et mange des bananes
+LAPIN | On le pose à celui qu'on fait attendre pour rien
+TORTUE | Elle a battu le lièvre sans jamais se presser
+GIRAFE | Elle broute la cime des acacias sans se hausser sur la pointe des pieds
+ELEPHANT | Pachyderme à la mémoire légendaire
+DAUPHIN | Héritier du trône, ou acrobate des mers
+REQUIN | Ses dents repoussent toute sa vie
+HIBOU | Ses aigrettes le distinguent de la chouette
+RENARD | Il flatta le corbeau pour lui voler son fromage
+ECUREUIL | Il oublie souvent où il a caché ses provisions
+HERISSON | Il se met en boule dès qu'il a peur
+MOUTON | On le compte pour trouver le sommeil
+CHEVAL | Celui de bataille revient sans cesse dans la conversation
+CANARD | Fausse note de chanteur, ou journal satirique
+GRENOUILLE | Celle de bénitier ne quitte pas l'église
+PAPILLON | Nage olympique, ou nœud qu'on porte au cou
+ABEILLE | Ouvrière qui butine de fleur en fleur
+FOURMI | Elle n'est pas prêteuse, d'après La Fontaine
+ESCARGOT | Il voyage avec sa maison sur le dos
+CROCODILE | Ses larmes sont réputées hypocrites
+TIGRE | Félin du Bengale
+ZEBRE | Drôle de type, ou équidé en pyjama
+PINGOUIN | On le confond souvent avec le manchot
+BALEINE | Elle a avalé Geppetto
+POULPE | Il a trois cœurs et crache de l'encre
+MOUSTIQUE | Petit vampire des nuits chaudes
+CHAMEAU | Il a deux bosses et un caractère réputé difficile
+KANGOUROU | Boxeur australien à poche ventrale
+PANDA | Emblème noir et blanc des espèces menacées
+LOUP | Masque de bal, ou bête du Gévaudan
+OURS | On le dit mal léché
+CERF | Il brame dans les bois
+SANGLIER | Plat favori d'Obélix
+TAUPE | Espionne infiltrée, ou mineuse presque aveugle
+CIGALE | Elle se trouva fort dépourvue quand la bise fut venue
+CORBEAU | Il signe les lettres anonymes
+PERROQUET | Il répète tout sans rien comprendre
+AUTRUCHE | On dit qu'elle cache sa tête dans le sable
+FLAMANT | Il doit sa couleur rose aux crevettes qu'il mange
+HOMARD | Il passe du bleu au rouge en cuisant
+MEDUSE | Gorgone au regard pétrifiant, ou fléau des baignades
+ARAIGNEE | On en a une au plafond quand on est un peu fou
+LION | Roi de la savane
+CHAT | On en a un dans la gorge quand on est enroué
+SOURIS | Celle de l'ordinateur ne craint pas les félins
+HAMSTER | Petit rongeur de cage, aux bajoues pleines
+CHIEN | On dit qu'on en a quand on a du charme
+AIGLE | Rapace à l'œil perçant, emblème des empereurs
+PIGEON | Il se fait plumer sans rien voir venir
+MERLE | Quand il est blanc, il est introuvable
+VIPERE | Langue de … : grand médisant
+LEZARD | On le fait quand on paresse au soleil
+COCCINELLE | Bête à bon Dieu
+CHENILLE | Danse en file indienne des mariages
+LIMACE | Elle laisse une traînée de bave, sans coquille sur le dos
+PHOQUE | Mammifère des banquises, à moustaches
+MORSE | Code de points et de traits, ou animal à défenses
+CASTOR | Bâtisseur de barrages à queue plate
+GORILLE | Garde du corps très musclé
+HIPPOPOTAME | Son nom grec veut dire cheval de rivière
+RHINOCEROS | Sa corne fait des envieux, hélas
+GUEPARD | Sprinteur tacheté de la savane
+JAGUAR | Félin d'Amérique, ou voiture de luxe
+LOUTRE | Elle casse des coquillages sur son ventre en flottant
+SAUMON | Couleur rose orangé, ou nageur à contre-courant
+SARDINE | On se serre comme elle dans le métro bondé
+THON | Gros poisson à chair rouge des sushis
+BICHE | Ma … : mot doux d'autrefois
+CHEVREUIL | Son cri ressemble à un aboiement
+BLAIREAU | Pinceau du rasage, ou personne pas très fine
+FAUCON | Rapace qu'on dresse pour la chasse
+HIRONDELLE | Une seule ne fait pas la belle saison
+ROSSIGNOL | Chanteur de nuit, ou fausse clé de cambrioleur
+CYGNE | Son chant serait le dernier avant de mourir
+PAON | Fier comme lui
+DINOSAURE | Vieux de la vieille, ou géant fossile
+SERPENT | Celui de mer revient sans cesse dans les journaux
+SCORPION | Arachnide au dard venimeux
+OTARIE | Cousine du phoque, vedette des delphinariums
+LAMA | Il crache, ou il médite au Tibet
+KOALA | Il dort vingt heures par jour accroché à son eucalyptus
+PUCE | Électronique ou savante, elle saute
+GUEPE | Taille fine et aiguillon prêt à servir
+LIBELLULE | Ses ailes ressemblent à du vitrail
+CRAPAUD | On l'embrasse en espérant un prince
+ANGUILLE | Il y en a une sous roche quand quelque chose se trame
+MOINEAU | Drôle d'oiseau, aussi appelé piaf
+CANARI | Jaune comme lui
+TAUREAU | Adversaire du torero
+COQ | Emblème des Bleus sur leur maillot
+LYNX | Ses yeux verraient à travers les murs
+GAZELLE | Proie élégante de la savane
+SINGE | On ne lui apprend pas à faire la grimace
+BELETTE | Petite carnassière qui file entre les pierres
+HERON | Échassier qui pêche immobile sur une patte
+CIGOGNE | On raconte qu'elle livre les bébés
+PELICAN | Son bec lui sert d'épuisette
+VAUTOUR | Il tourne au-dessus des carcasses
+CHOUETTE | Oiseau d'Athéna, ou exclamation de joie
+MARMOTTE | Elle siffle et dort tout l'hiver
+BISON | Bœuf sauvage des Grandes Plaines
+HYENE | On lui prête un rire sinistre
+ORQUE | On l'appelle à tort baleine tueuse
+MANCHOT | Il ne vole pas, et n'a pas de mains non plus
+MOUCHE | On la prend pour un rien, et on vise dedans
+GRILLON | Le compagnon de Pinocchio en est un
+SAUTERELLE | Insecte vert aux longues pattes arrière
+FRELON | Guêpe géante, redoutée des ruches
+BOURDON | Il bourdonne, et sonne à Notre-Dame
+TRUITE | Poisson des torrents, en fario ou arc-en-ciel
+CARPE | Muette comme elle
+BROCHET | Requin d'eau douce
+CREVETTE | Rose ou grise, on la décortique
+HUITRE | On la gobe avec du citron
+OURSIN | Boule de piquants des rochers
+CALAMAR | On le mange en beignets
+TOUCAN | Son bec coloré est presque aussi grand que lui
+COLIBRI | Il peut voler en marche arrière
+PIRANHA | Petit poisson aux dents de rasoir
+IGUANE | Lézard à crête des tropiques
+CAMELEON | Il change de couleur selon son humeur
+PYTHON | Il étouffe ses proies sans venin
+COBRA | Il danse au son de la flûte du charmeur
+BUFFLE | Bœuf sauvage aux cornes recourbées
+ANTILOPE | Elle bondit dans la savane, cornes en arrière
+CARIBOU | Renne d'Amérique du Nord
+AGNEAU | Doux comme lui
+VEAU | On le tue quand l'enfant prodigue revient
+POULAIN | Jeune cheval, ou débutant parrainé
+CHATON | Jeune félin, ou fleur du saule
+FURET | Il court dans le jeu, il est passé par ici
+ALPAGA | Cousin du lama, à la laine précieuse
+DROMADAIRE | Il n'a qu'une bosse
+PANTHERE | Rose dans les dessins animés
+LEOPARD | Félin tacheté qui monte sa proie dans les arbres
+SURICATE | Sentinelle du désert, dressée sur ses pattes arrière
+PARESSEUX | Il passe sa vie la tête en bas, sans se presser
+OKAPI | Cousin de la girafe aux pattes rayées
+CHAMOIS | Peau à lustrer, ou chèvre des montagnes
+LIEVRE | Il a perdu la course en faisant la sieste
+NARVAL | Licorne des mers
+ESPADON | Son nez est une épée
+HARENG | Poisson qu'on fume ou qu'on sale
+ANCHOIS | Petit poisson salé de la pizza
+MAQUEREAU | Poisson rayé de bleu, souvent au vin blanc
+PIVERT | Il tambourine sur les troncs
+MESANGE | Petite boule de plumes bleue et jaune
+FAISAN | Oiseau de chasse à longue queue
+CAILLE | Petit gibier, ou sang qui tourne
+PINSON | Gai comme lui
+GOELAND | Gros oiseau de mer qui chaparde les frites
+ALBATROS | Baudelaire en a fait un poème
+CONDOR | Grand vautour des Andes
+PIE | Elle est voleuse et bavarde
+CORNEILLE | Oiseau noir, ou auteur du « Cid »
+DINDE | Femelle du dindon, farcie à Noël
+OIE | Celle du Capitole sauva Rome
+PORC | Il est dans les rillettes et le jambon
+BOUQUETIN | Chèvre sauvage aux longues cornes, à l'aise sur les falaises
+TATOU | Il porte une armure et se roule en boule
+MANGOUSTE | Petite tueuse de cobras
+LAMANTIN | On l'a pris pour une sirène
+BELUGA | Baleine blanche, ou caviar précieux
+SOLE | Poisson plat, servie meunière
+RAIE | Poisson plat, ou ligne dans les cheveux
+TERMITE | Il dévore les charpentes
+LUCIOLE | Ver luisant
 
 # Cuisine et aliments
-PAIN | On l'achète à la boulangerie
-FROMAGE | Camembert, brie ou comté
-BEURRE | On l'étale sur les tartines
-CONFITURE | Fruits cuits avec du sucre, à tartiner
-CHOCOLAT | Friandise faite avec du cacao
-BONBON | Petite friandise sucrée
-SUCRE | Il rend le café plus doux
-SEL | On en trouve dans l'eau de mer
-POIVRE | Épice noire qui pique
-MIEL | Les abeilles le fabriquent
-OEUF | La poule le pond
-LAIT | Boisson blanche que donne la vache
-SOUPE | Plat liquide qu'on mange à la cuillère
-PIZZA | Spécialité italienne cuite au four
-PATES | Spaghetti, coquillettes ou tagliatelles
-RIZ | Petit grain blanc, base de la cuisine asiatique
-FRITES | Bâtonnets de pommes de terre dorés
-JAMBON | Tranche de porc qu'on met dans les sandwichs
-SAUCISSE | On la grille au barbecue
-POULET | On le mange rôti le dimanche
-OMELETTE | Œufs battus cuits à la poêle
-CROISSANT | Viennoiserie en forme de lune
-BRIOCHE | Petit pain sucré et moelleux
-TARTINE | Tranche de pain beurrée
-YAOURT | Laitage qu'on mange à la petite cuillère
-MOUTARDE | Condiment jaune qui monte au nez
-KETCHUP | Sauce rouge à la tomate
-VINAIGRE | Avec l'huile, il assaisonne la salade
-HUILE | Celle d'olive est la plus connue
-FARINE | Poudre de blé pour faire le pain
-SANDWICH | Deux tranches de pain avec de la garniture
-RACLETTE | Fromage fondu des soirées d'hiver
-FONDUE | Plat savoyard où l'on trempe du pain
-PUREE | Pommes de terre écrasées
-STEAK | Tranche de bœuf grillée
-CAFE | Boisson noire du matin
-THE | Boisson chaude venue d'Asie
-JUS | Boisson pressée à partir de fruits
-SIROP | On le mélange à l'eau pour lui donner du goût
-LIMONADE | Boisson pétillante et sucrée
-CACAO | La graine qui donne le chocolat
-NOISETTE | Petit fruit sec que l'écureuil adore
-NOIX | Fruit sec à coque dure en forme de cerveau
-AMANDE | Fruit sec ovale, base de la pâte d'amande
-CACAHUETE | Graine grillée qu'on grignote à l'apéritif
-BISCUIT | Petit gâteau sec
-CARAMEL | Sucre fondu et doré
-VANILLE | Parfum de glace très classique
-CANNELLE | Épice en bâton au goût sucré
-SAUCE | Béchamel ou vinaigrette
-RAVIOLI | Petits carrés de pâtes farcis
-COUSCOUS | Plat de semoule d'Afrique du Nord
-SUSHI | Bouchée japonaise de riz et de poisson cru
-QUICHE | Tarte salée lorraine
-CREME | On la fouette pour faire la chantilly
-GOUTER | Repas de quatre heures
+PAIN | On le gagne en travaillant
+FROMAGE | Il y en a plus de mille en France
+BEURRE | On veut celui-là et l'argent qui va avec
+CONFITURE | On la donne aux cochons quand c'est du gâchis
+CHOCOLAT | On le reste quand on est déçu
+BONBON | Coûter un … : coûter très cher
+SUCRE | On le casse sur le dos des absents
+SEL | Celui de Guérande est récolté à la main
+POIVRE | Avec le sel, il donne des cheveux grisonnants
+MIEL | Lune de … : premiers jours des jeunes mariés
+OEUF | Avant la poule, ou après ?
+LAIT | Il bout sur le feu et déborde
+SOUPE | Trempé comme elle
+PIZZA | Napolitaine ou quatre fromages
+PATES | Il y en a à la carbonara et à la bolognaise
+RIZ | On le lance aux mariés
+FRITES | Belges d'origine, disent les Belges
+JAMBON | Cru ou cuit, de Bayonne ou de Paris
+SAUCISSE | Celle de Morteau est fumée
+POULET | Il est rôti le dimanche, ou c'est un policier
+OMELETTE | On ne la fait pas sans casser des œufs
+CROISSANT | Viennoiserie, ou forme de lune
+BRIOCHE | Ventre rond, ou pâte moelleuse
+TARTINE | On en met une couche quand on en fait trop
+YAOURT | Pot de lait fermenté
+MOUTARDE | Elle monte au nez quand on s'énerve
+KETCHUP | Sauce rouge venue des États-Unis
+VINAIGRE | Avec l'huile, il fait mauvais ménage
+HUILE | On en jette sur le feu pour attiser une dispute
+FARINE | On s'y fait rouler quand on se fait avoir
+SANDWICH | Coincé entre deux, comme lui
+RACLETTE | Fromage fondu qui réclame des pommes de terre
+FONDUE | Celui qui perd son pain dans le caquelon a un gage
+PUREE | Interjection de dépit, ou pommes de terre écrasées
+STEAK | Haché ou tartare
+CAFE | Petit noir, ou établissement du coin
+THE | Vert, noir ou à la menthe
+JUS | Il en faut pour faire avancer une voiture électrique
+SIROP | Contre la toux, ou dans l'eau fraîche
+LIMONADE | Boisson pétillante à bulles
+CACAO | Fève de la tablette
+NOISETTE | Couleur d'yeux, ou café avec un nuage de crème
+NOIX | Fruit dont l'intérieur ressemble à un cerveau
+AMANDE | Elle est dans le massepain
+CACAHUETE | Elle se grignote à l'apéritif et nourrit les éléphants
+BISCUIT | Cuit deux fois, d'après son nom
+CARAMEL | Mou ou au beurre salé
+VANILLE | Gousse venue de Madagascar
+CANNELLE | Écorce parfumée du vin chaud
+SAUCE | Mettre à toutes les … : utiliser partout
+RAVIOLI | Petits carrés de pâte farcis
+COUSCOUS | Graines de semoule servies avec un bouillon
+SUSHI | Bouchée japonaise au poisson cru
+QUICHE | Spécialité lorraine aux lardons
+CREME | La … de la … : le meilleur du meilleur
+GOUTER | Repas de seize heures
 DINER | Repas du soir
-REPAS | Déjeuner ou dîner
-MENU | Liste des plats au restaurant
-RECETTE | Instructions pour préparer un plat
-EPICE | Cannelle, curry ou paprika
-KIWI | Fruit vert et poilu, aussi un oiseau
-ESQUIMAU | Glace sur un bâton
+REPAS | Celui de famille, on le partage
+MENU | Il est du jour, ou déroulant à l'écran
+RECETTE | Bonne femme ou de cuisine, elle se transmet
+EPICE | Son commerce a fait la fortune de Venise
+KIWI | Fruit poilu, ou oiseau qui ne vole pas
+ESQUIMAU | Glace sur un bâton, ou habitant du Grand Nord
+TARTIFLETTE | Savoyarde au reblochon
+CASSOULET | Haricots et confit de Castelnaudary
+RATATOUILLE | Mijoté provençal, ou rat cuisinier de cinéma
+CHOUCROUTE | Chou fermenté d'Alsace
+GRATIN | Le dauphinois, ou la haute société
+HAMBURGER | Steak haché entre deux pains ronds
+LASAGNE | Plat italien en couches
+RISOTTO | Riz crémeux à l'italienne
+PAELLA | Riz safrané aux fruits de mer de Valence
+TAJINE | Plat marocain, et son plat en terre à couvercle conique
+CAMEMBERT | Graphique rond découpé en parts
+ROQUEFORT | Fromage persillé, affiné en caves
+EMMENTAL | Fromage aux trous
+MOZZARELLA | Boule blanche de la pizza
+PARMESAN | Il se râpe sur les spaghettis
+SAUCISSON | Sec, on le coupe en rondelles
+LARDON | Petit morceau de porc, ou gamin dans le langage familier
+BACON | Tranche fine du petit déjeuner anglais
+ESCALOPE | Fine tranche de veau panée à Milan
+GIGOT | Manches à … : manches bouffantes
+BROCHETTE | Morceaux enfilés sur une pique
+MERGUEZ | Saucisse épicée du barbecue
+BOUDIN | Noir ou blanc, il est à Noël
+PISTACHE | Fruit sec vert, glace de la même couleur
+NOUGAT | Spécialité de Montélimar
+GUIMAUVE | Bonbon tout mou, comme les films trop sucrés
+REGLISSE | Racine noire à mâcher
+SUCETTE | Bonbon au bout d'un bâton
+CHANTILLY | Crème fouettée, ou château près de Paris
+MADELEINE | Celle de Proust réveille les souvenirs
+PROFITEROLE | Petit chou nappé de chocolat chaud
+TIRAMISU | Son nom veut dire « remonte-moi »
+CHARLOTTE | Gâteau aux biscuits, ou bonnet à élastique
+COMPOTE | Fruits cuits, ou jambes en … après l'effort
+SODA | Boisson gazeuse et sucrée
+CIDRE | Boisson normande de pommes
+CHAMPAGNE | On le sable pour fêter une victoire
+TISANE | Infusion du soir
+MENTHE | Verte ou poivrée, elle rafraîchit
+BASILIC | Herbe du pesto, ou monstre au regard mortel
+PERSIL | Herbe plate ou frisée du bouquet garni
+THYM | Herbe de Provence de la garrigue
+LAURIER | Ses feuilles couronnent le vainqueur
+ROMARIN | Herbe aromatique en forme d'aiguilles
+AIL | Il éloigne les vampires
+ECHALOTE | Petit oignon de la sauce béarnaise
+CORNICHON | Petit légume au vinaigre, ou benêt
+OLIVE | Noire ou verte, on en presse une huile
+MAYONNAISE | Elle prend, ou ne prend pas
+VINAIGRETTE | Elle assaisonne la laitue
+CURRY | Mélange d'épices indien
+SAFRAN | Épice la plus chère du monde
+GINGEMBRE | Racine piquante qu'on mange avec les sushis
+MUSCADE | Noix râpée sur la béchamel
+CAVIAR | Œufs d'esturgeon hors de prix
+PATISSERIE | Chou, éclair ou tartelette, en vitrine
+GAZPACHO | Soupe froide espagnole
+CROQUETTE | Pâtée sèche du chien
+CANTAL | Fromage d'Auvergne au nom de département
+FOUGASSE | Pain provençal découpé en feuille
+BRETZEL | Biscuit salé noué d'Alsace
+VIENNOISERIE | Croissant ou pain au chocolat
 
 # Maison et objets
-MAISON | On y habite
-TOIT | Il couvre la maison
-FENETRE | On l'ouvre pour aérer
-PORTE | On la ferme à clé
-ESCALIER | Il permet de monter à l'étage
-CAVE | Pièce sous la maison
-GRENIER | Pièce sous le toit
-SALON | Pièce où l'on reçoit les invités
-CHAMBRE | Pièce où l'on dort
-GARAGE | On y range la voiture
-BALCON | Petite plateforme devant une fenêtre
-TABLE | On mange autour
-CHAISE | Siège à dossier
-CANAPE | Grand siège moelleux du salon
-FAUTEUIL | Siège à accoudoirs
-LIT | On dort dedans
-OREILLER | On y pose la tête pour dormir
-COUETTE | Grosse couverture moelleuse
-ARMOIRE | Grand meuble où l'on range les vêtements
-TIROIR | Il s'ouvre en le tirant
-LAMPE | Elle éclaire la pièce
-BOUGIE | Elle éclaire avec une flamme
-MIROIR | On s'y regarde
-HORLOGE | Elle donne l'heure au mur
-REVEIL | Il sonne le matin
-TELEPHONE | On l'utilise pour appeler
-ORDINATEUR | Machine avec un clavier et un écran
-ECRAN | Celui de la télé ou de l'ordinateur
-CLAVIER | Ensemble de touches
-CLE | Elle ouvre la serrure
-SERRURE | On y met la clé
-BALAI | On s'en sert pour nettoyer le sol
-ASPIRATEUR | Appareil qui avale la poussière
-SAVON | Il mousse sous la douche
-DOUCHE | On s'y lave debout
-BAIGNOIRE | On y prend un bain
+MAISON | Gros comme elle : énorme
+TOIT | On le crie sur tous ceux de la ville
+FENETRE | On jette l'argent par elle
+PORTE | On la ferme au nez de quelqu'un
+ESCALIER | On y a de l'esprit trop tard
+CAVE | Elle a ses bonnes bouteilles
+GRENIER | On y trouve des trésors oubliés
+SALON | Pièce des invités, ou exposition de professionnels
+CHAMBRE | Musique de …, ou pièce pour dormir
+GARAGE | Il fait office de remise pour la voiture
+BALCON | Au théâtre, on y est placé en hauteur
+TABLE | On y passe, ou on la met
+CHAISE | Musicale, on court autour
+CANAPE | Petit-four de l'apéritif, ou meuble de salon
+FAUTEUIL | On arrive dans celui-là quand on gagne sans peine
+LIT | Celui de la rivière n'est jamais fait
+OREILLER | Confident des nuits blanches
+COUETTE | Garnie de plumes, ou coiffure à élastique
+ARMOIRE | Personne bâtie comme ce grand meuble
+TIROIR | Fond de … : ce qu'on retrouve en vidant
+LAMPE | Celle d'Aladin abrite un génie
+BOUGIE | Moteur d'allumage, ou anniversaire à souffler
+MIROIR | Il répondait à la reine de Blanche-Neige
+HORLOGE | Celle du village rythme la vie
+REVEIL | Ennemi du dormeur
+TELEPHONE | Il est arabe quand le message se déforme
+ORDINATEUR | Portable ou de bureau, il calcule
+ECRAN | Total, il protège du soleil
+CLAVIER | AZERTY en France
+CLE | Celle des champs mène à la liberté
+SERRURE | On regarde par son trou
+BALAI | Monture de sorcière
+ASPIRATEUR | Il fait le ménage en ronronnant
+SAVON | On en passe un à celui qu'on gronde
+DOUCHE | Elle est froide quand on est déçu
+BAIGNOIRE | Archimède y aurait crié « Eurêka »
 LAVABO | On s'y lave les mains
-EPONGE | Elle absorbe l'eau
-BROSSE | Elle peut être à dents ou à cheveux
-PEIGNE | Pour démêler les cheveux
-PARAPLUIE | On l'ouvre quand il pleut
-VALISE | On la remplit avant de partir en voyage
-SAC | On le porte à l'épaule
-CADRE | Il entoure un tableau
-RIDEAU | On le tire devant la fenêtre
-TAPIS | Il couvre le sol
+EPONGE | Celui qui boit beaucoup en est une
+BROSSE | Coupe courte, ou outil à dents
+PEIGNE | On passe une affaire au fin
+PARAPLUIE | Il se retourne par grand vent
+VALISE | Mot-… : mot formé de deux autres
+SAC | On y met tout dans le même
+CADRE | Il entoure un tableau, ou dirige une équipe
+RIDEAU | Il tombe à la fin de la pièce
+TAPIS | On y envoie l'adversaire au judo
 COUSSIN | Petit oreiller du canapé
-VASE | On y met des fleurs
-POUBELLE | On y jette les déchets
-CHAUFFAGE | Il réchauffe la maison en hiver
-RADIATEUR | Appareil de chauffage fixé au mur
-VOLET | Il protège la fenêtre la nuit
-JOURNAL | Il donne les nouvelles du jour
-LIVRE | On le lit page après page
-ENVELOPPE | On y glisse une lettre
-TIMBRE | On le colle sur l'enveloppe
-CISEAUX | Pour couper le papier
-COLLE | Pour assembler deux papiers
-AGRAFE | Petit crochet de métal qui tient les feuilles ensemble
-LUNETTES | Elles aident à mieux voir
-MONTRE | On la porte au poignet pour lire l'heure
-BAGUE | Bijou qu'on porte au doigt
-COLLIER | Bijou qu'on porte au cou
-BRACELET | Bijou qu'on porte autour du poignet
-PARFUM | Il sent bon
-MARTEAU | Outil pour planter des clous
-CLOU | On l'enfonce avec un marteau
-VIS | On la serre avec un tournevis
-SCIE | Outil pour couper le bois
-ECHELLE | Pour monter sur le toit
-PINCEAU | Pour peindre
-AMPOULE | Elle s'allume dans la lampe
-PILE | Elle fait marcher les jouets
-BOUTEILLE | On la remplit d'eau ou de vin
-VERRE | On y boit
-BOL | On y verse les céréales du matin
-TASSE | On y boit le café
-THEIERE | Pour servir le thé
-NAPPE | Elle couvre la table
-PLATEAU | On l'utilise pour porter la vaisselle
-BOITE | Elle a un couvercle
-PANIER | On y met les courses
-CARTON | Grosse boîte pour déménager
+VASE | Goutte d'eau qui le fait déborder
+POUBELLE | Elle doit son nom à un préfet de la Seine
+CHAUFFAGE | Central ou au sol, il réchauffe
+RADIATEUR | Il chauffe la pièce, ou refroidit le moteur
+VOLET | Rabattu la nuit, ou partie d'un dossier
+JOURNAL | Intime, on le cache sous le matelas
+LIVRE | Ancienne monnaie, ou ouvrage à lire
+ENVELOPPE | Somme versée discrètement, ou pochette à lettre
+TIMBRE | Celui de la voix, ou vignette à coller
+CISEAUX | Coup de … : il coupe le souffle
+COLLE | Question piège, ou tube pour assembler
+AGRAFE | Petit crochet de métal qui tient les feuilles
+LUNETTES | Elles peuvent être de soleil ou de vue
+MONTRE | Course contre elle
+BAGUE | Bijou à l'annulaire
+COLLIER | Il tient le chien, ou orne le cou
+BRACELET | Bijou de poignet, ou cuir de montre
+PARFUM | Être au … : être informé
+MARTEAU | Celui qui est un peu fou l'est
+CLOU | Le … du spectacle : le meilleur moment
+VIS | On en donne un tour quand on serre la discipline
+SCIE | Refrain qu'on entend trop souvent
+ECHELLE | Celle de Richter mesure les séismes
+PINCEAU | Artiste du dimanche, il trempe dans la peinture
+AMPOULE | Elle éclaire, ou elle fait mal au pied
+PILE | Ou face, à la pièce
+BOUTEILLE | On la jette à la mer avec un message
+VERRE | De l'amitié, on le lève
+BOL | En avoir ras le … : en avoir assez
+TASSE | Boire la … : avaler de l'eau en nageant
+THEIERE | Elle infuse
+NAPPE | De brouillard, ou de table
+PLATEAU | Il est de télévision, ou de fromages
+BOITE | De nuit, on y danse
+CARTON | Jaune ou rouge, l'arbitre le brandit
 COFFRE | Celui des pirates est plein d'or
 HAMAC | Lit suspendu entre deux arbres
-TENTE | On y dort en camping
+TENTE | Canadienne ou igloo, elle se plante
 CASQUE | Il protège la tête à vélo
+ESCABEAU | Petite échelle pliante
+PLACARD | Mettre au … : écarter quelqu'un
+COMMODE | Meuble à tiroirs, ou pratique
+BUFFET | Meuble de salle à manger, ou repas debout
+ETAGERE | Planche fixée au mur pour poser des livres
+TABOURET | Siège sans dossier
+BERCEAU | Lit du nouveau-né qui se balance
+PARAVENT | Écran pliant pour se changer derrière
+PAILLASSON | Il est devant la porte, on s'essuie les pieds dessus
+SERPILLIERE | Chiffon du sol mouillé
+PLUMEAU | Il chasse la poussière avec ses plumes
+CINTRE | On y suspend sa veste
+TOURNEVIS | Plat ou cruciforme
+PERCEUSE | Elle fait des trous dans le mur
+PINCE | Celle du crabe, ou celle à linge
+CADENAS | Petite serrure à anse
+VERROU | Mettre sous les … : emprisonner
+SONNETTE | Elle tinte quand on arrive
+THERMOMETRE | Il prend la température
+JUMELLES | Sœurs nées le même jour, ou longue-vue pour deux yeux
+LUSTRE | Il éclaire le plafond, ou dure cinq ans
+ALLUMETTE | Petit bâton qui prend feu
+BRIQUET | Il allume le gaz de la cuisinière
+TIRELIRE | Cochon qui ne se nourrit que de pièces
+CALENDRIER | Celui de l'Avent cache des chocolats
+AGENDA | On y note ses rendez-vous
+CARNET | De notes, de santé ou d'adresses
+ETIQUETTE | Elle est collée, ou c'est le protocole
+TROMBONE | Attache-feuilles, ou instrument à coulisse
+PUNAISE | Elle pique le mur, ou les draps
+ELASTIQUE | On y saute dans la cour de récréation
+FICELLE | Pain très fin, ou on la tire en coulisses
+AIGUILLE | On la cherche dans une botte de foin
+DOUDOU | Peluche dont on ne se sépare jamais
+JOUET | Il est le … du destin
+COUVERCLE | Il est sur la casserole
+RECHAUD | Petit four de camping
+ROBINET | Il goutte quand il fuit
+BIBELOT | Petit objet qui prend la poussière sur l'étagère
+TELECOMMANDE | On se dispute pour l'avoir devant la télé
+PORTEFEUILLE | On y range ses billets, ou c'est un ministère
 
 # Nature et géographie
-MONTAGNE | Le mont Blanc en est une
-RIVIERE | Cours d'eau qui se jette dans un fleuve
-FLEUVE | La Loire en est un
-LAC | Étendue d'eau entourée de terres
-OCEAN | L'Atlantique en est un
-ILE | Terre entourée d'eau
-FORET | Grand espace couvert d'arbres
-ARBRE | Il a un tronc et des branches
-FEUILLE | Elle tombe des arbres en automne
-BRANCHE | L'oiseau s'y pose
-RACINE | Partie de la plante sous la terre
-FLEUR | La marguerite en est une
-HERBE | Les vaches la broutent
-MOUSSE | Elle pousse sur les pierres humides
-CAILLOU | Petite pierre
-ROCHER | Grosse pierre
-SOMMET | Point le plus haut d'une montagne
-VALLEE | Creux entre deux montagnes
-GROTTE | Cavité dans la roche
-VOLCAN | Montagne qui crache de la lave
-DESERT | Le Sahara en est un
-CASCADE | Chute d'eau
-SOURCE | Là où naît une rivière
-COLLINE | Petite montagne arrondie
-PLAINE | Grande étendue plate
-FALAISE | Côte rocheuse escarpée qui domine la mer
-GLACIER | Énorme masse de glace en montagne
-JUNGLE | Forêt tropicale très dense
-SAVANE | Grande prairie d'Afrique
-PRAIRIE | Champ d'herbe où paissent les vaches
-CHAMP | Le paysan y cultive le blé
-SAISON | Il y en a quatre dans l'année
-PRINTEMPS | Saison où les fleurs éclosent
-ETE | Saison des grandes vacances
-AUTOMNE | Saison où les feuilles tombent
-HIVER | Saison la plus froide
-MATIN | Début de la journée
-SOIR | Fin de la journée
-NUIT | On y voit les étoiles
-JOUR | Il dure 24 heures
-SEMAINE | Sept jours
-MOIS | Janvier en est un
-ANNEE | Elle compte 365 jours
-SIECLE | Cent ans
-MINUTE | Soixante secondes
-HEURE | Soixante minutes
-JANVIER | Premier mois de l'année
-FEVRIER | Le mois le plus court
-AVRIL | Mois des poissons farceurs
-JUIN | Sixième mois de l'année
-JUILLET | Mois de la fête nationale
-AOUT | Huitième mois de l'année
-OCTOBRE | Dixième mois de l'année
-DECEMBRE | Mois de Noël
-LUNDI | Premier jour de la semaine
-MARDI | Jour qui suit lundi
-MERCREDI | Jour sans école pour beaucoup d'enfants
-JEUDI | Jour entre mercredi et vendredi
-VENDREDI | Dernier jour d'école de la semaine
-SAMEDI | Premier jour du week-end
-DIMANCHE | Dernier jour de la semaine
-NORD | Point cardinal en haut de la carte
-SUD | Point cardinal opposé au nord
-EST | Point cardinal où le soleil se lève
-OUEST | Point cardinal où le soleil se couche
-TERRE | Notre planète
-CIEL | Il est bleu quand il fait beau
-AIR | On le respire
-FEU | Il brûle dans la cheminée
-EAU | Elle coule du robinet
-GLACON | Petit cube de glace
+MONTAGNE | On en fait une d'un rien
+RIVIERE | Elle se jette sans se faire mal
+FLEUVE | Long comme lui : très long
+LAC | Léman ou Titicaca
+OCEAN | Il est Pacifique, même quand il est déchaîné
+ILE | Robinson Crusoé y a vécu seul
+FORET | On ne la voit pas derrière l'arbre
+ARBRE | Généalogique, il a des racines
+FEUILLE | De papier, ou de chêne
+BRANCHE | On scie celle sur laquelle on est assis
+RACINE | Carrée en mathématiques, ou d'un arbre
+FLEUR | On la fait à quelqu'un pour lui rendre service
+HERBE | Mauvaise, elle pousse partout
+MOUSSE | Au chocolat, sur la bière ou sur les pierres
+CAILLOU | Le Petit Poucet en sème sur son chemin
+ROCHER | Il est en chocolat ou à Monaco
+SOMMET | Réunion de chefs d'État, ou point culminant
+VALLEE | Elle se trouve au pied des montagnes
+GROTTE | Celle de Lascaux est ornée de peintures
+VOLCAN | Il dort, puis se réveille en colère
+DESERT | Prêcher dans celui-là : parler sans être écouté
+CASCADE | Une série d'ennuis arrive en elle
+SOURCE | Le journaliste la protège
+COLLINE | Petit relief arrondi
+PLAINE | Grande étendue sans relief
+FALAISE | Celle d'Étretat est percée d'une arche
+GLACIER | Fleuve gelé, ou marchand de sorbets
+JUNGLE | Celle des villes n'a pas d'arbres
+SAVANE | Grande prairie aux herbes hautes d'Afrique
+PRAIRIE | Petite maison dans celle-là
+CHAMP | De bataille, ou de blé
+SAISON | Elle est des pluies, ou des soldes
+PRINTEMPS | Il compte les années d'une vieille dame
+ETE | La saison des vacances et des coups de soleil
+AUTOMNE | Saison des feuilles mortes
+HIVER | La cigale n'avait rien prévu pour lui
+MATIN | Il est petit avant l'aube
+SOIR | Grand, il est celui d'une première
+NUIT | Elle porte conseil
+JOUR | Il se lève à l'aube
+SEMAINE | Celle des quatre jeudis n'arrive jamais
+MOIS | Il en faut neuf pour naître
+ANNEE | Bissextile, elle a un jour de plus
+SIECLE | Celui des Lumières, en France
+MINUTE | Petite unité, ou « Attendez ! »
+HEURE | Celle de vérité arrive toujours
+JANVIER | Mois des bonnes résolutions
+FEVRIER | Mois qui saute un jour trois ans sur quatre
+AVRIL | On ne se découvre pas d'un fil en ce mois-là
+JUIN | Mois de la fête de la musique
+JUILLET | Mois du défilé militaire sur les Champs-Élysées
+AOUT | Mois des grandes migrations vers la plage
+OCTOBRE | Mois rose de la lutte contre le cancer du sein
+DECEMBRE | Mois du calendrier de l'Avent
+LUNDI | Jour où l'on reprend le travail sans entrain
+MARDI | Gras, il est jour de crêpes et de déguisements
+MERCREDI | Jour des enfants
+JEUDI | La semaine des quatre n'existe pas
+VENDREDI | Compagnon de Robinson
+SAMEDI | Jour du marché, souvent
+DIMANCHE | Peintre ou conducteur du …, amateur
+NORD | Perdre celui-là, c'est perdre la tête
+SUD | On y descend en vacances
+OUEST | Celui du Far West
+TERRE | Bleue comme une orange, d'après Éluard
+CIEL | Septième, il est le bonheur absolu
+AIR | On le brasse quand on parle pour rien
+FEU | Il n'y en a pas au lac quand rien ne presse
+EAU | Elle est dans le gaz quand ça va mal
+GLACON | Il refroidit la boisson
+PLAGE | Celle du disque, ou de sable fin
+DUNE | Celle du Pilat est la plus haute d'Europe
+MARAIS | Le Poitevin est dit Venise verte
+ETANG | Petit lac où pêchent les hérons
+MARE | Aux canards, elle est au village
+RUISSEAU | Les petits font les grandes rivières
+TORRENT | Cours d'eau impétueux de montagne
+GOLFE | Celui du Morbihan est parsemé d'îles
+BAIE | Fruit de l'arbuste, ou anse marine
+CAP | On le passe quand on franchit une étape
+PRESQUILE | Terre presque entourée d'eau
+ATOLL | Anneau de corail
+RECIF | Écueil des navires
+CORAIL | Rouge comme lui
+LAGON | Bleu, il est un paradis tropical
+CRATERE | Bouche du volcan
+LAVE | Roche en fusion
+GEYSER | Jet d'eau chaude naturel
+BANQUISE | Glace de mer des ours blancs
+ICEBERG | La partie cachée est la plus grande
+AVALANCHE | Une … de compliments : une pluie
+SEISME | Tremblement de terre
+TSUNAMI | Vague géante née d'un séisme sous-marin
+OURAGAN | Cyclone de l'Atlantique
+TORNADE | Elle aspire tout sur son passage
+AURORE | Boréale, elle colore le ciel polaire
+CREPUSCULE | Moment entre chien et loup
+ROSEE | Gouttes du matin sur l'herbe
+GIVRE | Il est fou à lier, ou gèle les vitres
+BRUME | Légère, elle voile le paysage
+CHENE | Le roseau plie, lui rompt
+HETRE | Arbre de la forêt, homophone d'un être
+BOULEAU | Arbre à l'écorce blanche
+PEUPLIER | Grand arbre des bords de rivière
+PALMIER | Arbre des tropiques, ou biscuit feuilleté
+BAOBAB | Arbre géant d'Afrique, ennemi du Petit Prince
+OLIVIER | Rameau de la paix
+SAULE | Pleureur au bord de l'eau
+CACTUS | Il pique, comme un problème épineux
+FOUGERE | Plante des sous-bois, sans fleurs
+LIERRE | Il s'accroche aux murs
+MUGUET | Clochettes du 1er mai
+LILAS | Couleur mauve, ou arbuste de mai
+JONQUILLE | Fleur jaune, cousine du narcisse
+COQUELICOT | Fleur rouge des blés
+BLEUET | Fleur bleue des champs, symbole des anciens combattants
+ORCHIDEE | Fleur rare et précieuse en pot
+VIOLETTE | Timide, elle se cache sous les feuilles
+LAVANDE | Champs violets de Provence
+NENUPHAR | Feuille flottante des grenouilles
+CHAMPIGNON | Appuyer sur lui : accélérer
+GLAND | Fruit du chêne
+CHATAIGNE | Fruit à bogue, ou coup de poing
+ECORCE | Peau de l'arbre
+SEVE | Sang des plantes
+BOURGEON | Il éclot au retour des beaux jours
+PETALE | On l'effeuille en disant « un peu, beaucoup… »
+EPINE | Pas de rose sans elle
+TRESSE | Coiffure à trois mèches
+ARCHIPEL | Groupe d'îles
+CONTINENT | Il y en a cinq ou six, selon les cartes
+EQUATEUR | Ligne imaginaire, ou pays d'Amérique du Sud
+HORIZON | Ligne qui recule quand on avance
+PAYSAGE | On le contemple par la fenêtre du train
 
 # Pays, villes et culture
-FRANCE | Pays de la tour Eiffel
-ITALIE | Pays en forme de botte
-ESPAGNE | Pays du flamenco
-ALLEMAGNE | Pays voisin dont la capitale est Berlin
-BELGIQUE | Pays voisin célèbre pour ses frites et ses bandes dessinées
-SUISSE | Pays des montres et du chocolat
-CANADA | Grand pays où l'on parle français et anglais
-JAPON | Pays du soleil levant
-CHINE | Pays de la Grande Muraille
-EGYPTE | Pays des pyramides
-BRESIL | Pays du carnaval de Rio
-MAROC | Pays d'Afrique du Nord dont la capitale est Rabat
-GRECE | Pays de l'Acropole
-PORTUGAL | Pays dont la capitale est Lisbonne
-INDE | Pays du Taj Mahal
-RUSSIE | Le plus grand pays du monde
-MEXIQUE | Pays des sombreros
-PARIS | Capitale de la France
-LONDRES | Capitale du Royaume-Uni
-ROME | Capitale de l'Italie
-MADRID | Capitale de l'Espagne
-BERLIN | Capitale de l'Allemagne
-LYON | Grande ville au confluent du Rhône et de la Saône
-MARSEILLE | Grande ville portuaire du sud de la France
-BORDEAUX | Ville célèbre pour son vin, sur la Garonne
-LILLE | Grande ville du Nord, célèbre pour sa braderie
-NICE | Ville de la promenade des Anglais
-AFRIQUE | Continent du Sahara
-EUROPE | Continent de la France
-ASIE | Le plus grand continent
-AMERIQUE | Continent où se trouvent le Canada et le Brésil
-LOIRE | Le plus long fleuve de France
-SEINE | Fleuve qui traverse Paris
-RHONE | Fleuve qui traverse Lyon
-ALPES | Montagnes du mont Blanc
-PYRENEES | Montagnes entre la France et l'Espagne
-CORSE | L'île de Beauté
+FRANCE | Hexagone sur la carte
+ITALIE | Elle a un talon et une botte
+ESPAGNE | On y bâtit des châteaux en rêvant
+ALLEMAGNE | Pays de la bière et de la Forêt-Noire
+BELGIQUE | Plat pays chanté par Brel
+SUISSE | Petit … : gâteau frais, ou neutre au milieu des Alpes
+CANADA | Pays à la feuille d'érable
+JAPON | Archipel des samouraïs
+CHINE | Empire du Milieu
+EGYPTE | Terre des pharaons
+BRESIL | Pays de la samba
+MAROC | Royaume de Marrakech
+GRECE | Berceau des Jeux olympiques
+PORTUGAL | Pays du fado
+INDE | Pays de Gandhi
+RUSSIE | Pays des poupées gigognes
+MEXIQUE | Pays des mariachis
+PARIS | Ville Lumière
+LONDRES | Ville de Big Ben
+ROME | Tous les chemins y mènent
+MADRID | Ville du Prado
+BERLIN | Son mur est tombé en 1989
+LYON | Capitale des Gaules
+MARSEILLE | Cité phocéenne
+BORDEAUX | Couleur rouge foncé, ou ville de vin
+LILLE | Capitale des Flandres françaises
+NICE | Ville du carnaval aux batailles de fleurs
+AFRIQUE | Continent du Kilimandjaro
+EUROPE | Princesse phénicienne, ou continent
+ASIE | Continent le plus peuplé
+AMERIQUE | Elle doit son nom à Amerigo Vespucci
+LOIRE | Fleuve des châteaux
+SEINE | Elle passe sous le pont Mirabeau
+RHONE | Il naît dans un glacier suisse
+ALPES | Massif du mont Blanc
+PYRENEES | Frontière montagneuse avec l'Espagne
+CORSE | Île de Beauté
 BRETAGNE | Région des crêpes et des menhirs
-NAPOLEON | Empereur des Français
+NAPOLEON | Petit caporal devenu empereur
 MOLIERE | Auteur du « Malade imaginaire »
-MOZART | Compositeur autrichien, enfant prodige
-PICASSO | Peintre espagnol, inventeur du cubisme
-ASTERIX | Petit Gaulois moustachu, ami d'Obélix
-TINTIN | Reporter à la houppe, ami de Milou
-PINOCCHIO | Pantin dont le nez s'allonge quand il ment
-ALADDIN | Il trouve une lampe magique
-CENDRILLON | Elle perd sa pantoufle de verre au bal
-ZORRO | Justicier masqué qui signe d'un Z
-MICKEY | Célèbre souris de Walt Disney
-OBELIX | Gaulois livreur de menhirs, tombé dans la potion magique
-MERLIN | Enchanteur de la légende du roi Arthur
-HERCULE | Héros grec d'une force extraordinaire
-ULYSSE | Héros grec qui mit dix ans à rentrer chez lui
-CESAR | Général romain qui conquit la Gaule
-EIFFEL | Ingénieur d'une célèbre tour de Paris
-LOUVRE | Grand musée parisien où se trouve la Joconde
-VERSAILLES | Château du Roi-Soleil
-PYRAMIDE | Tombeau des pharaons
-SPHINX | Statue géante à corps de lion, près des pyramides
-MOMIE | Corps embaumé de l'Égypte ancienne
-PHARAON | Roi de l'Égypte ancienne
+MOZART | Il composait dès l'âge de cinq ans
+PICASSO | Il peignit « Guernica »
+ASTERIX | Gaulois rusé qui boit la potion
+TINTIN | Reporter qui n'écrit jamais d'article
+PINOCCHIO | Pantin dont le nez trahit les mensonges
+ALADDIN | Il frotte une lampe et trouve un génie
+CENDRILLON | Elle doit rentrer avant minuit
+ZORRO | Il signe de la pointe de son épée
+MICKEY | Souris aux grandes oreilles rondes
+OBELIX | Il est tombé dedans quand il était petit
+MERLIN | Enchanteur de la Table ronde
+HERCULE | Il accomplit douze travaux
+ULYSSE | Il a fait un beau voyage, d'après du Bellay
+CESAR | Il est venu, il a vu, il a vaincu
+EIFFEL | Son nom est sur la Dame de fer
+LOUVRE | On y fait la queue pour la Joconde
+VERSAILLES | Galerie des Glaces
+PYRAMIDE | Celle des âges montre la population
+SPHINX | Il pose des énigmes aux voyageurs
+MOMIE | Elle est enveloppée de bandelettes
+PHARAON | Toutânkhamon en était un
 VIKING | Guerrier scandinave sur son drakkar
-GAULOIS | Habitant de la Gaule
-PIRATE | Bandit des mers au drapeau noir
-CORSAIRE | Marin autorisé par le roi à attaquer les navires ennemis
-TRESOR | Le pirate le cache sur une île
-CARTE | Elle indique le chemin
-BOUSSOLE | Son aiguille indique le nord
-DRAPEAU | Celui de la France est bleu, blanc, rouge
-WESTERN | Film de cow-boys
+GAULOIS | Ils craignaient que le ciel leur tombe sur la tête
+PIRATE | Il a souvent une jambe de bois et un perroquet
+CORSAIRE | Surcouf en était un
+TRESOR | Petit nom affectueux, ou butin enterré
+CARTE | Celle du trésor a une croix
+BOUSSOLE | Perdre celle-là, c'est perdre la tête
+DRAPEAU | On le hisse au mât
+WESTERN | Il y a des saloons et des shérifs dedans
+AUTRICHE | Pays de Mozart et de Sissi
+IRLANDE | Île verte du trèfle
+ECOSSE | Pays du kilt
+NORVEGE | Pays des fjords
+SUEDE | Cuir doux, ou pays d'ABBA
+FINLANDE | Pays du père Noël, selon les Finlandais
+DANEMARK | Pays de la petite sirène
+POLOGNE | Pays de Chopin
+HONGRIE | Pays du goulasch
+CROATIE | Pays de Dubrovnik
+TURQUIE | Pays d'Istanbul
+TUNISIE | Pays de Carthage
+SENEGAL | Pays de Dakar
+KENYA | Pays des safaris et des coureurs de fond
+MADAGASCAR | Grande Île des lémuriens
+AUSTRALIE | Pays des kangourous
+ARGENTINE | Pays du tango
+CHILI | Pays long et étroit, ou piment
+PEROU | Ce n'est pas lui : ce n'est pas énorme
+CUBA | Île des cigares
+ISLANDE | Terre de glace et de feu
+VIETNAM | Pays de la baie d'Halong
+THAILANDE | Royaume de Bangkok
+VENISE | Ville des gondoles
+FLORENCE | Ville de la Renaissance, sur l'Arno
+NAPLES | Ville au pied du Vésuve
+BARCELONE | Ville de la Sagrada Familia
+LISBONNE | Ville des tramways jaunes
+VIENNE | Ville des valses de Strauss
+PRAGUE | Ville aux cent clochers
+AMSTERDAM | Ville des canaux et des vélos
+BRUXELLES | Ville du Manneken-Pis
+GENEVE | Ville du jet d'eau
+MONTREAL | Grande ville du Québec
+TOKYO | Capitale du Japon
+PEKIN | Ville de la Cité interdite
+MOSCOU | Ville du Kremlin
+ATHENES | Ville de l'Acropole
+DUBLIN | Ville de la Guinness
+STRASBOURG | Ville du Parlement européen
+NANTES | Ville des ducs et du Petit-Beurre
+TOULOUSE | Ville rose
+RENNES | Capitale bretonne, homonyme d'animaux du père Noël
+DIJON | Ville de la moutarde
+GRENOBLE | Capitale des Alpes françaises
+CANNES | Ville du festival et de la Palme d'or
+MONACO | Principauté des Grimaldi
+AVIGNON | Cité des papes
+CARCASSONNE | Cité médiévale fortifiée
+ROUEN | Jeanne d'Arc y fut brûlée
+REIMS | Ville du sacre des rois
+CALAIS | Port face à Douvres
+LOURDES | Ville de pèlerinage où Bernadette vit la Vierge
+ZEUS | Roi des dieux de l'Olympe
+APOLLON | Dieu de la lumière et des arts
+NEPTUNE | Dieu de la mer, ou planète bleue lointaine
+ACHILLE | Son talon était son seul point faible
+ICARE | Il vola trop près du soleil
+ORPHEE | Il descendit aux Enfers chercher Eurydice
+CYCLOPE | Géant à un seul œil
+MINOTAURE | Monstre du labyrinthe
+CENTAURE | Mi-homme, mi-cheval
+PEGASE | Cheval ailé
+GARGANTUA | Géant de Rabelais
+CYRANO | Héros de Rostand au grand nez
+HARPAGON | Avare de Molière
+QUASIMODO | Sonneur de Notre-Dame
+COSETTE | Orpheline des « Misérables »
+GAVROCHE | Gamin de Paris des « Misérables »
+ROBINSON | Naufragé solitaire de Defoe
+GULLIVER | Géant à Lilliput
+SHERLOCK | Détective de Baker Street
+LUPIN | Gentleman cambrioleur, ou fleur en épi
+MAIGRET | Commissaire à la pipe de Simenon
+POIROT | Détective belge aux petites cellules grises
+TARZAN | Il crie en se balançant aux lianes
+MOWGLI | Petit d'homme du « Livre de la jungle »
+BAMBI | Faon de Disney
+DUMBO | Éléphant volant grâce à ses oreilles
+SIMBA | Lionceau du « Roi lion »
+NEMO | Poisson-clown, ou capitaine du Nautilus
+SHREK | Ogre vert qui aime son marais
+POPEYE | Marin qui avale ses épinards
+GARFIELD | Chat roux qui adore les lasagnes
+SNOOPY | Chien qui dort sur sa niche
+SCHTROUMPF | Petit bonhomme bleu
+SPIROU | Groom de bande dessinée
+IDEFIX | Petit chien d'Obélix
+PANORAMIX | Druide de la potion magique
+MILOU | Fidèle compagnon de Tintin
+HADDOCK | Capitaine qui jure « Mille sabords ! »
+TOURNESOL | Fleur qui suit le soleil, ou professeur sourd
+CASTAFIORE | Rossignol milanais de Moulinsart
+BECASSINE | Bretonne de bande dessinée, ou petite sotte
+PIKACHU | Pokémon jaune électrique
+MARIO | Plombier moustachu qui saute sur les champignons
+ZELDA | Princesse d'Hyrule
+SONIC | Hérisson bleu très rapide
+TETRIS | Jeu de briques qui tombent
+BATMAN | Justicier de Gotham
+SUPERMAN | Il change de tenue dans une cabine
+HULK | Il devient vert de rage
+THOR | Dieu nordique au marteau
+YODA | Petit maître Jedi à la parole inversée
+VADOR | « Je suis ton père », dit-il
+GANDALF | Magicien gris, puis blanc
+CROCHET | Capitaine ennemi de Peter Pan, ou point de tricot
+CLOCHETTE | Fée de Peter Pan
+RAIPONCE | Elle a de très longs cheveux
+MULAN | Héroïne chinoise déguisée en soldat
+POCAHONTAS | Princesse amérindienne de Disney
+POUCET | Le petit, qui sème des cailloux
+CHARLEMAGNE | Empereur à la barbe fleurie
+VERCINGETORIX | Chef gaulois vaincu à Alésia
+CLOVIS | Roi des Francs du vase de Soissons
+PASTEUR | Il inventa le vaccin contre la rage
+CURIE | Marie, prix Nobel deux fois
+EINSTEIN | Génie de la relativité
+NEWTON | Une pomme lui serait tombée sur la tête
+GALILEE | « Et pourtant elle tourne ! »
+COLOMB | Christophe, il découvrit l'Amérique par erreur
+MAGELLAN | Premier tour du monde en bateau
+COUSTEAU | Commandant au bonnet rouge
+VERNE | Auteur du « Tour du monde en quatre-vingts jours »
+HUGO | Auteur des « Misérables »
+ZOLA | « J'accuse », écrivit-il
+VOLTAIRE | Auteur de « Candide »
+PERRAULT | Il a écrit « Le Petit Chaperon rouge »
+ANDERSEN | Auteur de « La Petite Sirène »
+MONET | Peintre des nymphéas
+RENOIR | Peintre du « Déjeuner des canotiers »
+DALI | Peintre aux moustaches et aux montres molles
+VINCI | Léonard, peintre de la Joconde
+BEETHOVEN | Compositeur devenu sourd
+CHOPIN | Pianiste polonais romantique
+VIVALDI | Compositeur des « Quatre Saisons »
+PIAF | Môme qui ne regrettait rien
+BRASSENS | Chanteur moustachu à la guitare et à la pipe
 
 # Loisirs et arts
-MUSIQUE | Art des sons
-CHANSON | Des paroles sur une mélodie
-CONCERT | Spectacle de musique
-DANSE | La valse en est une
-OPERA | Spectacle entièrement chanté
-THEATRE | On y joue des pièces
-CINEMA | On y regarde des films sur grand écran
-FILM | On le regarde au cinéma
-ACTEUR | Il joue un rôle
-CHANTEUR | Il chante sur scène
-CIRQUE | Spectacle avec clowns et acrobates
-CLOWN | Il fait rire au cirque avec son nez rouge
-MAGICIEN | Il sort un lapin de son chapeau
-JONGLEUR | Il lance des balles en l'air sans les faire tomber
-ACROBATE | Artiste qui fait des sauts périlleux
-DESSIN | On le fait avec un crayon
-PEINTURE | Art du pinceau
-STATUE | Sculpture qui représente quelqu'un
-MUSEE | On y admire des œuvres d'art
-PHOTO | On la prend avec un appareil
-ROMAN | Long récit écrit
-POEME | Texte en vers
-CONTE | Histoire de fées pour enfants
-FETE | On la célèbre avec des amis
-VACANCES | Période sans école
-VOYAGE | On part le faire avec ses valises
-CAMPING | Vacances sous la tente
-JEU | On y joue pour s'amuser
-QUIZ | Jeu de questions
-DEVINETTE | Petite énigme amusante
-ENIGME | Problème difficile à résoudre
+MUSIQUE | Elle adoucit les mœurs
+CHANSON | On connaît la … : on ne nous la fait pas
+CONCERT | D'un commun accord, ou de casseroles
+DANSE | Ronde, elle se fait main dans la main
+OPERA | Gâteau au café, ou spectacle chanté
+THEATRE | Coup de … : rebondissement soudain
+CINEMA | Faire tout un … : faire une scène
+FILM | Pellicule, ou fine couche
+ACTEUR | Il entre en scène
+CHANTEUR | Il a de la voix
+CIRQUE | Quel … ! : quelle pagaille
+CLOWN | Auguste ou blanc
+MAGICIEN | Il ne révèle jamais ses tours
+JONGLEUR | Il a plusieurs balles en l'air
+ACROBATE | Elle fait des cabrioles
+DESSIN | Animé, il passe le mercredi
+PEINTURE | Ne pas pouvoir voir quelqu'un en elle
+STATUE | Elle reste de marbre
+MUSEE | Pièce de … : objet très ancien
+PHOTO | Il n'y a pas … : rien ne presse
+ROMAN | Fleuve ou policier
+POEME | Ode ou sonnet
+CONTE | Il commence souvent par « Il était une fois »
+FETE | Ce n'est pas tous les jours qu'on la fait
+VACANCES | Elles sont grandes en été
+VOYAGE | Il forme la jeunesse
+CAMPING | Sauvage, il se fait sans terrain aménagé
+JEU | Il n'en vaut pas la chandelle
+QUIZ | Suite de questions pour tester ses connaissances
+DEVINETTE | Qu'est-ce qui est jaune et qui attend ?
+ENIGME | Celle du Sphinx est célèbre
 CHARADE | Mon premier, mon second, mon tout
-SECRET | Il ne faut pas le répéter
-SURPRISE | On ne s'y attend pas
-KARAOKE | On y chante sur une musique, en lisant les paroles
-XYLOPHONE | Instrument à lames qu'on frappe avec des baguettes
-JOKER | Carte qui remplace n'importe quelle autre
-QUILLE | On la renverse au bowling
-JOUET | On s'amuse avec
+SECRET | De Polichinelle, tout le monde le connaît
+SURPRISE | Partie organisée en cachette
+KARAOKE | On y chante faux devant tout le monde
+XYLOPHONE | Instrument à lames pour petits musiciens
+JOKER | Carte qui remplace toutes les autres
+QUILLE | On en renverse au bowling, ou fin de service militaire
+HARMONICA | Instrument de poche des cow-boys
+BANJO | Instrument à cordes du bluegrass
+UKULELE | Petite guitare hawaïenne
+CONTREBASSE | La plus grande de la famille des violons
+VIOLONCELLE | Il se joue assis, entre les genoux
+HAUTBOIS | Il joue le canard dans « Pierre et le Loup »
+COR | On le réclame à … et à cri
+CORNEMUSE | Instrument écossais à poche
+ORGUE | Instrument d'église à tuyaux
+CYMBALE | Elle s'entrechoque avec sa jumelle
+MARACAS | Hochets de la salsa
+MELODIE | Air qu'on fredonne
+REFRAIN | C'est toujours le même
+COUPLET | Strophe entre deux refrains
+PARTITION | Musique écrite sur des portées
+SOLFEGE | Do, ré, mi, fa, sol…
+RYTHME | On le marque en tapant du pied
+ORCHESTRE | Chef d'… : il bat la mesure
+CHORALE | Chant à plusieurs voix
+SOPRANO | Voix la plus aiguë
+TENOR | Voix d'homme aiguë, ou grand nom du barreau
+DUO | Ils chantent à deux
+TRIO | Infernal, il fait des bêtises à trois
+SYMPHONIE | La Neuvième est celle de l'hymne européen
+BALLET | Celui des ministres est incessant
+VALSE | Viennoise, à trois temps
+TANGO | Danse argentine langoureuse
+SALSA | Danse cubaine, ou sauce piquante
+ROCK | On le danse en tournant sa partenaire
+JAZZ | Musique née à La Nouvelle-Orléans
+DISCO | Musique des boules à facettes
+RAP | Musique où l'on parle en rythme
+SCULPTURE | Art de tailler la pierre
+MOSAIQUE | Image faite de petits carreaux
+FRESQUE | Peinture murale
+TOILE | Celle d'araignée, ou du peintre
+CHEVALET | Support du tableau du peintre
+PALETTE | Plateau du peintre, ou support de marchandises
+MANGA | Bande dessinée japonaise
+GUIGNOL | Marionnette lyonnaise, ou pitre
+SUDOKU | Grille de chiffres japonaise
+BELOTE | Jeu de cartes avec rebelote
+TAROT | Jeu de cartes ou de voyance
+POKER | On y bluffe
+LOTO | On y crie « Carton ! »
+MONOPOLY | Jeu de la rue de la Paix
+SCRABBLE | Jeu de lettres sur un plateau
+BILLARD | Jeu de queues et de boules
+DEMINEUR | Jeu de cases à éviter, ou expert en explosifs
+TOBOGGAN | On y glisse au parc
+BALANCOIRE | Elle va et vient au jardin
+MANEGE | Il tourne à la fête foraine
+CARROUSEL | Manège de chevaux de bois
+RANDONNEE | Longue marche en pleine nature
 
 # Sport
-BALLE | On la frappe avec une raquette
-RAQUETTE | On s'en sert au tennis ou au badminton
-ARBITRE | Il siffle les fautes
-STADE | On y joue les matchs
-MATCH | Rencontre sportive
-EQUIPE | Groupe de joueurs
-BUT | On le marque au football
-FILET | Celui du tennis sépare les deux camps
-PISCINE | On y nage
-PLONGEON | Saut dans l'eau la tête la première
-COURSE | Le plus rapide la gagne
-MEDAILLE | Récompense en or, en argent ou en bronze
-COUPE | Trophée du vainqueur
-CHAMPION | Le meilleur dans son sport
-MARATHON | Course de 42 kilomètres
-PATIN | Chaussure pour glisser sur la glace
-SURF | On glisse sur les vagues avec sa planche
-KARATE | Art martial japonais où l'on frappe avec les mains et les pieds
-SIFFLET | L'arbitre s'en sert
-VICTOIRE | Le contraire de la défaite
-PODIUM | Les trois premiers y montent
+BALLE | Renvoyer celle-là, c'est répondre du tac au tac
+RAQUETTE | Elle sert aussi à marcher sur la neige
+ARBITRE | Il a le dernier mot sur le terrain
+STADE | Étape, ou enceinte sportive
+MATCH | Il est nul quand personne ne gagne
+EQUIPE | Esprit de corps, sur le terrain
+BUT | Il est contre son camp quand on se trompe
+FILET | De pêche, ou de bœuf
+PISCINE | On y fait des longueurs
+PLONGEON | Saut de l'ange, ou chute de la Bourse
+COURSE | On la fait au supermarché, ou contre la montre
+MEDAILLE | Elle a son revers
+COUPE | Elle est pleine quand on n'en peut plus
+CHAMPION | Celui du monde est au-dessus de tous
+MARATHON | Longue séance de négociations, ou course de fond
+PATIN | On glisse dessus sur le parquet ciré
+SURF | On le fait sur les vagues ou sur Internet
+KARATE | Art martial de la ceinture noire
+SIFFLET | Coup de … : fin de la partie
+VICTOIRE | On ne la crie pas trop tôt
+PODIUM | Trois marches pour les meilleurs
+BADMINTON | On y frappe un volant
+BOWLING | On y fait des strikes
+PETANQUE | On y tire ou on pointe
+ESCALADE | Montée des tensions, ou de la falaise
+PARAPENTE | Voile pour descendre des montagnes
+PLONGEE | Sous-marine, avec bouteilles
+VOILE | On la met pour partir
+AVIRON | Sport de rameurs
+CANOE | Embarcation à pagaie simple
+SPRINT | Dernière ligne droite à fond
+JAVELOT | Lancer de pointe, au stade
+PERCHE | Poisson, ou longue tige pour sauter haut
+PENALTY | Tir au but à onze mètres
+CORNER | Coup de pied de coin
+GARDIEN | Dernier rempart, ou veilleur de nuit
+ATTAQUANT | Il ne pense qu'à marquer
+CRAMPON | Clou de chaussure, ou personne collante
+LUGE | Petit traîneau
+HOCKEY | Sport de crosse et de palet
+CURLING | On balaie la glace devant la pierre
+SUMO | Lutteur japonais très lourd
+JUDOKA | Il porte un kimono et fait des prises
+EPEE | Arme de l'escrimeur, ou de Damoclès
+TATAMI | Tapis du judo
+RING | Carré où l'on boxe
+ARENE | Elle accueillait les gladiateurs
+TROPHEE | Coupe du vainqueur
+RECORD | Il est fait pour être battu
+CHRONO | Il tourne contre le cycliste en solitaire
+ENTRAINEUR | Coach
+SUPPORTER | Il encourage son club, ou il endure
+TRIATHLON | Natation, vélo et course à pied
+DECATHLON | Dix épreuves d'athlétisme
+OLYMPIADE | Période de quatre ans entre deux jeux
+DOSSARD | Numéro du coureur
+SLALOM | Descente entre les portes
+REFUGE | Abri de montagne
+GOLFEUR | Il vise le trou
+PALET | On le lance à la marelle, ou au hockey
 
 # Verbes
-CHANTER | Faire de la musique avec sa voix
-DANSER | Bouger en rythme
-COURIR | Aller très vite à pied
-SAUTER | Quitter le sol d'un bond
-NAGER | Se déplacer dans l'eau
-DORMIR | Fermer les yeux pour la nuit
-MANGER | Avaler de la nourriture
-BOIRE | Avaler un liquide
-RIRE | Le clown nous y pousse
-PLEURER | Verser des larmes
-LIRE | Parcourir un livre des yeux
-ECRIRE | Tracer des lettres
+CHANTER | Faire … quelqu'un : le menacer pour obtenir de l'argent
+DANSER | Ne plus savoir sur quel pied le faire
+COURIR | Tu peux toujours le faire : n'y compte pas
+SAUTER | Faire … la banque : tout gagner au casino
+NAGER | Le faire en plein bonheur
+DORMIR | Le faire debout, d'ennui
+MANGER | Le faire sur le pouce
+BOIRE | Le faire comme un trou
+RIRE | Le faire jaune, c'est se forcer
+PLEURER | Le faire comme une Madeleine
+LIRE | Le faire entre les lignes
+ECRIRE | Le faire comme un chat, c'est mal former ses lettres
 DESSINER | Faire un croquis
-JOUER | S'amuser
-PARLER | Utiliser la parole
+JOUER | Le faire avec le feu, c'est prendre des risques
+PARLER | Le faire dans le vide
 ECOUTER | Tendre l'oreille
-REGARDER | Poser les yeux sur quelque chose
-OUVRIR | Le contraire de fermer
-FERMER | Le contraire d'ouvrir
-TOMBER | Perdre l'équilibre
-GAGNER | Remporter la victoire
-PERDRE | Ne pas gagner
-CHERCHER | Essayer de trouver
-TROUVER | Mettre la main sur ce qu'on cherchait
-OUBLIER | Ne plus se souvenir
-CUISINER | Préparer à manger
-VOLER | Ce que fait l'oiseau dans le ciel
-MARCHER | Avancer à pied
-GRIMPER | Monter en s'aidant des mains
-CRIER | Parler très fort
-SOURIRE | Montrer qu'on est content, sans bruit
-RAMER | Faire avancer une barque
-PEINDRE | Mettre de la couleur au pinceau
-PLANTER | Mettre une graine en terre
-SIFFLER | Faire un son aigu avec la bouche
-TRICOTER | Fabriquer un pull avec des aiguilles et de la laine
-COUDRE | Assembler avec du fil et une aiguille
-VOYAGER | Partir à la découverte du monde
-REVER | Ce qu'on fait en dormant
-COMPTER | Dire un, deux, trois…
-CALCULER | Faire des opérations
+REGARDER | Ne pas … à la dépense
+OUVRIR | Le faire grand, ses yeux
+FERMER | La … : se taire
+TOMBER | Le faire des nues : être stupéfait
+GAGNER | Le faire sa vie
+PERDRE | Le faire la tête, ou le nord
+CHERCHER | Le faire midi à quatorze heures
+TROUVER | Le faire chaussure à son pied
+OUBLIER | Le faire, c'est perdre la mémoire
+CUISINER | Interroger quelqu'un de près
+VOLER | Prendre ce qui n'est pas à soi, ou planer
+MARCHER | Se faire avoir, ou avancer à pied
+GRIMPER | Escalader
+CRIER | Le faire au loup
+SOURIRE | Celui de la Joconde est énigmatique
+RAMER | Faire de gros efforts, ou avancer en barque
+PEINDRE | Ne pas pouvoir … quelqu'un : ne pas le supporter
+PLANTER | Le faire là, c'est abandonner
+SIFFLER | Ce que fait la bouilloire
+TRICOTER | Courir à petits pas, ou faire un pull
+COUDRE | C'est cousu de fil blanc
+VOYAGER | Partir sac au dos
+REVER | Le faire éveillé
+COMPTER | Le faire sur ses doigts
+CALCULER | Le faire de tête
+BAILLER | Ouvrir grand la bouche de fatigue
+RONFLER | Faire du bruit en dormant
+CHUCHOTER | Parler tout bas
+GRIGNOTER | Manger entre les repas
+TRICHER | Regarder les cartes du voisin
+PATINER | Ne plus avancer, ou glisser sur la glace
+BRICOLER | Réparer avec les moyens du bord
+JARDINER | Cultiver son potager
+DEMENAGER | Ça … ! : c'est décoiffant
+ROUSPETER | Râler
+BOUDER | Faire la tête
+APPLAUDIR | Faire un tonnerre de bravos
+ATTERRIR | Revenir sur terre
+DEVINER | Lire dans les pensées
+GRELOTTER | Trembler de froid
 
 # Adjectifs
-GRAND | Le contraire de petit
-PETIT | Le contraire de grand
-CHAUD | Le contraire de froid
-FROID | Le contraire de chaud
-RAPIDE | Qui va vite
-LENT | Comme la tortue
-JOLI | Agréable à regarder
-GENTIL | Le contraire de méchant
-MECHANT | Le contraire de gentil
-HEUREUX | Plein de joie
-TRISTE | Le contraire de gai
-FACILE | Pas difficile
-DIFFICILE | Pas facile
-CALME | Tranquille
-DROLE | Qui fait rire
-PROPRE | Le contraire de sale
-LOURD | Difficile à soulever
+CHAUD | Point … : sujet brûlant
+FROID | Il est de canard quand il gèle
+RAPIDE | Comme l'éclair, ou un cours d'eau agité
+LENT | Comme un escargot
+JOLI | C'est du … ! : quelle catastrophe
+GENTIL | Brave et aimable
+MECHANT | Attention, chien … !
+HEUREUX | Comme un poisson dans l'eau
+TRISTE | Comme un bonnet de nuit
+FACILE | Fastoche
+DIFFICILE | Pas commode
+CALME | Plat, sur la mer
+DROLE | De tête, ou d'oiseau
+PROPRE | Comme un sou neuf
+LOURD | Comme un âne mort
 LEGER | Comme une plume
-VIEUX | Le contraire de jeune
-JEUNE | Le contraire de vieux
-NOUVEAU | Qui vient d'arriver
-ROND | Comme une roue
-CARRE | Figure à quatre côtés égaux
-TRIANGLE | Figure à trois côtés
-CERCLE | Figure parfaitement ronde
-BIZARRE | Étrange
+VIEUX | Comme le monde
+JEUNE | Le … premier est un beau garçon
+NOUVEAU | Tout beau, tout …
+ROND | Comme une bille
+CARRE | Il est magique quand chaque ligne a la même somme
+TRIANGLE | Celui des Bermudes engloutit les navires
+CERCLE | Il est vicieux quand on tourne en rond
+BIZARRE | Vous avez dit … ?
+FIDELE | Comme un chien
+MALIN | Le petit … : celui qui fait le fier
+CURIEUX | Il veut tout savoir
+TIMIDE | Il rougit pour un rien
+BAVARD | Il parle comme une pie
+GOURMAND | Péché mignon des amateurs de gâteaux
+COURAGEUX | Il n'a pas froid aux yeux
+CELEBRE | Connu de tous
+GEANT | Personnage immense des contes
+MINUSCULE | Petite lettre, ou tout petit
+IMMENSE | Sans limites visibles
+SOLIDE | Il a les reins …, ou il n'est ni liquide ni gazeux
+FRAGILE | À manipuler avec précaution
+ETRANGE | Bizarre
+RARE | Comme les dents de poule
 
 # École, sciences et corps
-NOMBRE | Un, deux ou trois
-ADDITION | Opération avec le signe plus
+NOMBRE | Il est premier quand on ne peut que le diviser par lui-même et par un
+ADDITION | On la paie à la fin du repas
 CHIFFRE | Il y en a dix, de 0 à 9
-LETTRE | Le A en est une
-MOT | Assemblage de lettres qui a un sens
-PHRASE | Elle commence par une majuscule et finit par un point
+LETTRE | À la …, c'est au pied de la … : au mot près
+MOT | On a le dernier quand on gagne une dispute
+PHRASE | Faire des …, c'est parler avec affectation
 ALPHABET | De A à Z
-LECON | On l'apprend par cœur
-EXAMEN | Épreuve pour vérifier ce qu'on sait
-DIPLOME | Il récompense la réussite d'un examen
-HISTOIRE | Matière qui étudie le passé
-GEOGRAPHIE | Matière des cartes et des pays
-SCIENCE | Physique, chimie ou biologie
-ATOME | Minuscule brique de la matière
-AIMANT | Il attire le fer
-ROBOT | Machine qui imite l'homme
-MICROSCOPE | Il grossit les tout petits objets
-LOUPE | Elle grossit ce qu'on regarde
-METRE | Unité de longueur
-KILO | Mille grammes
-LITRE | Unité de volume
-DEGRE | Unité de température
-ENERGIE | Le soleil en fournit beaucoup
-ELECTRICITE | Elle circule dans les fils
-VACCIN | Il protège des maladies
-MICROBE | Petit être vivant invisible à l'œil nu
-SQUELETTE | Ensemble des os
-DENT | On la brosse matin et soir
-LANGUE | Organe du goût, aussi le français ou l'anglais
-DOIGT | On en a cinq à chaque main
-MAIN | Elle a cinq doigts
-PIED | On en a deux, au bout des jambes
-JAMBE | Membre qui sert à marcher
-BRAS | Membre entre l'épaule et la main
-TETE | Partie du corps qui porte le visage
-COEUR | Il bat dans la poitrine
-SANG | Liquide rouge des veines
-PEAU | Elle recouvre le corps
-OEIL | On voit avec
-SOURCIL | Poils au-dessus de l'œil
-MENTON | Bas du visage
-JOUE | On y fait la bise
-LEVRE | La bouche en a deux
-VENTRE | Il gargouille quand on a faim
-DOS | Partie du corps derrière la poitrine
+LECON | On la fait à quelqu'un pour le sermonner
+EXAMEN | De conscience, on le fait seul
+DIPLOME | Parchemin de fin d'études
+HISTOIRE | Elle se répète, dit-on
+GEOGRAPHIE | Matière des cartes et des fleuves
+SCIENCE | Elle sans conscience n'est que ruine de l'âme
+ATOME | Avoir des … crochus : bien s'entendre
+AIMANT | Il attire, ou il aime
+ROBOT | Portrait-… : dessin d'un suspect
+MICROSCOPE | Passer au … : examiner en détail
+LOUPE | On regarde à travers elle les petits détails
+METRE | Ruban de couturière, ou unité
+KILO | Il y a des … en trop après les fêtes
+LITRE | Unité de volume, ou bouteille de vin bon marché
+DEGRE | Premier ou second, il se lit dans l'humour
+ENERGIE | Elle est solaire ou éolienne
+ELECTRICITE | Il y en a dans l'air avant une dispute
+VACCIN | Rappel de piqûre
+MICROBE | Petit bout de chou, ou germe invisible
+SQUELETTE | On en a un dans le placard quand on cache un secret
+DENT | On l'a contre quelqu'un quand on lui en veut
+LANGUE | On la donne au chat quand on renonce à deviner
+DOIGT | On se le met dans l'œil quand on se trompe
+MAIN | Verte, elle fait pousser les plantes
+PIED | Prendre son … : prendre du plaisir
+JAMBE | Ça lui fait une belle … : ça ne sert à rien
+BRAS | Il est long chez les gens influents
+TETE | On la perd quand on panique
+COEUR | On le fait gros quand on est triste
+SANG | Bleu, il coule dans les veines des nobles
+PEAU | On la vend avant d'avoir tué l'ours
+OEIL | Celui du cyclone est calme
+SOURCIL | On le fronce quand on est fâché
+MENTON | Il est en galoche chez certains
+JOUE | On tend l'autre
+LEVRE | On est suspendu à celles d'un orateur
+VENTRE | On l'a dans les talons quand on a très faim
+DOS | On en a plein quand on est fatigué
+NEZ | On le mène par le bout à quelqu'un de docile
+PAUPIERE | Elle cligne
+NARINE | Trou du nez
+GORGE | On l'a nouée par l'émotion
+NUQUE | Arrière du cou
+MOLLET | Œuf à cuisson moyenne, ou bas de la jambe
+CUISSE | De grenouille ou de poulet
+HANCHE | On y pose la main pour avoir l'air décidé
+POUMON | Celui de la planète est l'Amazonie
+FOIE | Les gourmands en font une crise
+MUSCLE | Il gonfle à la musculation
+NERF | Être à bout de …
+EQUATION | Problème à une ou plusieurs inconnues
+FRACTION | Une partie du tout, au-dessus d'une barre
+CALCUL | Mental, il se fait de tête
+DICTEE | Exercice d'orthographe sous la voix du maître
+CONJUGAISON | Le Bescherelle en est la bible
+GRAMMAIRE | Règles du bon usage de la langue
+VOCABULAIRE | Ensemble des mots qu'on connaît
+DICTIONNAIRE | Il a réponse à tout, par ordre alphabétique
+ATLAS | Livre de cartes, ou géant qui porte le monde
+GLOBE | Terrestre, il tourne sur son axe
+EXPERIENCE | On la fait au laboratoire, ou elle vient avec l'âge
+LABORATOIRE | On y fait des expériences
+MOLECULE | Assemblage d'atomes
+GRAVITE | Elle nous retient au sol
+OXYGENE | On en manque en altitude
+VITAMINE | C, D ou B12
+CALORIE | Unité d'énergie des régimes
+BOULIER | Ancêtre de la calculatrice
 
 # Métiers et personnes
-MAIRE | Il dirige la commune
-POLICIER | Il fait respecter la loi
-PEINTRE | Artiste du pinceau
-INFIRMIER | Il soigne les malades à l'hôpital
-PHARMACIEN | Il vend des médicaments
-BOUCHER | Il vend de la viande
-PECHEUR | Il attrape des poissons
-MARIN | Il navigue sur la mer
-SOLDAT | Il sert dans l'armée
-AVOCAT | Il défend les accusés, aussi un fruit vert
-JUGE | Il rend la justice au tribunal
-ARCHITECTE | Il dessine les plans des maisons
-ARTISTE | Peintre, musicien ou danseur
-AUTEUR | Il écrit des livres
-CAISSIER | Il encaisse vos achats au magasin
-VENDEUR | Il travaille dans un magasin
-SERVEUR | Il apporte les plats au restaurant
-CHAUFFEUR | Il conduit le bus ou le taxi
-MECANICIEN | Il répare les voitures
-ELECTRICIEN | Il installe les prises et les lampes
-DETECTIVE | Il mène l'enquête
-ESPION | Agent secret
-SAVANT | Grand scientifique
-INVENTEUR | Il crée des choses nouvelles
-FAMILLE | Parents, enfants, grands-parents…
-PAPA | Le père, pour un enfant
-MAMAN | La mère, pour un enfant
-BEBE | Tout petit enfant
-FRERE | Le fils de mes parents, mais pas moi
-SOEUR | La fille de mes parents, mais pas moi
-ONCLE | Le frère de papa ou de maman
-TANTE | La sœur de papa ou de maman
-COUSIN | Le fils de mon oncle
-PARRAIN | Il est choisi au baptême
-MAMIE | Grand-mère, en langage d'enfant
-PAPI | Grand-père, en langage d'enfant
-VOISIN | Il habite à côté
-AMI | Copain
-GEANT | Personnage immense des contes
-NAIN | Blanche-Neige en rencontre sept
-ELFE | Petit être magique des forêts
+MAIRE | Il porte l'écharpe tricolore
+POLICIER | Roman à suspense, ou gardien de la paix
+PEINTRE | En bâtiment, ou en tableaux
+INFIRMIER | Il fait les piqûres
+PHARMACIEN | Il lit les ordonnances
+BOUCHER | Il travaille la viande, ou bouche les trous
+PECHEUR | À la ligne, ou qui commet une faute
+MARIN | Il a le pied … quand il tient sur le pont
+SOLDAT | De plomb, il est un jouet
+AVOCAT | Il plaide, ou il est vert et crémeux
+JUGE | Il porte la robe au tribunal
+ARCHITECTE | Il dessine les plans
+ARTISTE | Il a un tempérament créatif
+AUTEUR | Il signe le livre
+CAISSIER | Il rend la monnaie
+VENDEUR | Il est au rayon
+SERVEUR | Garçon de café, ou ordinateur du réseau
+CHAUFFEUR | Il conduit le bus ou le car
+MECANICIEN | Il a les mains dans le cambouis
+ELECTRICIEN | Il installe les prises
+DETECTIVE | Il file les suspects
+ESPION | Il travaille sous couverture
+SAVANT | Fou dans les films, il invente
+INVENTEUR | Concours Lépine
+FAMILLE | On ne la choisit pas
+PAPA | Fête des … en juin
+MAMAN | Elle a sa fête en mai
+BEBE | Il fait ses nuits, ou pas
+FRERE | Grand, il veille sur nous
+SOEUR | Elle est grande ou petite, mais toujours là
+ONCLE | Il est d'Amérique quand il laisse un héritage
+TANTE | Elle a des neveux
+COUSIN | Moustique géant, ou parent éloigné
+PARRAIN | Il est choisi au baptême, ou dirige la mafia
+MAMIE | Elle fait de bonnes confitures
+PAPI | Il raconte comment c'était avant
+VOISIN | Il peut être de palier
+AMI | Il est dans le besoin, et c'est là qu'on le reconnaît
+NAIN | Ils sont sept autour de Blanche-Neige
+ELFE | Petit être magique aux oreilles pointues
 LICORNE | Cheval magique à une corne
-SIRENE | Mi-femme, mi-poisson
-FANTOME | Il hante le vieux château sous son drap blanc
-MONSTRE | Il fait peur aux enfants dans le placard
-VAMPIRE | Il dort dans un cercueil et craint l'ail
+SIRENE | Son chant attirait les marins, ou alarme des pompiers
+FANTOME | Il hante le vieux manoir
+MONSTRE | Le Loch Ness en cache un
+VAMPIRE | Il ne se reflète pas dans les miroirs
+JOURNALISTE | Il mène l'enquête pour son journal
+PROFESSEUR | Il corrige les copies
+HOTESSE | De l'air, elle sert à bord
+CHIRURGIEN | Il opère au bloc
+NOTAIRE | Il lit le testament
+BANQUIER | Il prête de l'argent
+FLEURISTE | Elle compose des bouquets
+LIBRAIRE | Il vend des livres
+BIJOUTIER | Il vend des bagues
+HORLOGER | Il répare les montres
+CORDONNIER | Le plus mal chaussé, dit-on
+TAILLEUR | Il coud des costumes sur mesure, ou on s'y assoit en croisant les jambes
+MENUISIER | Il travaille le bois
+FORGERON | Il bat le fer tant qu'il est chaud
+SERRURIER | Il ouvre les portes claquées
+VITRIER | Il remplace les carreaux
+COUVREUR | Il travaille sur le toit
+BERGER | Allemand, il est un chien
+APICULTEUR | Il élève des abeilles
+VIGNERON | Il fait le vin
+PATISSIER | Il fait les gâteaux
+CHOCOLATIER | Il fabrique des pralines
+FROMAGER | Il affine les meules
+POISSONNIER | Il vend la marée
+EPICIER | Il tient le magasin du coin
+GARAGISTE | Il répare les voitures
+CASCADEUR | Il fait les chutes à la place de l'acteur
+MIME | Artiste muet aux gestes éloquents
+VENTRILOQUE | Il parle sans remuer les lèvres
+DOMPTEUR | Il fait claquer son fouet devant les fauves
+FUNAMBULE | Il marche sur un fil
+TRAPEZISTE | Voltigeur de cirque
+PHOTOGRAPHE | Il dit « Ouistiti ! »
+REALISATEUR | Il crie « Moteur ! »
+DETECTEUR | Il sonne au passage de la sécurité
+SORCIER | Apprenti, il fait des bêtises
+PRINCE | Charmant, il arrive à cheval
+MAJORDOME | Le coupable, dans les romans policiers
+COMMISSAIRE | Il dirige l'enquête
+BOURREAU | Il est de travail quand on travaille trop
+CHEF | Petit, il commande à la maison
+INSPECTEUR | Gadget, il est maladroit
+ASTRONOME | Il observe les étoiles
 
 # Lieux
-VILLE | Paris en est une
-VILLAGE | Petite commune à la campagne
-RUE | Les voitures y circulent
-ROUTE | On la prend en voiture
-PONT | Il passe au-dessus de la rivière
-GARE | On y prend le train
-PORT | Les bateaux y accostent
-AEROPORT | Les avions y décollent
-HOPITAL | On y soigne les malades
-MAIRIE | Bâtiment où l'on se marie
-EGLISE | Bâtiment avec un clocher
-ECOLE | On y apprend à lire
-MARCHE | On y achète des fruits et des légumes
-MAGASIN | On y fait ses courses
-BOULANGERIE | On y achète le pain
-PHARMACIE | On y achète des médicaments
-RESTAURANT | On y mange en choisissant sur le menu
-TOUR | Celle de Pise penche
-PARC | Jardin public
-PLACE | Espace ouvert au milieu de la ville
-FONTAINE | On y jette une pièce pour faire un vœu
-BANQUE | On y dépose son argent
-POSTE | On y envoie les lettres
-PRISON | On y enferme les voleurs
-USINE | On y fabrique des objets en grande quantité
-FERME | Lieu où vivent vaches et cochons
-CAMPAGNE | Le contraire de la ville
-CABANE | Petite maison dans les arbres
-IGLOO | Maison de glace des Inuits
+VILLAGE | Celui d'Astérix résiste encore
+RUE | On y descend pour manifester
+ROUTE | Faire fausse … : se tromper
+PONT | On en fait un entre deux jours fériés
+GARE | Attention, … à toi !
+PORT | Celui d'attache, on y revient toujours
+AEROPORT | Roissy ou Orly
+HOPITAL | Il se moque de la charité
+MAIRIE | On y dit « oui »
+EGLISE | Elle est au milieu du village
+ECOLE | Buissonnière, on la fait en séchant les cours
+MARCHE | Aux puces, on y chine
+MAGASIN | Grand, il a plusieurs rayons
+BOULANGERIE | On y fait la queue pour la baguette
+PHARMACIE | Sa croix verte clignote la nuit
+RESTAURANT | On y lit la carte
+TOUR | Il est joué, ou de Pise
+PARC | Celui d'attractions a des montagnes russes
+PLACE | On la cherche pour se garer
+FONTAINE | Il ne faut pas dire : je ne boirai pas de ton eau
+BANQUE | Celle de données est sur ordinateur
+POSTE | De police, ou de télévision
+PRISON | Sortez de là, au Monopoly
+USINE | Ruche industrielle
+FERME | Elle est pédagogique pour les écoliers
+CAMPAGNE | Électorale, ou loin de la ville
+CABANE | Au fond du jardin, ou dans les arbres
+IGLOO | Maison de neige
 CHALET | Maison de bois à la montagne
-JARDIN | On y cultive des fleurs et des légumes
-ZOO | On y voit des animaux sauvages
-QUAI | On y attend le train
+JARDIN | Celui d'Éden était un paradis
+ZOO | Parc des bêtes sauvages en ville
+QUAI | Celui de gare, on y attend
+STATION | Service, de ski, ou de métro
+CATHEDRALE | Celle de Chartres est célèbre pour ses vitraux
+MOULIN | Don Quichotte se battait contre eux
+TERRASSE | En été, on s'y installe au café
+BIBLIOTHEQUE | On y emprunte des livres
+CINEMATHEQUE | Musée des vieux films
+PATINOIRE | Piste gelée
+PISTE | Noire, elle est difficile
+SOUTERRAIN | Passage sous la terre
+LABYRINTHE | On s'y perd
+AUBERGE | On n'en est pas sorti quand rien ne s'arrange
+HOTEL | Particulier, il est un grand bâtiment privé
+CHAPELLE | Esprit de … : clan
+PALAIS | Royal, ou dans la bouche
+COLISEE | Amphithéâtre de Rome
+MANOIR | Grande demeure hantée des romans
 
 # Vêtements et accessoires
-CHAPEAU | On le porte sur la tête
-BOTTE | Chaussure haute pour la pluie
+CHAPEAU | On le tire à quelqu'un qu'on admire
+BOTTE | Il en a plein quand il en a assez
 SANDALE | Chaussure d'été ouverte
-BASKET | Chaussure de sport
+BASKET | Lâche-moi les … !
 PYJAMA | On le met pour dormir
-CRAVATE | Elle se noue autour du cou, sur la chemise
-CEINTURE | Elle tient le pantalon
-POCHE | On y met ses mains ou ses clés
-BOUTON | Il ferme la chemise
-TALON | Arrière du pied, ou de la chaussure
-COSTUME | Veste et pantalon assortis
+CRAVATE | Elle se noue sous le col
+CEINTURE | Se la serrer : faire des économies
+POCHE | On a les mains dedans quand on ne fait rien
+BOUTON | Il faut appuyer dessus, ou il pousse sur le nez
+TALON | Celui d'Achille est son point faible
+COSTUME | Trois-pièces, il est élégant
 TUTU | Jupe de la danseuse étoile
 DEGUISEMENT | On le porte pour le carnaval
-MASQUE | Il cache le visage
-CARNAVAL | Fête où l'on se déguise
+MASQUE | De plongée, ou d'Halloween
+CARNAVAL | Celui de Rio est le plus célèbre
+CHAUSSURE | Trouver celle à son pied
+CHAUSSON | Aux pommes, ou pantoufle
+PANTOUFLARD | Il préfère rester chez lui
+CALECON | Sous-vêtement à jambes, ou leggings
+SLIP | De bain, il est court
+COLLANT | Il colle, ou se porte sous la jupe
+TABLIER | On le rend quand on démissionne
+GILET | Jaune, il est de sécurité
+VESTE | On la prend quand on perd une élection
+CAPE | De … et d'épée : aventures
+KILT | Jupe écossaise
+SARI | Robe indienne drapée
+SOMBRERO | Chapeau mexicain
+BERET | Chapeau basque
+TURBAN | Coiffure enroulée
+PERRUQUE | Faux cheveux
+CHIGNON | On se le crêpe en se disputant
+EVENTAIL | On s'en sert pour se rafraîchir
+OMBRELLE | Petit parapluie contre le soleil
+ANORAK | Veste imperméable à capuche
+SALOPETTE | Pantalon à bretelles
+MOUFLE | Gant sans doigts séparés
+CHAPELET | Il s'égrène, ou c'est une série d'injures
+PANAMA | Chapeau de paille, ou canal
+BRETELLE | D'autoroute, ou de pantalon
 
 # Transports
-ROUE | Une voiture en a quatre
-PNEU | Il entoure la roue
-MOTEUR | Il fait avancer la voiture
-VOLANT | Le conducteur le tient à deux mains
-FREIN | Pour s'arrêter
-TAXI | Voiture qu'on paie pour se faire conduire
-PAQUEBOT | Grand navire de croisière
-VOILIER | Bateau poussé par le vent
-BARQUE | Petit bateau à rames
-ANCRE | Elle retient le bateau au fond de l'eau
-GOUVERNAIL | Il dirige le bateau
-TUNNEL | Passage creusé sous la montagne
-PARKING | On y gare sa voiture
-PERMIS | Il autorise à conduire
-ESSENCE | Carburant de la voiture
-VITESSE | On la mesure en kilomètres par heure
+ROUE | Celle de secours est dans le coffre
+PNEU | Il crève
+MOTEUR | Action !
+VOLANT | Il se tient à deux mains, ou on le frappe au badminton
+FREIN | On le ronge en attendant
+TAXI | La Marne en a vu arriver tout un convoi
+PAQUEBOT | Le Titanic en était un
+VOILIER | Il avance grâce au vent
+BARQUE | Mener la sienne : diriger sa vie
+ANCRE | On la lève au départ
+GOUVERNAIL | On le tient quand on dirige
+TUNNEL | Celui sous la Manche relie la France à l'Angleterre
+PARKING | On y tourne pour trouver une place
+PERMIS | De conduire, ou de construire
+ESSENCE | Sans plomb, ou d'une chose
+VITESSE | Excès de …
 ROLLER | Patin à roulettes
 SKATE | Planche à roulettes
-CARAVANE | Maison sur roues tirée par une voiture
-WAGON | Voiture d'un train
-KAYAK | Petit bateau qu'on fait avancer avec une pagaie
+CARAVANE | Les chiens aboient, elle passe
+WAGON | Il est à la queue du train
+KAYAK | Il se retourne en esquimautage
+MONTGOLFIERE | Ballon à air chaud
+DIRIGEABLE | Ballon de forme allongée
+LOCOMOTIVE | Elle tire les wagons, ou entraîne les autres
+FUNICULAIRE | Train de pente à câble
+TELEPHERIQUE | Cabine suspendue en montagne
+AMBULANCE | On ne tire pas sur elle
+CORBILLARD | Dernier voyage
+LIMOUSINE | Longue voiture de star
+CARROSSE | Citrouille transformée
+PIROGUE | Barque creusée dans un tronc
+GONDOLE | Barque de Venise, ou rayon de supermarché
+RADEAU | Celui de la Méduse est peint par Géricault
+BICYCLETTE | Petite reine
+PEDALE | Il faut la mettre douce
+GUIDON | On a le nez dessus quand on travaille sans recul
+KLAXON | Il fait « tut tut »
+CARREFOUR | Croisement de routes
+PEAGE | On y paie l'autoroute
+AUTOROUTE | Celle du Soleil va vers le Sud
+EMBOUTEILLAGE | Il bloque les départs en vacances
 
 # Divers
-AMOUR | Sentiment très fort
-BONJOUR | Ce qu'on dit en arrivant
-MERCI | Ce qu'on dit quand on reçoit quelque chose
-PARDON | Ce qu'on dit après une bêtise
-BRAVO | On le crie pour féliciter
-SALUT | Bonjour entre copains
-ARGENT | Il sert à payer
-EURO | Monnaie de la France
-PIECE | Monnaie ronde en métal, ou salle d'une maison
-BILLET | Monnaie en papier, ou ticket de spectacle
-TICKET | On le présente pour monter dans le bus
-MESSAGE | On l'envoie par téléphone
-IDEE | Elle nous vient en tête
-REVE | Ce qu'on voit en dormant
-PEUR | On l'a devant un fantôme
-COLERE | Quand on y est, on devient tout rouge
-JOIE | Grand bonheur
-MAGIE | L'art des sorciers et des magiciens
-POTION | Breuvage magique
-PRIX | Ce que coûte un objet
-GAZ | Il fait marcher la cuisinière
-ZIGZAG | Ligne qui va dans un sens puis dans l'autre
-ZERO | Le chiffre rond
-DEUX | Un plus un
-TROIS | Deux plus un
-QUATRE | Le nombre de saisons
-CINQ | Nombre de doigts d'une main
-SIX | Deux fois trois
-SEPT | Nombre de jours dans la semaine
-HUIT | Nombre de bras du poulpe
-NEUF | Après huit, ou tout récent
-DIX | Nombre de doigts des deux mains
-ONZE | Dix plus un
-DOUZE | Une douzaine
-TREIZE | Nombre qui porte malheur, selon certains
-SEIZE | Dix plus six
-CENT | Dix fois dix
-MILLE | Dix fois cent
-QUEUE | Le chien la remue quand il est content
+AMOUR | Il rend aveugle
+BONJOUR | Simple comme lui
+MERCI | Sans …, sans pitié
+PARDON | Il est demandé par l'enfant pris en faute
+BRAVO | On le crie à la fin du spectacle
+SALUT | Formule de copains, ou délivrance
+ARGENT | Il ne fait pas le bonheur
+EURO | Monnaie commune de l'Europe
+PIECE | Monnaie, ou salle
+BILLET | Monnaie en papier, ou ticket
+TICKET | Il a un … avec quelqu'un qui lui plaît
+MESSAGE | Bouteille à la mer
+IDEE | On en a une derrière la tête
+REVE | Américain, il est de réussite
+PEUR | Elle donne des ailes
+COLERE | Mauvaise conseillère
+JOIE | Feu de … : grand bûcher
+MAGIE | Noire ou blanche
+POTION | Magique chez les Gaulois
+PRIX | Il est Nobel
+GAZ | Il en faut pour accélérer à fond
+ZIGZAG | Ligne brisée
+ZERO | Partir de lui : tout recommencer
+DEUX | Jamais … sans trois
+TROIS | Jamais deux sans lui
+QUATRE | Se mettre en … : se démener
+CINQ | Il en faut … pour faire une main
+SEPT | Ses lieues sont dans les bottes de l'ogre
+HUIT | Le grand … est un manège
+NEUF | Remettre à … : rénover
+DIX | Sur …, c'est parfait
+ONZE | Équipe de football
+DOUZE | Les travaux d'Hercule
+TREIZE | À table, on dit qu'il porte malheur
+SEIZE | Louis …, guillotiné en 1793
+CENT | Être aux … coups : très inquiet
+MILLE | Dans le …, c'est en plein centre
+QUEUE | On la fait à la caisse
+CHANCE | Elle sourit aux audacieux
+MYSTERE | Boule de glace, ou énigme
+SILENCE | Il est d'or, la parole d'argent
+VERITE | Elle sort de la bouche des enfants
+MENSONGE | Il fait grandir le nez de Pinocchio
+PROMESSE | Elle n'engage que ceux qui y croient
+HASARD | Il fait bien les choses
+DESTIN | On ne lui échappe pas
+FORTUNE | Roue de la …
+MIRACLE | Cour des …
+PARADIS | Fiscal, il cache des fortunes
+LEGENDE | Elle accompagne la photo, ou se transmet oralement
+MEMOIRE | Elle peut être d'éléphant
+TEMPS | Il passe
+ESPACE | Touche du clavier, ou vide intersidéral
+
+FAINEANT | Il a un poil dans la main

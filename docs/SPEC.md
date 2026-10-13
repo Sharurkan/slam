@@ -156,11 +156,12 @@ Grilles
 - Script hors ligne `npm run generate:grids` (`scripts/generate-grids.ts`) : construit les grilles et les écrit dans `src/content/grids/`. Hasard à graine fixe : mêmes sources, mêmes grilles.
 - Dans les fichiers générés, chaque grille est dessinée en commentaire. Une définition se corrige directement dans le fichier généré. Changer un mot : modifier la source, puis relancer le script.
 - Validateur, lancé dans les tests et par le script : croisements cohérents, pas de lettres collées hors des mots, tous les mots reliés, numérotation dans l'ordre de lecture, pas de doublon, aucun mot partagé entre deux grilles (finale comprise), aucune définition qui contient sa réponse ou un autre mot de sa grille.
-- Au départ : 15 grilles de 10 mots, 15 grilles de 12 mots, 20 grilles de finale. Pas de répétition dans une partie.
+- Au départ : 50 grilles de 10 mots, 50 grilles de 12 mots, 20 grilles de finale. Pas de répétition dans une partie.
+- Définitions à la manière du jeu télévisé : détournées (expressions, double sens, culture), jamais impossibles.
 
 Questions
 
-- Banque de questions dont la réponse est une seule lettre : 300 au moins, variées (alphabet, géographie, sciences, symboles chimiques, initiales, calcul, langue…). Fichier `src/content/questions.ts`, classé par lettre.
+- Banque de questions dont la réponse est une seule lettre : 300 au moins, variées (énigmes sur les lettres des mots, alphabet, géographie, sciences, symboles chimiques, initiales, calcul, langue…). Exemples d'énigmes : « Je suis dans maman mais pas dans mamie » (N), « Je suis au centre de la Chine » (I). Fichier `src/content/questions.ts`, classé par lettre.
 - Chaque question a une seule réponse, sans ambiguïté, compréhensible par les enfants comme par les adultes.
 - Chaque question peut avoir un mot réponse (`answer`), le mot ou l'expression d'où vient la lettre. Exemple : « Initiale du dernier jour de la semaine ? » → D, mot réponse « Dimanche ». Il contient la lettre. La lettre mise en avant est la première qui correspond (sans accents) ; des crochets en choisissent une autre (`Arc-en-[c]iel`). Pas de mot réponse quand il n'y a pas de mot naturel (« Lettre qui suit P ? »).
 - Au moins 6 questions par lettre, pour que chaque lettre de la grille puisse être demandée.

@@ -18,7 +18,7 @@ import { normalizeText } from '../src/shared/text.ts';
 const ROUND_WORDS_FILE = 'scripts/sources/round-words.txt';
 const FINAL_THEMES_FILE = 'scripts/sources/final-themes.txt';
 const OUTPUT_DIR = 'src/content/grids';
-const GRIDS_PER_ROUND = 15;
+const GRIDS_PER_ROUND = 50;
 /** Change it to get other grids from the same words. */
 const SEED = 2026;
 /** Words offered to the builder for one round grid, drawn from the unused ones. */

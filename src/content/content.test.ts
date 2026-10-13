@@ -3,7 +3,7 @@ import { FINAL_WORD_COUNT, ROUND_WORD_COUNTS } from '../game/config';
 import { CONTENT } from './content';
 import { validateFinalGrid, validateGrid, validateGridSet, validateQuestions } from './validate';
 
-const GRIDS_PER_ROUND = 15;
+const GRIDS_PER_ROUND = 50;
 const FINAL_GRIDS = 20;
 
 describe('round grids', () => {
