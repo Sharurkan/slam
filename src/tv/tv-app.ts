@@ -110,14 +110,14 @@ function soundFor(events: readonly GameEvent[]): SoundEffect | null {
   return null;
 }
 
-function isTimedFinal(state: GameState): boolean {
-  return state.phase === 'final' && state.step.kind === 'playing';
-}
-
 function secondsLeft(state: GameState): number | null {
-  return state.phase === 'final' && state.step.kind === 'playing'
+  return state.phase === 'final' && state.step.kind === 'playing' && state.step.remainingMs !== null
     ? Math.ceil(state.step.remainingMs / 1000)
     : null;
+}
+
+function isTimedFinal(state: GameState): boolean {
+  return secondsLeft(state) !== null;
 }
 
 function setupSound(sound: Sound | null, onChange: () => void): void {

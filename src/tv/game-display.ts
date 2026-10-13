@@ -217,7 +217,7 @@ function finalDisplay(state: FinalState, offline: readonly number[]): Display {
       picked: state.picked.includes(index),
       letter: revealed && state.picked.includes(index) ? letter : '',
     })),
-    timer: revealed ? Math.ceil(step.remainingMs / 1000) : null,
+    timer: revealed && step.remainingMs !== null ? Math.ceil(step.remainingMs / 1000) : null,
   };
 }
 

@@ -6,12 +6,12 @@ import { INITIAL_STATE, type FinalState, type GameAction, type GameState } from 
 import { play, testDeps } from './test-fixtures';
 
 /** The final of the ANIMALS grid (CHAT, CHIEN, TOUR), with known letters behind the numbers. */
-function setup(letters = ['H', 'A', 'T', 'I', 'E', 'X', 'Y', 'Z']) {
+function setup(letters = ['H', 'A', 'T', 'I', 'E', 'X', 'Y', 'Z'], timedFinal = true) {
   const clock = { now: 1000 };
   const deps = testDeps(clock);
   const started = play(
     INITIAL_STATE,
-    [{ type: 'startGame', teamNames: ['Alice', 'Bob'], firstRound: 3 }],
+    [{ type: 'startGame', teamNames: ['Alice', 'Bob'], firstRound: 3, timedFinal }],
     deps,
   );
   if (started.phase !== 'final') throw new Error('Expected the final');
@@ -168,7 +168,7 @@ describe('timed words', () => {
     });
     expect(result.events).toEqual([
       { type: 'finalWordFound', word: 2 },
-      { type: 'finalOver', wordsFound: 3, prize: 2000, complete: true },
+      { type: 'finalOver', wordsFound: 3, prize: 2000, complete: true, stopped: false },
       { type: 'gameOver' },
     ]);
   });
@@ -189,7 +189,7 @@ describe('timer', () => {
       final: { wordsFound: 1, prize: 100, complete: false },
     });
     expect(over.events).toEqual([
-      { type: 'finalOver', wordsFound: 1, prize: 100, complete: false },
+      { type: 'finalOver', wordsFound: 1, prize: 100, complete: false, stopped: false },
       { type: 'gameOver' },
     ]);
   });
@@ -219,6 +219,49 @@ describe('timer', () => {
       { type: 'actionRejected', reason: 'wrongPhase' },
     ]);
     expect(act(state, { type: 'submitFinalWord', answer: 'chat' }).events).toEqual([
+      { type: 'actionRejected', reason: 'wrongPhase' },
+    ]);
+  });
+});
+
+describe('final without timer', () => {
+  const LETTERS = ['H', 'A', 'T', 'I', 'E', 'X', 'Y', 'Z'];
+
+  it('never ends on its own, however long the finalist takes', () => {
+    const { state, act, then, clock } = setup(LETTERS, false);
+    const playing = then(state, ...PICK_FIVE);
+    expect(asFinal(playing).step).toMatchObject({ kind: 'playing', remainingMs: null });
+    clock.now += 10 * FINAL_DURATION_MS;
+    const ticked = act(playing, { type: 'finalTick' });
+    expect(asFinal(ticked.state).step).toMatchObject({ remainingMs: null });
+    const found = act(ticked.state, { type: 'selectFinalWord', word: 1 }).state;
+    expect(act(found, { type: 'submitFinalWord', answer: 'chat' }).events).toEqual([
+      { type: 'finalWordFound', word: 1 },
+    ]);
+  });
+
+  it('ends when the master stops it, 100 € per word found', () => {
+    const { state, act, then } = setup(LETTERS, false);
+    const one = then(state, ...PICK_FIVE, ...tryWord(1, 'chat'));
+    const stopped = act(one, { type: 'stopFinal' });
+    expect(stopped.state).toMatchObject({
+      phase: 'gameOver',
+      final: { wordsFound: 1, prize: 100, complete: false },
+    });
+    expect(stopped.events).toEqual([
+      { type: 'finalOver', wordsFound: 1, prize: 100, complete: false, stopped: true },
+      { type: 'gameOver' },
+    ]);
+  });
+
+  it('cannot be stopped before the letters are revealed, nor when timed', () => {
+    const untimed = setup(LETTERS, false);
+    expect(untimed.act(untimed.state, { type: 'stopFinal' }).events).toEqual([
+      { type: 'actionRejected', reason: 'wrongPhase' },
+    ]);
+    const timed = setup(LETTERS);
+    const playing = timed.then(timed.state, ...PICK_FIVE);
+    expect(timed.act(playing, { type: 'stopFinal' }).events).toEqual([
       { type: 'actionRejected', reason: 'wrongPhase' },
     ]);
   });

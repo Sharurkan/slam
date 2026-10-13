@@ -34,6 +34,7 @@ export const phoneActionSchema: z.ZodMiniType<PhoneAction> = z.discriminatedUnio
       .check(z.minLength(MIN_TEAMS), z.maxLength(MAX_TEAMS)),
     firstRound: z.optional(z.int().check(z.minimum(1), z.maximum(ROUND_COUNT + 1))),
     gridId: z.optional(z.string().check(z.maxLength(MAX_GRID_ID_LENGTH))),
+    timedFinal: z.optional(z.boolean()),
   }),
   z.object({ type: z.literal('buzz'), team: teamIndex }),
   z.object({
@@ -58,6 +59,7 @@ export const phoneActionSchema: z.ZodMiniType<PhoneAction> = z.discriminatedUnio
   z.object({ type: z.literal('selectFinalWord'), word: wordNumber }),
   simple('cancelFinalWord'),
   z.object({ type: z.literal('submitFinalWord'), answer }),
+  simple('stopFinal'),
   simple('abandonGame'),
   simple('newGame'),
 ]);

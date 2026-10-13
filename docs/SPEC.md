@@ -117,12 +117,13 @@ Fin de manche
 - La TV montre 8 numéros. Chacun cache une lettre, tirée au hasard parmi les lettres de la grille de finale (8 lettres différentes).
 - Le finaliste choisit 5 numéros sur son téléphone. Les 5 lettres sont dévoilées, puis posées partout où elles apparaissent dans la grille.
 - La grille de 7 mots s'affiche avec son thème (ex. « Les fruits »). Le minuteur de 60 s démarre.
+- Finale sans minuteur (choisie par le maître avant de commencer la partie) : pas de compte à rebours. Le maître touche « Arrêter la finale » (avec confirmation) quand il veut finir.
 - Pas de définition : le thème est le seul indice, et les 7 mots s'y rapportent.
 - Le finaliste choisit n'importe quel mot non trouvé, dans l'ordre qu'il veut, et peut changer de mot à tout moment. Le mot choisi s'allume sur la TV.
   - Bon mot : validé tout de suite, il apparaît dans la grille. Retour à la liste des mots.
   - Mauvais mot : message « Faux ». Il ne coûte que du temps : le finaliste réessaie ou change de mot.
 - Une lettre posée qui remplit tout un mot : ce mot compte comme trouvé.
-- Fin : temps écoulé ou grille complète. Les mots manquants sont affichés.
+- Fin : temps écoulé, finale arrêtée par le maître (sans minuteur) ou grille complète. Les mots manquants sont affichés.
 - Gains : 100 € par mot trouvé. Grille complète : 2 000 €.
 - Les gains s'affichent à côté du finaliste dans le classement. Ils ne s'ajoutent pas aux points.
 - Si la TV recharge pendant la finale, le minuteur reprend où il en était.
@@ -183,22 +184,22 @@ Textes
 - Gros boutons, utilisable d'une main.
 - Affiche : manche, joueur qui a la main, scores, message en cours. Avec un téléphone par joueur : « Tu es X ».
 - Choix du mode (maître seulement).
-- Configuration avec un seul téléphone : nombre de joueurs, noms, bouton « Commencer ».
-- Configuration avec un téléphone par joueur : nom du joueur, liste des inscrits, « Commencer » pour le maître.
+- Configuration avec un seul téléphone : nombre de joueurs, noms, minuteur en finale (oui ou non), bouton « Commencer ».
+- Configuration avec un téléphone par joueur : nom du joueur, liste des inscrits, minuteur en finale et « Commencer » pour le maître.
 - Question : gros bouton « BUZZ ! » (un bouton par joueur avec un seul téléphone, joueurs éliminés grisés).
 - Clavier de lettres pour la réponse à la question : on touche la lettre, puis « Valider » (une erreur élimine de la question).
 - Choix du mot par numéro (mots non jouables grisés).
 - Saisie du mot : définition et cases du mot, lettres connues déjà posées. Le joueur tape seulement les lettres manquantes, qui remplissent les cases vides dans l'ordre. « Valider » (seulement quand toutes les cases sont remplies) et « Annuler ». Même saisie pour le SLAM et la finale (sans définition).
 - Bouton « SLAM » avec confirmation, puis saisie de tous les mots restants.
 - Finale : choix de 5 numéros sur 8, puis liste des mots non trouvés. On touche un mot, on le tape, « Valider » ou « Autre mot ».
-- Maître seulement : mode, commencer, « Personne ne sait », « Corriger la grille » (avec confirmation), manche suivante, abandonner (avec confirmation), nouvelle partie.
+- Maître seulement : mode, minuteur en finale, commencer, « Personne ne sait », « Corriger la grille » (avec confirmation), manche suivante, « Arrêter la finale » sans minuteur (avec confirmation), abandonner (avec confirmation), nouvelle partie.
 - Le minuteur de la finale s'affiche aussi sur le téléphone du finaliste.
 - Boutons grisés tant que la TV anime.
 - Mode test (`&test` dans l'adresse) : choix de la manche de départ (1, 2 ou finale) et grille forcée.
 
 ## Protocole
 
-- Version actuelle du protocole : 2.
+- Version actuelle du protocole : 3.
 - Téléphone → TV :
   - `{ v, type: "hello", clientId }` au début de chaque connexion ;
   - `{ v, type: "chooseMode", mode }`, `{ v, type: "joinTeam", name }`, `{ v, type: "removeTeam", team }` avant la partie ;

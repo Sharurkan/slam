@@ -24,10 +24,11 @@ export interface SetupDraft {
   firstRound: number;
   /** '' for a grid drawn at random. */
   gridId: string;
+  timedFinal: boolean;
 }
 
 /** Actions asked twice before they are sent. */
-export type Confirmable = 'slam' | 'revealGrid' | 'abandon';
+export type Confirmable = 'slam' | 'revealGrid' | 'stopFinal' | 'abandon';
 
 /** What is being typed or chosen on a game screen. Cleared when the screen changes. */
 export interface GameDraft {

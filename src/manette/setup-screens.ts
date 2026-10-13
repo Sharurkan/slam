@@ -1,5 +1,11 @@
 import { CONTENT } from '../content/content';
-import { MAX_TEAM_NAME_LENGTH, MAX_TEAMS, MIN_TEAMS, ROUND_COUNT } from '../game/config';
+import {
+  FINAL_DURATION_MS,
+  MAX_TEAM_NAME_LENGTH,
+  MAX_TEAMS,
+  MIN_TEAMS,
+  ROUND_COUNT,
+} from '../game/config';
 import type { PhoneAction } from '../protocol/actions';
 import type { PlayMode, RoomView } from '../protocol/room';
 import { createElement } from '../shared/dom';
@@ -88,11 +94,29 @@ function testOptions(ctx: ScreenContext): HTMLElement[] {
   ];
 }
 
+/** With or without the final timer: without it, the master ends the final. */
+function finalTimerChoice(ctx: ScreenContext): HTMLElement[] {
+  const { setup } = ctx;
+  const option = (timed: boolean, label: string): HTMLElement =>
+    button(label, timed === setup.timedFinal ? 'choice selected' : 'choice', true, () => {
+      setup.timedFinal = timed;
+      ctx.refresh();
+    });
+  return [
+    createElement('div', { className: 'label', text: texts.finalTimer }),
+    createElement('div', { className: 'choices' }, [
+      option(true, texts.withTimer(FINAL_DURATION_MS / 1000)),
+      option(false, texts.withoutTimer),
+    ]),
+  ];
+}
+
 function startAction(ctx: ScreenContext, teamNames: string[]): PhoneAction {
   const { setup } = ctx;
-  if (!setup.testMode) return { type: 'startGame', teamNames };
+  const { timedFinal } = setup;
+  if (!setup.testMode) return { type: 'startGame', teamNames, timedFinal };
   const gridId = setup.gridId === '' ? undefined : setup.gridId;
-  return { type: 'startGame', teamNames, firstRound: setup.firstRound, gridId };
+  return { type: 'startGame', teamNames, firstRound: setup.firstRound, gridId, timedFinal };
 }
 
 export function singleSetupScreen(ctx: ScreenContext): HTMLElement {
@@ -122,6 +146,7 @@ export function singleSetupScreen(ctx: ScreenContext): HTMLElement {
     createElement('div', { className: 'label', text: texts.playerCount }),
     createElement('div', { className: 'choices' }, countButtons),
     ...inputs,
+    ...finalTimerChoice(ctx),
     ...testOptions(ctx),
     start,
     modeSwitch(ctx, 'multi'),
@@ -179,6 +204,7 @@ export function multiLobbyScreen(ctx: ScreenContext): HTMLElement {
   const hint = startHint(room);
   const masterControls = room.isMaster
     ? [
+        ...finalTimerChoice(ctx),
         ...testOptions(ctx),
         button(texts.start, 'big-button', ctx.enabled && canStartMultiGame(room, MIN_TEAMS), () => {
           // The TV replaces the names with the ones the players joined with.

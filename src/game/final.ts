@@ -47,8 +47,8 @@ export function startFinal(
   };
 }
 
-/** Over when the time is up or the grid complete: 100 € per word, the jackpot for a full grid. */
-function endFinal(state: FinalState, events: GameEvent[]): ReduceResult {
+/** Over when the time is up, the master stops it or the grid is complete: 100 € per word, the jackpot for a full grid. */
+function endFinal(state: FinalState, events: GameEvent[], stopped = false): ReduceResult {
   const complete = isBoardComplete(state.board);
   const wordsFound = state.board.grid.words.length - incompleteWords(state.board).length;
   const prize = complete ? FINAL_JACKPOT : wordsFound * FINAL_PRIZE_PER_WORD;
@@ -58,7 +58,11 @@ function endFinal(state: FinalState, events: GameEvent[]): ReduceResult {
       teams: state.teams,
       final: { finalist: state.finalist, board: state.board, wordsFound, prize, complete },
     },
-    events: [...events, { type: 'finalOver', wordsFound, prize, complete }, { type: 'gameOver' }],
+    events: [
+      ...events,
+      { type: 'finalOver', wordsFound, prize, complete, stopped },
+      { type: 'gameOver' },
+    ],
   };
 }
 
@@ -91,7 +95,7 @@ export function pickFinalNumber(state: FinalState, index: number, deps: GameDeps
   const step: PlayingStep = {
     kind: 'playing',
     selected: null,
-    remainingMs: FINAL_DURATION_MS,
+    remainingMs: state.timedFinal ? FINAL_DURATION_MS : null,
     lastTickAt: deps.now(),
   };
   return { state: { ...revealed, step }, events: allEvents };
@@ -103,9 +107,14 @@ function isPlaying(state: FinalState): state is PlayingState {
 
 /** Counts down the time spent since the last tick. */
 function elapse(state: PlayingState, now: number): PlayingState {
+  if (state.step.remainingMs === null) return state;
   const spent = Math.max(0, now - state.step.lastTickAt);
   const remainingMs = Math.max(0, state.step.remainingMs - spent);
   return { ...state, step: { ...state.step, remainingMs, lastTickAt: now } };
+}
+
+function isTimeUp(state: PlayingState): boolean {
+  return state.step.remainingMs !== null && state.step.remainingMs <= 0;
 }
 
 /** Runs an action of the timed part, or ends the final if the time is up. */
@@ -116,7 +125,7 @@ function whilePlaying(
 ): ReduceResult {
   if (!isPlaying(state)) return reject(state, 'wrongPhase');
   const current = elapse(state, deps.now());
-  return current.step.remainingMs <= 0 ? endFinal(current, []) : play(current);
+  return isTimeUp(current) ? endFinal(current, []) : play(current);
 }
 
 function withSelected(state: PlayingState, selected: number | null): PlayingState {
@@ -166,6 +175,12 @@ export function submitFinalWord(state: FinalState, answer: string, deps: GameDep
 
 export function finalTick(state: FinalState, deps: GameDeps): ReduceResult {
   return whilePlaying(state, deps, (current) => ({ state: current, events: [] }));
+}
+
+/** Only a final without timer is stopped by hand: the timed one ends on its own. */
+export function stopFinal(state: FinalState): ReduceResult {
+  if (!isPlaying(state) || state.step.remainingMs !== null) return reject(state, 'wrongPhase');
+  return endFinal(state, [], true);
 }
 
 /** After a reload, the time the TV was away does not count. */

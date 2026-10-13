@@ -13,6 +13,7 @@ import {
   resumeFinal,
   selectFinalWord,
   startFinal,
+  stopFinal,
   submitFinalWord,
 } from './final';
 import { nextRound, tiebreakBuzz, tiebreakLetter, tiebreakSkip } from './qualification';
@@ -41,7 +42,7 @@ type StartGame = Extract<GameAction, { type: 'startGame' }>;
 
 function startGame(state: GameState, action: StartGame, deps: GameDeps): ReduceResult {
   if (state.phase !== 'setup') return reject(state, 'wrongPhase');
-  const { teamNames, firstRound = 1, gridId } = action;
+  const { teamNames, firstRound = 1, gridId, timedFinal = true } = action;
   if (teamNames.length < MIN_TEAMS || teamNames.length > MAX_TEAMS)
     return reject(state, 'invalidTeamCount');
   if (!Number.isInteger(firstRound) || firstRound < 1 || firstRound > ROUND_COUNT + 1) {
@@ -55,6 +56,7 @@ function startGame(state: GameState, action: StartGame, deps: GameDeps): ReduceR
     teams: teamNames.map((name, index) => ({ name: teamName(name, index), scores: [] })),
     usedGrids: [],
     usedQuestions: [],
+    timedFinal,
   };
   const players = progress.teams.map((_, index) => index);
   const started = atFinal
@@ -134,6 +136,8 @@ export function reduce(state: GameState, action: GameAction, deps: GameDeps): Re
       return inFinal(state, (final) => finalTick(final, deps));
     case 'resumeFinal':
       return inFinal(state, (final) => resumeFinal(final, deps));
+    case 'stopFinal':
+      return inFinal(state, stopFinal);
     case 'abandonGame':
       return abandonGame(state);
     case 'newGame':

@@ -23,6 +23,8 @@ export interface Progress {
   usedGrids: string[];
   /** Questions already asked, as "letter:index", so that none comes back. */
   usedQuestions: string[];
+  /** False when the master chose a final without timer: the master then ends it. */
+  timedFinal: boolean;
 }
 
 export type RoundStep =
@@ -76,9 +78,9 @@ export type FinalStep =
   | { kind: 'picking' }
   /**
    * selected: word the finalist is typing, highlighted on the TV (null while choosing).
-   * remainingMs is updated at each tick; lastTickAt is when it was.
+   * remainingMs is updated at each tick, null without timer; lastTickAt is when it was.
    */
-  | { kind: 'playing'; selected: number | null; remainingMs: number; lastTickAt: number };
+  | { kind: 'playing'; selected: number | null; remainingMs: number | null; lastTickAt: number };
 
 export type FinalState = Progress & {
   phase: 'final';
@@ -121,6 +123,8 @@ export type GameAction =
       teamNames: string[];
       firstRound?: number | undefined;
       gridId?: string | undefined;
+      /** True when omitted. */
+      timedFinal?: boolean | undefined;
     }
   | { type: 'buzz'; team: number }
   | { type: 'submitLetter'; letter: string }
@@ -145,6 +149,8 @@ export type GameAction =
   | { type: 'finalTick' }
   /** Sent by the TV after a reload: the final timer goes on from where it stopped. */
   | { type: 'resumeFinal' }
+  /** Ends a final without timer, as if the time were up. */
+  | { type: 'stopFinal' }
   | { type: 'abandonGame' }
   | { type: 'newGame' };
 

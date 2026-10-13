@@ -13,7 +13,7 @@ import type { GameState } from '../game/state';
 
 const GAME_KEY = 'slam.game';
 /** Bump when the saved shape changes: older saves are then dropped instead of misread. */
-const SAVE_VERSION = 2;
+const SAVE_VERSION = 3;
 
 const MAX_WORDS = 30;
 const MAX_TEXT = 300;
@@ -68,6 +68,7 @@ const progressShape = {
     .check(z.minLength(MIN_TEAMS), z.maxLength(MAX_TEAMS)),
   usedGrids: z.array(z.string().check(z.maxLength(40))).check(z.maxLength(MAX_USED)),
   usedQuestions: z.array(z.string().check(z.maxLength(10))).check(z.maxLength(MAX_USED)),
+  timedFinal: z.boolean(),
 };
 
 const question = z.object({ letter, text, answer: z.optional(text) });
@@ -91,7 +92,7 @@ const finalStep = z.discriminatedUnion('kind', [
   z.object({
     kind: z.literal('playing'),
     selected: z.nullable(count),
-    remainingMs: z.number().check(z.minimum(0)),
+    remainingMs: z.nullable(z.number().check(z.minimum(0))),
     lastTickAt: z.number(),
   }),
 ]);

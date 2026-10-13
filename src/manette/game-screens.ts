@@ -280,17 +280,22 @@ function finalWordInput(ctx: ScreenContext, view: View<'final'>, number: number)
   ];
 }
 
-function finalWordScreen(ctx: ScreenContext, view: View<'final'>): HTMLElement {
-  if (view.step.kind !== 'playing') return screen([]);
-  const { step } = view;
+function finalTimer(remainingMs: number | null): HTMLElement[] {
+  if (remainingMs === null) return [];
   const timer = createElement('div', {
     className: 'timer',
-    text: texts.seconds(Math.ceil(step.remainingMs / 1000)),
+    text: texts.seconds(Math.ceil(remainingMs / 1000)),
   });
   // Updated in place every second, so that the keyboard stays open while typing.
   timer.dataset['role'] = 'timer';
+  return [timer];
+}
+
+function finalWordScreen(ctx: ScreenContext, view: View<'final'>): HTMLElement {
+  if (view.step.kind !== 'playing') return screen([]);
+  const { step } = view;
   return screen([
-    timer,
+    ...finalTimer(step.remainingMs),
     note(texts.finalTheme(view.theme)),
     ...(step.selected === null
       ? finalWordList(ctx, view)
@@ -403,6 +408,20 @@ export function masterBar(ctx: ScreenContext): HTMLElement[] {
           },
         )
       : [];
+  const stop =
+    view.phase === 'final' && view.step.kind === 'playing' && view.step.remainingMs === null
+      ? confirmable(
+          ctx,
+          'stopFinal',
+          texts.stopFinal,
+          texts.confirmStopFinal,
+          texts.confirm,
+          'secondary-button',
+          () => {
+            ctx.send({ type: 'stopFinal' });
+          },
+        )
+      : [];
   const abandon = confirmable(
     ctx,
     'abandon',
@@ -414,7 +433,9 @@ export function masterBar(ctx: ScreenContext): HTMLElement[] {
       ctx.send({ type: 'abandonGame' });
     },
   );
-  return [createElement('div', { className: 'master-bar' }, [...skip, ...reveal, ...abandon])];
+  return [
+    createElement('div', { className: 'master-bar' }, [...skip, ...reveal, ...stop, ...abandon]),
+  ];
 }
 
 export function gameScreen(current: Screen, ctx: ScreenContext): HTMLElement | null {

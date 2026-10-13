@@ -180,7 +180,7 @@ function stepKey(view: PublicView, screen: Screen): string {
 }
 
 function secondsLeft(view: PublicView): number | null {
-  return view.phase === 'final' && view.step.kind === 'playing'
+  return view.phase === 'final' && view.step.kind === 'playing' && view.step.remainingMs !== null
     ? Math.ceil(view.step.remainingMs / 1000)
     : null;
 }
@@ -224,6 +224,7 @@ function showController(root: HTMLElement, code: string): void {
     testMode: isTestMode(window.location.search),
     firstRound: 1,
     gridId: '',
+    timedFinal: true,
   };
 
   const statusElement = createElement('div', { className: 'connection' });
@@ -273,7 +274,7 @@ function showController(root: HTMLElement, code: string): void {
       room,
       // Events only feed the message line: a new list alone must not rebuild the screen.
       view: { ...withoutTimer(current), lastEvents: [] },
-      setup: [setup.teamCount, setup.firstRound],
+      setup: [setup.teamCount, setup.firstRound, setup.timedFinal],
       draft: [draft.letter, draft.confirming],
     });
     updateTimer(current);

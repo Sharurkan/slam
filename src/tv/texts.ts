@@ -176,7 +176,8 @@ export function eventMessage(event: GameEvent, ctx: EventContext): BannerMessage
     case 'finalWrongWord':
       return plain(`« ${event.answer} » : faux !`);
     case 'finalOver':
-      return plain(event.complete ? 'Grille complète !' : 'Temps écoulé !');
+      if (event.complete) return plain('Grille complète !');
+      return plain(event.stopped ? 'Finale arrêtée' : 'Temps écoulé !');
     case 'gameStarted':
     case 'questionAsked':
     case 'buzzed':

@@ -35,6 +35,7 @@ describe('canAct', () => {
     for (const action of [
       { type: 'skipQuestion' },
       { type: 'revealGrid' },
+      { type: 'stopFinal' },
       { type: 'abandonGame' },
     ] as const) {
       expect(canAct(state, action, master, allConnected)).toBe(true);

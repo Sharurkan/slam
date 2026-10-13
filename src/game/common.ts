@@ -138,6 +138,6 @@ export function roundScore(team: Team | undefined, round: number): number {
 }
 
 export function progressOf(state: Progress): Progress {
-  const { teams, usedGrids, usedQuestions } = state;
-  return { teams, usedGrids, usedQuestions };
+  const { teams, usedGrids, usedQuestions, timedFinal } = state;
+  return { teams, usedGrids, usedQuestions, timedFinal };
 }

@@ -108,6 +108,11 @@ export const PHONE_TEXTS = {
   abandonGame: 'Abandonner la partie',
   confirmAbandon: 'Abandonner la partie ? Le classement s’affiche tout de suite.',
   confirm: 'Confirmer',
+  finalTimer: 'Minuteur en finale',
+  withTimer: (seconds: number) => `Oui (${String(seconds)} s)`,
+  withoutTimer: 'Non',
+  stopFinal: 'Arrêter la finale',
+  confirmStopFinal: 'Arrêter la finale ? Les mots trouvés comptent.',
   noAnswer: 'La TV n’a pas répondu : vérifie qu’elle est allumée, puis réessaie.',
   replaced: 'Un autre téléphone a pris la main.',
   takeOver: 'Reprendre la main',
@@ -179,7 +184,8 @@ function eventText(event: GameEvent, name: (team: number) => string): string | n
     case 'finalWrongWord':
       return `« ${event.answer} » : faux, réessaie ou change de mot`;
     case 'finalOver':
-      return event.complete ? 'Grille complète !' : 'Temps écoulé !';
+      if (event.complete) return 'Grille complète !';
+      return event.stopped ? 'Finale arrêtée' : 'Temps écoulé !';
     default:
       return null;
   }

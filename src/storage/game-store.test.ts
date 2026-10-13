@@ -51,6 +51,14 @@ function samples(): [string, GameState][] {
     ['final, picking', final],
     ['final, playing', playing],
     [
+      'final without timer',
+      play(
+        INITIAL_STATE,
+        [{ type: 'startGame', teamNames: ['A', 'B'], firstRound: 3, timedFinal: false }, ...PICKS],
+        deps,
+      ),
+    ],
+    [
       'game over',
       play(
         playing,

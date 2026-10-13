@@ -37,6 +37,7 @@ export function actionOwner(state: GameState, action: GameAction): ActionOwner |
     case 'skipQuestion':
     case 'revealGrid':
     case 'nextRound':
+    case 'stopFinal':
     case 'abandonGame':
     case 'newGame':
       return { kind: 'master' };

@@ -46,6 +46,7 @@ export type GameEvent =
   | { type: 'finalWordFound'; word: number }
   | { type: 'finalWrongWord'; word: number; answer: string }
   | { type: 'finalWordSelected'; word: number }
-  | { type: 'finalOver'; wordsFound: number; prize: number; complete: boolean }
+  /** stopped: the master ended a final without timer. */
+  | { type: 'finalOver'; wordsFound: number; prize: number; complete: boolean; stopped: boolean }
   | { type: 'gameOver' }
   | { type: 'actionRejected'; reason: RejectionReason };

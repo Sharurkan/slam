@@ -22,6 +22,7 @@ describe('parsePhoneMessage', () => {
   it.each<PhoneAction>([
     { type: 'startGame', teamNames: ['A', 'B'] },
     { type: 'startGame', teamNames: ['A', 'B', 'C', 'D'], firstRound: 3, gridId: 'f-01' },
+    { type: 'startGame', teamNames: ['A', 'B'], timedFinal: false },
     { type: 'buzz', team: 0 },
     { type: 'buzz', team: 3 },
     { type: 'submitLetter', letter: 'é' },
@@ -37,6 +38,7 @@ describe('parsePhoneMessage', () => {
     { type: 'selectFinalWord', word: 3 },
     { type: 'cancelFinalWord' },
     { type: 'submitFinalWord', answer: 'chat' },
+    { type: 'stopFinal' },
     { type: 'abandonGame' },
     { type: 'newGame' },
   ])('accepts the action %j', (action) => {

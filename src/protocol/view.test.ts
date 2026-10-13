@@ -47,6 +47,14 @@ const finalStates: [string, GameState][] = (() => {
   return [
     ['final, picking', final],
     ['final, playing', play(final, picks, deps)],
+    [
+      'final without timer, playing',
+      play(
+        INITIAL_STATE,
+        [{ type: 'startGame', teamNames: ['A', 'B'], firstRound: 3, timedFinal: false }, ...picks],
+        deps,
+      ),
+    ],
   ];
 })();
 
@@ -115,6 +123,12 @@ describe('toPublicView', () => {
     });
     // No clue in the final: the theme is the only hint.
     expect(JSON.stringify(playing)).not.toContain('Il miaule');
+  });
+
+  it('shows no time left in a final without timer', () => {
+    const [, timed, untimed] = finalStates.map(([, state]) => view(state));
+    expect(timed).toMatchObject({ step: { remainingMs: 60_000 } });
+    expect(untimed).toMatchObject({ step: { kind: 'playing', remainingMs: null } });
   });
 
   it('builds views the phone accepts', () => {
