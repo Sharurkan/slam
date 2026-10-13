@@ -45,7 +45,15 @@ function samples(): [string, GameState][] {
     ['buzzer answering', play(question, [{ type: 'buzz', team: 0 }], deps)],
     ['choosing a word', hand],
     ['answering a word', play(hand, [{ type: 'chooseWord', word: 3 }], deps)],
-    ['slam', play(hand, [{ type: 'startSlam' }], deps)],
+    ['SLAM offer', play(hand, [{ type: 'chooseWord', word: 3 }, { type: 'passWord' }], deps)],
+    [
+      'slam',
+      play(
+        hand,
+        [{ type: 'chooseWord', word: 3 }, { type: 'passWord' }, { type: 'startSlam' }],
+        deps,
+      ),
+    ],
     ['round over', play(hand, [{ type: 'revealGrid' }], deps)],
     ['tiebreak', tied],
     ['final, picking', final],

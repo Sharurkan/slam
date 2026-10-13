@@ -152,7 +152,18 @@ function chooseWordScreen(ctx: ScreenContext, view: View<'round'>): HTMLElement 
         ),
       ),
     ),
+  ]);
+}
+
+/** After each proposed word: SLAM, or on to the next question. */
+function slamChanceScreen(ctx: ScreenContext, view: View<'round'>): HTMLElement {
+  if (view.step.kind !== 'slamChance') return screen([]);
+  return screen([
+    headline(texts.slamChanceFor(teamName(view, view.step.team))),
     ...slamButton(ctx),
+    button(texts.nextQuestion, 'big-button', ctx.enabled, () => {
+      ctx.send({ type: 'nextQuestion' });
+    }),
   ]);
 }
 
@@ -198,10 +209,9 @@ function answerWordScreen(ctx: ScreenContext, view: View<'round'>): HTMLElement 
       view.step.clue,
     ),
     ...field,
-    button(texts.cancel, 'secondary-button', ctx.enabled, () => {
-      ctx.send({ type: 'cancelWord' });
+    button(texts.passWord, 'secondary-button', ctx.enabled, () => {
+      ctx.send({ type: 'passWord' });
     }),
-    ...slamButton(ctx),
   ]);
 }
 
@@ -449,6 +459,8 @@ export function gameScreen(current: Screen, ctx: ScreenContext): HTMLElement | n
       return view.phase === 'round' ? chooseWordScreen(ctx, view) : null;
     case 'answerWord':
       return view.phase === 'round' ? answerWordScreen(ctx, view) : null;
+    case 'slamChance':
+      return view.phase === 'round' ? slamChanceScreen(ctx, view) : null;
     case 'slam':
       return view.phase === 'round' ? slamScreen(ctx, view) : null;
     case 'pickNumbers':

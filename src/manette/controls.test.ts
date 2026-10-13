@@ -100,16 +100,26 @@ describe('describeScreen with the hand', () => {
     });
   });
 
-  it('shows the word input, then the SLAM input', () => {
+  it('shows the word input, the SLAM offer, then the SLAM input', () => {
     const answering = after(
       { type: 'buzz', team: 1 },
       { type: 'submitLetter', letter: 'T' },
       { type: 'chooseWord', word: 3 },
     );
     expect(describeScreen(answering, multi(1))).toEqual({ kind: 'answerWord' });
+    const chance = after(
+      { type: 'buzz', team: 1 },
+      { type: 'submitLetter', letter: 'T' },
+      { type: 'chooseWord', word: 3 },
+      { type: 'passWord' },
+    );
+    expect(describeScreen(chance, multi(1))).toEqual({ kind: 'slamChance' });
+    expect(describeScreen(chance, multi(2))).toEqual({ kind: 'wait', reason: 'deciding', team: 1 });
     const slam = after(
       { type: 'buzz', team: 1 },
       { type: 'submitLetter', letter: 'T' },
+      { type: 'chooseWord', word: 3 },
+      { type: 'passWord' },
       { type: 'startSlam' },
     );
     expect(describeScreen(slam, multi(1))).toEqual({ kind: 'slam' });

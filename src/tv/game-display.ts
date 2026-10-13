@@ -110,6 +110,8 @@ function roundCard(
       };
     case 'answeringWord':
       return wordCard(state.board, step.word);
+    case 'slamChance':
+      return { heading: TV_TEXTS.slamChance(name(step.team)), text: TV_TEXTS.slamChanceText };
     case 'lastChance':
       return { heading: TV_TEXTS.lastChance, text: TV_TEXTS.lastChanceText };
     case 'slam':

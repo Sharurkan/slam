@@ -55,14 +55,16 @@ function botAction(state: GameState, random: () => number): GameAction {
           return { type: 'buzz', team: free[Math.floor(random() * free.length)] ?? 0 };
         }
         case 'choosingWord': {
-          if (random() < 0.05) return { type: 'startSlam' };
           const word = playableWords(board, step.letter)[0];
           return { type: 'chooseWord', word: word?.number ?? 1 };
         }
         case 'answeringWord': {
+          if (random() < 0.1) return { type: 'passWord' };
           const word = findWord(board, step.word);
           return { type: 'submitWord', answer: random() < 0.6 ? (word?.answer ?? '') : 'faux' };
         }
+        case 'slamChance':
+          return { type: random() < 0.05 ? 'startSlam' : 'nextQuestion' };
         case 'lastChance':
           return { type: 'buzz', team: state.players[0] ?? 0 };
         case 'slam': {

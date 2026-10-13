@@ -77,11 +77,11 @@ Tour de jeu
    Exemples : « Lettre qui suit P dans l'alphabet ? », « Initiale de la capitale de l'Italie ? », « Symbole chimique de l'azote ? ».
 2. Les joueurs buzzent. Le premier buzz donne la parole : le joueur tape la lettre sur le téléphone.
 3. **Bonne lettre** : aucun point. La TV affiche le mot réponse de la question en majuscules, la lettre d'une autre couleur (« DIMANCHE », D en couleur). Sans mot réponse, la TV affiche seulement la lettre. La lettre remplit toutes les cases vides où elle apparaît, dans tous les mots. Le joueur a la main.
-4. Il choisit un mot par son numéro, parmi les mots qui contiennent cette lettre, pas encore trouvés et pas grisés.
-5. La définition du mot s'affiche (TV et téléphone). Le joueur propose le mot.
+4. Il choisit un mot par son numéro, parmi les mots qui contiennent cette lettre, pas encore trouvés et pas grisés. Le choix est définitif : il ne peut plus changer de mot.
+5. La définition du mot s'affiche (TV et téléphone). Le joueur propose le mot, ou touche « Je ne sais pas ».
    - **Bon mot** : le mot apparaît dans la grille, le joueur gagne 1 point par lettre du mot. Si ce mot complète un mot croisé, le joueur gagne aussi les points de ce mot.
-   - **Mauvais mot** : rien. Le mot devient gris (déjà tenté). Il redevient jouable dès qu'une autre de ses lettres est révélée.
-   - Dans les deux cas, on passe à la question suivante.
+   - **Mauvais mot** ou « Je ne sais pas » : rien. Le mot devient gris (déjà tenté). Il redevient jouable dès qu'une autre de ses lettres est révélée.
+   - Dans tous les cas, le joueur garde la main : il fait « SLAM » ou touche « Question suivante » (voir SLAM). Si la grille est complète, la manche se termine directement.
 6. **Mauvaise lettre** : le joueur est éliminé de cette question, les autres peuvent buzzer.
 7. **Personne ne trouve** (tous éliminés, ou le maître touche « Personne ne sait ») : la lettre est annoncée (avec son mot réponse, comme en 3) mais perdue. Elle n'est pas posée dans la grille. Elle n'apparaîtra que si un mot qui la contient est trouvé plus tard. On passe à la question suivante.
 
@@ -93,7 +93,7 @@ Précisions
 
 SLAM
 
-- Quand il a la main (après une bonne lettre, avant d'avoir proposé son mot), un joueur peut faire « SLAM », avec confirmation.
+- Après chaque mot proposé (bon, mauvais ou « Je ne sais pas »), avant la question suivante, le joueur qui a la main peut faire « SLAM », avec confirmation. Pas de SLAM avant d'avoir proposé son mot.
 - Le jeu se fige. Le joueur remplit tous les mots restants, sans définitions, sur le téléphone. Les mots sont corrigés ensemble à la fin.
 - Points restants : somme des points (1 par lettre) de tous les mots pas encore trouvés.
 - **Réussite** : le joueur gagne tous les points restants. La grille est complète, la manche se termine.
@@ -190,8 +190,8 @@ Textes
 - Question : gros bouton « BUZZ ! » (un bouton par joueur avec un seul téléphone, joueurs éliminés grisés).
 - Clavier de lettres pour la réponse à la question : on touche la lettre, puis « Valider » (une erreur élimine de la question).
 - Choix du mot par numéro (mots non jouables grisés).
-- Saisie du mot : définition et cases du mot, lettres connues déjà posées. Le joueur tape seulement les lettres manquantes, qui remplissent les cases vides dans l'ordre. « Valider » (seulement quand toutes les cases sont remplies) et « Annuler ». Même saisie pour le SLAM et la finale (sans définition).
-- Bouton « SLAM » avec confirmation, puis saisie de tous les mots restants.
+- Saisie du mot : définition et cases du mot, lettres connues déjà posées. Le joueur tape seulement les lettres manquantes, qui remplissent les cases vides dans l'ordre. « Valider » (seulement quand toutes les cases sont remplies) et « Je ne sais pas ». Même saisie pour le SLAM et la finale (sans définition, sans « Je ne sais pas »).
+- Après le mot proposé : « SLAM » (avec confirmation, puis saisie de tous les mots restants) ou « Question suivante ».
 - Finale : choix de 5 numéros sur 8, puis liste des mots non trouvés. On touche un mot, on le tape, « Valider » ou « Autre mot ».
 - Maître seulement : mode, minuteur en finale, commencer, « Personne ne sait », « Corriger la grille » (avec confirmation), manche suivante, « Arrêter la finale » sans minuteur (avec confirmation), abandonner (avec confirmation), nouvelle partie.
 - Le minuteur de la finale s'affiche aussi sur le téléphone du finaliste.
@@ -200,7 +200,7 @@ Textes
 
 ## Protocole
 
-- Version actuelle du protocole : 3.
+- Version actuelle du protocole : 4.
 - Téléphone → TV :
   - `{ v, type: "hello", clientId }` au début de chaque connexion ;
   - `{ v, type: "chooseMode", mode }`, `{ v, type: "joinTeam", name }`, `{ v, type: "removeTeam", team }` avant la partie ;

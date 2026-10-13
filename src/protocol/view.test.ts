@@ -27,12 +27,14 @@ const roundStates: [string, GameState][] = (() => {
   const buzzed = play(question, [{ type: 'buzz', team: 0 }], deps);
   const hand = play(buzzed, [{ type: 'submitLetter', letter: 'T' }], deps);
   const answering = play(hand, [{ type: 'chooseWord', word: 3 }], deps);
-  const slam = play(hand, [{ type: 'startSlam' }], deps);
+  const chance = play(answering, [{ type: 'passWord' }], deps);
+  const slam = play(chance, [{ type: 'startSlam' }], deps);
   return [
     ['question', question],
     ['buzzer answering', buzzed],
     ['choosing a word', hand],
     ['answering a word', answering],
+    ['SLAM offer', chance],
     ['slam', slam],
   ];
 })();

@@ -83,6 +83,7 @@ const roundStep = z.discriminatedUnion('kind', [
   }),
   z.object({ kind: z.literal('choosingWord'), team: count, letter }),
   z.object({ kind: z.literal('answeringWord'), team: count, letter, word: count }),
+  z.object({ kind: z.literal('slamChance'), team: count }),
   z.object({ kind: z.literal('lastChance') }),
   z.object({ kind: z.literal('slam'), team: count }),
 ]);

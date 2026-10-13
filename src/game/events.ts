@@ -31,6 +31,9 @@ export type GameEvent =
   | { type: 'wordChosen'; team: number; word: number }
   | { type: 'wordFound'; team: number; word: number; points: number }
   | { type: 'wrongWord'; team: number; word: number; answer: string }
+  | { type: 'wordPassed'; team: number; word: number }
+  /** A word was proposed: the player may slam before the next question. */
+  | { type: 'slamChance'; team: number }
   | { type: 'lastChance' }
   | { type: 'slamStarted'; team: number }
   | { type: 'slamWon'; team: number; points: number }

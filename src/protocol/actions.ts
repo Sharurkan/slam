@@ -44,7 +44,8 @@ export const phoneActionSchema: z.ZodMiniType<PhoneAction> = z.discriminatedUnio
   simple('skipQuestion'),
   z.object({ type: z.literal('chooseWord'), word: wordNumber }),
   z.object({ type: z.literal('submitWord'), answer }),
-  simple('cancelWord'),
+  simple('passWord'),
+  simple('nextQuestion'),
   simple('startSlam'),
   z.object({
     type: z.literal('submitSlam'),

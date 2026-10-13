@@ -19,8 +19,9 @@ import {
 import { nextRound, tiebreakBuzz, tiebreakLetter, tiebreakSkip } from './qualification';
 import {
   buzzRound,
-  cancelWord,
   chooseWord,
+  nextQuestion,
+  passWord,
   revealGrid,
   skipQuestion,
   startRound,
@@ -113,9 +114,11 @@ export function reduce(state: GameState, action: GameAction, deps: GameDeps): Re
     case 'chooseWord':
       return inRound(state, (round) => chooseWord(round, action.word));
     case 'submitWord':
-      return inRound(state, (round) => submitWord(round, action.answer, deps));
-    case 'cancelWord':
-      return inRound(state, cancelWord);
+      return inRound(state, (round) => submitWord(round, action.answer));
+    case 'passWord':
+      return inRound(state, passWord);
+    case 'nextQuestion':
+      return inRound(state, (round) => nextQuestion(round, deps));
     case 'startSlam':
       return inRound(state, startSlam);
     case 'submitSlam':

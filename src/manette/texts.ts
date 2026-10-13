@@ -10,6 +10,7 @@ const euros = (amount: number): string => `${amount.toLocaleString('fr-FR')} €
 const WAITING: Record<WaitReason, (name: string) => string> = {
   answering: (name) => `C'est à ${name} de répondre`,
   choosing: (name) => `${name} choisit un mot`,
+  deciding: (name) => `${name} peut faire un SLAM`,
   slamming: (name) => `${name} tente le SLAM !`,
   finalist: (name) => `${name} joue la finale`,
   eliminated: () => 'Tu as déjà répondu à cette question',
@@ -78,6 +79,9 @@ export const PHONE_TEXTS = {
   lettersMissing: (count: number) =>
     count === 1 ? 'Encore 1 lettre à taper.' : `Encore ${String(count)} lettres à taper.`,
   slam: 'SLAM',
+  passWord: 'Je ne sais pas',
+  slamChanceFor: (name: string) => `${name} : SLAM ou question suivante ?`,
+  nextQuestion: 'Question suivante',
   confirmSlam: 'Remplir toute la grille ? Un seul mot faux et les adversaires gagnent les points.',
   confirmYes: 'Oui, SLAM !',
   slamTitle: 'SLAM : remplis tous les mots',
@@ -173,6 +177,8 @@ function eventText(event: GameEvent, name: (team: number) => string): string | n
       return `${name(event.team)} trouve le mot n° ${String(event.word)} : +${points(event.points)}`;
     case 'wrongWord':
       return `« ${event.answer} » : raté`;
+    case 'wordPassed':
+      return `${name(event.team)} ne sait pas`;
     case 'slamWon':
       return `SLAM réussi : +${points(event.points)} !`;
     case 'slamFailed':

@@ -3,7 +3,8 @@ import type { GridView, PublicView } from '../protocol/view';
 import { normalizeWord } from '../shared/text';
 
 /** Why a phone waits instead of playing. */
-export type WaitReason = 'answering' | 'choosing' | 'slamming' | 'finalist' | 'eliminated' | 'out';
+export type WaitReason =
+  'answering' | 'choosing' | 'deciding' | 'slamming' | 'finalist' | 'eliminated' | 'out';
 
 /** What the phone shows, decided from the view, the room and whether it may play the turn. */
 export type Screen =
@@ -15,6 +16,7 @@ export type Screen =
   | { kind: 'buzz'; teams: number[]; slam: boolean }
   | { kind: 'letter' }
   | { kind: 'chooseWord' }
+  | { kind: 'slamChance' }
   | { kind: 'answerWord' }
   | { kind: 'slam' }
   | { kind: 'pickNumbers' }
@@ -109,6 +111,8 @@ function turnScreen(view: InGame): { screen: Screen; reason: WaitReason } | null
         return { screen: { kind: 'chooseWord' }, reason: 'choosing' };
       case 'answeringWord':
         return { screen: { kind: 'answerWord' }, reason: 'answering' };
+      case 'slamChance':
+        return { screen: { kind: 'slamChance' }, reason: 'deciding' };
       case 'slam':
         return { screen: { kind: 'slam' }, reason: 'slamming' };
       case 'lastChance':

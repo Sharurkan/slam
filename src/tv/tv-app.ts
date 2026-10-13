@@ -96,6 +96,7 @@ function soundFor(events: readonly GameEvent[]): SoundEffect | null {
     types.has('slamFailed') ||
     types.has('wrongLetter') ||
     types.has('wrongWord') ||
+    types.has('wordPassed') ||
     types.has('finalWrongWord') ||
     types.has('letterLost')
   ) {

@@ -199,13 +199,13 @@ describe('choice of word', () => {
     ]);
   });
 
-  it('can go back to the choice', () => {
+  it('locks the chosen word: no other word, no SLAM before proposing it', () => {
     const answering = then(handAfter('T'), { type: 'chooseWord', word: 3 });
-    expect(asRound(act(answering, { type: 'cancelWord' }).state).step).toEqual({
-      kind: 'choosingWord',
-      team: 0,
-      letter: 'T',
-    });
+    for (const action of [{ type: 'chooseWord', word: 1 }, { type: 'startSlam' }] as const) {
+      expect(act(answering, action).events).toEqual([
+        { type: 'actionRejected', reason: 'wrongPhase' },
+      ]);
+    }
   });
 });
 
@@ -213,13 +213,14 @@ describe('word', () => {
   const answering = (letter: string, word: number, shown: string[] = []): GameState =>
     then(handAfter(letter, shown), { type: 'chooseWord', word });
 
-  it('shows a right word and pays 1 point per letter, then asks the next question', () => {
+  it('shows a right word and pays 1 point per letter, then offers a SLAM', () => {
     const result = act(answering('T', 3), { type: 'submitWord', answer: ' Tour ' });
     expect(scores(result.state)).toEqual([4, 0, 0]);
     expect(result.events).toEqual([
       { type: 'wordFound', team: 0, word: 3, points: 4 },
-      { type: 'questionAsked' },
+      { type: 'slamChance', team: 0 },
     ]);
+    expect(asRound(result.state).step).toEqual({ kind: 'slamChance', team: 0 });
     expect(asRound(result.state).board.revealed).toEqual(['0,3', '1,3', '2,3', '3,3']);
   });
 
@@ -240,7 +241,10 @@ describe('word', () => {
     const state = asRound(result.state);
     expect(state.board.tried).toEqual([3]);
     expect(scores(state)).toEqual([0, 0, 0]);
-    expect(result.events[0]).toEqual({ type: 'wrongWord', team: 0, word: 3, answer: 'tous' });
+    expect(result.events).toEqual([
+      { type: 'wrongWord', team: 0, word: 3, answer: 'tous' },
+      { type: 'slamChance', team: 0 },
+    ]);
     const again = then(
       withQuestion(state, 'O'),
       { type: 'buzz', team: 1 },
@@ -248,6 +252,28 @@ describe('word', () => {
     );
     expect(asRound(again).board.tried).toEqual([]);
     expect(act(again, { type: 'chooseWord', word: 3 }).events[0]?.type).toBe('wordChosen');
+  });
+
+  it('treats "Je ne sais pas" as a wrong word, then offers a SLAM', () => {
+    const result = act(answering('T', 3), { type: 'passWord' });
+    const state = asRound(result.state);
+    expect(state.board.tried).toEqual([3]);
+    expect(scores(state)).toEqual([0, 0, 0]);
+    expect(state.step).toEqual({ kind: 'slamChance', team: 0 });
+    expect(result.events).toEqual([
+      { type: 'wordPassed', team: 0, word: 3 },
+      { type: 'slamChance', team: 0 },
+    ]);
+  });
+
+  it('asks the next question when the player does not slam', () => {
+    const chance = then(answering('T', 3), { type: 'passWord' });
+    const result = act(chance, { type: 'nextQuestion' });
+    expect(asRound(result.state).step.kind).toBe('question');
+    expect(result.events).toEqual([{ type: 'questionAsked' }]);
+    expect(act(answering('T', 3), { type: 'nextQuestion' }).events).toEqual([
+      { type: 'actionRejected', reason: 'wrongPhase' },
+    ]);
   });
 
   it.each(['', '   ', 'A'.repeat(31)])('refuses the answer %j', (answer) => {
@@ -273,22 +299,26 @@ describe('SLAM', () => {
     { word: 3, answer: 'tour' },
   ];
 
-  it('can start once the player has the hand, before or after choosing a word', () => {
-    const result = act(handAfter('T'), { type: 'startSlam' });
+  /** Player 0 proposed a word (here "Je ne sais pas"): every word is still open. */
+  const chance = (): GameState =>
+    then(handAfter('T'), { type: 'chooseWord', word: 3 }, { type: 'passWord' });
+
+  it('can start once a word was proposed, before the next question', () => {
+    const result = act(chance(), { type: 'startSlam' });
     expect(asRound(result.state).step).toEqual({ kind: 'slam', team: 0 });
     expect(result.events).toEqual([{ type: 'slamStarted', team: 0 }]);
-    const answering = then(handAfter('T'), { type: 'chooseWord', word: 3 });
-    expect(asRound(act(answering, { type: 'startSlam' }).state).step.kind).toBe('slam');
   });
 
-  it('cannot start without the hand', () => {
-    expect(act(roundWith('T'), { type: 'startSlam' }).events).toEqual([
-      { type: 'actionRejected', reason: 'wrongPhase' },
-    ]);
+  it('cannot start without the hand, or before a word was proposed', () => {
+    for (const state of [roundWith('T'), handAfter('T')]) {
+      expect(act(state, { type: 'startSlam' }).events).toEqual([
+        { type: 'actionRejected', reason: 'wrongPhase' },
+      ]);
+    }
   });
 
   it('wins every remaining point when all words are right, and ends the round', () => {
-    const slam = then(handAfter('T'), { type: 'startSlam' });
+    const slam = then(chance(), { type: 'startSlam' });
     const result = act(slam, { type: 'submitSlam', answers: allRight });
     expect(scores(result.state)).toEqual([13, 0, 0]);
     expect(result.state).toMatchObject({ phase: 'roundOver', outcome: 'slam' });
@@ -296,7 +326,7 @@ describe('SLAM', () => {
   });
 
   it('gives the remaining points to each opponent when a word is wrong', () => {
-    const slam = then(handAfter('T'), { type: 'startSlam' });
+    const slam = then(chance(), { type: 'startSlam' });
     const answers = [...allRight.slice(0, 2), { word: 3, answer: 'tous' }];
     const result = act(slam, { type: 'submitSlam', answers });
     expect(scores(result.state)).toEqual([0, 13, 13]);
@@ -305,7 +335,7 @@ describe('SLAM', () => {
   });
 
   it('needs exactly one answer per remaining word', () => {
-    const slam = then(handAfter('T'), { type: 'startSlam' });
+    const slam = then(chance(), { type: 'startSlam' });
     for (const answers of [allRight.slice(0, 2), [...allRight, { word: 4, answer: 'x' }]]) {
       expect(act(slam, { type: 'submitSlam', answers }).events).toEqual([
         { type: 'actionRejected', reason: 'invalidAnswer' },

@@ -59,6 +59,8 @@ const gameEventSchema: z.ZodMiniType<GameEvent> = z.discriminatedUnion('type', [
   z.object({ type: z.literal('wordChosen'), team: teamIndex, word: index }),
   z.object({ type: z.literal('wordFound'), team: teamIndex, word: index, points: index }),
   z.object({ type: z.literal('wrongWord'), team: teamIndex, word: index, answer: typed }),
+  z.object({ type: z.literal('wordPassed'), team: teamIndex, word: index }),
+  z.object({ type: z.literal('slamChance'), team: teamIndex }),
   z.object({ type: z.literal('lastChance') }),
   z.object({ type: z.literal('slamStarted'), team: teamIndex }),
   z.object({ type: z.literal('slamWon'), team: teamIndex, points: index }),
@@ -142,6 +144,7 @@ const roundStepSchema = z.discriminatedUnion('kind', [
   }),
   z.object({ kind: z.literal('choosingWord'), team: teamIndex, letter, playable: z.array(index) }),
   z.object({ kind: z.literal('answeringWord'), team: teamIndex, letter, word: index, clue: text }),
+  z.object({ kind: z.literal('slamChance'), team: teamIndex }),
   z.object({ kind: z.literal('lastChance') }),
   z.object({ kind: z.literal('slam'), team: teamIndex, words: z.array(index) }),
 ]);
@@ -264,6 +267,8 @@ function stepView(state: RoundState): z.infer<typeof roundStepSchema> {
       const clue = findWord(state.board, step.word)?.clue ?? '';
       return { kind: 'answeringWord', team: step.team, letter: step.letter, word: step.word, clue };
     }
+    case 'slamChance':
+      return { kind: 'slamChance', team: step.team };
     case 'lastChance':
       return { kind: 'lastChance' };
     case 'slam': {

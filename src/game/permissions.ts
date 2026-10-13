@@ -49,7 +49,8 @@ export function actionOwner(state: GameState, action: GameAction): ActionOwner |
     case 'submitLetter':
     case 'chooseWord':
     case 'submitWord':
-    case 'cancelWord':
+    case 'passWord':
+    case 'nextQuestion':
     case 'startSlam':
     case 'submitSlam':
     case 'pickFinalNumber':

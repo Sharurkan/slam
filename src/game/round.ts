@@ -182,20 +182,39 @@ export function chooseWord(state: RoundState, number: number): ReduceResult {
   };
 }
 
-export function cancelWord(state: RoundState): ReduceResult {
+/** After each proposed word, the round ends if the grid is complete, or the player may slam. */
+function offerSlam(state: RoundState, team: number, events: GameEvent[]): ReduceResult {
+  if (isBoardComplete(state.board)) return endRound(state, 'complete', events);
+  return {
+    state: withStep(state, { kind: 'slamChance', team }),
+    events: [...events, { type: 'slamChance', team }],
+  };
+}
+
+/** A tried word is greyed until another of its letters is shown. */
+function markTried(state: RoundState, word: number): RoundState {
+  return { ...state, board: { ...state.board, tried: [...state.board.tried, word] } };
+}
+
+/** "Je ne sais pas": same as a wrong word. */
+export function passWord(state: RoundState): ReduceResult {
   const { step } = state;
   if (step.kind !== 'answeringWord') return reject(state, 'wrongPhase');
-  return {
-    state: withStep(state, { kind: 'choosingWord', team: step.team, letter: step.letter }),
-    events: [],
-  };
+  return offerSlam(markTried(state, step.word), step.team, [
+    { type: 'wordPassed', team: step.team, word: step.word },
+  ]);
+}
+
+export function nextQuestion(state: RoundState, deps: GameDeps): ReduceResult {
+  if (state.step.kind !== 'slamChance') return reject(state, 'wrongPhase');
+  return askNext(state, [], deps);
 }
 
 function isValidAnswer(answer: string): boolean {
   return answer.length <= MAX_ANSWER_LENGTH && normalizeAnswer(answer) !== '';
 }
 
-export function submitWord(state: RoundState, answer: string, deps: GameDeps): ReduceResult {
+export function submitWord(state: RoundState, answer: string): ReduceResult {
   const { step } = state;
   if (step.kind !== 'answeringWord') return reject(state, 'wrongPhase');
   if (!isValidAnswer(answer)) return reject(state, 'invalidAnswer');
@@ -203,23 +222,20 @@ export function submitWord(state: RoundState, answer: string, deps: GameDeps): R
   if (word === undefined) return reject(state, 'invalidWord');
   if (normalizeAnswer(answer) === word.answer) {
     const scored = score(state, step.team, revealWord(state.board, word));
-    return askNext(scored.state, scored.events, deps);
+    return offerSlam(scored.state, step.team, scored.events);
   }
-  const board: Board = { ...state.board, tried: [...state.board.tried, word.number] };
   const wrong: GameEvent = {
     type: 'wrongWord',
     team: step.team,
     word: word.number,
     answer: answer.trim(),
   };
-  return askNext({ ...state, board }, [wrong], deps);
+  return offerSlam(markTried(state, word.number), step.team, [wrong]);
 }
 
 export function startSlam(state: RoundState): ReduceResult {
   const { step } = state;
-  if (step.kind !== 'choosingWord' && step.kind !== 'answeringWord') {
-    return reject(state, 'wrongPhase');
-  }
+  if (step.kind !== 'slamChance') return reject(state, 'wrongPhase');
   return {
     state: withStep(state, { kind: 'slam', team: step.team }),
     events: [{ type: 'slamStarted', team: step.team }],

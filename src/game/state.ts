@@ -30,10 +30,12 @@ export interface Progress {
 export type RoundStep =
   /** Players buzz; the buzzer, if any, types the letter. */
   | { kind: 'question'; question: Question; buzzer: number | null; eliminated: number[] }
-  /** Right letter: the player picks a word holding it, or slams. */
+  /** Right letter: the player picks a word holding it. */
   | { kind: 'choosingWord'; team: number; letter: string }
-  /** The clue is shown: the player proposes the word, or slams. */
+  /** The clue is shown: the player proposes the word, or passes. The word is locked. */
   | { kind: 'answeringWord'; team: number; letter: string; word: number }
+  /** A word was proposed: the player slams, or moves on to the next question. */
+  | { kind: 'slamChance'; team: number }
   /** No letter left to ask: the first buzz slams. */
   | { kind: 'lastChance' }
   /** The player fills every remaining word, without clues. */
@@ -132,8 +134,10 @@ export type GameAction =
   | { type: 'skipQuestion' }
   | { type: 'chooseWord'; word: number }
   | { type: 'submitWord'; answer: string }
-  /** Back to the choice of word. */
-  | { type: 'cancelWord' }
+  /** "Je ne sais pas": counts as a wrong word. */
+  | { type: 'passWord' }
+  /** No SLAM: the next question is asked. */
+  | { type: 'nextQuestion' }
   | { type: 'startSlam' }
   | { type: 'submitSlam'; answers: WordAnswer[] }
   /** "Corriger la grille": shows the remaining words, nobody scores. */

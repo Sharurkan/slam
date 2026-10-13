@@ -44,7 +44,9 @@ export const TV_TEXTS = {
   question: 'Question',
   buzzed: (name: string) => `${name} a buzzé !`,
   choosing: (name: string) => `${name} a la main`,
-  chooseWord: (letter: string) => `Choisis un mot avec la lettre ${letter}, ou fais un SLAM`,
+  chooseWord: (letter: string) => `Choisis un mot avec la lettre ${letter}`,
+  slamChance: (name: string) => `${name} a la main`,
+  slamChanceText: 'SLAM, ou question suivante ?',
   wordHeading: (number: number, length: number) =>
     `Mot n° ${String(number)} · ${String(length)} lettres`,
   lastChance: 'Dernière chance',
@@ -153,6 +155,8 @@ export function eventMessage(event: GameEvent, ctx: EventContext): BannerMessage
       );
     case 'wrongWord':
       return plain(`« ${event.answer} » : raté pour ${ctx.teamName(event.team)}`);
+    case 'wordPassed':
+      return plain(`${ctx.teamName(event.team)} ne sait pas`);
     case 'lastChance':
       return plain('Dernière chance : le premier qui buzze fait un SLAM !');
     case 'slamStarted':
@@ -182,6 +186,7 @@ export function eventMessage(event: GameEvent, ctx: EventContext): BannerMessage
     case 'questionAsked':
     case 'buzzed':
     case 'wordChosen':
+    case 'slamChance':
     case 'roundOver':
     case 'qualified':
     case 'finalNumberPicked':
