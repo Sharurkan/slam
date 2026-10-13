@@ -10,6 +10,7 @@ import {
 import {
   FINAL_LETTER_CHOICES,
   MAX_ANSWER_LENGTH,
+  MAX_QUESTION_ANSWER_LENGTH,
   MAX_TEAM_NAME_LENGTH,
   MAX_TEAMS,
 } from '../game/config';
@@ -38,6 +39,7 @@ const letter = z.string().check(z.length(1));
 const letters = z.array(letter).check(z.maxLength(26));
 const text = z.string().check(z.maxLength(MAX_TEXT));
 const typed = z.string().check(z.maxLength(MAX_ANSWER_LENGTH));
+const answerWord = z.string().check(z.maxLength(MAX_QUESTION_ANSWER_LENGTH));
 const direction = z.enum(['across', 'down']);
 
 const gameEventSchema: z.ZodMiniType<GameEvent> = z.discriminatedUnion('type', [
@@ -45,9 +47,14 @@ const gameEventSchema: z.ZodMiniType<GameEvent> = z.discriminatedUnion('type', [
   z.object({ type: z.literal('roundStarted'), round: index }),
   z.object({ type: z.literal('questionAsked') }),
   z.object({ type: z.literal('buzzed'), team: teamIndex }),
-  z.object({ type: z.literal('letterFound'), team: teamIndex, letter }),
+  z.object({
+    type: z.literal('letterFound'),
+    team: teamIndex,
+    letter,
+    answer: z.optional(answerWord),
+  }),
   z.object({ type: z.literal('wrongLetter'), team: teamIndex, letter }),
-  z.object({ type: z.literal('letterLost'), letter }),
+  z.object({ type: z.literal('letterLost'), letter, answer: z.optional(answerWord) }),
   z.object({ type: z.literal('noWordToPlay'), team: teamIndex }),
   z.object({ type: z.literal('wordChosen'), team: teamIndex, word: index }),
   z.object({ type: z.literal('wordFound'), team: teamIndex, word: index, points: index }),

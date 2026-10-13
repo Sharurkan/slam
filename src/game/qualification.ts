@@ -1,5 +1,7 @@
 import {
   drawQuestion,
+  letterFound,
+  letterLost,
   progressOf,
   reject,
   roundScore,
@@ -113,21 +115,14 @@ export function tiebreakLetter(state: TiebreakState, input: string, deps: GameDe
     const eliminated = [...state.eliminated, team];
     const wrong: GameEvent = { type: 'wrongLetter', team, letter };
     if (state.contenders.every((contender) => eliminated.includes(contender))) {
-      return askTiebreak(
-        state,
-        [wrong, { type: 'letterLost', letter: state.question.letter }],
-        deps,
-      );
+      return askTiebreak(state, [wrong, letterLost(state.question)], deps);
     }
     return { state: { ...state, buzzer: null, eliminated }, events: [wrong] };
   }
   const qualified = [...state.qualified, team];
   const contenders = state.contenders.filter((contender) => contender !== team);
   const spots = state.spots - 1;
-  const events: GameEvent[] = [
-    { type: 'letterFound', team, letter },
-    { type: 'tiebreakWon', team },
-  ];
+  const events: GameEvent[] = [letterFound(team, state.question), { type: 'tiebreakWon', team }];
   if (spots === 0) return goOn(progressOf(state), state.round, qualified, deps, events);
   if (contenders.length <= spots) {
     return goOn(progressOf(state), state.round, [...qualified, ...contenders], deps, events);
@@ -138,5 +133,5 @@ export function tiebreakLetter(state: TiebreakState, input: string, deps: GameDe
 /** "Personne ne sait": another question. */
 export function tiebreakSkip(state: TiebreakState, deps: GameDeps): ReduceResult {
   if (state.buzzer !== null) return reject(state, 'wrongPhase');
-  return askTiebreak(state, [{ type: 'letterLost', letter: state.question.letter }], deps);
+  return askTiebreak(state, [letterLost(state.question)], deps);
 }

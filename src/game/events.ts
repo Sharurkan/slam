@@ -21,10 +21,11 @@ export type GameEvent =
   | { type: 'roundStarted'; round: number }
   | { type: 'questionAsked' }
   | { type: 'buzzed'; team: number }
-  | { type: 'letterFound'; team: number; letter: string }
+  /** answer: the word the letter comes from, when the question has one. */
+  | { type: 'letterFound'; team: number; letter: string; answer?: string | undefined }
   | { type: 'wrongLetter'; team: number; letter: string }
   /** Nobody found it: the letter is announced, not shown in the grid. */
-  | { type: 'letterLost'; letter: string }
+  | { type: 'letterLost'; letter: string; answer?: string | undefined }
   /** The letter only completed words: the hand goes back to the questions. */
   | { type: 'noWordToPlay'; team: number }
   | { type: 'wordChosen'; team: number; word: number }

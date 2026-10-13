@@ -16,6 +16,8 @@ import {
   addPoints,
   drawGrid,
   drawQuestion,
+  letterFound,
+  letterLost,
   progressOf,
   reject,
   type GameDeps,
@@ -24,7 +26,15 @@ import {
 import { MAX_ANSWER_LENGTH } from './config';
 import type { GameEvent } from './events';
 import type { Grid } from './grid';
-import type { Progress, RoundOutcome, RoundState, RoundStep, Team, WordAnswer } from './state';
+import type {
+  Progress,
+  Question,
+  RoundOutcome,
+  RoundState,
+  RoundStep,
+  Team,
+  WordAnswer,
+} from './state';
 import { normalizeLetter, normalizeAnswer } from './text-input';
 
 /** Round 2 starts again at 0: each player gets a fresh score for the round. */
@@ -124,9 +134,9 @@ export function buzzRound(state: RoundState, team: number): ReduceResult {
   return { state: withStep(state, { ...step, buzzer: team }), events: [{ type: 'buzzed', team }] };
 }
 
-function loseLetter(state: RoundState, letter: string, events: GameEvent[], deps: GameDeps) {
-  const board: Board = { ...state.board, lost: [...state.board.lost, letter] };
-  return askNext({ ...state, board }, [...events, { type: 'letterLost', letter }], deps);
+function loseLetter(state: RoundState, question: Question, events: GameEvent[], deps: GameDeps) {
+  const board: Board = { ...state.board, lost: [...state.board.lost, question.letter] };
+  return askNext({ ...state, board }, [...events, letterLost(question)], deps);
 }
 
 export function submitLetter(state: RoundState, input: string, deps: GameDeps): ReduceResult {
@@ -139,12 +149,12 @@ export function submitLetter(state: RoundState, input: string, deps: GameDeps): 
     const wrong: GameEvent = { type: 'wrongLetter', team, letter };
     const eliminated = [...step.eliminated, team];
     if (state.players.every((player) => eliminated.includes(player))) {
-      return loseLetter(state, step.question.letter, [wrong], deps);
+      return loseLetter(state, step.question, [wrong], deps);
     }
     return { state: withStep(state, { ...step, buzzer: null, eliminated }), events: [wrong] };
   }
   const scored = score(state, team, revealLetters(state.board, [letter]));
-  const events: GameEvent[] = [{ type: 'letterFound', team, letter }, ...scored.events];
+  const events: GameEvent[] = [letterFound(team, step.question), ...scored.events];
   if (isBoardComplete(scored.state.board)) return endRound(scored.state, 'complete', events);
   if (playableWords(scored.state.board, letter).length === 0) {
     return askNext(scored.state, [...events, { type: 'noWordToPlay', team }], deps);
@@ -156,7 +166,7 @@ export function submitLetter(state: RoundState, input: string, deps: GameDeps): 
 export function skipQuestion(state: RoundState, deps: GameDeps): ReduceResult {
   const { step } = state;
   if (step.kind !== 'question' || step.buzzer !== null) return reject(state, 'wrongPhase');
-  return loseLetter(state, step.question.letter, [], deps);
+  return loseLetter(state, step.question, [], deps);
 }
 
 export function chooseWord(state: RoundState, number: number): ReduceResult {

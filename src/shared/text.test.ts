@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { normalizeText, normalizeWord } from './text';
+import { normalizeText, normalizeWord, splitAnswer } from './text';
 
 describe('normalizeText', () => {
   it('uppercases', () => {
@@ -26,5 +26,34 @@ describe('normalizeWord', () => {
 
   it('expands ligatures', () => {
     expect(normalizeWord('sœur')).toBe('SOEUR');
+  });
+});
+
+describe('splitAnswer', () => {
+  it('highlights the first matching letter, accents ignored', () => {
+    expect(splitAnswer('Dimanche', 'D')).toEqual({ before: '', letter: 'D', after: 'imanche' });
+    expect(splitAnswer('Tour Eiffel', 'E')).toEqual({
+      before: 'Tour ',
+      letter: 'E',
+      after: 'iffel',
+    });
+    expect(splitAnswer('Été', 'E')).toEqual({ before: '', letter: 'É', after: 'té' });
+    expect(splitAnswer('Œuf', 'O')).toEqual({ before: '', letter: 'Œ', after: 'uf' });
+  });
+
+  it('highlights the letter marked with brackets', () => {
+    expect(splitAnswer('Arc-en-[c]iel', 'C')).toEqual({
+      before: 'Arc-en-',
+      letter: 'c',
+      after: 'iel',
+    });
+  });
+
+  it('refuses a missing letter or badly placed brackets', () => {
+    expect(splitAnswer('Azote', 'N')).toBeNull();
+    expect(splitAnswer('Arc-en-[i]ciel', 'C')).toBeNull();
+    expect(splitAnswer('[ab]c', 'A')).toBeNull();
+    expect(splitAnswer('[a]b[c]', 'A')).toBeNull();
+    expect(splitAnswer('Arc]', 'A')).toBeNull();
   });
 });

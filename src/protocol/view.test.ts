@@ -2,6 +2,7 @@ import { describe, expect, it } from 'vitest';
 import { incompleteWords } from '../game/board';
 import type { GameAction, GameState } from '../game/state';
 import { INITIAL_STATE } from '../game/state';
+import { reduce } from '../game/reducer';
 import { play, startedRound, testDeps, withQuestion } from '../game/test-fixtures';
 import { parseTvMessage, stateMessage } from './messages';
 import { SINGLE_PHONE_ROOM } from './room';
@@ -67,6 +68,28 @@ describe('toPublicView', () => {
     const shown = view(withQuestion(startedRound(), 'T'));
     expect(shown).toMatchObject({ step: { kind: 'question', text: 'Question T ?' } });
     if (shown.phase === 'round') expect(shown.step).not.toHaveProperty('letter');
+  });
+
+  it('never gives the answer word of an open question', () => {
+    const json = JSON.stringify(view(withQuestion(startedRound(), 'T', 'Tigre')));
+    expect(json).not.toContain('Tigre');
+  });
+
+  it('gives the answer word once the letter is found', () => {
+    const asked = withQuestion(startedRound(), 'T', 'Tigre');
+    const found = reduce(
+      play(asked, [{ type: 'buzz', team: 0 }], deps),
+      {
+        type: 'submitLetter',
+        letter: 'T',
+      },
+      deps,
+    );
+    const message = stateMessage(toPublicView(found.state, found.events), SINGLE_PHONE_ROOM);
+    expect(parseTvMessage(JSON.parse(JSON.stringify(message)))).toMatchObject({
+      ok: true,
+      message: { view: { lastEvents: [{ type: 'letterFound', answer: 'Tigre' }] } },
+    });
   });
 
   it('only gives the clue of the chosen word', () => {

@@ -396,6 +396,17 @@
   color: var(--accent);
 }
 
+/* Answer word of the question, its letter in another color. */
+.game-tv .banner-answer {
+  font-size: 5vh;
+  letter-spacing: 0.08em;
+  color: var(--fg);
+}
+
+.game-tv .banner-letter {
+  color: var(--active);
+}
+
 .game-tv .slam-effect {
   position: fixed;
   top: 0;

@@ -184,7 +184,7 @@ export function startTv(root: HTMLElement): void {
       wordAnswer: (word: number) => (board === null ? '' : (findWord(board, word)?.answer ?? '')),
     };
     const messages = events.map((event) => eventMessage(event, context)).filter((m) => m !== null);
-    if (messages.length > 0) gameScreen.showBanner(messages.join(' · '));
+    if (messages.length > 0) gameScreen.showBanner(messages);
     if (events.some((event) => event.type === 'slamWon')) gameScreen.showSlam();
     const name = soundFor(events);
     if (name !== null) sound?.[name]();
@@ -342,7 +342,7 @@ export function startTv(root: HTMLElement): void {
   /** After a reload in the middle of a game: say so, and restart the final timer where it was. */
   function resume(): void {
     if (state.phase === 'setup') return;
-    gameScreen.showBanner(TV_TEXTS.gameResumed);
+    gameScreen.showBanner([{ text: TV_TEXTS.gameResumed }]);
     if (isTimedFinal(state)) dispatch({ type: 'resumeFinal' });
   }
 }

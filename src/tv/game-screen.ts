@@ -1,7 +1,7 @@
 import { createElement } from '../shared/dom';
 import type { Display, Pick, ScoreRow } from './game-display';
 import { createGridView } from './grid-view';
-import { TV_TEXTS } from './texts';
+import { TV_TEXTS, type BannerMessage } from './texts';
 
 /** The final timer turns red and ticks for the last seconds. */
 export const TIMER_WARNING_SECONDS = 10;
@@ -12,7 +12,7 @@ export interface GameScreen {
   element: HTMLElement;
   /** fresh: grid cells shown by the last action, animated one by one. */
   render(display: Display, fresh?: readonly string[]): void;
-  showBanner(text: string): void;
+  showBanner(messages: readonly BannerMessage[]): void;
   showSlam(): void;
 }
 
@@ -40,6 +40,22 @@ function pickTile(pick: Pick): HTMLElement {
     className: classes.join(' '),
     text: pick.letter === '' ? pick.label : pick.letter,
   });
+}
+
+/** The answer word goes after the text, its letter in another color. */
+function bannerNodes(message: BannerMessage, separated: boolean): Node[] {
+  const nodes: Node[] = [document.createTextNode((separated ? ' · ' : '') + message.text)];
+  const { reveal } = message;
+  if (reveal !== undefined) {
+    nodes.push(
+      createElement('span', { className: 'banner-answer' }, [
+        document.createTextNode(reveal.before),
+        createElement('span', { className: 'banner-letter', text: reveal.letter }),
+        document.createTextNode(reveal.after),
+      ]),
+    );
+  }
+  return nodes;
 }
 
 export function createGameScreen(): GameScreen {
@@ -94,8 +110,8 @@ export function createGameScreen(): GameScreen {
       lostLetters.textContent = display.lost.join(' ');
       scores.replaceChildren(...display.scores.map(scoreRow));
     },
-    showBanner: (message) => {
-      banner.textContent = message;
+    showBanner: (messages) => {
+      banner.replaceChildren(...messages.flatMap((message, i) => bannerNodes(message, i > 0)));
     },
     showSlam: () => {
       clearTimeout(slamTimer);

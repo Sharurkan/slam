@@ -7,6 +7,7 @@ import {
   validateGridSet,
   validateQuestions,
   type QuestionBank,
+  type QuestionEntry,
 } from './validate';
 
 /**
@@ -142,11 +143,13 @@ describe('validateGridSet', () => {
   });
 });
 
-function bank(perLetter: number): Record<string, string[]> {
+function bank(perLetter: number): Record<string, QuestionEntry[]> {
   return Object.fromEntries(
     Array.from(ALPHABET, (letter) => [
       letter,
-      Array.from({ length: perLetter }, (_, i) => `Question ${String(i)} pour ${letter} ?`),
+      Array.from({ length: perLetter }, (_, i) => ({
+        text: `Question ${String(i)} pour ${letter} ?`,
+      })),
     ]),
   );
 }
@@ -157,7 +160,7 @@ describe('validateQuestions', () => {
   });
 
   it('needs enough questions per letter and in total', () => {
-    const small: QuestionBank = { ...bank(12), Z: ['Dernière lettre ?'] };
+    const small: QuestionBank = { ...bank(12), Z: [{ text: 'Dernière lettre ?' }] };
     expect(validateQuestions(small)).toContain('Z: 1 questions, 6 needed');
     expect(validateQuestions(bank(6))).toContain('156 questions, 300 needed');
   });
@@ -165,11 +168,40 @@ describe('validateQuestions', () => {
   it('reports duplicates, missing question marks and unknown letters', () => {
     const errors = validateQuestions({
       ...bank(12),
-      A: [...(bank(12).A ?? []), 'Question 0 pour A ?', 'Sans point'],
-      '1': ['Chiffre ?'],
+      A: [...(bank(12).A ?? []), { text: 'Question 0 pour A ?' }, { text: 'Sans point' }],
+      '1': [{ text: 'Chiffre ?' }],
     });
     expect(errors).toContain('A: "Question 0 pour A ?" appears twice');
     expect(errors).toContain('A: "Sans point" must be trimmed and end with " ?"');
     expect(errors).toContain('unknown letter 1');
+  });
+
+  it('accepts answer words that hold the letter, marked or not', () => {
+    const answered: QuestionBank = {
+      ...bank(12),
+      E: [
+        ...(bank(12).E ?? []),
+        { text: 'Saison chaude ?', answer: 'Été' },
+        { text: 'Tour de Paris ?', answer: 'Tour [E]iffel' },
+      ],
+    };
+    expect(validateQuestions(answered)).toEqual([]);
+  });
+
+  it('reports answer words without the letter, badly marked, untrimmed or too long', () => {
+    const errors = validateQuestions({
+      ...bank(12),
+      N: [
+        ...(bank(12).N ?? []),
+        { text: "Symbole de l'azote ?", answer: 'Azote' },
+        { text: 'Nord ?', answer: '[o]rd' },
+        { text: 'Nuit ?', answer: ' Nuit' },
+        { text: 'Long ?', answer: `N${'o'.repeat(40)}` },
+      ],
+    });
+    expect(errors).toContain('N: answer "Azote" must hold N, with at most one [x] mark');
+    expect(errors).toContain('N: answer "[o]rd" must hold N, with at most one [x] mark');
+    expect(errors).toContain('N: answer " Nuit" must be trimmed, not empty and short');
+    expect(errors).toHaveLength(4);
   });
 });

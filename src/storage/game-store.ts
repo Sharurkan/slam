@@ -70,7 +70,7 @@ const progressShape = {
   usedQuestions: z.array(z.string().check(z.maxLength(10))).check(z.maxLength(MAX_USED)),
 };
 
-const question = z.object({ letter, text });
+const question = z.object({ letter, text, answer: z.optional(text) });
 const round = z.int().check(z.minimum(1), z.maximum(ROUND_COUNT));
 
 const roundStep = z.discriminatedUnion('kind', [

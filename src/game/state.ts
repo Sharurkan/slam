@@ -12,6 +12,8 @@ export interface Question {
   /** The answer: never sent to the phones while the question is open. */
   letter: string;
   text: string;
+  /** The word the letter comes from: never sent while the question is open. */
+  answer?: string | undefined;
 }
 
 /** Everything that lasts the whole game. */

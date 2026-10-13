@@ -2,6 +2,7 @@ import { DEFAULT_TEAM_NAME_PREFIX } from '../game/config';
 import type { GameEvent } from '../game/events';
 import type { RoundOutcome } from '../game/state';
 import type { ConnectionStatus } from '../net/connection-status';
+import { splitAnswer, type AnswerParts } from '../shared/text';
 
 const euros = (amount: number): string => `${amount.toLocaleString('fr-FR')} €`;
 const points = (score: number): string =>
@@ -111,47 +112,68 @@ export interface EventContext {
   wordAnswer(word: number): string;
 }
 
+/** A banner line; reveal is the answer word, its letter highlighted, put after the text. */
+export interface BannerMessage {
+  text: string;
+  reveal?: AnswerParts;
+}
+
+const plain = (text: string): BannerMessage => ({ text });
+
+/** The answer word in capitals, or the letter alone when the question has no word. */
+function revealed(event: { letter: string; answer?: string | undefined }): AnswerParts {
+  const parts = event.answer === undefined ? null : splitAnswer(event.answer, event.letter);
+  if (parts === null) return { before: '', letter: event.letter, after: '' };
+  return {
+    before: parts.before.toUpperCase(),
+    letter: parts.letter.toUpperCase(),
+    after: parts.after.toUpperCase(),
+  };
+}
+
 /** Banner message for an event, or null when the event is not worth a message. */
-export function eventMessage(event: GameEvent, ctx: EventContext): string | null {
+export function eventMessage(event: GameEvent, ctx: EventContext): BannerMessage | null {
   switch (event.type) {
     case 'roundStarted':
-      return `Manche ${String(event.round)} : à vos buzzers !`;
+      return plain(`Manche ${String(event.round)} : à vos buzzers !`);
     case 'letterFound':
-      return `Bonne lettre pour ${ctx.teamName(event.team)} : ${event.letter}`;
+      return { text: `Bonne lettre pour ${ctx.teamName(event.team)} : `, reveal: revealed(event) };
     case 'wrongLetter':
-      return `${event.letter} : raté pour ${ctx.teamName(event.team)}`;
+      return plain(`${event.letter} : raté pour ${ctx.teamName(event.team)}`);
     case 'letterLost':
-      return `Personne n'a trouvé : c'était ${event.letter}`;
+      return { text: "Personne n'a trouvé : c'était ", reveal: revealed(event) };
     case 'noWordToPlay':
-      return `Plus de mot à jouer avec cette lettre`;
+      return plain(`Plus de mot à jouer avec cette lettre`);
     case 'wordFound':
-      return `${ctx.teamName(event.team)} trouve ${ctx.wordAnswer(event.word)} : +${points(event.points)}`;
+      return plain(
+        `${ctx.teamName(event.team)} trouve ${ctx.wordAnswer(event.word)} : +${points(event.points)}`,
+      );
     case 'wrongWord':
-      return `« ${event.answer} » : raté pour ${ctx.teamName(event.team)}`;
+      return plain(`« ${event.answer} » : raté pour ${ctx.teamName(event.team)}`);
     case 'lastChance':
-      return 'Dernière chance : le premier qui buzze fait un SLAM !';
+      return plain('Dernière chance : le premier qui buzze fait un SLAM !');
     case 'slamStarted':
-      return `${ctx.teamName(event.team)} tente le SLAM !`;
+      return plain(`${ctx.teamName(event.team)} tente le SLAM !`);
     case 'slamWon':
-      return `SLAM réussi ! ${ctx.teamName(event.team)} gagne ${points(event.points)}`;
+      return plain(`SLAM réussi ! ${ctx.teamName(event.team)} gagne ${points(event.points)}`);
     case 'slamFailed':
-      return `SLAM raté ! Les adversaires gagnent ${points(event.points)} chacun`;
+      return plain(`SLAM raté ! Les adversaires gagnent ${points(event.points)} chacun`);
     case 'gridCorrected':
-      return 'La grille est corrigée';
+      return plain('La grille est corrigée');
     case 'tiebreakStarted':
-      return 'Égalité : question de départage !';
+      return plain('Égalité : question de départage !');
     case 'tiebreakWon':
-      return `${ctx.teamName(event.team)} remporte le départage`;
+      return plain(`${ctx.teamName(event.team)} remporte le départage`);
     case 'finalStarted':
-      return `${ctx.teamName(event.finalist)} joue la finale !`;
+      return plain(`${ctx.teamName(event.finalist)} joue la finale !`);
     case 'finalLettersRevealed':
-      return `Lettres choisies : ${event.letters.join(' ')}`;
+      return plain(`Lettres choisies : ${event.letters.join(' ')}`);
     case 'finalWordFound':
-      return `Bravo : ${ctx.wordAnswer(event.word)} !`;
+      return plain(`Bravo : ${ctx.wordAnswer(event.word)} !`);
     case 'finalWrongWord':
-      return `« ${event.answer} » : non`;
+      return plain(`« ${event.answer} » : non`);
     case 'finalOver':
-      return event.complete ? 'Grille complète !' : 'Temps écoulé !';
+      return plain(event.complete ? 'Grille complète !' : 'Temps écoulé !');
     case 'gameStarted':
     case 'questionAsked':
     case 'buzzed':

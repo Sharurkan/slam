@@ -40,3 +40,6 @@ export const MAX_ANSWER_LENGTH = 30;
 /** Every letter of the grids must be askable: enough questions per letter. */
 export const MIN_QUESTIONS_PER_LETTER = 6;
 export const MIN_QUESTIONS = 300;
+
+/** Longest answer word of a question, so that it fits the TV banner. */
+export const MAX_QUESTION_ANSWER_LENGTH = 30;

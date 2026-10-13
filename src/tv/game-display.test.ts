@@ -164,9 +164,33 @@ describe('texts', () => {
 
   it('describes a found word with its answer', () => {
     const ctx = { teamName: () => 'Bob', wordAnswer: () => 'TOUR' };
-    expect(eventMessage({ type: 'wordFound', team: 1, word: 3, points: 4 }, ctx)).toBe(
-      'Bob trouve TOUR : +4 points',
-    );
+    expect(eventMessage({ type: 'wordFound', team: 1, word: 3, points: 4 }, ctx)).toEqual({
+      text: 'Bob trouve TOUR : +4 points',
+    });
     expect(eventMessage({ type: 'questionAsked' }, ctx)).toBeNull();
+  });
+
+  it('shows the answer word of a letter in capitals, its letter apart', () => {
+    const ctx = { teamName: () => 'Bob', wordAnswer: () => '' };
+    const found = eventMessage(
+      { type: 'letterFound', team: 0, letter: 'E', answer: 'Tour Eiffel' },
+      ctx,
+    );
+    expect(found).toEqual({
+      text: 'Bonne lettre pour Bob : ',
+      reveal: { before: 'TOUR ', letter: 'E', after: 'IFFEL' },
+    });
+    expect(eventMessage({ type: 'letterLost', letter: 'E', answer: 'Été' }, ctx)).toEqual({
+      text: "Personne n'a trouvé : c'était ",
+      reveal: { before: '', letter: 'É', after: 'TÉ' },
+    });
+  });
+
+  it('shows the letter alone when the question has no answer word', () => {
+    const ctx = { teamName: () => 'Bob', wordAnswer: () => '' };
+    expect(eventMessage({ type: 'letterLost', letter: 'Q' }, ctx)).toEqual({
+      text: "Personne n'a trouvé : c'était ",
+      reveal: { before: '', letter: 'Q', after: '' },
+    });
   });
 });

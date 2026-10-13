@@ -55,7 +55,10 @@ export const CONTENT: GameContent = {
   questions: Object.fromEntries(
     Array.from(ALPHABET, (letter) => [
       letter,
-      [`Première question ${letter} ?`, `Seconde question ${letter} ?`],
+      [
+        { text: `Première question ${letter} ?`, answer: `Mot ${letter}` },
+        { text: `Seconde question ${letter} ?` },
+      ],
     ]),
   ),
 };
@@ -80,11 +83,12 @@ export function asRound(state: GameState): RoundState {
   return state;
 }
 
-/** The round with an open question whose answer is the given letter. */
-export function withQuestion(state: RoundState, letter: string): RoundState {
+/** The round with an open question whose answer is the given letter (and word, if given). */
+export function withQuestion(state: RoundState, letter: string, answer?: string): RoundState {
+  const text = `Question ${letter} ?`;
   const step: RoundStep = {
     kind: 'question',
-    question: { letter, text: `Question ${letter} ?` },
+    question: answer === undefined ? { letter, text } : { letter, text, answer },
     buzzer: null,
     eliminated: [],
   };

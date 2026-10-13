@@ -39,7 +39,7 @@ describe('start of a round', () => {
     expect(scores(state)).toEqual([0, 0, 0]);
     expect(state.step).toEqual({
       kind: 'question',
-      question: { letter: 'A', text: 'Première question A ?' },
+      question: { letter: 'A', text: 'Première question A ?', answer: 'Mot A' },
       buzzer: null,
       eliminated: [],
     });
@@ -78,6 +78,17 @@ describe('letter', () => {
     expect(state.step).toEqual({ kind: 'choosingWord', team: 0, letter: 'T' });
     expect(scores(state)).toEqual([0, 0, 0]);
     expect(result.events).toEqual([{ type: 'letterFound', team: 0, letter: 'T' }]);
+  });
+
+  it('gives the answer word with a right letter, and with a lost one', () => {
+    const asked = withQuestion(startedRound(), 'T', 'Tigre');
+    const found = act(then(asked, { type: 'buzz', team: 0 }), {
+      type: 'submitLetter',
+      letter: 'T',
+    });
+    expect(found.events[0]).toEqual({ type: 'letterFound', team: 0, letter: 'T', answer: 'Tigre' });
+    const lost = act(asked, { type: 'skipQuestion' });
+    expect(lost.events[0]).toEqual({ type: 'letterLost', letter: 'T', answer: 'Tigre' });
   });
 
   it('accepts an accented letter', () => {

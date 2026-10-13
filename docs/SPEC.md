@@ -76,14 +76,14 @@ Tour de jeu
 1. Une question apparaît sur la TV. Sa réponse est **une seule lettre**, présente dans la grille et pas encore révélée (ni perdue).
    Exemples : « Lettre qui suit P dans l'alphabet ? », « Initiale de la capitale de l'Italie ? », « Symbole chimique de l'azote ? ».
 2. Les joueurs buzzent. Le premier buzz donne la parole : le joueur tape la lettre sur le téléphone.
-3. **Bonne lettre** : aucun point. La lettre remplit toutes les cases vides où elle apparaît, dans tous les mots. Le joueur a la main.
+3. **Bonne lettre** : aucun point. La TV affiche le mot réponse de la question en majuscules, la lettre d'une autre couleur (« DIMANCHE », D en couleur). Sans mot réponse, la TV affiche seulement la lettre. La lettre remplit toutes les cases vides où elle apparaît, dans tous les mots. Le joueur a la main.
 4. Il choisit un mot par son numéro, parmi les mots qui contiennent cette lettre, pas encore trouvés et pas grisés.
 5. La définition du mot s'affiche (TV et téléphone). Le joueur propose le mot.
    - **Bon mot** : le mot apparaît dans la grille, le joueur gagne 1 point par lettre du mot. Si ce mot complète un mot croisé, le joueur gagne aussi les points de ce mot.
    - **Mauvais mot** : rien. Le mot devient gris (déjà tenté). Il redevient jouable dès qu'une autre de ses lettres est révélée.
    - Dans les deux cas, on passe à la question suivante.
 6. **Mauvaise lettre** : le joueur est éliminé de cette question, les autres peuvent buzzer.
-7. **Personne ne trouve** (tous éliminés, ou le maître touche « Personne ne sait ») : la lettre est annoncée mais perdue. Elle n'est pas posée dans la grille. Elle n'apparaîtra que si un mot qui la contient est trouvé plus tard. On passe à la question suivante.
+7. **Personne ne trouve** (tous éliminés, ou le maître touche « Personne ne sait ») : la lettre est annoncée (avec son mot réponse, comme en 3) mais perdue. Elle n'est pas posée dans la grille. Elle n'apparaîtra que si un mot qui la contient est trouvé plus tard. On passe à la question suivante.
 
 Précisions
 
@@ -108,7 +108,7 @@ Plus de lettre à révéler
 Fin de manche
 
 - La manche se termine quand la grille est complète (mots trouvés, SLAM ou correction).
-- Égalité pour la 2e place (manche 1) ou pour la 1re place (manche 2) : **question de départage** entre les ex æquo. Une question à une lettre, hors grille. Première bonne lettre : gagné. Mauvaise lettre : éliminé de cette question. Tous éliminés ou « Personne ne sait » : nouvelle question.
+- Égalité pour la 2e place (manche 1) ou pour la 1re place (manche 2) : **question de départage** entre les ex æquo. Une question à une lettre, hors grille. Première bonne lettre : gagné. Mauvaise lettre : éliminé de cette question. Le mot réponse s'affiche comme en manche. Tous éliminés ou « Personne ne sait » : nouvelle question.
 - Écran de fin de manche : scores, qualifiés ou finaliste. Bouton « Manche suivante » (« Passer à la finale » après la manche 2) pour le maître.
 
 ## Finale
@@ -161,6 +161,7 @@ Questions
 
 - Banque de questions dont la réponse est une seule lettre : 300 au moins, variées (alphabet, géographie, sciences, symboles chimiques, initiales, calcul, langue…). Fichier `src/content/questions.ts`, classé par lettre.
 - Chaque question a une seule réponse, sans ambiguïté, compréhensible par les enfants comme par les adultes.
+- Chaque question peut avoir un mot réponse (`answer`), le mot ou l'expression d'où vient la lettre. Exemple : « Initiale du dernier jour de la semaine ? » → D, mot réponse « Dimanche ». Il contient la lettre. La lettre mise en avant est la première qui correspond (sans accents) ; des crochets en choisissent une autre (`Arc-en-[c]iel`). Pas de mot réponse quand il n'y a pas de mot naturel (« Lettre qui suit P ? »).
 - Au moins 6 questions par lettre, pour que chaque lettre de la grille puisse être demandée.
 - Tirage : une lettre au hasard parmi les lettres utiles de la grille, puis une question pour cette lettre, pas encore posée dans la partie. Banque épuisée pour cette lettre : on repart de zéro.
 

@@ -7,6 +7,7 @@ import {
   FINAL_LETTER_CHOICES,
   MAX_GRID_HEIGHT,
   MAX_GRID_WIDTH,
+  MAX_QUESTION_ANSWER_LENGTH,
   MIN_QUESTIONS,
   MIN_QUESTIONS_PER_LETTER,
   MIN_WORD_LENGTH,
@@ -21,12 +22,12 @@ import {
   type Grid,
   type GridWord,
 } from '../game/grid.ts';
-import { normalizeText, normalizeWord } from '../shared/text.ts';
+import { normalizeText, normalizeWord, splitAnswer } from '../shared/text.ts';
 import type { QuestionBank } from '../game/common.ts';
 
 export const ALPHABET = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 
-export type { QuestionBank } from '../game/common.ts';
+export type { QuestionBank, QuestionEntry } from '../game/common.ts';
 
 function wordErrors(word: GridWord, grid: Grid): string[] {
   const errors: string[] = [];
@@ -212,6 +213,19 @@ export function validateGridSet(grids: readonly Grid[]): string[] {
   return errors;
 }
 
+function answerErrors(letter: string, answer: string): string[] {
+  if (
+    answer.trim() === '' ||
+    answer !== answer.trim() ||
+    answer.length > MAX_QUESTION_ANSWER_LENGTH
+  ) {
+    return [`${letter}: answer "${answer}" must be trimmed, not empty and short`];
+  }
+  return splitAnswer(answer, letter) === null
+    ? [`${letter}: answer "${answer}" must hold ${letter}, with at most one [x] mark`]
+    : [];
+}
+
 export function validateQuestions(bank: QuestionBank): string[] {
   const errors: string[] = [];
   const seen = new Set<string>();
@@ -219,13 +233,14 @@ export function validateQuestions(bank: QuestionBank): string[] {
   for (const [letter, questions] of Object.entries(bank)) {
     if (!ALPHABET.includes(letter) || letter.length !== 1) errors.push(`unknown letter ${letter}`);
     total += questions.length;
-    for (const question of questions) {
-      const key = normalizeText(question).replace(/\s+/g, ' ');
-      if (seen.has(key)) errors.push(`${letter}: "${question}" appears twice`);
+    for (const { text, answer } of questions) {
+      const key = normalizeText(text).replace(/\s+/g, ' ');
+      if (seen.has(key)) errors.push(`${letter}: "${text}" appears twice`);
       seen.add(key);
-      if (question !== question.trim() || !question.endsWith(' ?')) {
-        errors.push(`${letter}: "${question}" must be trimmed and end with " ?"`);
+      if (text !== text.trim() || !text.endsWith(' ?')) {
+        errors.push(`${letter}: "${text}" must be trimmed and end with " ?"`);
       }
+      if (answer !== undefined) errors.push(...answerErrors(letter, answer));
     }
   }
   for (const letter of ALPHABET) {
