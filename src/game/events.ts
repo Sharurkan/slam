@@ -45,7 +45,7 @@ export type GameEvent =
   | { type: 'finalLettersRevealed'; letters: string[] }
   | { type: 'finalWordFound'; word: number }
   | { type: 'finalWrongWord'; word: number; answer: string }
-  | { type: 'finalWordPassed'; word: number }
+  | { type: 'finalWordSelected'; word: number }
   | { type: 'finalOver'; wordsFound: number; prize: number; complete: boolean }
   | { type: 'gameOver' }
   | { type: 'actionRejected'; reason: RejectionReason };

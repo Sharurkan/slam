@@ -34,9 +34,14 @@ function botAction(state: GameState, random: () => number): GameAction {
       if (state.step.kind === 'picking') {
         return { type: 'pickFinalNumber', index: state.picked.length };
       }
-      const word = findWord(state.board, state.step.current);
-      if (random() < 0.3) return { type: 'passFinalWord' };
-      return { type: 'submitFinalWord', answer: random() < 0.8 ? (word?.answer ?? '') : 'faux' };
+      const { selected } = state.step;
+      const word = selected === null ? undefined : findWord(state.board, selected);
+      if (word === undefined || random() < 0.2) {
+        const open = incompleteWords(state.board);
+        const next = open[Math.floor(random() * open.length)];
+        return { type: 'selectFinalWord', word: next?.number ?? 0 };
+      }
+      return { type: 'submitFinalWord', answer: random() < 0.8 ? word.answer : 'faux' };
     }
     case 'round': {
       const { step, board } = state;

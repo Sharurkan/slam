@@ -73,7 +73,7 @@ const gameEventSchema: z.ZodMiniType<GameEvent> = z.discriminatedUnion('type', [
   z.object({ type: z.literal('finalLettersRevealed'), letters }),
   z.object({ type: z.literal('finalWordFound'), word: index }),
   z.object({ type: z.literal('finalWrongWord'), word: index, answer: typed }),
-  z.object({ type: z.literal('finalWordPassed'), word: index }),
+  z.object({ type: z.literal('finalWordSelected'), word: index }),
   z.object({
     type: z.literal('finalOver'),
     wordsFound: index,
@@ -149,7 +149,7 @@ const lastEvents = z.array(gameEventSchema).check(z.maxLength(MAX_EVENTS));
 
 const finalStepSchema = z.discriminatedUnion('kind', [
   z.object({ kind: z.literal('picking') }),
-  z.object({ kind: z.literal('playing'), current: index, clue: text, remainingMs: index }),
+  z.object({ kind: z.literal('playing'), selected: z.nullable(index), remainingMs: index }),
 ]);
 
 /** What the phone may know about the game. It never holds an answer still hidden. */
@@ -319,8 +319,7 @@ function finalView(state: FinalState, lastEvents: GameEvent[]): PublicView {
     step: revealed
       ? {
           kind: 'playing',
-          current: step.current,
-          clue: findWord(state.board, step.current)?.clue ?? '',
+          selected: step.selected,
           remainingMs: Math.round(step.remainingMs),
         }
       : { kind: 'picking' },

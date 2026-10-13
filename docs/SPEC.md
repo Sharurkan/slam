@@ -116,11 +116,11 @@ Fin de manche
 - Le finaliste joue seul. Les points des manches ne servent qu'à choisir le finaliste.
 - La TV montre 8 numéros. Chacun cache une lettre, tirée au hasard parmi les lettres de la grille de finale (8 lettres différentes).
 - Le finaliste choisit 5 numéros sur son téléphone. Les 5 lettres sont dévoilées, puis posées partout où elles apparaissent dans la grille.
-- La grille de 7 mots s'affiche avec son thème. Le minuteur de 60 s démarre.
-- Les définitions viennent une par une, dans l'ordre des numéros. Le finaliste tape le mot ou touche « Passer ».
-  - Bon mot : il apparaît dans la grille, définition suivante.
-  - Mauvais mot : message « Faux », il peut réessayer ou passer.
-  - Les mots passés reviennent après le dernier.
+- La grille de 7 mots s'affiche avec son thème (ex. « Les fruits »). Le minuteur de 60 s démarre.
+- Pas de définition : le thème est le seul indice, et les 7 mots s'y rapportent.
+- Le finaliste choisit n'importe quel mot non trouvé, dans l'ordre qu'il veut, et peut changer de mot à tout moment. Le mot choisi s'allume sur la TV.
+  - Bon mot : validé tout de suite, il apparaît dans la grille. Retour à la liste des mots.
+  - Mauvais mot : message « Faux ». Il ne coûte que du temps : le finaliste réessaie ou change de mot.
 - Une lettre posée qui remplit tout un mot : ce mot compte comme trouvé.
 - Fin : temps écoulé ou grille complète. Les mots manquants sont affichés.
 - Gains : 100 € par mot trouvé. Grille complète : 2 000 €.
@@ -146,7 +146,7 @@ Fin de manche
 Grilles
 
 - Jamais générées pendant la partie. Elles sont pré-générées et stockées en données (TS), faciles à relire et corriger à la main.
-- Chaque grille : identifiant, taille, mots (numéro, position, sens, mot, définition), thème pour la finale.
+- Chaque grille : identifiant, taille, mots (numéro, position, sens, mot, définition), thème pour la finale. Les définitions des grilles de finale ne sont pas affichées pendant le jeu.
 - Taille maximale pour rester lisible sur la TV : 15 colonnes × 11 lignes (dans `game/config.ts`).
 - Mots de 3 lettres au moins, sans espace ni tiret.
 - Sources à relire et compléter à la main, une ligne `MOT | Définition` par mot :
@@ -188,9 +188,9 @@ Textes
 - Question : gros bouton « BUZZ ! » (un bouton par joueur avec un seul téléphone, joueurs éliminés grisés).
 - Clavier de lettres pour la réponse à la question : on touche la lettre, puis « Valider » (une erreur élimine de la question).
 - Choix du mot par numéro (mots non jouables grisés).
-- Saisie du mot : définition et cases du mot, lettres connues déjà posées. Le joueur tape seulement les lettres manquantes, qui remplissent les cases vides dans l'ordre. « Valider » (seulement quand toutes les cases sont remplies) et « Annuler ». Même saisie pour le SLAM et la finale.
+- Saisie du mot : définition et cases du mot, lettres connues déjà posées. Le joueur tape seulement les lettres manquantes, qui remplissent les cases vides dans l'ordre. « Valider » (seulement quand toutes les cases sont remplies) et « Annuler ». Même saisie pour le SLAM et la finale (sans définition).
 - Bouton « SLAM » avec confirmation, puis saisie de tous les mots restants.
-- Finale : choix de 5 numéros sur 8, saisie du mot, « Passer ».
+- Finale : choix de 5 numéros sur 8, puis liste des mots non trouvés. On touche un mot, on le tape, « Valider » ou « Autre mot ».
 - Maître seulement : mode, commencer, « Personne ne sait », « Corriger la grille » (avec confirmation), manche suivante, abandonner (avec confirmation), nouvelle partie.
 - Le minuteur de la finale s'affiche aussi sur le téléphone du finaliste.
 - Boutons grisés tant que la TV anime.
@@ -198,7 +198,7 @@ Textes
 
 ## Protocole
 
-- Version actuelle du protocole : 1.
+- Version actuelle du protocole : 2.
 - Téléphone → TV :
   - `{ v, type: "hello", clientId }` au début de chaque connexion ;
   - `{ v, type: "chooseMode", mode }`, `{ v, type: "joinTeam", name }`, `{ v, type: "removeTeam", team }` avant la partie ;

@@ -57,6 +57,9 @@ export const TV_TEXTS = {
   tiebreakBetween: (names: readonly string[]) => `Départage entre ${listNames(names)}`,
   pickNumbers: (count: number) => `Choisis ${String(count)} numéros : chacun cache une lettre`,
   finalPicking: (name: string) => `${name} joue la finale`,
+  finalChoosing: (name: string) => `${name} choisit un mot · thème :`,
+  finalTrying: (name: string, number: number, length: number) =>
+    `${name} tente le mot n° ${String(number)} (${String(length)} lettres) · thème :`,
   lost: 'Lettres perdues',
   out: 'éliminé',
   answered: 'a répondu',
@@ -171,7 +174,7 @@ export function eventMessage(event: GameEvent, ctx: EventContext): BannerMessage
     case 'finalWordFound':
       return plain(`Bravo : ${ctx.wordAnswer(event.word)} !`);
     case 'finalWrongWord':
-      return plain(`« ${event.answer} » : non`);
+      return plain(`« ${event.answer} » : faux !`);
     case 'finalOver':
       return plain(event.complete ? 'Grille complète !' : 'Temps écoulé !');
     case 'gameStarted':
@@ -181,7 +184,7 @@ export function eventMessage(event: GameEvent, ctx: EventContext): BannerMessage
     case 'roundOver':
     case 'qualified':
     case 'finalNumberPicked':
-    case 'finalWordPassed':
+    case 'finalWordSelected':
     case 'gameOver':
     case 'actionRejected':
       return null;

@@ -13,7 +13,7 @@ import type { GameState } from '../game/state';
 
 const GAME_KEY = 'slam.game';
 /** Bump when the saved shape changes: older saves are then dropped instead of misread. */
-const SAVE_VERSION = 1;
+const SAVE_VERSION = 2;
 
 const MAX_WORDS = 30;
 const MAX_TEXT = 300;
@@ -90,7 +90,7 @@ const finalStep = z.discriminatedUnion('kind', [
   z.object({ kind: z.literal('picking') }),
   z.object({
     kind: z.literal('playing'),
-    current: count,
+    selected: z.nullable(count),
     remainingMs: z.number().check(z.minimum(0)),
     lastTickAt: z.number(),
   }),

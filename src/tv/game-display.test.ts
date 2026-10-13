@@ -111,11 +111,18 @@ describe('describeDisplay during the final', () => {
     ]);
   });
 
-  it('shows the picked letters, the clue and the timer once playing', () => {
+  it('shows the picked letters, the theme without clues and the timer once playing', () => {
     const shown = display(play(final, picks, deps));
     expect(shown.picks.filter((pick) => pick.letter !== '')).toHaveLength(5);
-    expect(shown).toMatchObject({ heading: 'Mot n° 1 · 4 lettres', text: 'Il miaule', timer: 60 });
+    expect(shown).toMatchObject({ text: 'Animaux', timer: 60, layout: { active: null } });
+    expect(shown.heading).toContain('choisit un mot');
     expect(shown.scores.map((row) => row.score)).toEqual(['', '']);
+  });
+
+  it('highlights the word the finalist is typing', () => {
+    const shown = display(play(final, [...picks, { type: 'selectFinalWord', word: 3 }], deps));
+    expect(shown).toMatchObject({ text: 'Animaux', layout: { active: 3 } });
+    expect(shown.heading).toContain('mot n° 3 (4 lettres)');
   });
 });
 
@@ -134,10 +141,14 @@ describe('describeDisplay at the end of the game', () => {
       final,
       [
         ...picks,
-        ...['chat', 'chien', 'tour'].map((answer): GameAction => ({
-          type: 'submitFinalWord',
-          answer,
-        })),
+        ...[
+          { word: 1, answer: 'chat' },
+          { word: 3, answer: 'tour' },
+          { word: 2, answer: 'chien' },
+        ].flatMap(({ word, answer }): GameAction[] => [
+          { type: 'selectFinalWord', word },
+          { type: 'submitFinalWord', answer },
+        ]),
       ],
       deps,
     );

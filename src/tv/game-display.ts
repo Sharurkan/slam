@@ -184,17 +184,25 @@ function tiebreakDisplay(state: TiebreakState, offline: readonly number[]): Disp
   };
 }
 
+/** No clue in the final: only the theme, and the word the finalist is typing. */
+function finalHeading(board: Board, finalist: string, selected: number | null): string {
+  const word = selected === null ? undefined : findWord(board, selected);
+  return word === undefined
+    ? TV_TEXTS.finalChoosing(finalist)
+    : TV_TEXTS.finalTrying(finalist, word.number, word.answer.length);
+}
+
 function finalDisplay(state: FinalState, offline: readonly number[]): Display {
   const { step } = state;
   const revealed = step.kind === 'playing';
   const finalist = state.teams[state.finalist]?.name ?? '';
   const card = revealed
-    ? wordCard(state.board, step.current)
+    ? { heading: finalHeading(state.board, finalist, step.selected), text: state.board.grid.theme }
     : { heading: TV_TEXTS.finalPicking(finalist), text: TV_TEXTS.pickNumbers(FINAL_LETTER_PICKS) };
   return {
     title: TV_TEXTS.final(state.board.grid.theme),
     board: state.board,
-    layout: { active: revealed ? step.current : null, showAll: false },
+    layout: { active: revealed ? step.selected : null, showAll: false },
     ...card,
     lost: [],
     // Round points no longer matter in the final: only who plays it.

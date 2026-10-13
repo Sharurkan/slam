@@ -245,12 +245,44 @@ function pickNumbersScreen(ctx: ScreenContext, view: View<'final'>): HTMLElement
   ]);
 }
 
+/** Every word not found yet, to fill in any order. */
+function finalWordList(ctx: ScreenContext, view: View<'final'>): HTMLElement[] {
+  const words = view.grid.words.filter((word) => !word.found);
+  return [
+    headline(texts.chooseFinalWord),
+    createElement(
+      'div',
+      { className: 'word-list' },
+      words.map((word) =>
+        button(
+          texts.wordButton(word.number, patternText(wordPattern(view.grid, word.number))),
+          'word-button',
+          ctx.enabled,
+          () => {
+            ctx.send({ type: 'selectFinalWord', word: word.number });
+          },
+        ),
+      ),
+    ),
+  ];
+}
+
+function finalWordInput(ctx: ScreenContext, view: View<'final'>, number: number): HTMLElement[] {
+  const field = wordField(ctx, view.grid, number, (answer) => {
+    ctx.send({ type: 'submitFinalWord', answer });
+  });
+  return [
+    headline(texts.wordHeading(number, wordPattern(view.grid, number).length)),
+    ...field,
+    button(texts.backToWords, 'secondary-button', ctx.enabled, () => {
+      ctx.send({ type: 'cancelFinalWord' });
+    }),
+  ];
+}
+
 function finalWordScreen(ctx: ScreenContext, view: View<'final'>): HTMLElement {
   if (view.step.kind !== 'playing') return screen([]);
   const { step } = view;
-  const field = wordField(ctx, view.grid, step.current, (answer) => {
-    ctx.send({ type: 'submitFinalWord', answer });
-  });
   const timer = createElement('div', {
     className: 'timer',
     text: texts.seconds(Math.ceil(step.remainingMs / 1000)),
@@ -259,11 +291,10 @@ function finalWordScreen(ctx: ScreenContext, view: View<'final'>): HTMLElement {
   timer.dataset['role'] = 'timer';
   return screen([
     timer,
-    card(texts.wordHeading(step.current, wordPattern(view.grid, step.current).length), step.clue),
-    ...field,
-    button(texts.pass, 'secondary-button', ctx.enabled, () => {
-      ctx.send({ type: 'passFinalWord' });
-    }),
+    note(texts.finalTheme(view.theme)),
+    ...(step.selected === null
+      ? finalWordList(ctx, view)
+      : finalWordInput(ctx, view, step.selected)),
   ]);
 }
 

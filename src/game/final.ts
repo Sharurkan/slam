@@ -66,12 +66,6 @@ function foundEvents(reveal: Reveal<FinalGrid>): GameEvent[] {
   return reveal.completed.map((word) => ({ type: 'finalWordFound', word: word.number }));
 }
 
-/** Clues come in number order; passed words come back after the last one. */
-function nextOpenWord(state: FinalState, after: number): number {
-  const open = incompleteWords(state.board).map((word) => word.number);
-  return open.find((number) => number > after) ?? open[0] ?? after;
-}
-
 export function pickFinalNumber(state: FinalState, index: number, deps: GameDeps): ReduceResult {
   if (state.step.kind !== 'picking') return reject(state, 'wrongPhase');
   if (
@@ -96,7 +90,7 @@ export function pickFinalNumber(state: FinalState, index: number, deps: GameDeps
   if (isBoardComplete(reveal.board)) return endFinal(revealed, allEvents);
   const step: PlayingStep = {
     kind: 'playing',
-    current: nextOpenWord(revealed, 0),
+    selected: null,
     remainingMs: FINAL_DURATION_MS,
     lastTickAt: deps.now(),
   };
@@ -125,12 +119,37 @@ function whilePlaying(
   return current.step.remainingMs <= 0 ? endFinal(current, []) : play(current);
 }
 
+function withSelected(state: PlayingState, selected: number | null): PlayingState {
+  return { ...state, step: { ...state.step, selected } };
+}
+
+/** Any word not found yet, in any order: the TV highlights it while the finalist types. */
+export function selectFinalWord(state: FinalState, number: number, deps: GameDeps): ReduceResult {
+  return whilePlaying(state, deps, (current) => {
+    const isOpen = incompleteWords(current.board).some((word) => word.number === number);
+    if (!isOpen) return reject(state, 'invalidWord');
+    return {
+      state: withSelected(current, number),
+      events: [{ type: 'finalWordSelected', word: number }],
+    };
+  });
+}
+
+export function cancelFinalWord(state: FinalState, deps: GameDeps): ReduceResult {
+  return whilePlaying(state, deps, (current) => ({
+    state: withSelected(current, null),
+    events: [],
+  }));
+}
+
+/** A wrong word costs nothing but time: it stays selected for another try. */
 export function submitFinalWord(state: FinalState, answer: string, deps: GameDeps): ReduceResult {
   return whilePlaying(state, deps, (current) => {
     if (answer.length > MAX_ANSWER_LENGTH || normalizeAnswer(answer) === '') {
       return reject(state, 'invalidAnswer');
     }
-    const word = findWord(current.board, current.step.current);
+    const { selected } = current.step;
+    const word = selected === null ? undefined : findWord(current.board, selected);
     if (word === undefined) return reject(state, 'invalidWord');
     if (normalizeAnswer(answer) !== word.answer) {
       return {
@@ -139,20 +158,9 @@ export function submitFinalWord(state: FinalState, answer: string, deps: GameDep
       };
     }
     const reveal = revealWord(current.board, word);
-    const next: PlayingState = { ...current, board: reveal.board };
+    const next = withSelected({ ...current, board: reveal.board }, null);
     if (isBoardComplete(reveal.board)) return endFinal(next, foundEvents(reveal));
-    const step = { ...next.step, current: nextOpenWord(next, word.number) };
-    return { state: { ...next, step }, events: foundEvents(reveal) };
-  });
-}
-
-export function passFinalWord(state: FinalState, deps: GameDeps): ReduceResult {
-  return whilePlaying(state, deps, (current) => {
-    const step = { ...current.step, current: nextOpenWord(current, current.step.current) };
-    return {
-      state: { ...current, step },
-      events: [{ type: 'finalWordPassed', word: current.step.current }],
-    };
+    return { state: next, events: foundEvents(reveal) };
   });
 }
 

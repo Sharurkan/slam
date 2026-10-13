@@ -74,8 +74,11 @@ export type TiebreakState = Progress & {
 
 export type FinalStep =
   | { kind: 'picking' }
-  /** remainingMs is updated at each tick; lastTickAt is when it was. */
-  | { kind: 'playing'; current: number; remainingMs: number; lastTickAt: number };
+  /**
+   * selected: word the finalist is typing, highlighted on the TV (null while choosing).
+   * remainingMs is updated at each tick; lastTickAt is when it was.
+   */
+  | { kind: 'playing'; selected: number | null; remainingMs: number; lastTickAt: number };
 
 export type FinalState = Progress & {
   phase: 'final';
@@ -133,8 +136,11 @@ export type GameAction =
   | { type: 'revealGrid' }
   | { type: 'nextRound' }
   | { type: 'pickFinalNumber'; index: number }
+  /** Any word not found yet, in any order. */
+  | { type: 'selectFinalWord'; word: number }
+  /** Back to the list of words. */
+  | { type: 'cancelFinalWord' }
   | { type: 'submitFinalWord'; answer: string }
-  | { type: 'passFinalWord' }
   /** Sent by the TV every second during the final. */
   | { type: 'finalTick' }
   /** Sent by the TV after a reload: the final timer goes on from where it stopped. */

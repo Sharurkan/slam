@@ -83,7 +83,9 @@ export const PHONE_TEXTS = {
   slamTitle: 'SLAM : remplis tous les mots',
   slamValidate: 'Valider le SLAM',
   pickNumbers: (left: number) => `Choisis encore ${String(left)} numéro${left > 1 ? 's' : ''}`,
-  pass: 'Passer',
+  finalTheme: (theme: string) => `Thème : ${theme}`,
+  chooseFinalWord: 'Choisis un mot, dans l’ordre que tu veux',
+  backToWords: 'Autre mot',
   seconds: (value: number) => `${String(value)} s`,
   waiting: (reason: WaitReason, name: string) => WAITING[reason](name),
   lookAtTv: 'La grille est sur la TV.',
@@ -175,7 +177,7 @@ function eventText(event: GameEvent, name: (team: number) => string): string | n
     case 'finalWordFound':
       return 'Bravo !';
     case 'finalWrongWord':
-      return `« ${event.answer} » : non`;
+      return `« ${event.answer} » : faux, réessaie ou change de mot`;
     case 'finalOver':
       return event.complete ? 'Grille complète !' : 'Temps écoulé !';
     default:

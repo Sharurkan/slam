@@ -52,8 +52,9 @@ export function actionOwner(state: GameState, action: GameAction): ActionOwner |
     case 'startSlam':
     case 'submitSlam':
     case 'pickFinalNumber':
-    case 'submitFinalWord':
-    case 'passFinalWord': {
+    case 'selectFinalWord':
+    case 'cancelFinalWord':
+    case 'submitFinalWord': {
       const team = turnTeam(state);
       return team === null ? null : { kind: 'team', team };
     }

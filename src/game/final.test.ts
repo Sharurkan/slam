@@ -1,4 +1,5 @@
 import { describe, expect, it } from 'vitest';
+import { incompleteWords } from './board';
 import { FINAL_DURATION_MS } from './config';
 import { reduce } from './reducer';
 import { INITIAL_STATE, type FinalState, type GameAction, type GameState } from './state';
@@ -24,6 +25,10 @@ const PICK_FIVE: GameAction[] = [0, 1, 2, 3, 4].map((index) => ({
   type: 'pickFinalNumber',
   index,
 }));
+
+function openWords(state: FinalState): number[] {
+  return incompleteWords(state.board).map((word) => word.number);
+}
 
 function asFinal(state: GameState): FinalState {
   if (state.phase !== 'final') throw new Error(`Expected the final, got ${state.phase}`);
@@ -58,7 +63,7 @@ describe('numbers', () => {
     expect(final.board.revealed).toHaveLength(6);
     expect(final.step).toEqual({
       kind: 'playing',
-      current: 1,
+      selected: null,
       remainingMs: FINAL_DURATION_MS,
       lastTickAt: 1000,
     });
@@ -81,54 +86,88 @@ describe('numbers', () => {
       index: 4,
     });
     expect(result.events).toContainEqual({ type: 'finalWordFound', word: 1 });
-    expect(asFinal(result.state).step).toMatchObject({ current: 2 });
+    const final = asFinal(result.state);
+    expect(openWords(final)).not.toContain(1);
   });
 });
 
+/** Selects a word, then sends an answer for it. */
+function tryWord(word: number, answer: string): GameAction[] {
+  return [
+    { type: 'selectFinalWord', word },
+    { type: 'submitFinalWord', answer },
+  ];
+}
+
 describe('timed words', () => {
-  it('shows a right word and moves to the next clue', () => {
+  it('lets the finalist pick any word, in any order, and highlights it', () => {
     const { state, act, then } = setup();
-    const result = act(then(state, ...PICK_FIVE), { type: 'submitFinalWord', answer: 'Chat' });
-    expect(result.events).toEqual([{ type: 'finalWordFound', word: 1 }]);
-    expect(asFinal(result.state).step).toMatchObject({ current: 2 });
+    const result = act(then(state, ...PICK_FIVE), { type: 'selectFinalWord', word: 3 });
+    expect(result.events).toEqual([{ type: 'finalWordSelected', word: 3 }]);
+    expect(asFinal(result.state).step).toMatchObject({ selected: 3 });
   });
 
-  it('stays on the clue after a wrong word', () => {
-    const { state, act, then } = setup();
-    const result = act(then(state, ...PICK_FIVE), { type: 'submitFinalWord', answer: 'rat' });
-    expect(result.events).toEqual([{ type: 'finalWrongWord', word: 1, answer: 'rat' }]);
-    expect(asFinal(result.state).step).toMatchObject({ current: 1 });
-  });
-
-  it('brings passed words back after the last one', () => {
+  it('lets the finalist switch to another word or go back to the list', () => {
     const { state, then } = setup();
-    const playing = then(state, ...PICK_FIVE);
-    const pass: GameAction = { type: 'passFinalWord' };
-    expect(asFinal(then(playing, pass)).step).toMatchObject({ current: 2 });
-    expect(asFinal(then(playing, pass, pass)).step).toMatchObject({ current: 3 });
-    expect(asFinal(then(playing, pass, pass, pass)).step).toMatchObject({ current: 1 });
-    const found = then(playing, { type: 'submitFinalWord', answer: 'chat' }, pass, pass);
-    expect(asFinal(found).step).toMatchObject({ current: 2 });
+    const on3 = then(state, ...PICK_FIVE, { type: 'selectFinalWord', word: 3 });
+    expect(asFinal(then(on3, { type: 'selectFinalWord', word: 2 })).step).toMatchObject({
+      selected: 2,
+    });
+    expect(asFinal(then(on3, { type: 'cancelFinalWord' })).step).toMatchObject({
+      selected: null,
+    });
+  });
+
+  it('refuses a word already found or unknown', () => {
+    const { state, act, then } = setup();
+    const found = then(state, ...PICK_FIVE, ...tryWord(1, 'chat'));
+    for (const word of [1, 9]) {
+      expect(act(found, { type: 'selectFinalWord', word }).events).toEqual([
+        { type: 'actionRejected', reason: 'invalidWord' },
+      ]);
+    }
+  });
+
+  it('refuses an answer when no word is selected', () => {
+    const { state, act, then } = setup();
+    const result = act(then(state, ...PICK_FIVE), { type: 'submitFinalWord', answer: 'chat' });
+    expect(result.events).toEqual([{ type: 'actionRejected', reason: 'invalidWord' }]);
+  });
+
+  it('validates a right word at once and goes back to the list', () => {
+    const { state, act, then } = setup();
+    const on3 = then(state, ...PICK_FIVE, { type: 'selectFinalWord', word: 3 });
+    const result = act(on3, { type: 'submitFinalWord', answer: 'Tour' });
+    expect(result.events).toEqual([{ type: 'finalWordFound', word: 3 }]);
+    const final = asFinal(result.state);
+    expect(openWords(final)).toEqual([1, 2]);
+    expect(final.step).toMatchObject({ selected: null });
+  });
+
+  it('costs nothing but time after a wrong word: the word stays selected', () => {
+    const { state, act, then } = setup();
+    const on1 = then(state, ...PICK_FIVE, { type: 'selectFinalWord', word: 1 });
+    const result = act(on1, { type: 'submitFinalWord', answer: 'rat' });
+    expect(result.events).toEqual([{ type: 'finalWrongWord', word: 1, answer: 'rat' }]);
+    expect(asFinal(result.state).step).toMatchObject({ selected: 1 });
+    expect(act(result.state, { type: 'submitFinalWord', answer: 'chat' }).events).toEqual([
+      { type: 'finalWordFound', word: 1 },
+    ]);
   });
 
   it('wins the jackpot with a complete grid', () => {
     const { state, act, then } = setup();
-    const two = then(
-      state,
-      ...PICK_FIVE,
-      { type: 'submitFinalWord', answer: 'chat' },
-      {
-        type: 'submitFinalWord',
-        answer: 'chien',
-      },
-    );
-    const result = act(two, { type: 'submitFinalWord', answer: 'tour' });
+    const two = then(state, ...PICK_FIVE, ...tryWord(3, 'tour'), ...tryWord(1, 'chat'));
+    const result = act(then(two, { type: 'selectFinalWord', word: 2 }), {
+      type: 'submitFinalWord',
+      answer: 'chien',
+    });
     expect(result.state).toMatchObject({
       phase: 'gameOver',
       final: { finalist: 0, wordsFound: 3, prize: 2000, complete: true },
     });
     expect(result.events).toEqual([
-      { type: 'finalWordFound', word: 3 },
+      { type: 'finalWordFound', word: 2 },
       { type: 'finalOver', wordsFound: 3, prize: 2000, complete: true },
       { type: 'gameOver' },
     ]);
@@ -138,7 +177,7 @@ describe('timed words', () => {
 describe('timer', () => {
   it('counts down at each tick and ends the final at 0, 100 € per word found', () => {
     const { state, act, then, clock } = setup();
-    const one = then(state, ...PICK_FIVE, { type: 'submitFinalWord', answer: 'chat' });
+    const one = then(state, ...PICK_FIVE, ...tryWord(1, 'chat'));
     clock.now += 20_000;
     const ticked = act(one, { type: 'finalTick' });
     expect(asFinal(ticked.state).step).toMatchObject({ remainingMs: 40_000 });

@@ -69,7 +69,7 @@ describe('phase checks', () => {
   });
 
   it('refuses final actions during a round', () => {
-    expect(reduce(startedRound(), { type: 'passFinalWord' }, deps).events).toEqual([
+    expect(reduce(startedRound(), { type: 'selectFinalWord', word: 1 }, deps).events).toEqual([
       { type: 'actionRejected', reason: 'wrongPhase' },
     ]);
   });

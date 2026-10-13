@@ -26,7 +26,7 @@ La TV et les téléphones doivent être sur le même Wi-Fi. Évitez le Wi-Fi « 
   - Mauvais mot : il devient gris, jusqu'à ce qu'une autre de ses lettres apparaisse.
 - **SLAM** : avec la main, on peut tenter de remplir toute la grille d'un coup. Réussi : on gagne tous les points restants. Raté : chaque adversaire les gagne.
 - **Manches** : manche 1 (10 mots), les 2 meilleurs jouent la manche 2 (12 mots, on repart à 0), le gagnant joue la finale. Égalité : question de départage.
-- **Finale** : le finaliste choisit 5 numéros sur 8, chacun cache une lettre. Puis 60 secondes pour trouver les 7 mots d'une grille à thème : 100 € par mot, 2 000 € pour la grille complète.
+- **Finale** : le finaliste choisit 5 numéros sur 8, chacun cache une lettre. Puis 60 secondes pour trouver les 7 mots d'une grille à thème, sans définitions : seul le thème est donné. On choisit les mots dans l'ordre qu'on veut, on change quand on veut, une erreur ne coûte que du temps. 100 € par mot, 2 000 € pour la grille complète.
 
 Règles complètes : [docs/SPEC.md](docs/SPEC.md).
 

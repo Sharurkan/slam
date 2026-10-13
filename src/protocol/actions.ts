@@ -55,8 +55,9 @@ export const phoneActionSchema: z.ZodMiniType<PhoneAction> = z.discriminatedUnio
     type: z.literal('pickFinalNumber'),
     index: z.int().check(z.minimum(0), z.maximum(FINAL_LETTER_CHOICES - 1)),
   }),
+  z.object({ type: z.literal('selectFinalWord'), word: wordNumber }),
+  simple('cancelFinalWord'),
   z.object({ type: z.literal('submitFinalWord'), answer }),
-  simple('passFinalWord'),
   simple('abandonGame'),
   simple('newGame'),
 ]);

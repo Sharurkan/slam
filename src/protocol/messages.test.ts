@@ -34,8 +34,9 @@ describe('parsePhoneMessage', () => {
     { type: 'revealGrid' },
     { type: 'nextRound' },
     { type: 'pickFinalNumber', index: 7 },
+    { type: 'selectFinalWord', word: 3 },
+    { type: 'cancelFinalWord' },
     { type: 'submitFinalWord', answer: 'chat' },
-    { type: 'passFinalWord' },
     { type: 'abandonGame' },
     { type: 'newGame' },
   ])('accepts the action %j', (action) => {

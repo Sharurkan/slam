@@ -111,8 +111,10 @@ describe('toPublicView', () => {
     });
     expect(playing).toMatchObject({
       letters: ['H', 'A', 'T', 'I', 'E'],
-      step: { kind: 'playing', current: 1 },
+      step: { kind: 'playing', selected: null },
     });
+    // No clue in the final: the theme is the only hint.
+    expect(JSON.stringify(playing)).not.toContain('Il miaule');
   });
 
   it('builds views the phone accepts', () => {

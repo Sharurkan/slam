@@ -7,10 +7,11 @@ import {
   DEFAULT_TEAM_NAME_PREFIX,
 } from './config';
 import {
+  cancelFinalWord,
   finalTick,
-  passFinalWord,
   pickFinalNumber,
   resumeFinal,
+  selectFinalWord,
   startFinal,
   submitFinalWord,
 } from './final';
@@ -125,8 +126,10 @@ export function reduce(state: GameState, action: GameAction, deps: GameDeps): Re
       return inFinal(state, (final) => pickFinalNumber(final, action.index, deps));
     case 'submitFinalWord':
       return inFinal(state, (final) => submitFinalWord(final, action.answer, deps));
-    case 'passFinalWord':
-      return inFinal(state, (final) => passFinalWord(final, deps));
+    case 'selectFinalWord':
+      return inFinal(state, (final) => selectFinalWord(final, action.word, deps));
+    case 'cancelFinalWord':
+      return inFinal(state, (final) => cancelFinalWord(final, deps));
     case 'finalTick':
       return inFinal(state, (final) => finalTick(final, deps));
     case 'resumeFinal':
